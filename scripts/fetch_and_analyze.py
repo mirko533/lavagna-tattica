@@ -145,7 +145,8 @@ def analizza(modello, m, cache, cl):
     p = PROMPT.format(casa=casa_nome, trasf=trasf_nome, comp=COMP[m["_c"]], data=m["utcDate"],
                       classifica=" | ".join(x for x in (righe.get(hid), righe.get(aid)) if x) or "n.d.",
                       rosa_c=rosa_txt(cache, hid) or "n.d.", rosa_t=rosa_txt(cache, aid) or "n.d.")
-    url = f"https://googleapis.com{modello}:generateContent"
+    url =     url = "https://googleapis.com" + modello + ":generateContent"
+
     for tentativo in range(4):
         try:
             r = requests.post(url, params={"key": GM_KEY}, timeout=60, json={
