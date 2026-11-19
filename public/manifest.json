@@ -1,16 +1,21 @@
+
 {
-  "name": "Lavagna Tattica",
-  "short_name": "Lavagna",
-  "description": "Analisi statistiche delle partite dei principali campionati europei.",
+  "name": "Pronostici352 - Analisi & Statistiche Calcio",
+  "short_name": "Pronostici352",
+  "description": "Analisi statistiche e probabilità delle partite di calcio.",
   "lang": "it",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#14303A",
-  "theme_color": "#14303A",
+  "background_color": "#101C31",
+  "theme_color": "#101C31",
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+    {
+      "src": "icons/pronostici352-1.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ]
 }
