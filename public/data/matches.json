@@ -1,7 +1,7 @@
 {
   "data": "2026-11-19",
   "fino_al": "2026-11-23",
-  "generato_il": "2026-11-19T16:29:17.914657+00:00",
+  "generato_il": "2026-11-19T16:40:36.976052+00:00",
   "esempio": false,
   "partite": [
     {
@@ -498,50 +498,6 @@
       "marcatori_reali": []
     },
     {
-      "id": 561950,
-      "competizione": {
-        "codice": "ELC",
-        "nome": "Championship"
-      },
-      "ora_utc": "2026-11-21T12:30:00Z",
-      "stato": "SCHEDULED",
-      "giornata": 16,
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": [],
-      "squadra_casa": {
-        "nome": "Millwall",
-        "sigla": "MIL",
-        "colori": [
-          null,
-          null
-        ],
-        "classifica": {
-          "posizione": 16,
-          "punti": 18,
-          "giocate": 15,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "QPR",
-        "sigla": "QPR",
-        "colori": [
-          null,
-          null
-        ],
-        "classifica": {
-          "posizione": 8,
-          "punti": 24,
-          "giocate": 15,
-          "forma": null
-        }
-      },
-      "analisi": null
-    },
-    {
       "id": 560643,
       "competizione": {
         "codice": "PL",
@@ -714,6 +670,50 @@
         "classifica": {
           "posizione": 23,
           "punti": 10,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "analisi": null
+    },
+    {
+      "id": 561950,
+      "competizione": {
+        "codice": "ELC",
+        "nome": "Championship"
+      },
+      "ora_utc": "2026-11-21T12:30:00Z",
+      "stato": "SCHEDULED",
+      "giornata": 16,
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": [],
+      "squadra_casa": {
+        "nome": "Millwall",
+        "sigla": "MIL",
+        "colori": [
+          null,
+          null
+        ],
+        "classifica": {
+          "posizione": 16,
+          "punti": 18,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "QPR",
+        "sigla": "QPR",
+        "colori": [
+          null,
+          null
+        ],
+        "classifica": {
+          "posizione": 8,
+          "punti": 24,
           "giocate": 15,
           "forma": null
         }
@@ -994,97 +994,6 @@
       "marcatori_reali": []
     },
     {
-      "id": 565862,
-      "competizione": {
-        "codice": "BL1",
-        "nome": "Bundesliga"
-      },
-      "ora_utc": "2026-11-21T14:30:00Z",
-      "stato": "TIMED",
-      "giornata": 10,
-      "squadra_casa": {
-        "nome": "M'gladbach",
-        "sigla": "BMG",
-        "colori": [
-          "#FFFFFF",
-          "#000000"
-        ],
-        "classifica": {
-          "posizione": 18,
-          "punti": 4,
-          "giocate": 9,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Dortmund",
-        "sigla": "BVB",
-        "colori": [
-          "#FDE100",
-          "#000000"
-        ],
-        "classifica": {
-          "posizione": 2,
-          "punti": 21,
-          "giocate": 9,
-          "forma": null
-        }
-      },
-      "analisi": {
-        "analisi_tattica": "Il Borussia Mönchengladbach adotta un blocco difensivo basso per limitare la transizione offensiva avversaria, evidenziando criticità nella transizione negativa. Il Borussia Dortmund sfrutta un possesso palla verticale e un'elevata densità nel half-space, puntando sulla superiorità tecnica negli uno contro uno sulle fasce. La disparità nel differenziale reti riflette un gap strutturale nella conversione delle occasioni da rete.",
-        "probabilita_1x2": {
-          "1": 18,
-          "X": 22,
-          "2": 60
-        },
-        "probabilita_gol": {
-          "over_2_5": 65,
-          "under_2_5": 35,
-          "gol": 58,
-          "nogol": 42
-        },
-        "probabile_formazione_casa": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Omlin",
-            "Scally",
-            "Itakura",
-            "Elvedi",
-            "Netz",
-            "Weigl",
-            "Reitz",
-            "Stöger",
-            "Honorât",
-            "Kleindienst",
-            "Hack"
-          ]
-        },
-        "probabile_formazione_trasferta": {
-          "modulo": "4-2-3-1",
-          "giocatori": [
-            "Kobel",
-            "Ryerson",
-            "Anton",
-            "Schlotterbeck",
-            "Bensebaini",
-            "Can",
-            "Groß",
-            "Sabitzer",
-            "Brandt",
-            "Gittens",
-            "Guirassy"
-          ]
-        },
-        "consiglio_tecnico": "Il Dortmund presenta un indice di performance offensiva nettamente superiore, supportato da una maggiore efficienza nella creazione di Expected Goals. La fragilità difensiva del Mönchengladbach, unita alla qualità del palleggio ospite, rende probabile un esito favorevole alla formazione in trasferta con un volume di marcature superiore alla media."
-      },
-      "analizzato_il": "2026-11-19T12:34:08.840411+00:00",
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": []
-    },
-    {
       "id": 565858,
       "competizione": {
         "codice": "BL1",
@@ -1267,7 +1176,7 @@
       "marcatori_reali": []
     },
     {
-      "id": 565857,
+      "id": 565862,
       "competizione": {
         "codice": "BL1",
         "nome": "Bundesliga"
@@ -1276,81 +1185,81 @@
       "stato": "TIMED",
       "giornata": 10,
       "squadra_casa": {
-        "nome": "Leverkusen",
-        "sigla": "B04",
+        "nome": "M'gladbach",
+        "sigla": "BMG",
         "colori": [
-          "#E30613",
+          "#FFFFFF",
           "#000000"
         ],
         "classifica": {
-          "posizione": 5,
-          "punti": 16,
+          "posizione": 18,
+          "punti": 4,
           "giocate": 9,
           "forma": null
         }
       },
       "squadra_trasferta": {
-        "nome": "SC Paderborn",
-        "sigla": "SCP",
+        "nome": "Dortmund",
+        "sigla": "BVB",
         "colori": [
-          "#0055A4",
-          "#FFFFFF"
+          "#FDE100",
+          "#000000"
         ],
         "classifica": {
-          "posizione": 13,
-          "punti": 10,
+          "posizione": 2,
+          "punti": 21,
           "giocate": 9,
           "forma": null
         }
       },
       "analisi": {
-        "analisi_tattica": "Il Bayer Leverkusen implementa un possesso palla verticale con alta densità nella trequarti avversaria, sfruttando l'ampiezza degli esterni. Il Paderborn adotta un blocco difensivo medio-basso cercando transizioni rapide, ma evidenzia criticità strutturali nella protezione dei mezzi spazi.",
+        "analisi_tattica": "Il Borussia Mönchengladbach adotta un blocco difensivo basso per limitare la transizione offensiva avversaria, evidenziando criticità nella transizione negativa. Il Borussia Dortmund sfrutta un possesso palla verticale e un'elevata densità nel half-space, puntando sulla superiorità tecnica negli uno contro uno sulle fasce. La disparità nel differenziale reti riflette un gap strutturale nella conversione delle occasioni da rete.",
         "probabilita_1x2": {
-          "1": 68,
-          "X": 20,
-          "2": 12
+          "1": 18,
+          "X": 22,
+          "2": 60
         },
         "probabilita_gol": {
           "over_2_5": 65,
           "under_2_5": 35,
-          "gol": 55,
-          "nogol": 45
+          "gol": 58,
+          "nogol": 42
         },
         "probabile_formazione_casa": {
-          "modulo": "3-4-2-1",
+          "modulo": "4-3-3",
           "giocatori": [
-            "Hradecky",
-            "Tapsoba",
-            "Tah",
-            "Hincapie",
-            "Frimpong",
-            "Xhaka",
-            "Andrich",
-            "Grimaldo",
-            "Wirtz",
-            "Adli",
-            "Boniface"
+            "Omlin",
+            "Scally",
+            "Itakura",
+            "Elvedi",
+            "Netz",
+            "Weigl",
+            "Reitz",
+            "Stöger",
+            "Honorât",
+            "Kleindienst",
+            "Hack"
           ]
         },
         "probabile_formazione_trasferta": {
-          "modulo": "4-3-3",
+          "modulo": "4-2-3-1",
           "giocatori": [
-            "Boevink",
-            "Curda",
-            "Gyamfi",
-            "Caliskaner",
-            "Bauer",
-            "Obermair",
-            "Klaas",
-            "Bilbija",
-            "Kostons",
-            "Michel",
-            "Ansah"
+            "Kobel",
+            "Ryerson",
+            "Anton",
+            "Schlotterbeck",
+            "Bensebaini",
+            "Can",
+            "Groß",
+            "Sabitzer",
+            "Brandt",
+            "Gittens",
+            "Guirassy"
           ]
         },
-        "consiglio_tecnico": "Il differenziale tecnico tra le due rose e l'efficienza offensiva del Leverkusen in ambiente domestico rendono altamente probabile un esito favorevole ai padroni di casa. La proiezione statistica suggerisce un volume di gioco offensivo elevato, con una tendenza verso il superamento della soglia dei 2.5 gol complessivi."
+        "consiglio_tecnico": "Il Dortmund presenta un indice di performance offensiva nettamente superiore, supportato da una maggiore efficienza nella creazione di Expected Goals. La fragilità difensiva del Mönchengladbach, unita alla qualità del palleggio ospite, rende probabile un esito favorevole alla formazione in trasferta con un volume di marcature superiore alla media."
       },
-      "analizzato_il": "2026-11-19T12:33:44.565958+00:00",
+      "analizzato_il": "2026-11-19T12:34:08.840411+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
@@ -1449,183 +1358,95 @@
       "marcatori_reali": []
     },
     {
-      "id": 561949,
+      "id": 565857,
       "competizione": {
-        "codice": "ELC",
-        "nome": "Championship"
+        "codice": "BL1",
+        "nome": "Bundesliga"
       },
-      "ora_utc": "2026-11-21T15:00:00Z",
-      "stato": "SCHEDULED",
-      "giornata": 16,
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": [],
+      "ora_utc": "2026-11-21T14:30:00Z",
+      "stato": "TIMED",
+      "giornata": 10,
       "squadra_casa": {
-        "nome": "Lincoln City",
-        "sigla": "LIN",
+        "nome": "Leverkusen",
+        "sigla": "B04",
         "colori": [
-          null,
-          null
+          "#E30613",
+          "#000000"
         ],
         "classifica": {
-          "posizione": 21,
-          "punti": 15,
-          "giocate": 15,
+          "posizione": 5,
+          "punti": 16,
+          "giocate": 9,
           "forma": null
         }
       },
       "squadra_trasferta": {
-        "nome": "Wrexham",
-        "sigla": "WRE",
+        "nome": "SC Paderborn",
+        "sigla": "SCP",
         "colori": [
-          null,
-          null
-        ],
-        "classifica": {
-          "posizione": 15,
-          "punti": 18,
-          "giocate": 15,
-          "forma": null
-        }
-      },
-      "analisi": null
-    },
-    {
-      "id": 560650,
-      "competizione": {
-        "codice": "PL",
-        "nome": "Premier League"
-      },
-      "ora_utc": "2026-11-21T15:00:00Z",
-      "stato": "TIMED",
-      "giornata": 11,
-      "squadra_casa": {
-        "nome": "Coventry City",
-        "sigla": "COV",
-        "colori": [
-          "#87CEEB",
+          "#0055A4",
           "#FFFFFF"
         ],
         "classifica": {
-          "posizione": 17,
-          "punti": 9,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Crystal Palace",
-        "sigla": "CRY",
-        "colori": [
-          "#1B458F",
-          "#C8102E"
-        ],
-        "classifica": {
-          "posizione": 20,
-          "punti": 7,
-          "giocate": 10,
+          "posizione": 13,
+          "punti": 10,
+          "giocate": 9,
           "forma": null
         }
       },
       "analisi": {
-        "analisi_tattica": "Il Coventry adotta un blocco mediano volto a consolidare la fase di transizione difensiva, mentre il Crystal Palace predilige un pressing alto finalizzato alla riconquista immediata. La sfida si deciderà sulla densità centrale e sulla capacità di verticalizzazione rapida contro linee difensive vulnerabili.",
+        "analisi_tattica": "Il Bayer Leverkusen implementa un possesso palla verticale con alta densità nella trequarti avversaria, sfruttando l'ampiezza degli esterni. Il Paderborn adotta un blocco difensivo medio-basso cercando transizioni rapide, ma evidenzia criticità strutturali nella protezione dei mezzi spazi.",
         "probabilita_1x2": {
-          "1": 38,
-          "X": 30,
-          "2": 32
+          "1": 68,
+          "X": 20,
+          "2": 12
         },
         "probabilita_gol": {
-          "over_2_5": 55,
-          "under_2_5": 45,
-          "gol": 58,
-          "nogol": 42
+          "over_2_5": 65,
+          "under_2_5": 35,
+          "gol": 55,
+          "nogol": 45
         },
         "probabile_formazione_casa": {
-          "modulo": "4-3-3",
+          "modulo": "3-4-2-1",
           "giocatori": [
-            "Wilson",
-            "Van Ewijk",
-            "Thomas",
-            "Binks",
-            "Bidwell",
-            "Torp",
-            "Sheaf",
-            "Allen",
-            "Sakamoto",
-            "Simms",
-            "Wright"
+            "Hradecky",
+            "Tapsoba",
+            "Tah",
+            "Hincapie",
+            "Frimpong",
+            "Xhaka",
+            "Andrich",
+            "Grimaldo",
+            "Wirtz",
+            "Adli",
+            "Boniface"
           ]
         },
         "probabile_formazione_trasferta": {
-          "modulo": "3-4-2-1",
+          "modulo": "4-3-3",
           "giocatori": [
-            "Henderson",
-            "Clyne",
-            "Guehi",
-            "Lacroix",
-            "Munoz",
-            "Wharton",
-            "Doucoure",
-            "Mitchell",
-            "Kamada",
-            "Eze",
-            "Mateta"
+            "Boevink",
+            "Curda",
+            "Gyamfi",
+            "Caliskaner",
+            "Bauer",
+            "Obermair",
+            "Klaas",
+            "Bilbija",
+            "Kostons",
+            "Michel",
+            "Ansah"
           ]
         },
-        "consiglio_tecnico": "L'analisi dei dati di rendimento evidenzia una sostanziale parità tecnica tra le due formazioni, con una propensione statistica verso un esito favorevole alla squadra di casa grazie al fattore campo. La fragilità difensiva di entrambi i reparti suggerisce un'alta probabilità di esiti con marcature multiple da ambo le parti."
+        "consiglio_tecnico": "Il differenziale tecnico tra le due rose e l'efficienza offensiva del Leverkusen in ambiente domestico rendono altamente probabile un esito favorevole ai padroni di casa. La proiezione statistica suggerisce un volume di gioco offensivo elevato, con una tendenza verso il superamento della soglia dei 2.5 gol complessivi."
       },
-      "analizzato_il": "2026-11-19T12:35:40.055889+00:00",
+      "analizzato_il": "2026-11-19T12:33:44.565958+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
       },
       "marcatori_reali": []
-    },
-    {
-      "id": 561945,
-      "competizione": {
-        "codice": "ELC",
-        "nome": "Championship"
-      },
-      "ora_utc": "2026-11-21T15:00:00Z",
-      "stato": "SCHEDULED",
-      "giornata": 16,
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": [],
-      "squadra_casa": {
-        "nome": "Bolton",
-        "sigla": "BOL",
-        "colori": [
-          null,
-          null
-        ],
-        "classifica": {
-          "posizione": 18,
-          "punti": 17,
-          "giocate": 15,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Portsmouth",
-        "sigla": "POR",
-        "colori": [
-          null,
-          null
-        ],
-        "classifica": {
-          "posizione": 11,
-          "punti": 22,
-          "giocate": 15,
-          "forma": null
-        }
-      },
-      "analisi": null
     },
     {
       "id": 561941,
@@ -2033,6 +1854,289 @@
       "marcatori_reali": []
     },
     {
+      "id": 561949,
+      "competizione": {
+        "codice": "ELC",
+        "nome": "Championship"
+      },
+      "ora_utc": "2026-11-21T15:00:00Z",
+      "stato": "SCHEDULED",
+      "giornata": 16,
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": [],
+      "squadra_casa": {
+        "nome": "Lincoln City",
+        "sigla": "LIN",
+        "colori": [
+          null,
+          null
+        ],
+        "classifica": {
+          "posizione": 21,
+          "punti": 15,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Wrexham",
+        "sigla": "WRE",
+        "colori": [
+          null,
+          null
+        ],
+        "classifica": {
+          "posizione": 15,
+          "punti": 18,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "analisi": null
+    },
+    {
+      "id": 560650,
+      "competizione": {
+        "codice": "PL",
+        "nome": "Premier League"
+      },
+      "ora_utc": "2026-11-21T15:00:00Z",
+      "stato": "TIMED",
+      "giornata": 11,
+      "squadra_casa": {
+        "nome": "Coventry City",
+        "sigla": "COV",
+        "colori": [
+          "#87CEEB",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 17,
+          "punti": 9,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Crystal Palace",
+        "sigla": "CRY",
+        "colori": [
+          "#1B458F",
+          "#C8102E"
+        ],
+        "classifica": {
+          "posizione": 20,
+          "punti": 7,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Il Coventry adotta un blocco mediano volto a consolidare la fase di transizione difensiva, mentre il Crystal Palace predilige un pressing alto finalizzato alla riconquista immediata. La sfida si deciderà sulla densità centrale e sulla capacità di verticalizzazione rapida contro linee difensive vulnerabili.",
+        "probabilita_1x2": {
+          "1": 38,
+          "X": 30,
+          "2": 32
+        },
+        "probabilita_gol": {
+          "over_2_5": 55,
+          "under_2_5": 45,
+          "gol": 58,
+          "nogol": 42
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Wilson",
+            "Van Ewijk",
+            "Thomas",
+            "Binks",
+            "Bidwell",
+            "Torp",
+            "Sheaf",
+            "Allen",
+            "Sakamoto",
+            "Simms",
+            "Wright"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "3-4-2-1",
+          "giocatori": [
+            "Henderson",
+            "Clyne",
+            "Guehi",
+            "Lacroix",
+            "Munoz",
+            "Wharton",
+            "Doucoure",
+            "Mitchell",
+            "Kamada",
+            "Eze",
+            "Mateta"
+          ]
+        },
+        "consiglio_tecnico": "L'analisi dei dati di rendimento evidenzia una sostanziale parità tecnica tra le due formazioni, con una propensione statistica verso un esito favorevole alla squadra di casa grazie al fattore campo. La fragilità difensiva di entrambi i reparti suggerisce un'alta probabilità di esiti con marcature multiple da ambo le parti."
+      },
+      "analizzato_il": "2026-11-19T12:35:40.055889+00:00",
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": []
+    },
+    {
+      "id": 561945,
+      "competizione": {
+        "codice": "ELC",
+        "nome": "Championship"
+      },
+      "ora_utc": "2026-11-21T15:00:00Z",
+      "stato": "SCHEDULED",
+      "giornata": 16,
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": [],
+      "squadra_casa": {
+        "nome": "Bolton",
+        "sigla": "BOL",
+        "colori": [
+          "#FFFFFF",
+          "#000080"
+        ],
+        "classifica": {
+          "posizione": 18,
+          "punti": 17,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Portsmouth",
+        "sigla": "POR",
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 11,
+          "punti": 22,
+          "giocate": 15,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Bolton e Portsmouth si affrontano in una sfida caratterizzata da una necessità di punti per la zona medio-bassa della classifica. Il Bolton tende a mantenere un baricentro prudente, mentre il Portsmouth predilige transizioni rapide sulle fasce. La solidità difensiva sarà il fattore determinante, con entrambe le squadre che mostrano una tendenza a non scoprirsi eccessivamente nelle fasi iniziali.",
+        "probabilita_1x2": {
+          "1": 35,
+          "X": 30,
+          "2": 35
+        },
+        "probabilita_gol": {
+          "over_2_5": 48,
+          "under_2_5": 52,
+          "gol": 51,
+          "nogol": 49
+        },
+        "mercati_completi": {
+          "1": 35,
+          "X": 30,
+          "2": 35,
+          "1X": 65,
+          "X2": 65,
+          "12": 70,
+          "GG": 51,
+          "NG": 49,
+          "Over 1.5": 74,
+          "Under 1.5": 26,
+          "Over 2.5": 48,
+          "Under 2.5": 52,
+          "Over 3.5": 25,
+          "Under 3.5": 75,
+          "Multigol 1-3": 70,
+          "Multigol 2-4": 58,
+          "1+Over 1.5": 42,
+          "1X+GG": 45,
+          "2+Under 3.5": 40
+        },
+        "probabile_formazione_casa": {
+          "modulo": "3-5-2",
+          "giocatori": [
+            "Baxter",
+            "Santos",
+            "Toal",
+            "Johnston",
+            "Dacres-Cogley",
+            "Thomason",
+            "Sheehan",
+            "Dempsey",
+            "Schön",
+            "Charles",
+            "Adeboyejo"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Norris",
+            "Swanson",
+            "Shaughnessy",
+            "Poole",
+            "Ogilvie",
+            "Pack",
+            "Dooley",
+            "Lang",
+            "Saydee",
+            "Murphy",
+            "Bishop"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Dion Charles",
+              "ruolo": "Attaccante",
+              "probabilita": 28,
+              "motivazione": "Principale riferimento offensivo e rigorista della squadra."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Colby Bishop",
+              "ruolo": "Attaccante",
+              "probabilita": 26,
+              "motivazione": "Forte fisicamente e abile nel gioco aereo su palla inattiva."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Ricardo Santos",
+              "ruolo": "Difensore",
+              "probabilita": 22,
+              "motivazione": "Spesso costretto al fallo tattico per fermare le ripartenze."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Marlon Pack",
+              "ruolo": "Centrocampista",
+              "probabilita": 25,
+              "motivazione": "Incontrista con alta frequenza di contrasti a centrocampo."
+            }
+          ]
+        },
+        "consiglio_tecnico": "Gara caratterizzata da un sostanziale equilibrio statistico; la distribuzione delle probabilità suggerisce un esito incerto con una leggera preferenza per un punteggio contenuto."
+      },
+      "analizzato_il": "2026-11-19T16:38:47.285462+00:00"
+    },
+    {
       "id": 561946,
       "competizione": {
         "codice": "ELC",
@@ -2050,8 +2154,8 @@
         "nome": "Stoke",
         "sigla": "STK",
         "colori": [
-          null,
-          null
+          "#E03A3E",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 3,
@@ -2064,8 +2168,8 @@
         "nome": "Birmingham",
         "sigla": "BIR",
         "colori": [
-          null,
-          null
+          "#0000FF",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 1,
@@ -2074,7 +2178,111 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Scontro al vertice tra la prima e la terza in classifica. Lo Stoke City cercherà di sfruttare il fattore campo per agganciare il Birmingham. Entrambe le formazioni adottano un approccio proattivo, con il Birmingham che vanta la miglior difesa del torneo. Si prevede una partita tatticamente bloccata, dove la gestione del possesso palla sarà fondamentale per scardinare le linee avversarie.",
+        "probabilita_1x2": {
+          "1": 34,
+          "X": 33,
+          "2": 33
+        },
+        "probabilita_gol": {
+          "over_2_5": 45,
+          "under_2_5": 55,
+          "gol": 48,
+          "nogol": 52
+        },
+        "mercati_completi": {
+          "1": 34,
+          "X": 33,
+          "2": 33,
+          "1X": 67,
+          "X2": 66,
+          "12": 67,
+          "GG": 48,
+          "NG": 52,
+          "Over 1.5": 71,
+          "Under 1.5": 29,
+          "Over 2.5": 45,
+          "Under 2.5": 55,
+          "Over 3.5": 22,
+          "Under 3.5": 78,
+          "Multigol 1-3": 73,
+          "Multigol 2-4": 56,
+          "1+Over 1.5": 40,
+          "1X+GG": 44,
+          "2+Under 3.5": 38
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Johansson",
+            "Tchamadeu",
+            "Wilmot",
+            "Gibson",
+            "Bocat",
+            "Burger",
+            "Thompson",
+            "Moran",
+            "Manhoef",
+            "Cannon",
+            "Jun-ho"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Peacock-Farrell",
+            "Laird",
+            "Bielik",
+            "Sanderson",
+            "Cochrane",
+            "Paik",
+            "Iwata",
+            "Willumsson",
+            "Stansfield",
+            "Hansson",
+            "May"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Thomas Cannon",
+              "ruolo": "Attaccante",
+              "probabilita": 25,
+              "motivazione": "Finalizzatore principale con ottime doti di inserimento."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Alfie May",
+              "ruolo": "Attaccante",
+              "probabilita": 27,
+              "motivazione": "Capocannoniere della squadra, molto efficace negli spazi stretti."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Wouter Burger",
+              "ruolo": "Centrocampista",
+              "probabilita": 28,
+              "motivazione": "Giocatore fisico incaricato di interrompere le trame avversarie."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Krystian Bielik",
+              "ruolo": "Difensore",
+              "probabilita": 30,
+              "motivazione": "Tende a commettere falli sistematici per proteggere l'area."
+            }
+          ]
+        },
+        "consiglio_tecnico": "Data l'importanza della posta in palio e la solidità delle difese, la probabilità di un pareggio o di una gara con meno di tre reti totali appare statisticamente rilevante."
+      },
+      "analizzato_il": "2026-11-19T16:38:47.285504+00:00"
     },
     {
       "id": 560647,
@@ -2185,8 +2393,8 @@
         "nome": "Swansea",
         "sigla": "SWA",
         "colori": [
-          null,
-          null
+          "#FFFFFF",
+          "#000000"
         ],
         "classifica": {
           "posizione": 6,
@@ -2199,8 +2407,8 @@
         "nome": "West Brom",
         "sigla": "WBA",
         "colori": [
-          null,
-          null
+          "#12294B",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 5,
@@ -2209,7 +2417,111 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Swansea e West Brom si contendono posizioni cruciali per i play-off. Lo Swansea mantiene la sua identità basata sul possesso palla e la costruzione dal basso, mentre il West Bromwich Albion è noto per la sua organizzazione difensiva e la pericolosità sulle palle inattive. La sfida si deciderà probabilmente a centrocampo, dove la densità del West Brom cercherà di soffocare il fraseggio gallese.",
+        "probabilita_1x2": {
+          "1": 38,
+          "X": 31,
+          "2": 31
+        },
+        "probabilita_gol": {
+          "over_2_5": 47,
+          "under_2_5": 53,
+          "gol": 52,
+          "nogol": 48
+        },
+        "mercati_completi": {
+          "1": 38,
+          "X": 31,
+          "2": 31,
+          "1X": 69,
+          "X2": 62,
+          "12": 69,
+          "GG": 52,
+          "NG": 48,
+          "Over 1.5": 75,
+          "Under 1.5": 25,
+          "Over 2.5": 47,
+          "Under 2.5": 53,
+          "Over 3.5": 24,
+          "Under 3.5": 76,
+          "Multigol 1-3": 71,
+          "Multigol 2-4": 59,
+          "1+Over 1.5": 46,
+          "1X+GG": 48,
+          "2+Under 3.5": 36
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Vigouroux",
+            "Key",
+            "Cabango",
+            "Darling",
+            "Tymon",
+            "Grimes",
+            "Franco",
+            "Cooper",
+            "Ronald",
+            "Cullen",
+            "Eom"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Palmer",
+            "Furlong",
+            "Ajayi",
+            "Bartley",
+            "Heggem",
+            "Mowatt",
+            "Racic",
+            "Fellows",
+            "Swift",
+            "Johnston",
+            "Maja"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Liam Cullen",
+              "ruolo": "Attaccante",
+              "probabilita": 24,
+              "motivazione": "Abile nel finalizzare il lavoro corale della squadra."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Josh Maja",
+              "ruolo": "Attaccante",
+              "probabilita": 29,
+              "motivazione": "In un eccellente stato di forma, principale terminale offensivo."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Matt Grimes",
+              "ruolo": "Centrocampista",
+              "probabilita": 20,
+              "motivazione": "Regista che spesso deve ricorrere al fallo per fermare i contropiedi."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Semi Ajayi",
+              "ruolo": "Difensore",
+              "probabilita": 26,
+              "motivazione": "Fisicità elevata che lo porta a contrasti spesso sanzionabili."
+            }
+          ]
+        },
+        "consiglio_tecnico": "Il fattore campo favorisce leggermente lo Swansea, ma la solidità del West Brom suggerisce una partita molto equilibrata con probabile marcatura da ambo le parti."
+      },
+      "analizzato_il": "2026-11-19T16:38:47.285529+00:00"
     },
     {
       "id": 561952,
@@ -2229,8 +2541,8 @@
         "nome": "Wolverhampton",
         "sigla": "WOL",
         "colori": [
-          null,
-          null
+          "#FDB913",
+          "#231F20"
         ],
         "classifica": {
           "posizione": 4,
@@ -2243,8 +2555,8 @@
         "nome": "Charlton",
         "sigla": "CHA",
         "colori": [
-          null,
-          null
+          "#FF0000",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 19,
@@ -2253,7 +2565,117 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Il Wolverhampton, attualmente nelle zone nobili della classifica, ospita un Charlton in difficoltà. I padroni di casa cercheranno di imporre un ritmo elevato sin dai primi minuti, sfruttando la superiorità tecnica dei propri esterni. Il Charlton, dal canto suo, adotterà presumibilmente un modulo molto difensivo per limitare i danni e cercare di colpire in ripartenza.",
+        "probabilita_1x2": {
+          "1": 62,
+          "X": 23,
+          "2": 15
+        },
+        "probabilita_gol": {
+          "over_2_5": 58,
+          "under_2_5": 42,
+          "gol": 46,
+          "nogol": 54
+        },
+        "mercati_completi": {
+          "1": 62,
+          "X": 23,
+          "2": 15,
+          "1X": 85,
+          "X2": 38,
+          "12": 77,
+          "GG": 46,
+          "NG": 54,
+          "Over 1.5": 82,
+          "Under 1.5": 18,
+          "Over 2.5": 58,
+          "Under 2.5": 42,
+          "Over 3.5": 35,
+          "Under 3.5": 65,
+          "Multigol 1-3": 75,
+          "Multigol 2-4": 62,
+          "1+Over 1.5": 72,
+          "1X+GG": 40,
+          "2+Under 3.5": 18
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-4-2",
+          "giocatori": [
+            "Johnstone",
+            "Semedo",
+            "Dawson",
+            "Toti",
+            "Ait-Nouri",
+            "Bellegarde",
+            "Lemina",
+            "Gomes",
+            "Cunha",
+            "Hwang",
+            "Larsen"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "5-4-1",
+          "giocatori": [
+            "Mannion",
+            "Ramsay",
+            "Mitchell",
+            "Jones",
+            "Gillespie",
+            "Edwards",
+            "Coventry",
+            "Docherty",
+            "Anderson",
+            "Campbell",
+            "Kanu"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Matheus Cunha",
+              "ruolo": "Attaccante",
+              "probabilita": 38,
+              "motivazione": "Giocatore di categoria superiore, capace di creare superiorità numerica."
+            },
+            {
+              "nome": "Jørgen Strand Larsen",
+              "ruolo": "Attaccante",
+              "probabilita": 35,
+              "motivazione": "Punto di riferimento in area di rigore per i cross dalle fasce."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Daniel Kanu",
+              "ruolo": "Attaccante",
+              "probabilita": 18,
+              "motivazione": "Unica punta incaricata di sfruttare le rare occasioni in contropiede."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Mario Lemina",
+              "ruolo": "Centrocampista",
+              "probabilita": 24,
+              "motivazione": "Aggressività nel recupero palla e gestione della transizione difensiva."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Lloyd Jones",
+              "ruolo": "Difensore",
+              "probabilita": 32,
+              "motivazione": "Sottoposto a forte pressione dagli attaccanti avversari."
+            }
+          ]
+        },
+        "consiglio_tecnico": "Il divario tecnico e di classifica suggerisce una netta prevalenza della squadra di casa, con una probabilità elevata di assistere a più di due reti complessive."
+      },
+      "analizzato_il": "2026-11-19T16:38:47.285556+00:00"
     },
     {
       "id": 564751,
@@ -2573,6 +2995,97 @@
       "marcatori_reali": []
     },
     {
+      "id": 560651,
+      "competizione": {
+        "codice": "PL",
+        "nome": "Premier League"
+      },
+      "ora_utc": "2026-11-21T17:30:00Z",
+      "stato": "TIMED",
+      "giornata": 11,
+      "squadra_casa": {
+        "nome": "Newcastle",
+        "sigla": "NEW",
+        "colori": [
+          "#000000",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 12,
+          "punti": 12,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Arsenal",
+        "sigla": "ARS",
+        "colori": [
+          "#EF0107",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 1,
+          "punti": 27,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Il Newcastle adotta un blocco medio-basso con transizioni rapide basate sulla verticalizzazione, mentre l'Arsenal implementa un possesso palla posizionale ad alta intensità con pressing ultra-offensivo. La sfida si deciderà nella capacità dei padroni di casa di saturare gli half-spaces per limitare le sovrapposizioni dei terzini ospiti.",
+        "probabilita_1x2": {
+          "1": 22,
+          "X": 26,
+          "2": 52
+        },
+        "probabilita_gol": {
+          "over_2_5": 58,
+          "under_2_5": 42,
+          "gol": 62,
+          "nogol": 38
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Pope",
+            "Livramento",
+            "Schar",
+            "Burn",
+            "Hall",
+            "Longstaff",
+            "Guimaraes",
+            "Joelinton",
+            "Murphy",
+            "Isak",
+            "Gordon"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Raya",
+            "White",
+            "Saliba",
+            "Gabriel",
+            "Timber",
+            "Odegaard",
+            "Partey",
+            "Rice",
+            "Saka",
+            "Havertz",
+            "Martinelli"
+          ]
+        },
+        "consiglio_tecnico": "Il differenziale di rendimento statistico tra le due formazioni suggerisce una prevalenza del controllo territoriale da parte dell'Arsenal, supportato da metriche di expected goals superiori. La solidità difensiva degli ospiti dovrebbe prevalere, rendendo probabile un esito favorevole alla capolista in una gara caratterizzata da un volume offensivo elevato."
+      },
+      "analizzato_il": "2026-11-19T12:37:11.824908+00:00",
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": []
+    },
+    {
       "id": 564756,
       "competizione": {
         "codice": "PD",
@@ -2755,97 +3268,6 @@
       "marcatori_reali": []
     },
     {
-      "id": 560651,
-      "competizione": {
-        "codice": "PL",
-        "nome": "Premier League"
-      },
-      "ora_utc": "2026-11-21T17:30:00Z",
-      "stato": "TIMED",
-      "giornata": 11,
-      "squadra_casa": {
-        "nome": "Newcastle",
-        "sigla": "NEW",
-        "colori": [
-          "#000000",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 12,
-          "punti": 12,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Arsenal",
-        "sigla": "ARS",
-        "colori": [
-          "#EF0107",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 1,
-          "punti": 27,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "analisi": {
-        "analisi_tattica": "Il Newcastle adotta un blocco medio-basso con transizioni rapide basate sulla verticalizzazione, mentre l'Arsenal implementa un possesso palla posizionale ad alta intensità con pressing ultra-offensivo. La sfida si deciderà nella capacità dei padroni di casa di saturare gli half-spaces per limitare le sovrapposizioni dei terzini ospiti.",
-        "probabilita_1x2": {
-          "1": 22,
-          "X": 26,
-          "2": 52
-        },
-        "probabilita_gol": {
-          "over_2_5": 58,
-          "under_2_5": 42,
-          "gol": 62,
-          "nogol": 38
-        },
-        "probabile_formazione_casa": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Pope",
-            "Livramento",
-            "Schar",
-            "Burn",
-            "Hall",
-            "Longstaff",
-            "Guimaraes",
-            "Joelinton",
-            "Murphy",
-            "Isak",
-            "Gordon"
-          ]
-        },
-        "probabile_formazione_trasferta": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Raya",
-            "White",
-            "Saliba",
-            "Gabriel",
-            "Timber",
-            "Odegaard",
-            "Partey",
-            "Rice",
-            "Saka",
-            "Havertz",
-            "Martinelli"
-          ]
-        },
-        "consiglio_tecnico": "Il differenziale di rendimento statistico tra le due formazioni suggerisce una prevalenza del controllo territoriale da parte dell'Arsenal, supportato da metriche di expected goals superiori. La solidità difensiva degli ospiti dovrebbe prevalere, rendendo probabile un esito favorevole alla capolista in una gara caratterizzata da un volume offensivo elevato."
-      },
-      "analizzato_il": "2026-11-19T12:37:11.824908+00:00",
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": []
-    },
-    {
       "id": 558835,
       "competizione": {
         "codice": "DED",
@@ -2978,97 +3400,6 @@
       "analisi": null
     },
     {
-      "id": 559624,
-      "competizione": {
-        "codice": "FL1",
-        "nome": "Ligue 1"
-      },
-      "ora_utc": "2026-11-21T19:45:00Z",
-      "stato": "TIMED",
-      "giornata": 11,
-      "squadra_casa": {
-        "nome": "Lille",
-        "sigla": "LIL",
-        "colori": [
-          "#D21034",
-          "#000000"
-        ],
-        "classifica": {
-          "posizione": 2,
-          "punti": 21,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Olympique Lyon",
-        "sigla": "LYO",
-        "colori": [
-          "#E30613",
-          "#0054A6"
-        ],
-        "classifica": {
-          "posizione": 5,
-          "punti": 17,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "analisi": {
-        "analisi_tattica": "Il Lille sfrutta un baricentro alto e una transizione offensiva rapida basata sulla verticalizzazione. Il Lione adotta un possesso palla strutturato, cercando di saturare gli half-spaces per innescare gli esterni. La tenuta difensiva dei padroni di casa risulta superiore nel rapporto xGA/partita rispetto alla linea arretrata ospite.",
-        "probabilita_1x2": {
-          "1": 45,
-          "X": 28,
-          "2": 27
-        },
-        "probabilita_gol": {
-          "over_2_5": 58,
-          "under_2_5": 42,
-          "gol": 62,
-          "nogol": 38
-        },
-        "probabile_formazione_casa": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Chevalier",
-            "Tiago Santos",
-            "Diakité",
-            "Alexsandro",
-            "Gudmundsson",
-            "André",
-            "Gomes",
-            "Bouaddi",
-            "Zhegrova",
-            "David",
-            "Sahraoui"
-          ]
-        },
-        "probabile_formazione_trasferta": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Perri",
-            "Maitland-Niles",
-            "Caleta-Car",
-            "Niakhate",
-            "Tagliafico",
-            "Tolisso",
-            "Matic",
-            "Cherki",
-            "Nuamah",
-            "Lacazette",
-            "Fofana"
-          ]
-        },
-        "consiglio_tecnico": "Il Lille presenta una maggiore solidità strutturale e una continuità di rendimento superiore nelle fasi di non possesso. La proiezione statistica indica una prevalenza di esiti orientati verso un alto volume di marcature totali, data la propensione offensiva di entrambe le formazioni."
-      },
-      "analizzato_il": "2026-11-19T12:37:32.871263+00:00",
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": []
-    },
-    {
       "id": 558527,
       "competizione": {
         "codice": "SA",
@@ -3153,6 +3484,97 @@
         "consiglio_tecnico": "L'analisi dei dati di rendimento suggerisce una prevalenza statistica per la squadra di casa, supportata dal fattore campo e da una maggiore densità qualitativa nella trequarti offensiva. Si prevede un match caratterizzato da un elevato numero di contrasti a centrocampo, con una probabilità di esito favorevole al Napoli basata sulla capacità di finalizzazione dei singoli."
       },
       "analizzato_il": "2026-11-19T12:37:25.612473+00:00",
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": []
+    },
+    {
+      "id": 559624,
+      "competizione": {
+        "codice": "FL1",
+        "nome": "Ligue 1"
+      },
+      "ora_utc": "2026-11-21T19:45:00Z",
+      "stato": "TIMED",
+      "giornata": 11,
+      "squadra_casa": {
+        "nome": "Lille",
+        "sigla": "LIL",
+        "colori": [
+          "#D21034",
+          "#000000"
+        ],
+        "classifica": {
+          "posizione": 2,
+          "punti": 21,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Olympique Lyon",
+        "sigla": "LYO",
+        "colori": [
+          "#E30613",
+          "#0054A6"
+        ],
+        "classifica": {
+          "posizione": 5,
+          "punti": 17,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Il Lille sfrutta un baricentro alto e una transizione offensiva rapida basata sulla verticalizzazione. Il Lione adotta un possesso palla strutturato, cercando di saturare gli half-spaces per innescare gli esterni. La tenuta difensiva dei padroni di casa risulta superiore nel rapporto xGA/partita rispetto alla linea arretrata ospite.",
+        "probabilita_1x2": {
+          "1": 45,
+          "X": 28,
+          "2": 27
+        },
+        "probabilita_gol": {
+          "over_2_5": 58,
+          "under_2_5": 42,
+          "gol": 62,
+          "nogol": 38
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Chevalier",
+            "Tiago Santos",
+            "Diakité",
+            "Alexsandro",
+            "Gudmundsson",
+            "André",
+            "Gomes",
+            "Bouaddi",
+            "Zhegrova",
+            "David",
+            "Sahraoui"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Perri",
+            "Maitland-Niles",
+            "Caleta-Car",
+            "Niakhate",
+            "Tagliafico",
+            "Tolisso",
+            "Matic",
+            "Cherki",
+            "Nuamah",
+            "Lacazette",
+            "Fofana"
+          ]
+        },
+        "consiglio_tecnico": "Il Lille presenta una maggiore solidità strutturale e una continuità di rendimento superiore nelle fasi di non possesso. La proiezione statistica indica una prevalenza di esiti orientati verso un alto volume di marcature totali, data la propensione offensiva di entrambe le formazioni."
+      },
+      "analizzato_il": "2026-11-19T12:37:32.871263+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
@@ -3717,8 +4139,8 @@
         "nome": "Twente",
         "sigla": "TWE",
         "colori": [
-          null,
-          null
+          "#FF0000",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 4,
@@ -3731,8 +4153,8 @@
         "nome": "Willem II",
         "sigla": "WII",
         "colori": [
-          null,
-          null
+          "#003399",
+          "#E2001A"
         ],
         "classifica": {
           "posizione": 18,
@@ -3741,7 +4163,117 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Il Twente, attualmente in quarta posizione, presenta una struttura tattica consolidata basata sul possesso palla e transizioni rapide. Il Willem II, fanalino di coda con soli 3 punti, adotta un baricentro molto basso nel tentativo di limitare i danni. La disparità tecnica suggerisce una gara a senso unico con il Twente proiettato costantemente nella metà campo avversaria.",
+        "probabilita_1x2": {
+          "1": 78,
+          "X": 15,
+          "2": 7
+        },
+        "probabilita_gol": {
+          "over_2_5": 68,
+          "under_2_5": 32,
+          "gol": 35,
+          "nogol": 65
+        },
+        "mercati_completi": {
+          "1": 78,
+          "X": 15,
+          "2": 7,
+          "1X": 93,
+          "X2": 22,
+          "12": 85,
+          "GG": 35,
+          "NG": 65,
+          "Over 1.5": 88,
+          "Under 1.5": 12,
+          "Over 2.5": 68,
+          "Under 2.5": 32,
+          "Over 3.5": 42,
+          "Under 3.5": 58,
+          "Multigol 1-3": 65,
+          "Multigol 2-4": 58,
+          "1+Over 1.5": 72,
+          "1X+GG": 38,
+          "2+Under 3.5": 5
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Unnerstall",
+            "Van Rooij",
+            "Hilgers",
+            "Bruns",
+            "Salah-Eddine",
+            "Regeer",
+            "Eiting",
+            "Rots",
+            "Steijn",
+            "Van Bergen",
+            "Lammers"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-4-2",
+          "giocatori": [
+            "Didillon-Hödl",
+            "Tirpan",
+            "Behounek",
+            "St. Jago",
+            "Sigurgeirsson",
+            "Doodeman",
+            "Bosch",
+            "Lachkar",
+            "Meerveld",
+            "Vaesen",
+            "Sandra"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Sem Steijn",
+              "ruolo": "Centrocampista",
+              "probabilita": 45,
+              "motivazione": "Capocannoniere della squadra con ottime doti di inserimento."
+            },
+            {
+              "nome": "Sam Lammers",
+              "ruolo": "Attaccante",
+              "probabilita": 40,
+              "motivazione": "Punto di riferimento offensivo centrale."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Kian Vaesen",
+              "ruolo": "Attaccante",
+              "probabilita": 15,
+              "motivazione": "Unica risorsa offensiva di rilievo in contropiede."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Mees Hilgers",
+              "ruolo": "Difensore",
+              "probabilita": 18,
+              "motivazione": "Interventi decisi sulle rare ripartenze avversarie."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Ressel Lachkar",
+              "ruolo": "Centrocampista",
+              "probabilita": 35,
+              "motivazione": "Compiti di interdizione costante sotto pressione."
+            }
+          ]
+        },
+        "consiglio_tecnico": "La superiorità statistica del Twente e la crisi realizzativa del Willem II suggeriscono una vittoria interna con scarto di almeno due reti."
+      },
+      "analizzato_il": "2026-11-19T16:40:09.655701+00:00"
     },
     {
       "id": 558521,
@@ -3852,8 +4384,8 @@
         "nome": "Burnley",
         "sigla": "BUR",
         "colori": [
-          null,
-          null
+          "#6C1D45",
+          "#99D221"
         ],
         "classifica": {
           "posizione": 22,
@@ -3866,8 +4398,8 @@
         "nome": "Blackburn",
         "sigla": "BLA",
         "colori": [
-          null,
-          null
+          "#005FA9",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 13,
@@ -3876,7 +4408,111 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Derby del Lancashire caratterizzato da alta intensità. Il Burnley, in piena zona retrocessione, soffre di una fragilità difensiva cronica. Il Blackburn, pur essendo a metà classifica, tende a subire la pressione esterna. Si prevede una gara fisica, con molti duelli aerei e un gioco frammentato.",
+        "probabilita_1x2": {
+          "1": 32,
+          "X": 30,
+          "2": 38
+        },
+        "probabilita_gol": {
+          "over_2_5": 45,
+          "under_2_5": 55,
+          "gol": 52,
+          "nogol": 48
+        },
+        "mercati_completi": {
+          "1": 32,
+          "X": 30,
+          "2": 38,
+          "1X": 62,
+          "X2": 68,
+          "12": 70,
+          "GG": 52,
+          "NG": 48,
+          "Over 1.5": 75,
+          "Under 1.5": 25,
+          "Over 2.5": 45,
+          "Under 2.5": 55,
+          "Over 3.5": 22,
+          "Under 3.5": 78,
+          "Multigol 1-3": 70,
+          "Multigol 2-4": 55,
+          "1+Over 1.5": 25,
+          "1X+GG": 45,
+          "2+Under 3.5": 32
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Trafford",
+            "Roberts",
+            "Egan-Riley",
+            "Esteve",
+            "Pires",
+            "Cullen",
+            "Brownhill",
+            "Koleosho",
+            "Hannibal",
+            "Sarmiento",
+            "Foster"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Pears",
+            "Brittain",
+            "Hyam",
+            "Batth",
+            "Beck",
+            "Tronstad",
+            "Travis",
+            "Hedges",
+            "Dolan",
+            "Cantwell",
+            "Ohashi"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Josh Brownhill",
+              "ruolo": "Centrocampista",
+              "probabilita": 25,
+              "motivazione": "Specialista dei calci piazzati e tiri dalla distanza."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Yuki Ohashi",
+              "ruolo": "Attaccante",
+              "probabilita": 30,
+              "motivazione": "Principale terminale offensivo dei Rovers."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Hannibal Mejbri",
+              "ruolo": "Centrocampista",
+              "probabilita": 40,
+              "motivazione": "Stile di gioco aggressivo e propenso al fallo tattico."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Lewis Travis",
+              "ruolo": "Centrocampista",
+              "probabilita": 38,
+              "motivazione": "Incontrista incaricato di spezzare il ritmo avversario."
+            }
+          ]
+        },
+        "consiglio_tecnico": "L'equilibrio tattico e la tensione del derby suggeriscono una partita con un numero limitato di reti, dove il Blackburn appare leggermente più solido."
+      },
+      "analizzato_il": "2026-11-19T16:40:09.655744+00:00"
     },
     {
       "id": 564749,
@@ -3987,8 +4623,8 @@
         "nome": "Sparta",
         "sigla": "SPA",
         "colori": [
-          null,
-          null
+          "#E2001A",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 12,
@@ -4001,8 +4637,8 @@
         "nome": "AZ",
         "sigla": "AZ",
         "colori": [
-          null,
-          null
+          "#E2001A",
+          "#FFFFFF"
         ],
         "classifica": {
           "posizione": 5,
@@ -4011,7 +4647,117 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "Lo Sparta Rotterdam ospita l'AZ Alkmaar in un confronto tra una squadra di metà classifica e una compagine in lotta per le posizioni europee. L'AZ predilige un calcio offensivo con ali molto larghe, mentre lo Sparta si affida alla fisicità del proprio centravanti e a una difesa organizzata.",
+        "probabilita_1x2": {
+          "1": 26,
+          "X": 28,
+          "2": 46
+        },
+        "probabilita_gol": {
+          "over_2_5": 54,
+          "under_2_5": 46,
+          "gol": 58,
+          "nogol": 42
+        },
+        "mercati_completi": {
+          "1": 26,
+          "X": 28,
+          "2": 46,
+          "1X": 54,
+          "X2": 74,
+          "12": 72,
+          "GG": 58,
+          "NG": 42,
+          "Over 1.5": 80,
+          "Under 1.5": 20,
+          "Over 2.5": 54,
+          "Under 2.5": 46,
+          "Over 3.5": 30,
+          "Under 3.5": 70,
+          "Multigol 1-3": 72,
+          "Multigol 2-4": 60,
+          "1+Over 1.5": 22,
+          "1X+GG": 48,
+          "2+Under 3.5": 35
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Olij",
+            "Bakari",
+            "Meissen",
+            "Eerdhuijzen",
+            "Van der Kust",
+            "Kitolano",
+            "Clement",
+            "Verschueren",
+            "Neghli",
+            "Lauritsen",
+            "Nassoh"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Owusu-Oduro",
+            "Maikuma",
+            "Penetra",
+            "Dekker",
+            "Wolfe",
+            "Clasie",
+            "Mijnans",
+            "Koopmeiners",
+            "Sadiq",
+            "Parrott",
+            "Van Bommel"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Tobias Lauritsen",
+              "ruolo": "Attaccante",
+              "probabilita": 32,
+              "motivazione": "Dominante nel gioco aereo e terminale dei cross laterali."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Troy Parrott",
+              "ruolo": "Attaccante",
+              "probabilita": 38,
+              "motivazione": "Finalizzatore principale della manovra corale dell'AZ."
+            },
+            {
+              "nome": "Sven Mijnans",
+              "ruolo": "Centrocampista",
+              "probabilita": 25,
+              "motivazione": "Capacità di inserimento e tiro dalla media distanza."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Pelle Clement",
+              "ruolo": "Centrocampista",
+              "probabilita": 28,
+              "motivazione": "Frequenti interventi tattici per interrompere il fraseggio avversario."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Jordy Clasie",
+              "ruolo": "Centrocampista",
+              "probabilita": 22,
+              "motivazione": "Esperienza nella gestione dei falli a metà campo."
+            }
+          ]
+        },
+        "consiglio_tecnico": "L'AZ Alkmaar possiede una qualità tecnica superiore che dovrebbe emergere nel lungo periodo, nonostante la resistenza dello Sparta."
+      },
+      "analizzato_il": "2026-11-19T16:40:09.655768+00:00"
     },
     {
       "id": 558836,
@@ -4031,8 +4777,8 @@
         "nome": "Ajax",
         "sigla": "AJA",
         "colori": [
-          null,
-          null
+          "#FFFFFF",
+          "#D2122E"
         ],
         "classifica": {
           "posizione": 3,
@@ -4045,8 +4791,8 @@
         "nome": "Den Haag",
         "sigla": "ADO",
         "colori": [
-          null,
-          null
+          "#007F3E",
+          "#FFD700"
         ],
         "classifica": {
           "posizione": 17,
@@ -4055,7 +4801,117 @@
           "forma": null
         }
       },
-      "analisi": null
+      "analisi": {
+        "analisi_tattica": "L'Ajax, in piena corsa per il vertice, affronta un Den Haag in grave difficoltà difensiva. Il sistema di gioco dei lancieri prevede un'aggressione alta e un sovraccarico delle corsie esterne. Il Den Haag cercherà di limitare gli spazi centrali, ma la differenza di ritmo atletico appare marcata.",
+        "probabilita_1x2": {
+          "1": 84,
+          "X": 11,
+          "2": 5
+        },
+        "probabilita_gol": {
+          "over_2_5": 75,
+          "under_2_5": 25,
+          "gol": 40,
+          "nogol": 60
+        },
+        "mercati_completi": {
+          "1": 84,
+          "X": 11,
+          "2": 5,
+          "1X": 95,
+          "X2": 16,
+          "12": 89,
+          "GG": 40,
+          "NG": 60,
+          "Over 1.5": 92,
+          "Under 1.5": 8,
+          "Over 2.5": 75,
+          "Under 2.5": 25,
+          "Over 3.5": 52,
+          "Under 3.5": 48,
+          "Multigol 1-3": 62,
+          "Multigol 2-4": 58,
+          "1+Over 1.5": 78,
+          "1X+GG": 42,
+          "2+Under 3.5": 4
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Pasveer",
+            "Rensch",
+            "Sutalo",
+            "Baas",
+            "Hato",
+            "Henderson",
+            "Taylor",
+            "Klaassen",
+            "Traoré",
+            "Brobbey",
+            "Godts"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "5-4-1",
+          "giocatori": [
+            "Nikiema",
+            "Asante",
+            "Waem",
+            "Hokke",
+            "Sylla",
+            "Boakye",
+            "Vlak",
+            "Klas",
+            "Ideho",
+            "Van der Sande",
+            "Bonis"
+          ]
+        },
+        "possibili_marcatori": {
+          "casa": [
+            {
+              "nome": "Brian Brobbey",
+              "ruolo": "Attaccante",
+              "probabilita": 50,
+              "motivazione": "Potenza fisica straripante nell'area di rigore."
+            },
+            {
+              "nome": "Bertrand Traoré",
+              "ruolo": "Attaccante",
+              "probabilita": 35,
+              "motivazione": "Abilità nell'uno contro uno e rientro sul piede forte."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Jort van der Sande",
+              "ruolo": "Attaccante",
+              "probabilita": 12,
+              "motivazione": "Unica minaccia potenziale su palla inattiva."
+            }
+          ]
+        },
+        "possibili_ammoniti": {
+          "casa": [
+            {
+              "nome": "Jordan Henderson",
+              "ruolo": "Centrocampista",
+              "probabilita": 15,
+              "motivazione": "Interventi di esperienza per prevenire contropiedi."
+            }
+          ],
+          "trasferta": [
+            {
+              "nome": "Diogo Tomas",
+              "ruolo": "Difensore",
+              "probabilita": 42,
+              "motivazione": "Costretto a fronteggiare la velocità degli attaccanti Ajax."
+            }
+          ]
+        },
+        "consiglio_tecnico": "Previsione di una vittoria netta dell'Ajax, con un'alta probabilità di mantenere la porta inviolata data la scarsa produzione offensiva degli ospiti."
+      },
+      "analizzato_il": "2026-11-19T16:40:09.655794+00:00"
     },
     {
       "id": 560646,
@@ -4142,97 +4998,6 @@
         "consiglio_tecnico": "Il differenziale tecnico e la superiorità nel possesso palla proiettano il Brighton verso una gestione dominante del ritmo gara. La disparità nelle metriche di expected goals (xG) suggerisce un esito favorevole alla formazione ospite, con alta probabilità di superamento della soglia dei 2.5 gol totali."
       },
       "analizzato_il": "2026-11-19T12:42:07.766425+00:00",
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": []
-    },
-    {
-      "id": 559625,
-      "competizione": {
-        "codice": "FL1",
-        "nome": "Ligue 1"
-      },
-      "ora_utc": "2026-11-22T14:00:00Z",
-      "stato": "TIMED",
-      "giornata": 11,
-      "squadra_casa": {
-        "nome": "Paris FC",
-        "sigla": "PFC",
-        "colori": [
-          "#0000FF",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 3,
-          "punti": 20,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Angers SCO",
-        "sigla": "ANG",
-        "colori": [
-          "#000000",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 16,
-          "punti": 8,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "analisi": {
-        "analisi_tattica": "Il Paris FC sfrutta un consolidato 4-3-3 con alta densità nel terzo offensivo e transizioni rapide. L'Angers SCO mostra fragilità strutturali in fase di non possesso, con una media gol subiti elevata e difficoltà nel consolidamento del baricentro difensivo.",
-        "probabilita_1x2": {
-          "1": 62,
-          "X": 23,
-          "2": 15
-        },
-        "probabilita_gol": {
-          "over_2_5": 55,
-          "under_2_5": 45,
-          "gol": 52,
-          "nogol": 48
-        },
-        "probabile_formazione_casa": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Nkambadio",
-            "Dabila",
-            "Mbow",
-            "Kolodziejczak",
-            "Gaudin",
-            "Doucet",
-            "Camara",
-            "Lopez",
-            "Kebbal",
-            "Dicko",
-            "Gory"
-          ]
-        },
-        "probabile_formazione_trasferta": {
-          "modulo": "4-2-3-1",
-          "giocatori": [
-            "Fofana",
-            "Arcus",
-            "Biumla",
-            "Hountondji",
-            "Hanin",
-            "Belkhdim",
-            "Aholou",
-            "Allevinah",
-            "Abdelli",
-            "El Melali",
-            "Diony"
-          ]
-        },
-        "consiglio_tecnico": "Il differenziale di rendimento tra le due formazioni suggerisce un controllo territoriale predominante dei padroni di casa. La proiezione statistica indica una probabilità superiore di vittoria interna, supportata dalla maggiore efficienza realizzativa del Paris FC rispetto alla vulnerabilità difensiva dell'Angers."
-      },
-      "analizzato_il": "2026-11-19T12:41:00.138259+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
@@ -4415,6 +5180,97 @@
         "consiglio_tecnico": "Il dato statistico evidenzia una maggiore propensione offensiva del Sassuolo tra le mura amiche, bilanciata però da una vulnerabilità difensiva cronica. La proiezione suggerisce una gara ad alta intensità con probabile esito in pareggio o vittoria di misura per la squadra di casa, data la necessità di punti per la risalita in classifica."
       },
       "analizzato_il": "2026-11-19T12:39:02.748369+00:00",
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": []
+    },
+    {
+      "id": 559625,
+      "competizione": {
+        "codice": "FL1",
+        "nome": "Ligue 1"
+      },
+      "ora_utc": "2026-11-22T14:00:00Z",
+      "stato": "TIMED",
+      "giornata": 11,
+      "squadra_casa": {
+        "nome": "Paris FC",
+        "sigla": "PFC",
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 3,
+          "punti": 20,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Angers SCO",
+        "sigla": "ANG",
+        "colori": [
+          "#000000",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 16,
+          "punti": 8,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Il Paris FC sfrutta un consolidato 4-3-3 con alta densità nel terzo offensivo e transizioni rapide. L'Angers SCO mostra fragilità strutturali in fase di non possesso, con una media gol subiti elevata e difficoltà nel consolidamento del baricentro difensivo.",
+        "probabilita_1x2": {
+          "1": 62,
+          "X": 23,
+          "2": 15
+        },
+        "probabilita_gol": {
+          "over_2_5": 55,
+          "under_2_5": 45,
+          "gol": 52,
+          "nogol": 48
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Nkambadio",
+            "Dabila",
+            "Mbow",
+            "Kolodziejczak",
+            "Gaudin",
+            "Doucet",
+            "Camara",
+            "Lopez",
+            "Kebbal",
+            "Dicko",
+            "Gory"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Fofana",
+            "Arcus",
+            "Biumla",
+            "Hountondji",
+            "Hanin",
+            "Belkhdim",
+            "Aholou",
+            "Allevinah",
+            "Abdelli",
+            "El Melali",
+            "Diony"
+          ]
+        },
+        "consiglio_tecnico": "Il differenziale di rendimento tra le due formazioni suggerisce un controllo territoriale predominante dei padroni di casa. La proiezione statistica indica una probabilità superiore di vittoria interna, supportata dalla maggiore efficienza realizzativa del Paris FC rispetto alla vulnerabilità difensiva dell'Angers."
+      },
+      "analizzato_il": "2026-11-19T12:41:00.138259+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
@@ -4739,97 +5595,6 @@
       "marcatori_reali": []
     },
     {
-      "id": 560645,
-      "competizione": {
-        "codice": "PL",
-        "nome": "Premier League"
-      },
-      "ora_utc": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
-      "giornata": 11,
-      "squadra_casa": {
-        "nome": "Liverpool",
-        "sigla": "LIV",
-        "colori": [
-          "#C8102E",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 4,
-          "punti": 18,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "squadra_trasferta": {
-        "nome": "Man United",
-        "sigla": "MUN",
-        "colori": [
-          "#000000",
-          "#FFFFFF"
-        ],
-        "classifica": {
-          "posizione": 18,
-          "punti": 8,
-          "giocate": 10,
-          "forma": null
-        }
-      },
-      "analisi": {
-        "analisi_tattica": "Il Liverpool sfrutta un pressing alto con transizioni rapide e superiorità numerica sulle fasce. Il Manchester United mostra criticità strutturali nella tenuta difensiva e nella transizione negativa, subendo un elevato volume di conclusioni avversarie. Il differenziale di Expected Points indica una netta divergenza di rendimento tra i due reparti offensivi.",
-        "probabilita_1x2": {
-          "1": 68,
-          "X": 19,
-          "2": 13
-        },
-        "probabilita_gol": {
-          "over_2_5": 65,
-          "under_2_5": 35,
-          "gol": 58,
-          "nogol": 42
-        },
-        "probabile_formazione_casa": {
-          "modulo": "4-3-3",
-          "giocatori": [
-            "Alisson",
-            "Alexander-Arnold",
-            "Konate",
-            "Van Dijk",
-            "Robertson",
-            "Gravenberch",
-            "Mac Allister",
-            "Szoboszlai",
-            "Salah",
-            "Jota",
-            "Diaz"
-          ]
-        },
-        "probabile_formazione_trasferta": {
-          "modulo": "4-2-3-1",
-          "giocatori": [
-            "Onana",
-            "Dalot",
-            "De Ligt",
-            "Martinez",
-            "Mazraoui",
-            "Mainoo",
-            "Ugarte",
-            "Garnacho",
-            "Fernandes",
-            "Rashford",
-            "Hojlund"
-          ]
-        },
-        "consiglio_tecnico": "Il Liverpool presenta metriche di possesso e xG significativamente superiori, beneficiando del fattore campo e di una maggiore solidità nel consolidamento del possesso. La fragilità difensiva dello United suggerisce un'alta probabilità di esiti con marcatura multipla a favore della formazione locale."
-      },
-      "analizzato_il": "2026-11-19T12:43:00.051889+00:00",
-      "risultato_reale": {
-        "home": null,
-        "away": null
-      },
-      "marcatori_reali": []
-    },
-    {
       "id": 565863,
       "competizione": {
         "codice": "BL1",
@@ -4914,6 +5679,97 @@
         "consiglio_tecnico": "Il Werder Bremen presenta una maggiore solidità strutturale e una produzione offensiva più costante tra le mura amiche. La propensione statistica indica una gara aperta con alta probabilità di esiti positivi per la squadra di casa, supportata da una migliore efficienza nella conversione delle occasioni create."
       },
       "analizzato_il": "2026-11-19T12:43:26.900516+00:00",
+      "risultato_reale": {
+        "home": null,
+        "away": null
+      },
+      "marcatori_reali": []
+    },
+    {
+      "id": 560645,
+      "competizione": {
+        "codice": "PL",
+        "nome": "Premier League"
+      },
+      "ora_utc": "2026-11-22T16:30:00Z",
+      "stato": "TIMED",
+      "giornata": 11,
+      "squadra_casa": {
+        "nome": "Liverpool",
+        "sigla": "LIV",
+        "colori": [
+          "#C8102E",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 4,
+          "punti": 18,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "squadra_trasferta": {
+        "nome": "Man United",
+        "sigla": "MUN",
+        "colori": [
+          "#000000",
+          "#FFFFFF"
+        ],
+        "classifica": {
+          "posizione": 18,
+          "punti": 8,
+          "giocate": 10,
+          "forma": null
+        }
+      },
+      "analisi": {
+        "analisi_tattica": "Il Liverpool sfrutta un pressing alto con transizioni rapide e superiorità numerica sulle fasce. Il Manchester United mostra criticità strutturali nella tenuta difensiva e nella transizione negativa, subendo un elevato volume di conclusioni avversarie. Il differenziale di Expected Points indica una netta divergenza di rendimento tra i due reparti offensivi.",
+        "probabilita_1x2": {
+          "1": 68,
+          "X": 19,
+          "2": 13
+        },
+        "probabilita_gol": {
+          "over_2_5": 65,
+          "under_2_5": 35,
+          "gol": 58,
+          "nogol": 42
+        },
+        "probabile_formazione_casa": {
+          "modulo": "4-3-3",
+          "giocatori": [
+            "Alisson",
+            "Alexander-Arnold",
+            "Konate",
+            "Van Dijk",
+            "Robertson",
+            "Gravenberch",
+            "Mac Allister",
+            "Szoboszlai",
+            "Salah",
+            "Jota",
+            "Diaz"
+          ]
+        },
+        "probabile_formazione_trasferta": {
+          "modulo": "4-2-3-1",
+          "giocatori": [
+            "Onana",
+            "Dalot",
+            "De Ligt",
+            "Martinez",
+            "Mazraoui",
+            "Mainoo",
+            "Ugarte",
+            "Garnacho",
+            "Fernandes",
+            "Rashford",
+            "Hojlund"
+          ]
+        },
+        "consiglio_tecnico": "Il Liverpool presenta metriche di possesso e xG significativamente superiori, beneficiando del fattore campo e di una maggiore solidità nel consolidamento del possesso. La fragilità difensiva dello United suggerisce un'alta probabilità di esiti con marcatura multipla a favore della formazione locale."
+      },
+      "analizzato_il": "2026-11-19T12:43:00.051889+00:00",
       "risultato_reale": {
         "home": null,
         "away": null
