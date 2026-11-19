@@ -1,152 +1,30 @@
-
-const CACHE_NAME = "pronostici352-v1";
-
-const SHELL = [
-    "./",
-    "index.html",
-    "style.css",
-    "app.js",
-    "manifest.json"
-];
-
-// INSTALLAZIONE
-self.addEventListener("install", (event) => {
-
-    event.waitUntil(
-
-        caches.open(CACHE_NAME)
-
-            .then((cache) => cache.addAll(SHELL))
-
-            .then(() => self.skipWaiting())
-
-    );
-
+const CACHE_NAME = "pronostici352-v2";
+const SHELL = ["./", "index.html", "style.css", "app.js", "manifest.json", "icon-192.png", "icon-512.png"];
+self.addEventListener("install", e => {
+  e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(SHELL)));
+  self.skipWaiting();
 });
-
-
-// ATTIVAZIONE E PULIZIA CACHE VECCHIE
-self.addEventListener("activate", (event) => {
-
-    event.waitUntil(
-
-        caches.keys()
-
-            .then((keys) =>
-
-                Promise.all(
-
-                    keys
-
-                        .filter((key) => key !== CACHE_NAME)
-
-                        .map((key) => caches.delete(key))
-
-                )
-
-            )
-
-            .then(() => self.clients.claim())
-
-    );
-
+self.addEventListener("activate", e => {
+  e.waitUntil(caches.keys().then(k => Promise.all(k.filter(x => x !== CACHE_NAME).map(x => caches.delete(x)))).then(() => self.clients.claim()));
 });
-
-
-// GESTIONE RICHIESTE
-self.addEventListener("fetch", (event) => {
-
-    const request = event.request;
-
-    if (request.method !== "GET") {
-        return;
-    }
-
-    const url = new URL(request.url);
-
-    if (url.origin !== self.location.origin) {
-        return;
-    }
-
-
-    // DATI PARTITE:
-    // Rete prioritaria per ottenere risultati e marcatori aggiornati.
-    // Cache utilizzata esclusivamente come fallback offline.
-
-    if (url.pathname.includes("/data/matches.json")) {
-
-        event.respondWith(
-
-            fetch(request)
-
-                .then((response) => {
-
-                    if (response.ok) {
-
-                        const copia = response.clone();
-
-                        caches.open(CACHE_NAME)
-
-                            .then((cache) => {
-
-                                cache.put(request, copia);
-
-                            });
-
-                    }
-
-                    return response;
-
-                })
-
-                .catch(() => {
-
-                    return caches.match(request);
-
-                })
-
-        );
-
-        return;
-
-    }
-
-
-    // FILE STATICI:
-    // Cache first, rete come fallback.
-
-    event.respondWith(
-
-        caches.match(request)
-
-            .then((cached) => {
-
-                if (cached) {
-                    return cached;
-                }
-
-                return fetch(request).then((response) => {
-
-                    if (response.ok) {
-
-                        const copia = response.clone();
-
-                        caches.open(CACHE_NAME)
-
-                            .then((cache) => {
-
-                                cache.put(request, copia);
-
-                            });
-
-                    }
-
-                    return response;
-
-                });
-
-            })
-
-    );
-
+self.addEventListener("fetch", e => {
+  const req = e.request, url = new URL(req.url);
+  if (req.method !== "GET" || url.origin !== location.origin) return;
+  if (url.pathname.endsWith("/data/matches.json") || url.pathname.endsWith("/data/squads_cache.json")) {
+    // Network First, senza cache HTTP: cache solo come fallback offline
+    e.respondWith(fetch(req, { cache: "no-store" }).then(r => {
+      const copy = r.clone();
+      caches.open(CACHE_NAME).then(c => c.put(req, copy));
+      return r;
+    }).catch(() => caches.match(req)));
+    return;
+  }
+  e.respondWith(caches.match(req).then(hit => {
+    const net = fetch(req).then(r => {
+      const copy = r.clone();
+      caches.open(CACHE_NAME).then(c => c.put(req, copy));
+      return r;
+    }).catch(() => hit);
+    return hit || net;
+  }));
 });
