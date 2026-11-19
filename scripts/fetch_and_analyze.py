@@ -11,7 +11,7 @@ from google.genai import types
 COMPETIZIONI = {"SA": "Serie A", "PL": "Premier League", "PD": "La Liga",
                 "BL1": "Bundesliga", "FL1": "Ligue 1", "CL": "Champions League"}
 API = "https://api.football-data.org/v4"
-MODELLO = "gemini-2.5-flash"
+MODELLO = "gemini-3-flash-preview"
 USCITA = Path(__file__).resolve().parent.parent / "public" / "data" / "matches.json"
 PAUSA = 7  # secondi tra una chiamata e l'altra: il limite gratuito è 10 richieste/minuto (sia Football-Data sia Gemini)
 GIORNI = 7  # finestra di ricerca: da oggi a oggi + 7 giorni
