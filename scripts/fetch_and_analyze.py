@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scarica le partite di oggi (Football-Data.org v4) e genera l'analisi con Gemini."""
+"""Scarica le partite dei prossimi 7 giorni (Football-Data.org v4) e genera l'analisi con Gemini."""
 import json, os, re, sys, time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -11,10 +11,15 @@ from google.genai import types
 COMPETIZIONI = {"SA": "Serie A", "PL": "Premier League", "PD": "La Liga",
                 "BL1": "Bundesliga", "FL1": "Ligue 1", "CL": "Champions League"}
 API = "https://api.football-data.org/v4"
-MODELLO = "gemini-3-flash-preview"
 USCITA = Path(__file__).resolve().parent.parent / "public" / "data" / "matches.json"
-PAUSA = 7  # secondi tra una chiamata e l'altra: il limite gratuito è 10 richieste/minuto (sia Football-Data sia Gemini)
+PAUSA = 7  # secondi tra una chiamata e l'altra: il limite gratuito è 10 richieste/minuto
 GIORNI = 7  # finestra di ricerca: da oggi a oggi + 7 giorni
+
+# Modelli Gemini: preferiti (stabili) e parole da escludere (immagini, audio, embedding...)
+MODELLI_PREFERITI = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.0-flash", "gemini-2.5-flash-lite"]
+ESCLUDI = ("image", "tts", "audio", "live", "embedding", "imagen", "veo", "vision", "robotics",
+           "computer-use", "learnlm", "gemma", "aqa", "native-audio")
+
 VIETATI = re.compile(r"\b(quote|scommess\w*|bookmaker|puntat\w*|schedin\w*|bet(?:ting|s)?)\b", re.I)
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 _ultimo = {}
@@ -54,6 +59,32 @@ def classifica(codice, chiave_api):
             out[riga["team"]["id"]] = {"posizione": riga.get("position"), "punti": riga.get("points"),
                                        "giocate": riga.get("playedGames"), "forma": riga.get("form")}
     return out
+
+
+def scegli_modelli(client):
+    """Restituisce i modelli Gemini che supportano generateContent, in ordine di preferenza."""
+    forzato = os.environ.get("GEMINI_MODEL", "").strip()
+    disponibili = []
+    try:
+        for m in client.models.list():
+            azioni = getattr(m, "supported_actions", None) or []
+            nome = (m.name or "").removeprefix("models/")
+            if "generateContent" in azioni and nome.startswith("gemini") \
+                    and not any(x in nome for x in ESCLUDI):
+                disponibili.append(nome)
+    except Exception as e:
+        print(f"Elenco modelli non disponibile ({e}), uso i preferiti.", file=sys.stderr)
+        disponibili = list(MODELLI_PREFERITI)
+
+    ordinati = [n for n in MODELLI_PREFERITI if n in disponibili]
+    ordinati += [n for n in disponibili if n not in ordinati and "flash" in n]
+    ordinati += [n for n in disponibili if n not in ordinati]
+    if forzato:
+        ordinati = [forzato] + [n for n in ordinati if n != forzato]
+    if not ordinati:
+        sys.exit("Nessun modello Gemini con generateContent disponibile per questa chiave API.")
+    print("Modelli candidati:", ", ".join(ordinati[:5]))
+    return ordinati
 
 
 def num(x):
@@ -119,13 +150,16 @@ Restituisci SOLO un oggetto JSON con queste chiavi:
 Stima gli 11 titolari in base alle rose attuali, al meglio delle tue conoscenze."""
 
 
-def analizza(client, partita):
+def analizza(client, modelli, partita):
+    """Prova i modelli in ordine: se uno risponde 404 passa al successivo."""
     prompt = prompt_partita(partita)
-    for tentativo in range(3):
+    tentativi = 0
+    while modelli and tentativi < 3 + len(modelli):
+        tentativi += 1
         attendi("gemini")
         try:
             r = client.models.generate_content(
-                model=MODELLO, contents=prompt,
+                model=modelli[0], contents=prompt,
                 config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.3))
             d = json.loads(r.text)
             if isinstance(d, list):
@@ -135,8 +169,12 @@ def analizza(client, partita):
                 continue
             return normalizza(d)
         except Exception as e:
-            print(f"  tentativo {tentativo + 1} fallito: {e}", file=sys.stderr)
-            if "429" in str(e):
+            msg = str(e)
+            print(f"  tentativo {tentativi} fallito ({modelli[0]}): {msg[:200]}", file=sys.stderr)
+            if "404" in msg or "NOT_FOUND" in msg:
+                scartato = modelli.pop(0)
+                print(f"  modello {scartato} non utilizzabile, passo al successivo", file=sys.stderr)
+            elif "429" in msg:
                 time.sleep(40)
     return None
 
@@ -177,7 +215,10 @@ def main():
     print(f"{len(grezze)} partite trovate dal {oggi} al {fine}")
 
     classifiche = {c: classifica(c, chiave_fd) for c in sorted({m["competition"]["code"] for m in grezze})}
+
+    # Client predefinito: nessuna api_version forzata (usa v1beta)
     client = genai.Client(api_key=chiave_gem)
+    modelli = scegli_modelli(client)
 
     partite = []
     for n, m in enumerate(grezze, 1):
@@ -190,7 +231,7 @@ def main():
              "squadra_casa": squadra(m["homeTeam"], classifiche[cod]),
              "squadra_trasferta": squadra(m["awayTeam"], classifiche[cod]), "analisi": None}
         print(f"[{n}/{len(grezze)}] Analizzo {p['squadra_casa']['nome']} - {p['squadra_trasferta']['nome']}")
-        a = analizza(client, p)  # la pausa tra una partita e l'altra è gestita da attendi()
+        a = analizza(client, modelli, p)  # la pausa tra una partita e l'altra è gestita da attendi()
         if a:
             p["squadra_casa"]["colori"] = a.pop("colori_casa")
             p["squadra_trasferta"]["colori"] = a.pop("colori_trasferta")
