@@ -5,8 +5,8 @@ import os, re, json, time, unicodedata, datetime as dt, requests
 FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_API_KEY") or os.environ.get("FOOTBALL_API_KEY") or os.environ["FD_API_KEY"]
 GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ["GOOGLE_API_KEY"]
 GIORNI = 4          # finestra di ricerca (giorni)
-PAUSA = 5           # pausa tra chiamate Gemini
-PAUSA_FD = 7        # pausa tra chiamate Football-Data (piano Free: 10/min)
+PAUSA = 2           # pausa tra chiamate Gemini
+PAUSA_FD = 6.2       # pausa tra chiamate Football-Data (piano Free: 10/min)
 CACHE_GIORNI = 7    # validita cache rose
 OUT = "public/data/matches.json"
 SQ = "public/data/squads_cache.json"
@@ -104,22 +104,27 @@ def partite():
 
 
 def carica_rose(team_ids):
+    os.makedirs(os.path.dirname(SQ), exist_ok=True)
     try:
         cache = json.load(open(SQ, encoding="utf-8"))
     except Exception:
         cache = {}
-    limite = (dt.datetime.utcnow() - dt.timedelta(days=CACHE_GIORNI)).isoformat()
-    for tid in team_ids:
-        e = cache.get(str(tid))
-        if e and e.get("ts", "") >= limite:
-            continue
+    limite = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=CACHE_GIORNI)).isoformat()
+    da_scaricare = [tid for tid in team_ids if not cache.get(str(tid)) or cache[str(tid)].get("ts", "") < limite]
+    print(f"Rose da aggiornare: {len(da_scaricare)} su {len(team_ids)}", flush=True)
+    for idx, tid in enumerate(da_scaricare, 1):
+        print(f"  [{idx}/{len(da_scaricare)}] Scarico rosa team {tid}...", flush=True)
         j = fd(f"/teams/{tid}")
         if j and j.get("squad"):
-            cache[str(tid)] = {"ts": dt.datetime.utcnow().isoformat(),
-                               "squad": [{"name": p.get("name"), "position": p.get("position"),
-                                          "shirtNumber": p.get("shirtNumber")} for p in j["squad"]]}
+            cache[str(tid)] = {
+                "ts": dt.datetime.now(dt.timezone.utc).isoformat(),
+                "squad": [{"name": p.get("name"), "position": p.get("position"), "shirtNumber": p.get("shirtNumber")} for p in j["squad"]]
+            }
+        if idx % 10 == 0:
+            json.dump(cache, open(SQ, "w", encoding="utf-8"), ensure_ascii=False)
     json.dump(cache, open(SQ, "w", encoding="utf-8"), ensure_ascii=False)
     return cache
+
 
 
 def classifiche(codici):
@@ -143,24 +148,29 @@ def rosa_txt(cache, tid):
 
 def analizza(modello, m, cache, cl):
     hid, aid = m["homeTeam"]["id"], m["awayTeam"]["id"]
+    casa_nome, trasf_nome = m["homeTeam"]["name"], m["awayTeam"]["name"]
+    print(f"Analisi AI: {casa_nome} vs {trasf_nome}...", flush=True)
     righe = cl.get(m["_c"], {})
-    p = PROMPT.format(casa=m["homeTeam"]["name"], trasf=m["awayTeam"]["name"], comp=COMP[m["_c"]], data=m["utcDate"],
+    p = PROMPT.format(casa=casa_nome, trasf=trasf_nome, comp=COMP[m["_c"]], data=m["utcDate"],
                       classifica=" | ".join(x for x in (righe.get(hid), righe.get(aid)) if x) or "n.d.",
                       rosa_c=rosa_txt(cache, hid) or "n.d.", rosa_t=rosa_txt(cache, aid) or "n.d.")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{modello}:generateContent"
-    for _ in range(3):
+    for tentativo in range(2):
         try:
-            r = requests.post(url, params={"key": GM_KEY}, timeout=120, json={
+            r = requests.post(url, params={"key": GM_KEY}, timeout=35, json={
                 "contents": [{"parts": [{"text": p}]}],
                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}})
             if r.status_code == 429:
-                time.sleep(25); continue
+                print("  Rate limit Gemini, attendo 20s...", flush=True)
+                time.sleep(20); continue
             r.raise_for_status()
             t = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(re.sub(r"^```(?:json)?|```$", "", t.strip()).strip())
         except Exception as e:
-            print("Gemini:", e); time.sleep(10)
+            print(f"  Errore Gemini (tentativo {tentativo+1}): {e}", flush=True)
+            time.sleep(5)
     return None
+
 
 
 def valida(ai, cache, m):
