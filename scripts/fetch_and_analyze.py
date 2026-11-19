@@ -6,7 +6,7 @@ FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_AP
 GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ["GOOGLE_API_KEY"]
 GIORNI = 4          # finestra di ricerca (giorni)
 PAUSA = 2           # pausa tra chiamate Gemini
-PAUSA_FD = 6.2       # pausa tra chiamate Football-Data (piano Free: 10/min)
+PAUSA_FD = 6.2      # pausa tra chiamate Football-Data (piano Free: 10/min)
 CACHE_GIORNI = 7    # validita cache rose
 OUT = "public/data/matches.json"
 SQ = "public/data/squads_cache.json"
@@ -84,7 +84,6 @@ def scegli_modello():
     return "gemini-2.5-flash"
 
 
-
 def partite():
     oggi = dt.date.today(); fine = oggi + dt.timedelta(days=GIORNI); res = []
     for c in COMP:
@@ -117,7 +116,6 @@ def carica_rose(team_ids):
     return cache
 
 
-
 def classifiche(codici):
     res = {}
     for c in codici:
@@ -145,7 +143,7 @@ def analizza(modello, m, cache, cl):
     p = PROMPT.format(casa=casa_nome, trasf=trasf_nome, comp=COMP[m["_c"]], data=m["utcDate"],
                       classifica=" | ".join(x for x in (righe.get(hid), righe.get(aid)) if x) or "n.d.",
                       rosa_c=rosa_txt(cache, hid) or "n.d.", rosa_t=rosa_txt(cache, aid) or "n.d.")
-    url =     url = "https://googleapis.com" + modello + ":generateContent"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/" + modello + ":generateContent"
 
     for tentativo in range(4):
         try:
@@ -165,8 +163,6 @@ def analizza(modello, m, cache, cl):
             print(f"  Errore Gemini (tentativo {tentativo+1}): {e}", flush=True)
             time.sleep(10)
     return None
-
-
 
 
 def valida(ai, cache, m):
@@ -201,6 +197,7 @@ def valida(ai, cache, m):
 
 def main():
     modello = scegli_modello(); print("Modello:", modello)
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
     try:
         vecchi = {m["id"]: m for m in json.load(open(OUT, encoding="utf-8")).get("matches", [])}
     except Exception:
@@ -209,7 +206,7 @@ def main():
     CH = ("analisi", "formazioni", "prob_1x2", "mercati_completi", "possibili_marcatori", "possibili_ammoniti",
           "pronostico_principale", "affidabilita", "stemma_casa", "stemma_trasf", "rosa_verificata")
     da_fare = [m for m in tutte if not vecchi.get(m["id"], {}).get("analisi") and m["status"] in ("TIMED", "SCHEDULED")
-               and m["homeTeam"].get("id") and m["awayTeam"].get("id")]
+               and m["homeTeam"].get("id") and m["awayTeam"].get("id") and m["homeTeam"].get("name") and m["awayTeam"].get("name")]
     cache = carica_rose({t for m in da_fare for t in (m["homeTeam"]["id"], m["awayTeam"]["id"])})
     cl = classifiche({m["_c"] for m in da_fare})
     out = []
@@ -217,7 +214,8 @@ def main():
         old = vecchi.get(m["id"], {})
         ft = (m.get("score") or {}).get("fullTime") or {}
         rec = {"id": m["id"], "comp": m["_c"], "compNome": COMP[m["_c"]], "data": m["utcDate"],
-               "casa": m["homeTeam"]["name"], "trasf": m["awayTeam"]["name"], "stato": m["status"],
+               "casa": m["homeTeam"].get("name") or "Da definire", "trasf": m["awayTeam"].get("name") or "Da definire",
+               "stato": m["status"],
                "score": [ft.get("home"), ft.get("away")] if ft.get("home") is not None else None}
         ai = {k: old[k] for k in CH if k in old}
         if m in da_fare:
@@ -226,7 +224,8 @@ def main():
             time.sleep(PAUSA)
         rec.update(ai); out.append(rec)
     out.sort(key=lambda x: x["data"])
-    json.dump({"aggiornato_il": dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z", "modello": modello, "matches": out},
+    json.dump({"aggiornato_il": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+               "modello": modello, "matches": out},
               open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("Partite salvate:", len(out))
 
