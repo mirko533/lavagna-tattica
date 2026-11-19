@@ -14,6 +14,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lista{max-width:640px;margin:0 auto;padding:14px 14px 0;display:grid;gap:12px}
 .vuoto,.banner{background:var(--gesso);border:1.5px dashed var(--linea);border-radius:12px;padding:16px;color:var(--muto)}
 .banner{border-color:var(--ambra);color:var(--inchiostro);font-size:.9rem}
+.giorno{margin:10px 2px 0;font-size:.95rem;font-weight:800;color:var(--lavagna);border-bottom:2px solid var(--ambra);padding-bottom:4px}
 .card{display:block;width:100%;text-align:left;background:var(--gesso);border:1px solid var(--linea);border-radius:14px;padding:12px 14px}
 .card:active{background:#fff}
 .meta{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muto);margin-bottom:8px}

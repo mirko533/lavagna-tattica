@@ -47,19 +47,28 @@ function campo(f, sq) {
 const seg = (v, cls) => `<span class="${cls}" style="flex:${Math.max(v, 3)}">${v}%</span>`;
 const duo = (a, b, la, lb) => `<div class="blocco"><div class="lbl"><span>${la}</span><span>${lb}</span></div><div class="bar">${seg(a, "sa")}${seg(b, "sb")}</div></div>`;
 
-/* ---------- lista ---------- */
+/* ---------- lista (raggruppata per giorno) ---------- */
 const ora = (iso) => new Date(iso).toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+const chiaveGiorno = (iso) => new Date(iso).toLocaleDateString("en-CA");
+const giorno = (iso) => new Date(iso).toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" }).replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 function renderFiltri() {
   $("#filtri").innerHTML = FILTRI.map(([c, n]) => `<button class="chip" data-f="${c}" aria-pressed="${c === filtro}">${n}</button>`).join("");
 }
+function cardHtml(p) {
+  const pr = p.analisi?.probabilita_1x2;
+  return `<button class="card" data-id="${p.id}"><div class="meta"><span>${esc(p.competizione.nome)}</span><span>${p.giornata ? "Giornata " + p.giornata : ""}</span></div><div class="sfida"><div class="sq">${scudetto(p.squadra_casa)}${esc(p.squadra_casa.nome)}</div><div class="ora">${ora(p.ora_utc)}</div><div class="sq">${scudetto(p.squadra_trasferta)}${esc(p.squadra_trasferta.nome)}</div></div>${pr ? `<div class="bar" aria-hidden="true">${seg(pr["1"], "s1")}${seg(pr.X, "sX")}${seg(pr["2"], "s2")}</div>` : ""}</button>`;
+}
 function renderLista() {
-  const tutte = dati.partite || [];
+  const tutte = [...(dati.partite || [])].sort((a, b) => a.ora_utc.localeCompare(b.ora_utc));
   const sel = filtro === "ALL" ? tutte : tutte.filter((p) => p.competizione.codice === filtro);
   let html = dati.esempio ? '<div class="banner">Dati di esempio con squadre inventate. Le partite reali compaiono dopo il primo avvio del workflow.</div>' : "";
-  html += sel.length ? sel.map((p) => {
-    const pr = p.analisi?.probabilita_1x2;
-    return `<button class="card" data-id="${p.id}"><div class="meta"><span>${esc(p.competizione.nome)}</span><span>${p.giornata ? "Giornata " + p.giornata : ""}</span></div><div class="sfida"><div class="sq">${scudetto(p.squadra_casa)}${esc(p.squadra_casa.nome)}</div><div class="ora">${ora(p.ora_utc)}</div><div class="sq">${scudetto(p.squadra_trasferta)}${esc(p.squadra_trasferta.nome)}</div></div>${pr ? `<div class="bar" aria-hidden="true">${seg(pr["1"], "s1")}${seg(pr.X, "sX")}${seg(pr["2"], "s2")}</div>` : ""}</button>`;
-  }).join("") : '<div class="vuoto">Nessuna partita in programma oggi per questa competizione.</div>';
+  let corrente = "";
+  for (const p of sel) {
+    const k = chiaveGiorno(p.ora_utc);
+    if (k !== corrente) { corrente = k; html += `<h2 class="giorno">${giorno(p.ora_utc)}</h2>`; }
+    html += cardHtml(p);
+  }
+  if (!sel.length) html += '<div class="vuoto">Nessuna partita nei prossimi 7 giorni per questa competizione.</div>';
   $("#lista").innerHTML = html;
 }
 
@@ -67,7 +76,7 @@ function renderLista() {
 const pos = (sq) => sq.classifica ? `<span class="pos">${sq.classifica.posizione}° · ${sq.classifica.punti} pt</span>` : "";
 function renderScheda() {
   const p = aperta, a = p.analisi, c = p.squadra_casa, t = p.squadra_trasferta;
-  let h = `<div class="testata"><div class="sub">${esc(p.competizione.nome)} · ore ${ora(p.ora_utc)}</div><div class="sfida"><div class="sq">${scudetto(c, 52)}${esc(c.nome)}${pos(c)}</div><div class="ora">vs</div><div class="sq">${scudetto(t, 52)}${esc(t.nome)}${pos(t)}</div></div></div>`;
+  let h = `<div class="testata"><div class="sub">${esc(p.competizione.nome)} · ${giorno(p.ora_utc)} - ${ora(p.ora_utc)}</div><div class="sfida"><div class="sq">${scudetto(c, 52)}${esc(c.nome)}${pos(c)}</div><div class="ora">vs</div><div class="sq">${scudetto(t, 52)}${esc(t.nome)}${pos(t)}</div></div></div>`;
   if (!a) return h + '<p class="vuoto">Analisi non disponibile per questa partita.</p>' + nota();
   const o = a.probabilita_1x2, g = a.probabilita_gol, casa = lato === "casa";
   h += `<h2>Probabilità dell'esito</h2><div class="blocco"><div class="lbl"><span>${esc(c.nome)}</span><span>Pareggio</span><span>${esc(t.nome)}</span></div><div class="bar">${seg(o["1"], "s1")}${seg(o.X, "sX")}${seg(o["2"], "s2")}</div></div>`;
@@ -103,8 +112,7 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#she
     const r = await fetch("data/matches.json", { cache: "no-cache" });
     if (!r.ok) throw new Error(r.status);
     dati = await r.json();
-    const d = new Date(dati.data + "T12:00:00").toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" });
-    $("#sottotitolo").textContent = `Partite di oggi · ${d}`;
+    $("#sottotitolo").textContent = "Partite dei prossimi 7 giorni";
     renderLista();
   } catch (e) {
     $("#sottotitolo").textContent = "Dati non disponibili";

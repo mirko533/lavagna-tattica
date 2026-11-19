@@ -13,7 +13,8 @@ COMPETIZIONI = {"SA": "Serie A", "PL": "Premier League", "PD": "La Liga",
 API = "https://api.football-data.org/v4"
 MODELLO = "gemini-2.5-flash"
 USCITA = Path(__file__).resolve().parent.parent / "public" / "data" / "matches.json"
-PAUSA = 7  # secondi: limite gratuito di 10 richieste/minuto
+PAUSA = 7  # secondi tra una chiamata e l'altra: il limite gratuito è 10 richieste/minuto (sia Football-Data sia Gemini)
+GIORNI = 7  # finestra di ricerca: da oggi a oggi + 7 giorni
 VIETATI = re.compile(r"\b(quote|scommess\w*|bookmaker|puntat\w*|schedin\w*|bet(?:ting|s)?)\b", re.I)
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 _ultimo = {}
@@ -149,25 +150,37 @@ def squadra(t, classifiche):
 def main():
     chiave_fd, chiave_gem = os.environ["FOOTBALL_DATA_API_KEY"], os.environ["GEMINI_API_KEY"]
     adesso = datetime.now(timezone.utc)
-    oggi = adesso.date().isoformat()
-    domani = (adesso.date() + timedelta(days=1)).isoformat()
+    oggi = adesso.date()
+    fine = oggi + timedelta(days=GIORNI)
 
+    # Riusa le analisi già fatte nelle ultime 48 ore (risparmia richieste a Gemini)
     cache = {}
     if USCITA.exists():
-        vecchio = json.loads(USCITA.read_text(encoding="utf-8"))
-        if vecchio.get("data") == oggi and not vecchio.get("esempio"):
-            cache = {p["id"]: p for p in vecchio.get("partite", []) if p.get("analisi")}
+        try:
+            vecchio = json.loads(USCITA.read_text(encoding="utf-8"))
+        except ValueError:
+            vecchio = {}
+        if not vecchio.get("esempio"):
+            for p in vecchio.get("partite", []):
+                t = p.get("analizzato_il")
+                if p.get("analisi") and t and adesso - datetime.fromisoformat(t) < timedelta(hours=48):
+                    cache[p["id"]] = p
 
-    dati = fd_get("/matches", chiave_fd, competitions=",".join(COMPETIZIONI), dateFrom=oggi, dateTo=domani)
-    grezze = sorted((m for m in dati.get("matches", []) if m["utcDate"].startswith(oggi)
-                     and m["competition"]["code"] in COMPETIZIONI), key=lambda m: m["utcDate"])
-    print(f"{len(grezze)} partite trovate per {oggi}")
+    # dateTo viene richiesto con un giorno in più e poi filtrato, per non perdere l'ultimo giorno
+    dati = fd_get("/matches", chiave_fd, competitions=",".join(COMPETIZIONI),
+                  dateFrom=oggi.isoformat(), dateTo=(fine + timedelta(days=1)).isoformat())
+    grezze = sorted((m for m in dati.get("matches", [])
+                     if oggi.isoformat() <= m["utcDate"][:10] <= fine.isoformat()
+                     and m["competition"]["code"] in COMPETIZIONI
+                     and m.get("status") not in ("CANCELLED", "POSTPONED", "SUSPENDED")),
+                    key=lambda m: m["utcDate"])
+    print(f"{len(grezze)} partite trovate dal {oggi} al {fine}")
 
     classifiche = {c: classifica(c, chiave_fd) for c in sorted({m["competition"]["code"] for m in grezze})}
     client = genai.Client(api_key=chiave_gem)
 
     partite = []
-    for m in grezze:
+    for n, m in enumerate(grezze, 1):
         if m["id"] in cache:
             partite.append(cache[m["id"]])
             continue
@@ -176,16 +189,18 @@ def main():
              "ora_utc": m["utcDate"], "stato": m.get("status"), "giornata": m.get("matchday"),
              "squadra_casa": squadra(m["homeTeam"], classifiche[cod]),
              "squadra_trasferta": squadra(m["awayTeam"], classifiche[cod]), "analisi": None}
-        print(f"Analizzo {p['squadra_casa']['nome']} - {p['squadra_trasferta']['nome']}")
-        a = analizza(client, p)
+        print(f"[{n}/{len(grezze)}] Analizzo {p['squadra_casa']['nome']} - {p['squadra_trasferta']['nome']}")
+        a = analizza(client, p)  # la pausa tra una partita e l'altra è gestita da attendi()
         if a:
             p["squadra_casa"]["colori"] = a.pop("colori_casa")
             p["squadra_trasferta"]["colori"] = a.pop("colori_trasferta")
             p["analisi"] = a
+            p["analizzato_il"] = datetime.now(timezone.utc).isoformat()
         partite.append(p)
 
     USCITA.parent.mkdir(parents=True, exist_ok=True)
-    USCITA.write_text(json.dumps({"data": oggi, "generato_il": adesso.isoformat(), "esempio": False,
+    USCITA.write_text(json.dumps({"data": oggi.isoformat(), "fino_al": fine.isoformat(),
+                                  "generato_il": adesso.isoformat(), "esempio": False,
                                   "partite": partite}, ensure_ascii=False, indent=1), encoding="utf-8")
 
 

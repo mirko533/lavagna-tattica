@@ -1,6 +1,177 @@
 {
  "data": "2026-11-19",
- "generato_il": "2026-11-19T11:30:46.545984+00:00",
- "esempio": false,
- "partite": []
+ "generato_il": "2026-11-19T10:55:21.431641+00:00",
+ "esempio": true,
+ "partite": [
+  {
+   "id": 900001,
+   "competizione": {
+    "codice": "SA",
+    "nome": "Serie A"
+   },
+   "ora_utc": "2026-11-19T18:45:00Z",
+   "stato": "TIMED",
+   "giornata": 12,
+   "squadra_casa": {
+    "nome": "Aurora FC",
+    "sigla": "AUR",
+    "colori": [
+     "#B3202A",
+     "#F2C14E"
+    ],
+    "classifica": {
+     "posizione": 3,
+     "punti": 24,
+     "giocate": 11,
+     "forma": "W,W,D,L,W"
+    }
+   },
+   "squadra_trasferta": {
+    "nome": "Sporting Marea",
+    "sigla": "MAR",
+    "colori": [
+     "#0B3D91",
+     "#FFFFFF"
+    ],
+    "classifica": {
+     "posizione": 7,
+     "punti": 18,
+     "giocate": 11,
+     "forma": "D,L,W,D,W"
+    }
+   },
+   "analisi": {
+    "analisi_tattica": "L'Aurora costruisce dal basso e attacca con ampiezza. Il Marea difende compatto e riparte in transizione sfruttando la velocità degli esterni.",
+    "probabilita_1x2": {
+     "1": 52,
+     "X": 27,
+     "2": 21
+    },
+    "probabilita_gol": {
+     "over_2_5": 48,
+     "under_2_5": 52,
+     "gol": 58,
+     "nogol": 42
+    },
+    "probabile_formazione_casa": {
+     "modulo": "4-3-3",
+     "giocatori": [
+      "Ferri",
+      "Dalla",
+      "Moro",
+      "Sala",
+      "Conti",
+      "Gatti",
+      "Neri",
+      "Fabbri",
+      "Orsi",
+      "Bruni",
+      "Leone"
+     ]
+    },
+    "probabile_formazione_trasferta": {
+     "modulo": "4-4-2",
+     "giocatori": [
+      "Pinto",
+      "Cruz",
+      "Vidal",
+      "Mora",
+      "Soler",
+      "Prada",
+      "Luna",
+      "Nadal",
+      "Ramos",
+      "Ibarra",
+      "Cano"
+     ]
+    },
+    "consiglio_tecnico": "Leggero vantaggio statistico per i padroni di casa, favoriti da rendimento interno e continuità. Partita equilibrata sul piano dei gol."
+   }
+  },
+  {
+   "id": 900002,
+   "competizione": {
+    "codice": "CL",
+    "nome": "Champions League"
+   },
+   "ora_utc": "2026-11-19T20:00:00Z",
+   "stato": "TIMED",
+   "giornata": 5,
+   "squadra_casa": {
+    "nome": "Union Nord",
+    "sigla": "UNN",
+    "colori": [
+     "#1B6B3A",
+     "#111111"
+    ],
+    "classifica": {
+     "posizione": 9,
+     "punti": 7,
+     "giocate": 4,
+     "forma": "W,D,W,L"
+    }
+   },
+   "squadra_trasferta": {
+    "nome": "Olympique Sud",
+    "sigla": "OSU",
+    "colori": [
+     "#E4572E",
+     "#1F2A44"
+    ],
+    "classifica": {
+     "posizione": 15,
+     "punti": 5,
+     "giocate": 4,
+     "forma": "L,W,D,D"
+    }
+   },
+   "analisi": {
+    "analisi_tattica": "Union Nord pressa alto e cerca il recupero immediato. Olympique Sud si abbassa e prova a sfruttare palle inattive e ripartenze.",
+    "probabilita_1x2": {
+     "1": 44,
+     "X": 30,
+     "2": 26
+    },
+    "probabilita_gol": {
+     "over_2_5": 55,
+     "under_2_5": 45,
+     "gol": 61,
+     "nogol": 39
+    },
+    "probabile_formazione_casa": {
+     "modulo": "3-5-2",
+     "giocatori": [
+      "Keller",
+      "Brandt",
+      "Vogel",
+      "Haas",
+      "Lenz",
+      "Roth",
+      "Krause",
+      "Weiss",
+      "Ernst",
+      "Baum",
+      "Falk"
+     ]
+    },
+    "probabile_formazione_trasferta": {
+     "modulo": "4-3-3",
+     "giocatori": [
+      "Moreau",
+      "Girard",
+      "Lefort",
+      "Blanc",
+      "Roux",
+      "Fabre",
+      "Colin",
+      "Marin",
+      "Dupuis",
+      "Noel",
+      "Perrin"
+     ]
+    },
+    "consiglio_tecnico": "Gara con pochi punti di distanza in classifica: scenario aperto con buone probabilità che entrambe le squadre segnino."
+   }
+  }
+ ]
 }
