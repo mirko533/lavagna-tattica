@@ -1,20 +1,12 @@
 
 #!/usr/bin/env python3
-"""
-Pronostici352
-Scarica le partite dei prossimi 4 giorni da Football-Data.org v4
-e genera analisi statistiche tramite Gemini.
-
-Timeline Live: utilizza esclusivamente risultati e marcatori
-realmente restituiti dall'API Football-Data.org.
-"""
+"""Scarica le partite dei prossimi 4 giorni e le analizza in batch con Gemini."""
 
 import json
 import os
 import re
 import sys
 import time
-
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -37,9 +29,9 @@ COMPETIZIONI = {
     "ELC": "Championship",
     "DED": "Eredivisie",
     "PPL": "Primeira Liga",
-    "BSA": "Serie A Brasile",
-    "WC": "Mondiali FIFA",
-    "EC": "Europei UEFA",
+    "BSA": "Brasileirão",
+    "WC": "Mondiali",
+    "EC": "Europei",
 }
 
 API = "https://api.football-data.org/v4"
@@ -51,82 +43,197 @@ USCITA = (
     / "matches.json"
 )
 
-PAUSA = 5
 GIORNI = 4
 
-MODELLI_PREFERITI = [
-    "gemini-3-flash-preview",
-    "gemini-2.5-flash",
-    "gemini-flash-latest",
-    "gemini-2.0-flash",
-]
+# Football-Data.org: pausa tra richieste API.
+PAUSA_FOOTBALL = 5
 
-ESCLUDI = (
-    "image",
-    "tts",
-    "audio",
-    "live",
-    "embedding",
-    "imagen",
-    "veo",
-    "vision",
-    "robotics",
-    "computer-use",
-    "learnlm",
-    "gemma",
-    "aqa",
-    "native-audio",
-)
+# Gemini: massimo 10 partite per richiesta.
+DIMENSIONE_BATCH = 10
+PAUSA_GEMINI = 4
+TIMEOUT_GEMINI = 30_000  # millisecondi per Google GenAI SDK
+
+MODELLO_PRINCIPALE = "gemini-3-flash-preview"
+MODELLO_FALLBACK = "gemini-2.5-flash-lite"
+
+API_VERSION_GEMINI = "v1beta"
 
 VIETATI = re.compile(
-    r"\b(quote|scommess\w*|bookmaker|puntat\w*|bet(?:ting|s)?)\b",
-    re.I
+    r"\b(quote|scommess\w*|bookmaker|puntat\w*|schedin\w*|bet(?:ting|s)?)\b",
+    re.I,
 )
 
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 
-_ultimo = {}
+_ultimo = {
+    "football": 0.0,
+    "gemini": 0.0,
+}
 
 
 # ============================================================
-# GESTIONE INTERVALLI E RICHIESTE API
+# FUNZIONI GENERALI
 # ============================================================
 
-def attendi(chiave):
-    trascorso = time.monotonic() - _ultimo.get(chiave, 0)
+def attendi(chiave, pausa):
+    """Rispetta la pausa minima tra chiamate dello stesso servizio."""
+    trascorso = time.monotonic() - _ultimo.get(chiave, 0.0)
 
-    if trascorso < PAUSA:
-        time.sleep(PAUSA - trascorso)
+    if trascorso < pausa:
+        time.sleep(pausa - trascorso)
 
     _ultimo[chiave] = time.monotonic()
 
 
+def estrai_json(testo):
+    """Estrae un JSON anche se Gemini aggiunge accidentalmente delimitatori."""
+    testo = (testo or "").strip()
+
+    if testo.startswith("```"):
+        testo = re.sub(r"^```(?:json)?\s*", "", testo, flags=re.I)
+        testo = re.sub(r"\s*```$", "", testo)
+
+    try:
+        return json.loads(testo)
+    except json.JSONDecodeError:
+        pass
+
+    inizio_array = testo.find("[")
+    fine_array = testo.rfind("]")
+
+    if inizio_array >= 0 and fine_array > inizio_array:
+        return json.loads(testo[inizio_array:fine_array + 1])
+
+    inizio_oggetto = testo.find("{")
+    fine_oggetto = testo.rfind("}")
+
+    if inizio_oggetto >= 0 and fine_oggetto > inizio_oggetto:
+        return json.loads(testo[inizio_oggetto:fine_oggetto + 1])
+
+    raise ValueError("La risposta Gemini non contiene JSON valido.")
+
+
+def num(valore):
+    """Converte un valore numerico, anche se contiene una percentuale."""
+    if isinstance(valore, (int, float)):
+        return float(valore)
+
+    match = re.search(r"-?\d+(?:[.,]\d+)?", str(valore))
+
+    if not match:
+        return 0.0
+
+    return float(match.group().replace(",", "."))
+
+
+def a100(valori):
+    """Normalizza una lista di valori affinché la somma sia 100."""
+    valori = [max(0.0, float(v)) for v in valori]
+    somma = sum(valori)
+
+    if somma <= 0:
+        return [round(100 / len(valori))] * len(valori)
+
+    risultati = [round(v * 100 / somma) for v in valori]
+    risultati[0] += 100 - sum(risultati)
+
+    return risultati
+
+
+def percentuale(valore):
+    return max(0, min(100, round(num(valore))))
+
+
+def colori(valori):
+    if not isinstance(valori, list):
+        valori = []
+
+    valori = valori + [None, None]
+
+    return [
+        valore if isinstance(valore, str) and HEX.match(valore) else None
+        for valore in valori[:2]
+    ]
+
+
+def formazione(valore):
+    if not isinstance(valore, dict):
+        valore = {}
+
+    modulo = str(valore.get("modulo", "4-4-2")).strip()
+
+    giocatori = valore.get("giocatori", [])
+
+    if not isinstance(giocatori, list):
+        giocatori = []
+
+    giocatori = [
+        str(giocatore).strip()[:40]
+        for giocatore in giocatori[:11]
+        if giocatore
+    ]
+
+    return {
+        "modulo": modulo,
+        "giocatori": giocatori,
+    }
+
+
+def normalizza_giocatori(valore):
+    """Limita i possibili giocatori a due per squadra."""
+    if not isinstance(valore, list):
+        return []
+
+    risultati = []
+
+    for giocatore in valore[:2]:
+        if isinstance(giocatore, str):
+            giocatore = {"nome": giocatore}
+
+        if not isinstance(giocatore, dict):
+            continue
+
+        nome = str(giocatore.get("nome", "")).strip()
+
+        if not nome:
+            continue
+
+        risultati.append({
+            "nome": nome[:80],
+            "ruolo": str(giocatore.get("ruolo", ""))[:40],
+            "probabilita": percentuale(
+                giocatore.get("probabilita", 0)
+            ),
+            "motivazione": str(
+                giocatore.get("motivazione", "")
+            )[:180],
+        })
+
+    return risultati
+
+
+# ============================================================
+# FOOTBALL-DATA.ORG
+# ============================================================
+
 def fd_get(percorso, chiave_api, **params):
-    """
-    Interroga Football-Data.org.
-    Gestisce automaticamente il limite delle richieste.
-    """
-
-    for tentativo in range(4):
-
-        attendi("fd")
+    """Richiesta API con gestione del limite gratuito."""
+    for tentativo in range(3):
+        attendi("football", PAUSA_FOOTBALL)
 
         risposta = requests.get(
             API + percorso,
             headers={"X-Auth-Token": chiave_api},
             params=params,
-            timeout=35
+            timeout=30,
         )
 
         if risposta.status_code == 429:
-            attesa = min(90, 20 * (tentativo + 1))
-
             print(
-                f"Limite API raggiunto. Attendo {attesa} secondi...",
-                file=sys.stderr
+                "Limite Football-Data raggiunto. Attendo 60 secondi...",
+                file=sys.stderr,
             )
-
-            time.sleep(attesa)
+            time.sleep(60)
             continue
 
         risposta.raise_for_status()
@@ -134,41 +241,38 @@ def fd_get(percorso, chiave_api, **params):
         return risposta.json()
 
     raise RuntimeError(
-        f"Limite richieste Football-Data superato: {percorso}"
+        f"Troppe richieste Football-Data: {percorso}"
     )
 
 
-# ============================================================
-# CLASSIFICHE
-# ============================================================
-
 def classifica(codice, chiave_api):
-
+    """Recupera la classifica disponibile di un campionato."""
     try:
         dati = fd_get(
             f"/competitions/{codice}/standings",
-            chiave_api
+            chiave_api,
         )
-
     except Exception as errore:
-
         print(
             f"Classifica {codice} non disponibile: {errore}",
-            file=sys.stderr
+            file=sys.stderr,
         )
-
         return {}
 
     risultato = {}
 
     for gruppo in dati.get("standings", []):
-
         if gruppo.get("type") != "TOTAL":
             continue
 
         for riga in gruppo.get("table", []):
+            squadra = riga.get("team", {})
+            squadra_id = squadra.get("id")
 
-            risultato[riga["team"]["id"]] = {
+            if squadra_id is None:
+                continue
+
+            risultato[squadra_id] = {
                 "posizione": riga.get("position"),
                 "punti": riga.get("points"),
                 "giocate": riga.get("playedGames"),
@@ -178,230 +282,94 @@ def classifica(codice, chiave_api):
     return risultato
 
 
-# ============================================================
-# SELEZIONE AUTOMATICA MODELLI GEMINI
-# ============================================================
-
-def scegli_modelli(client):
-
-    forzato = os.environ.get("GEMINI_MODEL", "").strip()
-
-    disponibili = []
-
-    try:
-
-        for modello in client.models.list():
-
-            azioni = (
-                getattr(modello, "supported_actions", None)
-                or []
-            )
-
-            nome = (
-                modello.name or ""
-            ).removeprefix("models/")
-
-            if (
-                "generateContent" in azioni
-                and nome.startswith("gemini")
-                and not any(x in nome for x in ESCLUDI)
-            ):
-                disponibili.append(nome)
-
-    except Exception as errore:
-
-        print(
-            f"Discovery modelli non disponibile: {errore}",
-            file=sys.stderr
-        )
-
-        disponibili = list(MODELLI_PREFERITI)
-
-    ordinati = [
-        nome
-        for nome in MODELLI_PREFERITI
-        if nome in disponibili
-    ]
-
-    ordinati += [
-        nome
-        for nome in disponibili
-        if nome not in ordinati and "flash" in nome
-    ]
-
-    ordinati += [
-        nome
-        for nome in disponibili
-        if nome not in ordinati
-    ]
-
-    if forzato:
-
-        ordinati = [
-            forzato
-        ] + [
-            nome for nome in ordinati
-            if nome != forzato
-        ]
-
-    if not ordinati:
-
-        ordinati = list(MODELLI_PREFERITI)
-
-    print(
-        "Modelli Gemini candidati:",
-        ", ".join(ordinati[:6])
+def squadra(dati, classifiche):
+    nome = (
+        dati.get("shortName")
+        or dati.get("name")
+        or "?"
     )
-
-    return ordinati
-
-
-# ============================================================
-# NORMALIZZAZIONE DATI
-# ============================================================
-
-def num(valore):
-
-    match = re.search(
-        r"\d+(?:[.,]\d+)?",
-        str(valore)
-    )
-
-    return (
-        float(match.group().replace(",", "."))
-        if match
-        else 0.0
-    )
-
-
-def a100(valori):
-
-    somma = sum(valori) or 1
-
-    risultato = [
-        round(v * 100 / somma)
-        for v in valori
-    ]
-
-    risultato[0] += 100 - sum(risultato)
-
-    return risultato
-
-
-def formazione(f):
-
-    f = f if isinstance(f, dict) else {}
 
     return {
-        "modulo": str(
-            f.get("modulo", "4-4-2")
-        )[:12],
-
-        "giocatori": [
-            str(g)[:50]
-            for g in f.get("giocatori", [])[:11]
-        ],
+        "nome": nome,
+        "sigla": dati.get("tla") or nome[:3].upper(),
+        "colori": [None, None],
+        "classifica": classifiche.get(dati.get("id")),
     }
 
 
-def colori(c):
-
-    c = c if isinstance(c, list) else []
-
-    return [
-        x if isinstance(x, str) and HEX.match(x) else None
-        for x in (c + [None, None])[:2]
-    ]
-
-
-def giocatori_stimati(elementi, con_motivazione=False):
-
+def marcatori_reali(match):
     """
-    Accetta esclusivamente nomi restituiti dal modello.
-    Non genera mai nomi di giocatori inventati.
+    Conserva esclusivamente gli eventi gol effettivamente
+    restituiti da Football-Data.org.
     """
+    risultati = []
 
-    risultato = []
+    for evento in match.get("goals", []) or []:
+        marcatore = evento.get("scorer") or {}
 
-    if not isinstance(elementi, list):
-        return risultato
-
-    for elemento in elementi:
-
-        if not isinstance(elemento, dict):
-            continue
-
-        nome = elemento.get("nome")
+        nome = (
+            marcatore.get("name")
+            or marcatore.get("lastName")
+            or ""
+        )
 
         if not nome:
             continue
 
-        giocatore = {
-            "nome": str(nome)[:70],
+        minuto = evento.get("minute")
+        recupero = evento.get("injuryTime")
 
-            "ruolo": str(
-                elemento.get("ruolo", "n.d.")
-            )[:30],
-
-            "probabilita": max(
-                0,
-                min(
-                    100,
-                    round(num(elemento.get("probabilita")))
-                )
-            ),
+        risultato = {
+            "marcatore": nome,
+            "minuto": minuto,
+            "recupero": recupero,
+            "squadra_id": evento.get("team", {}).get("id"),
         }
 
-        if con_motivazione:
+        assist = evento.get("assist")
 
-            giocatore["motivazione"] = str(
-                elemento.get("motivazione", "")
-            )[:180]
+        if assist:
+            risultato["assist"] = (
+                assist.get("name")
+                or assist.get("lastName")
+                or ""
+            )
 
-        risultato.append(giocatore)
+        score = evento.get("score")
 
-    return risultato[:2]
+        if isinstance(score, dict):
+            risultato["risultato"] = (
+                f"{score.get('home', '')}-{score.get('away', '')}"
+            )
+
+        risultati.append(risultato)
+
+    return risultati
 
 
-def mercati_completi(d):
+def risultato_reale(match):
+    score = match.get("score") or {}
 
-    chiavi = [
-        "1X",
-        "X2",
-        "12",
-        "GG",
-        "NG",
-        "Under 1.5",
-        "Over 1.5",
-        "Under 2.5",
-        "Over 2.5",
-        "Under 3.5",
-        "Over 3.5",
-        "Multigol 1-3",
-        "Multigol 2-4",
-        "1+Over 1.5",
-        "1X+GG",
-        "2+Under 3.5",
-    ]
-
-    fonte = d.get("mercati_completi", {})
-
-    if not isinstance(fonte, dict):
-        fonte = {}
+    full_time = (
+        score.get("fullTime")
+        or score.get("regularTime")
+        or {}
+    )
 
     return {
-        chiave: max(
-            0,
-            min(100, round(num(fonte.get(chiave))))
-        )
-        for chiave in chiavi
+        "home": full_time.get("home"),
+        "away": full_time.get("away"),
     }
 
 
-def normalizza(d):
+# ============================================================
+# NORMALIZZAZIONE ANALISI GEMINI
+# ============================================================
 
-    probabilita = d.get("probabilita_1x2", {})
-    gol_dati = d.get("probabilita_gol", {})
+def normalizza_analisi(dati):
+    """Converte l'analisi Gemini nel formato usato dal frontend."""
+
+    probabilita = dati.get("probabilita_1x2") or {}
 
     p1, px, p2 = a100([
         num(probabilita.get("1")),
@@ -409,29 +377,45 @@ def normalizza(d):
         num(probabilita.get("2")),
     ])
 
+    gol = dati.get("probabilita_gol") or {}
+
     over, under = a100([
-        num(gol_dati.get("over_2_5")),
-        num(gol_dati.get("under_2_5")),
+        num(gol.get("over_2_5")),
+        num(gol.get("under_2_5")),
     ])
 
-    gol, nogol = a100([
-        num(gol_dati.get("gol")),
-        num(gol_dati.get("nogol")),
+    gol_si, gol_no = a100([
+        num(gol.get("gol")),
+        num(gol.get("nogol")),
     ])
 
-    marcatori = d.get("possibili_marcatori", {})
-    ammoniti = d.get("possibili_ammoniti", {})
+    marcatori = dati.get("possibili_marcatori") or {}
+    ammoniti = dati.get("possibili_ammoniti") or {}
 
-    if not isinstance(marcatori, dict):
-        marcatori = {}
+    mercati = dati.get("mercati_completi") or {}
 
-    if not isinstance(ammoniti, dict):
-        ammoniti = {}
+    mercati_normalizzati = {}
+
+    if isinstance(mercati, dict):
+        for nome, valore in mercati.items():
+            if isinstance(valore, (int, float, str)):
+                mercati_normalizzati[str(nome)[:60]] = percentuale(valore)
+
+    # Garantisce la presenza dei mercati principali.
+    mercati_normalizzati.setdefault("1", p1)
+    mercati_normalizzati.setdefault("X", px)
+    mercati_normalizzati.setdefault("2", p2)
+    mercati_normalizzati.setdefault("1X", min(100, p1 + px))
+    mercati_normalizzati.setdefault("X2", min(100, px + p2))
+    mercati_normalizzati.setdefault("12", min(100, p1 + p2))
+    mercati_normalizzati.setdefault("GG", gol_si)
+    mercati_normalizzati.setdefault("NG", gol_no)
+    mercati_normalizzati.setdefault("Over 2.5", over)
+    mercati_normalizzati.setdefault("Under 2.5", under)
 
     return {
-
         "analisi_tattica": str(
-            d.get("analisi_tattica", "")
+            dati.get("analisi_tattica", "")
         )[:450],
 
         "probabilita_1x2": {
@@ -443,667 +427,665 @@ def normalizza(d):
         "probabilita_gol": {
             "over_2_5": over,
             "under_2_5": under,
-            "gol": gol,
-            "nogol": nogol,
+            "gol": gol_si,
+            "nogol": gol_no,
         },
 
-        "mercati_completi": mercati_completi(d),
+        "mercati_completi": mercati_normalizzati,
 
         "probabile_formazione_casa": formazione(
-            d.get("probabile_formazione_casa")
+            dati.get("probabile_formazione_casa")
         ),
 
         "probabile_formazione_trasferta": formazione(
-            d.get("probabile_formazione_trasferta")
+            dati.get("probabile_formazione_trasferta")
         ),
 
         "possibili_marcatori": {
-
-            "casa": giocatori_stimati(
+            "casa": normalizza_giocatori(
                 marcatori.get("casa")
             ),
-
-            "trasferta": giocatori_stimati(
+            "trasferta": normalizza_giocatori(
                 marcatori.get("trasferta")
             ),
         },
 
         "possibili_ammoniti": {
-
-            "casa": giocatori_stimati(
-                ammoniti.get("casa"),
-                True
+            "casa": normalizza_giocatori(
+                ammoniti.get("casa")
             ),
-
-            "trasferta": giocatori_stimati(
-                ammoniti.get("trasferta"),
-                True
+            "trasferta": normalizza_giocatori(
+                ammoniti.get("trasferta")
             ),
         },
 
         "consiglio_tecnico": str(
-            d.get("consiglio_tecnico", "")
+            dati.get("consiglio_tecnico", "")
         )[:500],
 
         "colori_casa": colori(
-            d.get("colori_casa")
+            dati.get("colori_casa")
         ),
 
         "colori_trasferta": colori(
-            d.get("colori_trasferta")
+            dati.get("colori_trasferta")
         ),
     }
 
 
 # ============================================================
-# DATI REALI PER LA TIMELINE LIVE
+# PROMPT BATCH GEMINI
 # ============================================================
 
-def estrai_marcatori_reali(partita):
+def descrizione_squadra(sq):
+    classifica_dati = sq.get("classifica")
 
-    """
-    Estrae esclusivamente i marcatori presenti nel campo goals
-    restituito realmente da Football-Data.org.
+    descrizione = sq.get("nome", "?")
 
-    Se l'API non restituisce marcatori, restituisce [].
-    Non vengono creati eventi artificiali.
-    """
-
-    marcatori = []
-
-    for evento in partita.get("goals") or []:
-
-        marcatore = evento.get("scorer") or {}
-
-        if not marcatore.get("name"):
-            continue
-
-        squadra = evento.get("team") or {}
-
-        marcatori.append({
-
-            "minuto": evento.get("minute"),
-
-            "recupero": evento.get("injuryTime"),
-
-            "squadra_id": squadra.get("id"),
-
-            "squadra_nome": squadra.get("name"),
-
-            "marcatore": marcatore.get("name"),
-
-            "assist": (
-                (evento.get("assist") or {}).get("name")
-            ),
-
-            "risultato": evento.get("score"),
-        })
-
-    return marcatori
-
-
-def estrai_risultato_reale(partita):
-
-    """
-    Mantiene il risultato originale fornito dall'API.
-    Nessun risultato viene calcolato o simulato.
-    """
-
-    return partita.get("score")
-
-
-# ============================================================
-# PROMPT GEMINI
-# ============================================================
-
-def prompt_partita(p):
-
-    def riga(squadra):
-
-        c = squadra.get("classifica")
-
-        if not c:
-            return squadra["nome"]
-
-        return (
-            f"{squadra['nome']} "
-            f"(posizione {c['posizione']}, "
-            f"{c['punti']} punti in {c['giocate']} gare, "
-            f"forma {c.get('forma') or 'n.d.'})"
+    if classifica_dati:
+        descrizione += (
+            f" (posizione {classifica_dati.get('posizione')}, "
+            f"{classifica_dati.get('punti')} punti, "
+            f"{classifica_dati.get('giocate')} gare, "
+            f"forma {classifica_dati.get('forma') or 'n.d.'})"
         )
 
-    return f"""
-Sei un analista calcistico professionale.
-
-Scrivi esclusivamente in italiano, con linguaggio statistico,
-tecnico e sportivo.
-
-Non usare termini legati a gioco d'azzardo o attività di
-scommessa.
-
-Le probabilità sono stime statistiche, non certezze.
-
-PARTITA:
-
-{riga(p['squadra_casa'])} (casa)
-contro
-{riga(p['squadra_trasferta'])} (trasferta)
-
-Competizione: {p['competizione']['nome']}
-Data UTC: {p['ora_utc']}
-
-Restituisci ESCLUSIVAMENTE un oggetto JSON valido.
-
-STRUTTURA RICHIESTA:
-
-1. analisi_tattica:
-   Analisi tecnica sintetica della partita.
-
-2. probabilita_1x2:
-   {{"1": int, "X": int, "2": int}}
-   Le tre percentuali devono sommare 100.
-
-3. probabilita_gol:
-   {{
-     "over_2_5": int,
-     "under_2_5": int,
-     "gol": int,
-     "nogol": int
-   }}
-
-4. mercati_completi:
-
-   Restituisci probabilità intere da 0 a 100
-   per tutte le seguenti chiavi:
-
-   "1X"
-   "X2"
-   "12"
-   "GG"
-   "NG"
-   "Under 1.5"
-   "Over 1.5"
-   "Under 2.5"
-   "Over 2.5"
-   "Under 3.5"
-   "Over 3.5"
-   "Multigol 1-3"
-   "Multigol 2-4"
-   "1+Over 1.5"
-   "1X+GG"
-   "2+Under 3.5"
-
-5. probabile_formazione_casa:
-   Oggetto con modulo e massimo 11 giocatori.
-
-6. probabile_formazione_trasferta:
-   Stessa struttura.
-
-7. possibili_marcatori:
-
-   {{
-     "casa": [
-       {{
-         "nome": "Nome giocatore reale",
-         "ruolo": "Attaccante",
-         "probabilita": 35
-       }}
-     ],
-     "trasferta": []
-   }}
-
-   Massimo 2 giocatori per squadra.
-   Non inventare nomi.
-   Se non hai informazioni sufficienti, restituisci [].
-
-8. possibili_ammoniti:
-
-   {{
-     "casa": [
-       {{
-         "nome": "Nome giocatore reale",
-         "ruolo": "Difensore",
-         "probabilita": 40,
-         "motivazione": "Motivazione tattica"
-       }}
-     ],
-     "trasferta": []
-   }}
-
-   Massimo 2 giocatori per squadra.
-   Non inventare nomi.
-
-9. consiglio_tecnico:
-   Sintesi statistica motivata.
-
-10. colori_casa:
-    Due colori HEX plausibili.
-
-11. colori_trasferta:
-    Due colori HEX plausibili.
-
-IMPORTANTE:
-
-Non dichiarare come ufficiali le formazioni non confermate.
-Non inventare giocatori.
-Non presentare le probabilità come garanzie.
-"""
-
-
-# ============================================================
-# ANALISI GEMINI CON FALLBACK AUTOMATICO
-# ============================================================
-
-def analizza(client, modelli, partita):
-
-    prompt = prompt_partita(partita)
-
-    tentativi = 0
-
-    while modelli and tentativi < 3 + len(modelli):
-
-        tentativi += 1
-
-        attendi("gemini")
-
-        modello = modelli[0]
-
-        try:
-
-            risposta = client.models.generate_content(
-
-                model=modello,
-
-                contents=prompt,
-
-                config=types.GenerateContentConfig(
-
-                    response_mime_type="application/json",
-
-                    temperature=0.25
-                )
-            )
-
-            dati = json.loads(risposta.text)
-
-            if isinstance(dati, list):
-                dati = dati[0]
-
-            if VIETATI.search(
-                json.dumps(dati, ensure_ascii=False)
-            ):
-
-                prompt += (
-                    "\nRiscrivi la risposta eliminando "
-                    "qualsiasi termine non conforme."
-                )
-
-                continue
-
-            return normalizza(dati)
-
-        except Exception as errore:
-
-            messaggio = str(errore)
-
-            print(
-                f"Gemini {modello}: {messaggio[:250]}",
-                file=sys.stderr
-            )
-
-            if (
-                "404" in messaggio
-                or "NOT_FOUND" in messaggio
-            ):
-
-                scartato = modelli.pop(0)
-
-                print(
-                    f"Modello {scartato} non disponibile. "
-                    "Provo il successivo.",
-                    file=sys.stderr
-                )
-
-            elif "429" in messaggio:
-
-                time.sleep(45)
-
-            else:
-
-                break
-
-    return None
-
-
-# ============================================================
-# SQUADRE
-# ============================================================
-
-def squadra(t, classifiche):
-
-    nome = (
-        t.get("shortName")
-        or t.get("name")
-        or "?"
+    return descrizione
+
+
+def prompt_batch(partite):
+    """Costruisce un'unica richiesta contenente fino a 10 partite."""
+
+    elenco = []
+
+    for partita in partite:
+        elenco.append({
+            "id": partita["id"],
+            "competizione": partita["competizione"]["nome"],
+            "data": partita["ora_utc"][:10],
+            "casa": descrizione_squadra(
+                partita["squadra_casa"]
+            ),
+            "trasferta": descrizione_squadra(
+                partita["squadra_trasferta"]
+            ),
+        })
+
+    partite_json = json.dumps(
+        elenco,
+        ensure_ascii=False,
+        indent=2,
     )
 
-    return {
+    return f"""
+Sei un analista calcistico professionista.
 
-        "nome": nome,
+Analizza tutte le partite presenti nell'elenco.
+Scrivi esclusivamente in italiano, con linguaggio statistico,
+tecnico e prudente.
 
-        "sigla": (
-            t.get("tla")
-            or nome[:3].upper()
-        ),
+Non usare termini legati a scommesse, quote, bookmaker
+o gioco d'azzardo.
 
-        "colori": [
-            None,
-            None
-        ],
+DATI DELLE PARTITE:
+{partite_json}
 
-        "classifica": classifiche.get(
-            t.get("id")
-        ),
-    }
+REGOLE IMPORTANTI:
+- Restituisci un array JSON con un oggetto per ogni partita.
+- Ogni oggetto deve contenere il campo "id" identico a quello ricevuto.
+- Non omettere nessuna partita.
+- Non inventare dati certi su giocatori o formazioni.
+- Le formazioni sono stime e devono essere indicate come tali.
+- Indica al massimo 2 possibili marcatori per squadra.
+- Indica al massimo 2 possibili ammoniti per squadra.
+- Le probabilità devono essere numeri interi da 0 a 100.
+- Le probabilità 1, X e 2 devono sommare 100.
+- Over 2.5 e Under 2.5 devono sommare 100.
+- GG e NG devono sommare 100.
+- I colori delle squadre devono essere codici esadecimali.
+- Se un dato non è sufficientemente noto, usa una stima prudente.
+
+STRUTTURA OBBLIGATORIA DI OGNI OGGETTO:
+
+{{
+  "id": 123456,
+  "analisi_tattica": "Breve analisi tattica della partita.",
+  "probabilita_1x2": {{
+    "1": 45,
+    "X": 28,
+    "2": 27
+  }},
+  "probabilita_gol": {{
+    "over_2_5": 55,
+    "under_2_5": 45,
+    "gol": 58,
+    "nogol": 42
+  }},
+  "mercati_completi": {{
+    "1": 45,
+    "X": 28,
+    "2": 27,
+    "1X": 73,
+    "X2": 55,
+    "12": 72,
+    "GG": 58,
+    "NG": 42,
+    "Over 1.5": 78,
+    "Under 1.5": 22,
+    "Over 2.5": 55,
+    "Under 2.5": 45,
+    "Over 3.5": 31,
+    "Under 3.5": 69,
+    "Multigol 1-3": 72,
+    "Multigol 2-4": 61,
+    "1+Over 1.5": 54,
+    "1X+GG": 42,
+    "2+Under 3.5": 38
+  }},
+  "probabile_formazione_casa": {{
+    "modulo": "4-3-3",
+    "giocatori": [
+      "Portiere",
+      "Difensore 1",
+      "Difensore 2",
+      "Difensore 3",
+      "Difensore 4",
+      "Centrocampista 1",
+      "Centrocampista 2",
+      "Centrocampista 3",
+      "Attaccante 1",
+      "Attaccante 2",
+      "Attaccante 3"
+    ]
+  }},
+  "probabile_formazione_trasferta": {{
+    "modulo": "4-4-2",
+    "giocatori": [
+      "Portiere",
+      "Difensore 1",
+      "Difensore 2",
+      "Difensore 3",
+      "Difensore 4",
+      "Centrocampista 1",
+      "Centrocampista 2",
+      "Centrocampista 3",
+      "Centrocampista 4",
+      "Attaccante 1",
+      "Attaccante 2"
+    ]
+  }},
+  "possibili_marcatori": {{
+    "casa": [
+      {{
+        "nome": "Nome giocatore",
+        "ruolo": "Attaccante",
+        "probabilita": 35,
+        "motivazione": "Motivazione sintetica."
+      }}
+    ],
+    "trasferta": [
+      {{
+        "nome": "Nome giocatore",
+        "ruolo": "Attaccante",
+        "probabilita": 25,
+        "motivazione": "Motivazione sintetica."
+      }}
+    ]
+  }},
+  "possibili_ammoniti": {{
+    "casa": [
+      {{
+        "nome": "Nome giocatore",
+        "ruolo": "Difensore",
+        "probabilita": 30,
+        "motivazione": "Motivazione sintetica."
+      }}
+    ],
+    "trasferta": [
+      {{
+        "nome": "Nome giocatore",
+        "ruolo": "Centrocampista",
+        "probabilita": 28,
+        "motivazione": "Motivazione sintetica."
+      }}
+    ]
+  }},
+  "consiglio_tecnico": "Breve previsione statistica motivata.",
+  "colori_casa": ["#0B3D91", "#FFFFFF"],
+  "colori_trasferta": ["#CC0000", "#FFFFFF"]
+}}
+
+Restituisci SOLTANTO l'array JSON completo.
+Nessun testo introduttivo, nessuna spiegazione esterna al JSON.
+""".strip()
 
 
 # ============================================================
-# AGGIORNAMENTO CACHE
+# GEMINI: SOLO MODELLO PRINCIPALE E UNICO FALLBACK
+# ============================================================
+
+def crea_client(chiave):
+    """Crea il client usando esplicitamente l'endpoint standard v1beta."""
+    return genai.Client(
+        api_key=chiave,
+        http_options=types.HttpOptions(
+            api_version=API_VERSION_GEMINI,
+            timeout=TIMEOUT_GEMINI,
+        ),
+    )
+
+
+def genera_batch(client, partite):
+    """
+    Invia un gruppo di partite con una sola richiesta Gemini.
+    Usa il fallback esclusivamente se il modello principale fallisce.
+    """
+
+    prompt = prompt_batch(partite)
+
+    modelli = [
+        MODELLO_PRINCIPALE,
+        MODELLO_FALLBACK,
+    ]
+
+    for indice, modello in enumerate(modelli):
+        if indice > 0:
+            print(
+                f"  Uso fallback Gemini: {modello}",
+                file=sys.stderr,
+            )
+
+        attendi("gemini", PAUSA_GEMINI)
+
+        try:
+            risposta = client.models.generate_content(
+                model=modello,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.3,
+                ),
+            )
+
+            risultati = estrai_json(risposta.text)
+
+            if isinstance(risultati, dict):
+                risultati = [risultati]
+
+            if not isinstance(risultati, list):
+                raise ValueError(
+                    "Gemini non ha restituito un array JSON."
+                )
+
+            # Indicizza i risultati usando l'ID della partita.
+            indicizzati = {}
+
+            for elemento in risultati:
+                if not isinstance(elemento, dict):
+                    continue
+
+                partita_id = elemento.get("id")
+
+                if partita_id is None:
+                    continue
+
+                if VIETATI.search(
+                    json.dumps(elemento, ensure_ascii=False)
+                ):
+                    print(
+                        f"  Risposta con termini non ammessi per ID {partita_id}.",
+                        file=sys.stderr,
+                    )
+                    continue
+
+                indicizzati[str(partita_id)] = elemento
+
+            return indicizzati
+
+        except Exception as errore:
+            print(
+                f"  Errore Gemini con {modello}: {str(errore)[:300]}",
+                file=sys.stderr,
+            )
+
+            if indice == len(modelli) - 1:
+                print(
+                    "  Anche il modello fallback non ha risposto.",
+                    file=sys.stderr,
+                )
+
+    return {}
+
+
+# ============================================================
+# CACHE
 # ============================================================
 
 def carica_cache(adesso):
-
+    """Riutilizza le analisi valide delle ultime 48 ore."""
     cache = {}
 
     if not USCITA.exists():
         return cache
 
     try:
-
         vecchio = json.loads(
             USCITA.read_text(encoding="utf-8")
         )
-
     except (ValueError, OSError):
-
         return cache
 
     if vecchio.get("esempio"):
         return cache
 
     for partita in vecchio.get("partite", []):
+        analizzato_il = partita.get("analizzato_il")
 
-        timestamp = partita.get("analizzato_il")
-
-        if not partita.get("analisi") or not timestamp:
+        if not partita.get("analisi") or not analizzato_il:
             continue
 
         try:
-
             data_analisi = datetime.fromisoformat(
-                timestamp.replace("Z", "+00:00")
+                analizzato_il.replace("Z", "+00:00")
             )
 
-        except ValueError:
+            if data_analisi.tzinfo is None:
+                data_analisi = data_analisi.replace(
+                    tzinfo=timezone.utc
+                )
 
+            if adesso - data_analisi < timedelta(hours=48):
+                cache[str(partita["id"])] = partita
+
+        except (ValueError, KeyError, TypeError):
             continue
-
-        if (
-            adesso - data_analisi
-            < timedelta(hours=48)
-        ):
-
-            cache[partita["id"]] = partita
 
     return cache
 
 
 # ============================================================
-# PROGRAMMA PRINCIPALE
+# COSTRUZIONE PARTITE
+# ============================================================
+
+def crea_partita(match, classifiche, cache):
+    partita_id = str(match["id"])
+    codice = match["competition"]["code"]
+
+    if partita_id in cache:
+        precedente = cache[partita_id]
+
+        # Aggiorna i dati dinamici senza perdere i colori
+        # e le analisi già generate.
+        precedente["stato"] = match.get("status")
+
+        precedente["risultato_reale"] = risultato_reale(match)
+        precedente["marcatori_reali"] = marcatori_reali(match)
+
+        precedente["squadra_casa"]["classifica"] = classifiche[
+            codice
+        ].get(match["homeTeam"].get("id"))
+
+        precedente["squadra_trasferta"]["classifica"] = classifiche[
+            codice
+        ].get(match["awayTeam"].get("id"))
+
+        return precedente
+
+    return {
+        "id": match["id"],
+
+        "competizione": {
+            "codice": codice,
+            "nome": COMPETIZIONI[codice],
+        },
+
+        "ora_utc": match["utcDate"],
+        "stato": match.get("status"),
+        "giornata": match.get("matchday"),
+
+        "risultato_reale": risultato_reale(match),
+        "marcatori_reali": marcatori_reali(match),
+
+        "squadra_casa": squadra(
+            match["homeTeam"],
+            classifiche[codice],
+        ),
+
+        "squadra_trasferta": squadra(
+            match["awayTeam"],
+            classifiche[codice],
+        ),
+
+        "analisi": None,
+    }
+
+
+# ============================================================
+# MAIN
 # ============================================================
 
 def main():
+    chiave_fd = os.environ.get("FOOTBALL_DATA_API_KEY")
+    chiave_gem = os.environ.get("GEMINI_API_KEY")
 
-    chiave_fd = os.environ["FOOTBALL_DATA_API_KEY"]
+    if not chiave_fd:
+        sys.exit("Errore: FOOTBALL_DATA_API_KEY non configurata.")
 
-    chiave_gem = os.environ["GEMINI_API_KEY"]
+    if not chiave_gem:
+        sys.exit("Errore: GEMINI_API_KEY non configurata.")
 
     adesso = datetime.now(timezone.utc)
-
     oggi = adesso.date()
-
     fine = oggi + timedelta(days=GIORNI)
+
+    print("=" * 60)
+    print("PRONOSTICI352 - AGGIORNAMENTO PARTITE")
+    print("=" * 60)
+    print(f"Periodo: {oggi} - {fine}")
+    print(f"Campionati configurati: {len(COMPETIZIONI)}")
+    print(f"Modello Gemini: {MODELLO_PRINCIPALE}")
+    print(f"Fallback: {MODELLO_FALLBACK}")
+    print(f"Partite per batch: {DIMENSIONE_BATCH}")
+    print("=" * 60)
+
+    # --------------------------------------------------------
+    # 1. CACHE
+    # --------------------------------------------------------
 
     cache = carica_cache(adesso)
 
     print(
-        f"Pronostici352: ricerca dal {oggi} al {fine}"
+        f"Analisi riutilizzabili dalla cache: {len(cache)}"
     )
 
-    # Una sola interrogazione per tutte le competizioni.
-    # Se il piano/API non consente una competizione,
-    # l'API potrebbe rifiutare la richiesta: l'errore
-    # viene mostrato senza inventare risultati.
+    # --------------------------------------------------------
+    # 2. DOWNLOAD PARTITE
+    # --------------------------------------------------------
 
     dati = fd_get(
-
         "/matches",
-
         chiave_fd,
-
         competitions=",".join(COMPETIZIONI.keys()),
-
         dateFrom=oggi.isoformat(),
-
-        dateTo=fine.isoformat()
+        dateTo=(fine + timedelta(days=1)).isoformat(),
     )
 
     grezze = sorted(
-
         (
-            partita
-            for partita in dati.get("matches", [])
-
-            if (
-                oggi.isoformat()
-                <= partita["utcDate"][:10]
-                <= fine.isoformat()
-            )
-
-            and partita.get("competition", {}).get("code")
-            in COMPETIZIONI
-
-            and partita.get("status")
-            not in (
+            match
+            for match in dati.get("matches", [])
+            if oggi.isoformat() <= match["utcDate"][:10] <= fine.isoformat()
+            and match.get("competition", {}).get("code") in COMPETIZIONI
+            and match.get("status") not in (
                 "CANCELLED",
                 "POSTPONED",
-                "SUSPENDED"
+                "SUSPENDED",
             )
         ),
-
-        key=lambda partita: partita["utcDate"]
+        key=lambda match: match["utcDate"],
     )
 
     print(
-        f"{len(grezze)} partite trovate."
+        f"Partite trovate: {len(grezze)} "
+        f"dal {oggi} al {fine}"
     )
 
-    codici = sorted({
+    # --------------------------------------------------------
+    # 3. CLASSIFICHE
+    # --------------------------------------------------------
 
-        partita["competition"]["code"]
-
-        for partita in grezze
-
+    codici_presenti = sorted({
+        match["competition"]["code"]
+        for match in grezze
     })
 
-    classifiche = {
+    classifiche = {}
 
-        codice: classifica(codice, chiave_fd)
+    for codice in codici_presenti:
+        print(f"Recupero classifica: {COMPETIZIONI[codice]}")
+        classifiche[codice] = classifica(
+            codice,
+            chiave_fd,
+        )
 
-        for codice in codici
-    }
+    # --------------------------------------------------------
+    # 4. PREPARAZIONE PARTITE E CACHE
+    # --------------------------------------------------------
 
-    # Il client Google GenAI utilizza l'endpoint v1beta
-    # predefinito dell'SDK.
+    partite = [
+        crea_partita(match, classifiche, cache)
+        for match in grezze
+    ]
 
-    client = genai.Client(
-        api_key=chiave_gem
+    da_analizzare = [
+        partita
+        for partita in partite
+        if not partita.get("analisi")
+    ]
+
+    print(
+        f"Partite da analizzare con Gemini: {len(da_analizzare)}"
     )
 
-    modelli = scegli_modelli(client)
+    # --------------------------------------------------------
+    # 5. CLIENT GEMINI
+    # --------------------------------------------------------
 
-    partite = []
+    client = crea_client(chiave_gem)
 
-    for numero_partita, m in enumerate(grezze, 1):
+    # --------------------------------------------------------
+    # 6. ANALISI IN BATCH DA 10 PARTITE
+    # --------------------------------------------------------
 
-        codice = m["competition"]["code"]
+    gruppi = [
+        da_analizzare[i:i + DIMENSIONE_BATCH]
+        for i in range(0, len(da_analizzare), DIMENSIONE_BATCH)
+    ]
 
-        # Risultato e marcatori provengono sempre
-        # dall'ultima risposta Football-Data.
+    totale_gruppi = len(gruppi)
 
-        risultato_reale = estrai_risultato_reale(m)
-
-        marcatori_reali = estrai_marcatori_reali(m)
-
-        if m["id"] in cache:
-
-            p = cache[m["id"]]
-
-            # Aggiorna i dati live anche quando
-            # l'analisi Gemini è già presente.
-
-            p["stato"] = m.get("status")
-
-            p["risultato_reale"] = risultato_reale
-
-            p["marcatori_reali"] = marcatori_reali
-
-            p["squadra_casa"] = squadra(
-                m["homeTeam"],
-                classifiche[codice]
-            )
-
-            p["squadra_trasferta"] = squadra(
-                m["awayTeam"],
-                classifiche[codice]
-            )
-
-            partite.append(p)
-
-            print(
-                f"[{numero_partita}/{len(grezze)}] "
-                f"Cache aggiornata: "
-                f"{m['homeTeam'].get('shortName')} - "
-                f"{m['awayTeam'].get('shortName')}"
-            )
-
-            continue
-
-        p = {
-
-            "id": m["id"],
-
-            "competizione": {
-
-                "codice": codice,
-
-                "nome": COMPETIZIONI[codice],
-            },
-
-            "ora_utc": m["utcDate"],
-
-            "stato": m.get("status"),
-
-            "giornata": m.get("matchday"),
-
-            "risultato_reale": risultato_reale,
-
-            "marcatori_reali": marcatori_reali,
-
-            "squadra_casa": squadra(
-                m["homeTeam"],
-                classifiche[codigo] if False else classifiche[codice]
-            ),
-
-            "squadra_trasferta": squadra(
-                m["awayTeam"],
-                classifiche[codice]
-            ),
-
-            "analisi": None,
-        }
-
+    for indice, gruppo in enumerate(gruppi, start=1):
+        print()
         print(
-            f"[{numero_partita}/{len(grezze)}] "
-            f"Analizzo "
-            f"{p['squadra_casa']['nome']} - "
-            f"{p['squadra_trasferta']['nome']}"
+            f"Batch {indice}/{totale_gruppi}: "
+            f"{len(gruppo)} partite"
         )
 
-        analisi = analizza(
-            client,
-            modelli,
-            p
-        )
-
-        if analisi:
-
-            p["squadra_casa"]["colori"] = (
-                analisi.pop("colori_casa")
+        for partita in gruppo:
+            print(
+                "  - "
+                f"{partita['squadra_casa']['nome']} - "
+                f"{partita['squadra_trasferta']['nome']}"
             )
 
-            p["squadra_trasferta"]["colori"] = (
-                analisi.pop("colori_trasferta")
+        risultati = genera_batch(client, gruppo)
+
+        for partita in gruppo:
+            partita_id = str(partita["id"])
+            analisi_grezza = risultati.get(partita_id)
+
+            if not analisi_grezza:
+                print(
+                    f"  Analisi non disponibile per ID {partita_id}",
+                    file=sys.stderr,
+                )
+                continue
+
+            try:
+                analisi = normalizza_analisi(analisi_grezza)
+
+                partita["squadra_casa"]["colori"] = (
+                    analisi.pop("colori_casa")
+                )
+
+                partita["squadra_trasferta"]["colori"] = (
+                    analisi.pop("colori_trasferta")
+                )
+
+                partita["analisi"] = analisi
+
+                partita["analizzato_il"] = (
+                    datetime.now(timezone.utc).isoformat()
+                )
+
+                print(
+                    f"  OK: {partita['squadra_casa']['nome']} - "
+                    f"{partita['squadra_trasferta']['nome']}"
+                )
+
+            except Exception as errore:
+                print(
+                    f"  Errore normalizzazione ID {partita_id}: "
+                    f"{errore}",
+                    file=sys.stderr,
+                )
+
+        # Pausa di 4 secondi tra un batch e il successivo.
+        if indice < totale_gruppi:
+            print(
+                f"Pausa di {PAUSA_GEMINI} secondi prima del prossimo batch..."
             )
+            time.sleep(PAUSA_GEMINI)
 
-            p["analisi"] = analisi
-
-            p["analizzato_il"] = (
-                datetime.now(timezone.utc).isoformat()
-            )
-
-        partite.append(p)
-
-    # Salvataggio JSON.
+    # --------------------------------------------------------
+    # 7. SALVATAGGIO JSON
+    # --------------------------------------------------------
 
     USCITA.parent.mkdir(
         parents=True,
-        exist_ok=True
+        exist_ok=True,
     )
 
     output = {
-
-        "app": "Pronostici352",
-
         "data": oggi.isoformat(),
-
         "fino_al": fine.isoformat(),
-
-        "giorni": GIORNI,
-
-        "generato_il": datetime.now(
-            timezone.utc
-        ).isoformat(),
-
+        "generato_il": datetime.now(timezone.utc).isoformat(),
         "esempio": False,
-
         "partite": partite,
     }
 
     USCITA.write_text(
-
         json.dumps(
             output,
             ensure_ascii=False,
-            indent=2
+            indent=2,
         ),
-
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
-    print(
-        f"Completato. Salvate {len(partite)} partite in {USCITA}"
+    analizzate = sum(
+        1 for partita in partite
+        if partita.get("analisi")
     )
+
+    print()
+    print("=" * 60)
+    print("AGGIORNAMENTO COMPLETATO")
+    print(f"Partite totali: {len(partite)}")
+    print(f"Partite analizzate: {analizzate}")
+    print(f"Partite senza analisi: {len(partite) - analizzate}")
+    print(f"File salvato: {USCITA}")
+    print("=" * 60)
 
 
 if __name__ == "__main__":
