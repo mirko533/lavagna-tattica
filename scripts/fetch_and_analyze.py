@@ -81,17 +81,8 @@ def fd(path, params=None):
 
 
 def scegli_modello():
-    try:
-        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
-                         params={"key": GM_KEY, "pageSize": 200}, timeout=30).json()
-        nomi = [m["name"].split("/")[-1] for m in r.get("models", [])
-                if "generateContent" in m.get("supportedGenerationMethods", [])]
-    except Exception as e:
-        print("Elenco modelli non disponibile:", e); nomi = []
-    if "gemini-3-flash-preview" in nomi:
-        return "gemini-3-flash-preview"
-    fl = sorted(n for n in nomi if "flash" in n and not re.search(r"lite|image|tts|live|audio", n))
-    return fl[-1] if fl else "gemini-2.5-flash"
+    return "gemini-2.5-flash"
+
 
 
 def partite():
@@ -154,22 +145,26 @@ def analizza(modello, m, cache, cl):
     p = PROMPT.format(casa=casa_nome, trasf=trasf_nome, comp=COMP[m["_c"]], data=m["utcDate"],
                       classifica=" | ".join(x for x in (righe.get(hid), righe.get(aid)) if x) or "n.d.",
                       rosa_c=rosa_txt(cache, hid) or "n.d.", rosa_t=rosa_txt(cache, aid) or "n.d.")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modello}:generateContent"
-    for tentativo in range(2):
+    url = f"https://googleapis.com{modello}:generateContent"
+    for tentativo in range(4):
         try:
-            r = requests.post(url, params={"key": GM_KEY}, timeout=35, json={
+            r = requests.post(url, params={"key": GM_KEY}, timeout=60, json={
                 "contents": [{"parts": [{"text": p}]}],
                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0.3}})
             if r.status_code == 429:
-                print("  Rate limit Gemini, attendo 20s...", flush=True)
-                time.sleep(20); continue
+                attesa = 25 + (tentativo * 15)
+                print(f"  Rate limit Gemini, attendo {attesa}s...", flush=True)
+                time.sleep(attesa)
+                continue
             r.raise_for_status()
             t = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            time.sleep(5)
             return json.loads(re.sub(r"^```(?:json)?|```$", "", t.strip()).strip())
         except Exception as e:
             print(f"  Errore Gemini (tentativo {tentativo+1}): {e}", flush=True)
-            time.sleep(5)
+            time.sleep(10)
     return None
+
 
 
 
