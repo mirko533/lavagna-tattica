@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""Scarica le partite di oggi (Football-Data.org v4) e genera l'analisi con Gemini."""
+import json, os, re, sys, time
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+import requests
+from google import genai
+from google.genai import types
+
+COMPETIZIONI = {"SA": "Serie A", "PL": "Premier League", "PD": "La Liga",
+                "BL1": "Bundesliga", "FL1": "Ligue 1", "CL": "Champions League"}
+API = "https://api.football-data.org/v4"
+MODELLO = "gemini-2.5-flash"
+USCITA = Path(__file__).resolve().parent.parent / "public" / "data" / "matches.json"
+PAUSA = 7  # secondi: limite gratuito di 10 richieste/minuto
+VIETATI = re.compile(r"\b(quote|scommess\w*|bookmaker|puntat\w*|schedin\w*|bet(?:ting|s)?)\b", re.I)
+HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
+_ultimo = {}
+
+
+def attendi(chiave):
+    trascorso = time.monotonic() - _ultimo.get(chiave, 0)
+    if trascorso < PAUSA:
+        time.sleep(PAUSA - trascorso)
+    _ultimo[chiave] = time.monotonic()
+
+
+def fd_get(percorso, chiave_api, **params):
+    for _ in range(3):
+        attendi("fd")
+        r = requests.get(API + percorso, headers={"X-Auth-Token": chiave_api}, params=params, timeout=30)
+        if r.status_code == 429:
+            print("Limite raggiunto, attendo 60s...", file=sys.stderr)
+            time.sleep(60)
+            continue
+        r.raise_for_status()
+        return r.json()
+    raise RuntimeError(f"Troppe richieste a {percorso}")
+
+
+def classifica(codice, chiave_api):
+    try:
+        dati = fd_get(f"/competitions/{codice}/standings", chiave_api)
+    except Exception as e:
+        print(f"Classifica {codice} non disponibile: {e}", file=sys.stderr)
+        return {}
+    out = {}
+    for gruppo in dati.get("standings", []):
+        if gruppo.get("type") != "TOTAL":
+            continue
+        for riga in gruppo.get("table", []):
+            out[riga["team"]["id"]] = {"posizione": riga.get("position"), "punti": riga.get("points"),
+                                       "giocate": riga.get("playedGames"), "forma": riga.get("form")}
+    return out
+
+
+def num(x):
+    m = re.search(r"\d+(?:[.,]\d+)?", str(x))
+    return float(m.group().replace(",", ".")) if m else 0.0
+
+
+def a100(valori):
+    somma = sum(valori) or 1
+    r = [round(v * 100 / somma) for v in valori]
+    r[0] += 100 - sum(r)
+    return r
+
+
+def formazione(f):
+    f = f if isinstance(f, dict) else {}
+    modulo = str(f.get("modulo", "4-4-2")).strip()
+    giocatori = [str(g)[:40] for g in f.get("giocatori", [])][:11]
+    return {"modulo": modulo, "giocatori": giocatori}
+
+
+def colori(c):
+    c = c if isinstance(c, list) else []
+    return [x if isinstance(x, str) and HEX.match(x) else None for x in (c + [None, None])[:2]]
+
+
+def normalizza(d):
+    p1, px, p2 = a100([num(d["probabilita_1x2"].get(k)) for k in ("1", "X", "2")])
+    g = d["probabilita_gol"]
+    over, under = a100([num(g.get("over_2_5")), num(g.get("under_2_5"))])
+    gol, nogol = a100([num(g.get("gol")), num(g.get("nogol"))])
+    return {
+        "analisi_tattica": str(d["analisi_tattica"])[:450],
+        "probabilita_1x2": {"1": p1, "X": px, "2": p2},
+        "probabilita_gol": {"over_2_5": over, "under_2_5": under, "gol": gol, "nogol": nogol},
+        "probabile_formazione_casa": formazione(d.get("probabile_formazione_casa")),
+        "probabile_formazione_trasferta": formazione(d.get("probabile_formazione_trasferta")),
+        "consiglio_tecnico": str(d["consiglio_tecnico"])[:500],
+        "colori_casa": colori(d.get("colori_casa")),
+        "colori_trasferta": colori(d.get("colori_trasferta")),
+    }
+
+
+def prompt_partita(p):
+    def riga(sq):
+        c = sq.get("classifica")
+        return f"{sq['nome']}" + (f" (posizione {c['posizione']}, {c['punti']} punti in {c['giocate']} gare, forma {c.get('forma') or 'n.d.'})" if c else "")
+    return f"""Sei un analista calcistico. Scrivi in italiano, solo con linguaggio statistico e analitico.
+Non usare MAI termini legati a scommesse, quote, bookmaker o gioco d'azzardo.
+
+Partita: {riga(p['squadra_casa'])} (casa) contro {riga(p['squadra_trasferta'])} (trasferta)
+Competizione: {p['competizione']['nome']} - data {p['ora_utc'][:10]}
+
+Restituisci SOLO un oggetto JSON con queste chiavi:
+- "analisi_tattica": stringa di massimo 3 righe
+- "probabilita_1x2": {{"1": int, "X": int, "2": int}} (somma 100)
+- "probabilita_gol": {{"over_2_5": int, "under_2_5": int, "gol": int, "nogol": int}} (over+under=100, gol+nogol=100)
+- "probabile_formazione_casa": {{"modulo": "4-3-3", "giocatori": [11 cognomi: portiere, poi difensori, centrocampisti, attaccanti]}}
+- "probabile_formazione_trasferta": stessa struttura
+- "consiglio_tecnico": la previsione statistica motivata in 2-3 frasi
+- "colori_casa": [colore primario hex, colore secondario hex] della squadra di casa (es. "#0B3D91")
+- "colori_trasferta": idem per la trasferta
+Stima gli 11 titolari in base alle rose attuali, al meglio delle tue conoscenze."""
+
+
+def analizza(client, partita):
+    prompt = prompt_partita(partita)
+    for tentativo in range(3):
+        attendi("gemini")
+        try:
+            r = client.models.generate_content(
+                model=MODELLO, contents=prompt,
+                config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.3))
+            d = json.loads(r.text)
+            if isinstance(d, list):
+                d = d[0]
+            if VIETATI.search(json.dumps(d, ensure_ascii=False)):
+                prompt += "\nATTENZIONE: la risposta precedente conteneva termini vietati. Riscrivila senza."
+                continue
+            return normalizza(d)
+        except Exception as e:
+            print(f"  tentativo {tentativo + 1} fallito: {e}", file=sys.stderr)
+            if "429" in str(e):
+                time.sleep(40)
+    return None
+
+
+def squadra(t, classifiche):
+    nome = t.get("shortName") or t.get("name") or "?"
+    return {"nome": nome, "sigla": t.get("tla") or nome[:3].upper(), "colori": [None, None],
+            "classifica": classifiche.get(t.get("id"))}
+
+
+def main():
+    chiave_fd, chiave_gem = os.environ["FOOTBALL_DATA_API_KEY"], os.environ["GEMINI_API_KEY"]
+    adesso = datetime.now(timezone.utc)
+    oggi = adesso.date().isoformat()
+    domani = (adesso.date() + timedelta(days=1)).isoformat()
+
+    cache = {}
+    if USCITA.exists():
+        vecchio = json.loads(USCITA.read_text(encoding="utf-8"))
+        if vecchio.get("data") == oggi and not vecchio.get("esempio"):
+            cache = {p["id"]: p for p in vecchio.get("partite", []) if p.get("analisi")}
+
+    dati = fd_get("/matches", chiave_fd, competitions=",".join(COMPETIZIONI), dateFrom=oggi, dateTo=domani)
+    grezze = sorted((m for m in dati.get("matches", []) if m["utcDate"].startswith(oggi)
+                     and m["competition"]["code"] in COMPETIZIONI), key=lambda m: m["utcDate"])
+    print(f"{len(grezze)} partite trovate per {oggi}")
+
+    classifiche = {c: classifica(c, chiave_fd) for c in sorted({m["competition"]["code"] for m in grezze})}
+    client = genai.Client(api_key=chiave_gem)
+
+    partite = []
+    for m in grezze:
+        if m["id"] in cache:
+            partite.append(cache[m["id"]])
+            continue
+        cod = m["competition"]["code"]
+        p = {"id": m["id"], "competizione": {"codice": cod, "nome": COMPETIZIONI[cod]},
+             "ora_utc": m["utcDate"], "stato": m.get("status"), "giornata": m.get("matchday"),
+             "squadra_casa": squadra(m["homeTeam"], classifiche[cod]),
+             "squadra_trasferta": squadra(m["awayTeam"], classifiche[cod]), "analisi": None}
+        print(f"Analizzo {p['squadra_casa']['nome']} - {p['squadra_trasferta']['nome']}")
+        a = analizza(client, p)
+        if a:
+            p["squadra_casa"]["colori"] = a.pop("colori_casa")
+            p["squadra_trasferta"]["colori"] = a.pop("colori_trasferta")
+            p["analisi"] = a
+        partite.append(p)
+
+    USCITA.parent.mkdir(parents=True, exist_ok=True)
+    USCITA.write_text(json.dumps({"data": oggi, "generato_il": adesso.isoformat(), "esempio": False,
+                                  "partite": partite}, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()

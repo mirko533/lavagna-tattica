@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lavagna Tattica – analisi statistica del calcio</title>
+<meta name="description" content="Analisi statistiche e probabilità delle partite dei principali campionati europei.">
+<meta name="theme-color" content="#14303A">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lavagna">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Lavagna Tattica</h1>
+  <p id="sottotitolo">Caricamento…</p>
+  <nav id="filtri" class="filtri" aria-label="Filtra per competizione"></nav>
+</header>
+<main id="lista" class="lista" aria-live="polite"></main>
+<div id="sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-label="Scheda partita">
+  <div class="sheet-in"><button id="chiudi" class="chiudi" aria-label="Chiudi">Chiudi</button><div id="scheda"></div></div>
+</div>
+<footer class="avviso">Contenuti a solo scopo informativo e statistico. Vietato ai minori di 18 anni.</footer>
+<script src="app.js"></script>
+</body>
+</html>
