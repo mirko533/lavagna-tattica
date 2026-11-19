@@ -49,12 +49,12 @@ GIORNI = 4
 PAUSA_FOOTBALL = 5
 
 # Gemini: massimo 10 partite per richiesta.
-DIMENSIONE_BATCH = 10
+DIMENSIONE_BATCH = 4
 PAUSA_GEMINI = 4
-TIMEOUT_GEMINI = 30_000  # millisecondi per Google GenAI SDK
+TIMEOUT_GEMINI = 60_000  # millisecondi per Google GenAI SDK
 
-MODELLO_PRINCIPALE = "gemini-3-flash-preview"
-MODELLO_FALLBACK = "gemini-2.5-flash-lite"
+MODELLO_PRINCIPALE = "gemini-3.5-flash-lite"
+MODELLO_FALLBACK = "gemini-3-flash-preview"
 
 API_VERSION_GEMINI = "v1beta"
 
