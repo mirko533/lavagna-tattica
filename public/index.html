@@ -1,29 +1,2247 @@
+
 <!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lavagna Tattica – analisi statistica del calcio</title>
-<meta name="description" content="Analisi statistiche e probabilità delle partite dei principali campionati europei.">
-<meta name="theme-color" content="#14303A">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0B2029">
+<meta name="description" content="Pronostici352: analisi calcistica, statistiche e probabilità degli incontri.">
+<meta name="application-name" content="Pronostici352">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Lavagna">
-<link rel="stylesheet" href="style.css">
+<meta name="apple-mobile-web-app-title" content="Pronostici352">
+<meta name="color-scheme" content="light dark">
+
+<title>Pronostici352 - Analisi &amp; Statistiche Calcio</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/pronostici352-1.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/pronostici352-1.svg">
+
+<style>
+:root {
+  color-scheme: light;
+  --bg: #edf2ef;
+  --surface: #ffffff;
+  --surface-2: #f4f7f5;
+  --ink: #102a32;
+  --muted: #657b80;
+  --nav: #0b2029;
+  --nav-2: #153944;
+  --accent: #e9b63a;
+  --green: #278354;
+  --red: #c84d4d;
+  --line: #dce5e0;
+  --shadow: 0 8px 28px rgba(11,32,41,.08);
+  --radius: 17px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #09171d;
+  --surface: #10252d;
+  --surface-2: #172f38;
+  --ink: #edf5f0;
+  --muted: #a2b6b4;
+  --nav: #07151b;
+  --nav-2: #17343e;
+  --accent: #f0bd42;
+  --green: #48b77c;
+  --red: #ed7777;
+  --line: #29424a;
+  --shadow: 0 8px 28px rgba(0,0,0,.22);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding-bottom: calc(78px + env(safe-area-inset-bottom));
+}
+
+button, input, select { font: inherit; }
+button { color: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+[hidden] { display: none !important; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--nav);
+  color: #f4f7f5;
+  padding: calc(10px + env(safe-area-inset-top)) 15px 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.15);
+}
+
+.topline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.brand img {
+  width: 43px;
+  height: 43px;
+  flex: none;
+}
+
+.brand-title {
+  min-width: 0;
+  font-size: 1.12rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -.4px;
+}
+
+.brand-subtitle {
+  color: #b8c8c7;
+  font-size: .72rem;
+  margin-top: 3px;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.header-actions select {
+  max-width: 66px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  background: var(--nav-2);
+  color: white;
+  padding: 0 5px;
+}
+
+.page {
+  width: min(100%, 850px);
+  margin: 0 auto;
+  padding: 15px 13px 24px;
+}
+
+.welcome {
+  padding: 19px;
+  border-radius: 21px;
+  background: linear-gradient(135deg, #123944, #0b2029);
+  color: #fff;
+  box-shadow: var(--shadow);
+  margin-bottom: 17px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome:after {
+  content: "352";
+  position: absolute;
+  right: -8px;
+  bottom: -42px;
+  font-size: 8rem;
+  line-height: 1;
+  font-weight: 1000;
+  color: rgba(255,255,255,.055);
+  pointer-events: none;
+}
+
+.welcome h2 {
+  margin: 0 0 5px;
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome p {
+  margin: 0 0 14px;
+  color: #c5d5d2;
+  font-size: .88rem;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+.primary-button, .secondary-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.primary-button {
+  color: #142b30;
+  background: var(--accent);
+}
+
+.secondary-button {
+  background: var(--surface-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 17px 2px 10px;
+}
+
+.section-heading h2 {
+  font-size: 1.03rem;
+  margin: 0;
+  font-weight: 900;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: .78rem; }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin: 12px 0 17px;
+}
+
+.stat {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 11px 9px;
+  box-shadow: var(--shadow);
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: .72rem;
+  margin-top: 4px;
+}
+
+.filters {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 0 7px;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.chip {
+  flex: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.chip.active {
+  background: var(--nav-2);
+  color: white;
+  border-color: var(--nav-2);
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.search-row input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.day-title {
+  margin: 17px 2px 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--accent);
+  font-weight: 900;
+  font-size: .91rem;
+  text-transform: capitalize;
+}
+
+.match-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+
+.match-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .75rem;
+  margin-bottom: 10px;
+}
+
+.match-main {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 7px;
+}
+
+.team {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  font-weight: 800;
+  font-size: .88rem;
+  line-height: 1.2;
+}
+
+.crest {
+  width: 36px;
+  height: 41px;
+  display: block;
+}
+
+.match-center {
+  min-width: 56px;
+  text-align: center;
+  font-weight: 900;
+  font-size: .94rem;
+}
+
+.match-center small {
+  display: block;
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.probability-bar {
+  height: 8px;
+  border-radius: 99px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 12px;
+  background: var(--surface-2);
+}
+
+.probability-bar span { height: 100%; }
+.p-home { background: #163e4a; }
+.p-draw { background: #98aaa4; }
+.p-away { background: #2b8b59; }
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: .67rem;
+  font-weight: 800;
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.badge.live {
+  background: #fce6e6;
+  color: #a52e2e;
+}
+
+.badge.top {
+  background: #fff1c9;
+  color: #77520a;
+}
+
+.badge.favorite {
+  background: #fce8ee;
+  color: #a52e58;
+}
+
+.empty, .notice {
+  border: 1px dashed var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+  margin: 12px 0;
+}
+
+.notice {
+  text-align: left;
+  font-size: .82rem;
+}
+
+.bottom-nav {
+  position: fixed;
+  z-index: 25;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  padding: 7px 5px calc(7px + env(safe-area-inset-bottom));
+  background: var(--nav);
+  color: #d7e3df;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.nav-item {
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: inherit;
+  min-width: 0;
+  padding: 5px 2px;
+  font-size: .65rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.nav-item .nav-icon { font-size: 1.15rem; }
+.nav-item.active {
+  color: var(--accent);
+  background: rgba(255,255,255,.07);
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.drawer-backdrop, .modal-backdrop, .onboarding-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0,0,0,.58);
+}
+
+.drawer {
+  position: fixed;
+  z-index: 51;
+  inset: 0 auto 0 0;
+  width: min(88vw, 350px);
+  overflow-y: auto;
+  background: var(--surface);
+  color: var(--ink);
+  padding: calc(17px + env(safe-area-inset-top)) 16px 25px;
+  box-shadow: 12px 0 40px rgba(0,0,0,.25);
+  transform: translateX(-105%);
+  transition: transform .2s ease;
+}
+
+.drawer.open { transform: translateX(0); }
+
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+.drawer h2 { font-size: 1.1rem; margin: 0; }
+.drawer h3 {
+  color: var(--muted);
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 19px 0 7px;
+}
+
+.drawer-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding: 10px 9px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.drawer-button:hover { background: var(--surface-2); }
+.drawer-count { color: var(--muted); font-size: .78rem; }
+
+.modal-backdrop, .onboarding-backdrop {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 60;
+}
+
+.modal {
+  width: min(100%, 680px);
+  max-height: 92dvh;
+  overflow-y: auto;
+  border-radius: 20px 20px 0 0;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 16px 17px calc(25px + env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 40px rgba(0,0,0,.2);
+}
+
+.modal-close {
+  display: block;
+  margin: 0 0 12px auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink);
+  padding: 6px 13px;
+}
+
+.modal h2 { font-size: 1.08rem; margin: 18px 0 9px; }
+.modal h3 { font-size: .91rem; margin: 15px 0 7px; }
+.modal p { margin: 7px 0; }
+.match-detail-head { text-align: center; }
+.match-detail-head .match-main { margin: 12px 0; }
+.match-detail-head .team { font-size: .94rem; }
+.probability-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: .81rem;
+  margin: 7px 0 3px;
+}
+.progress {
+  height: 9px;
+  background: var(--surface-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  border-radius: inherit;
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 8px;
+}
+
+.market {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 9px 10px;
+}
+
+.market strong { display: block; font-size: .86rem; }
+.market span { color: var(--muted); font-size: .78rem; }
+
+.player-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 8px;
+}
+
+.player {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 0;
+}
+
+.player strong { display: block; font-size: .85rem; }
+.player span, .player p { color: var(--muted); font-size: .74rem; }
+.player p { margin: 5px 0 0; }
+
+.tabs {
+  display: flex;
+  gap: 7px;
+  margin: 10px 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.tab.active {
+  background: var(--nav-2);
+  color: #fff;
+  border-color: var(--nav-2);
+}
+
+.pitch {
+  display: block;
+  width: min(100%, 360px);
+  margin: 8px auto;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.timeline {
+  border-left: 2px solid var(--line);
+  margin: 12px 0 12px 8px;
+  padding-left: 15px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 13px;
+  font-size: .83rem;
+}
+
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--surface);
+}
+
+.timeline-minute {
+  color: var(--muted);
+  font-weight: 800;
+  margin-right: 7px;
+}
+
+.generator-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin: 12px 0;
+}
+
+.generator-controls label {
+  display: block;
+  color: var(--muted);
+  font-size: .77rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.generator-controls select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.generated-match {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: .84rem;
+}
+
+.generated-match strong { display: block; }
+.generated-match small { color: var(--muted); }
+.generated-match .prob { font-weight: 900; white-space: nowrap; }
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.favorite-button {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-2);
+  padding: 8px 11px;
+}
+
+.info-text {
+  font-size: .81rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.disclaimer {
+  margin: 18px 0 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: .73rem;
+  text-align: center;
+}
+
+.onboarding {
+  width: min(92vw, 440px);
+  margin: auto;
+  border-radius: 23px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 15px 60px rgba(0,0,0,.3);
+}
+
+.onboarding img { width: 94px; height: 94px; }
+.onboarding h1 { font-size: 1.35rem; margin: 10px 0 5px; }
+.onboarding p { color: var(--muted); font-size: .87rem; }
+
+.footer-note {
+  text-align: center;
+  padding: 16px 10px 3px;
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+@media (min-width: 700px) {
+  .page { padding: 22px 20px 35px; }
+  .match-card { padding: 15px 17px; }
+  .modal-backdrop, .onboarding-backdrop { align-items: center; }
+  .modal { border-radius: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+</style>
 </head>
+
 <body>
-<header class="top">
-  <h1>Lavagna Tattica</h1>
-  <p id="sottotitolo">Partite dei prossimi 7 giorni</p>
-  <nav id="filtri" class="filtri" aria-label="Filtra per competizione"></nav>
+
+<header class="topbar">
+  <div class="topline">
+    <button class="icon-button" id="menuButton" aria-label="Apri menu">☰</button>
+
+    <div class="brand">
+      <img src="icons/pronostici352-1.svg" alt="">
+      <div>
+        <div class="brand-title">Pronostici352</div>
+        <div class="brand-subtitle" id="headerSubtitle">Analisi &amp; statistiche calcio</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <select id="languageSelect" aria-label="Lingua">
+        <option value="it">IT</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="icon-button" id="themeButton" aria-label="Cambia tema">☾</button>
+      <button class="icon-button" id="shareButton" aria-label="Condividi">↗</button>
+    </div>
+  </div>
 </header>
-<main id="lista" class="lista" aria-live="polite"></main>
-<div id="sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-label="Scheda partita">
-  <div class="sheet-in"><button id="chiudi" class="chiudi" aria-label="Chiudi">Chiudi</button><div id="scheda"></div></div>
+
+<main class="page">
+
+  <section class="welcome" id="welcomeBox">
+    <h2 id="welcomeTitle">Il calcio, letto attraverso i dati.</h2>
+    <p id="welcomeText">Analisi statistiche, probabilità, formazioni stimate e dati reali delle partite, in un'unica applicazione.</p>
+    <button class="primary-button" id="welcomeExplore">Esplora le Analisi</button>
+  </section>
+
+  <section class="stats-row" aria-label="Riepilogo">
+    <div class="stat">
+      <strong id="statMatches">—</strong>
+      <span id="statMatchesLabel">Partite disponibili</span>
+    </div>
+    <div class="stat">
+      <strong id="statLive">—</strong>
+      <span id="statLiveLabel">In diretta</span>
+    </div>
+    <div class="stat">
+      <strong id="statLeagues">12</strong>
+      <span id="statLeaguesLabel">Campionati</span>
+    </div>
+  </section>
+
+  <section class="panel active" id="panelMatches">
+    <div class="section-heading">
+      <h2 id="matchesHeading">Partite</h2>
+      <span class="small muted" id="generatedAt"></span>
+    </div>
+
+    <div class="filters" id="quickFilters">
+      <button class="chip active" data-filter="ALL">Tutte</button>
+      <button class="chip" data-filter="FAV">♥ Preferite</button>
+      <button class="chip" data-filter="LIVE">● Live</button>
+    </div>
+
+    <div class="section-heading">
+      <h2 id="leagueHeading">Campionati</h2>
+    </div>
+    <div class="filters" id="leagueFilters"></div>
+
+    <div class="search-row">
+      <input id="searchInput" type="search" placeholder="Cerca una squadra o un campionato..." autocomplete="off">
+    </div>
+
+    <div id="matchesList" aria-live="polite">
+      <div class="empty">Caricamento delle partite...</div>
+    </div>
+  </section>
+
+  <section class="panel" id="panelLive">
+    <div class="section-heading">
+      <h2 id="liveHeading">Live &amp; Timeline</h2>
+      <span class="badge live">LIVE</span>
+    </div>
+    <p class="info-text" id="liveIntro">Risultati e marcatori vengono mostrati esclusivamente quando disponibili nei dati ufficiali dell'API.</p>
+    <div id="liveList"></div>
+  </section>
+
+  <section class="panel" id="panelGenerator">
+    <div class="section-heading">
+      <h2 id="generatorHeading">Generatore Schedine</h2>
+    </div>
+
+    <p class="info-text" id="generatorIntro">
+      Crea una combinazione di analisi statistiche usando le probabilità disponibili. Lo strumento è esclusivamente informativo: non gestisce puntate, quote o denaro.
+    </p>
+
+    <div class="generator-controls">
+      <div>
+        <label for="generatorCount" id="generatorCountLabel">Numero partite</label>
+        <select id="generatorCount">
+          <option value="2">2 partite</option>
+          <option value="3" selected>3 partite</option>
+          <option value="4">4 partite</option>
+          <option value="5">5 partite</option>
+          <option value="6">6 partite</option>
+        </select>
+      </div>
+      <div>
+        <label for="generatorMarket" id="generatorMarketLabel">Mercato statistico</label>
+        <select id="generatorMarket">
+          <option value="1">Esito 1</option>
+          <option value="X">Pareggio</option>
+          <option value="2">Esito 2</option>
+          <option value="1X">1X</option>
+          <option value="X2">X2</option>
+          <option value="12">12</option>
+          <option value="GG">GG</option>
+          <option value="NG">NG</option>
+          <option value="Over 1.5">Over 1.5</option>
+          <option value="Under 1.5">Under 1.5</option>
+          <option value="Over 2.5" selected>Over 2.5</option>
+          <option value="Under 2.5">Under 2.5</option>
+          <option value="Over 3.5">Over 3.5</option>
+          <option value="Under 3.5">Under 3.5</option>
+          <option value="Multigol 1-3">Multigol 1-3</option>
+          <option value="Multigol 2-4">Multigol 2-4</option>
+          <option value="1+Over 1.5">1+Over 1.5</option>
+          <option value="1X+GG">1X+GG</option>
+          <option value="2+Under 3.5">2+Under 3.5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="primary-button" id="generateButton">Genera combinazione</button>
+      <button class="secondary-button" id="clearGenerator">Azzera</button>
+    </div>
+
+    <div id="generatorResult">
+      <div class="empty">Seleziona i parametri e genera una combinazione statistica.</div>
+    </div>
+
+    <p class="disclaimer" id="generatorDisclaimer">
+      Le percentuali sono stime statistiche e non costituiscono garanzie di risultato. Nessuna quota, puntata o transazione è prevista.
+    </p>
+  </section>
+
+  <section class="panel" id="panelPlayers">
+    <div class="section-heading">
+      <h2 id="playersHeading">Marcatori &amp; Ammoniti</h2>
+    </div>
+
+    <p class="info-text" id="playersIntro">
+      Giocatori indicati dalle analisi come possibili protagonisti. Non sono previsioni certe e potrebbero non essere titolari.
+    </p>
+
+    <div class="filters" id="playerLeagueFilters"></div>
+    <div id="playersList"></div>
+  </section>
+
+  <div class="footer-note" id="footerNote">
+    Solo informazione e statistica. Vietato ai minori di 18 anni.
+  </div>
+</main>
+
+<nav class="bottom-nav" aria-label="Navigazione principale">
+  <button class="nav-item active" data-panel="Matches">
+    <span class="nav-icon">⚽</span>
+    <span id="navMatches">Partite</span>
+  </button>
+  <button class="nav-item" data-panel="Live">
+    <span class="nav-icon">◉</span>
+    <span id="navLive">Live</span>
+  </button>
+  <button class="nav-item" data-panel="Generator">
+    <span class="nav-icon">▦</span>
+    <span id="navGenerator">Generatore</span>
+  </button>
+  <button class="nav-item" data-panel="Players">
+    <span class="nav-icon">♟</span>
+    <span id="navPlayers">Marcatori</span>
+  </button>
+</nav>
+
+<div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Menu principale" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>Pronostici352</h2>
+    <button class="secondary-button" id="closeDrawer">✕</button>
+  </div>
+
+  <h3 id="drawerLeaguesTitle">Campionati</h3>
+  <div id="drawerLeagues"></div>
+
+  <h3 id="drawerDaysTitle">Giorni e partite</h3>
+  <div id="drawerDays"></div>
+
+  <h3 id="drawerInfoTitle">Informazioni</h3>
+  <button class="drawer-button" id="aboutButton">
+    <span id="aboutLabel">Chi siamo</span><span>›</span>
+  </button>
+  <button class="drawer-button" id="infoButton">
+    <span id="infoLabel">Note legali e privacy</span><span>›</span>
+  </button>
+</aside>
+
+<div class="modal-backdrop" id="detailBackdrop" hidden>
+  <section class="modal" id="detailModal" role="dialog" aria-modal="true" aria-label="Dettaglio partita">
+    <button class="modal-close" data-close="detail">Chiudi ✕</button>
+    <div id="detailContent"></div>
+  </section>
 </div>
-<footer class="avviso">Contenuti a solo scopo informativo e statistico. Vietato ai minori di 18 anni.</footer>
-<script src="app.js"></script>
+
+<div class="modal-backdrop" id="infoBackdrop" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-label="Informazioni">
+    <button class="modal-close" data-close="info">Chiudi ✕</button>
+    <div id="infoContent"></div>
+  </section>
+</div>
+
+<div class="onboarding-backdrop" id="onboardingBackdrop" hidden>
+  <section class="onboarding" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <img src="icons/pronostici352-1.svg" alt="Pronostici352">
+    <h1 id="onboardingTitle">Benvenuto su Pronostici352</h1>
+    <p id="onboardingText">
+      Consulta analisi calcistiche, statistiche, probabilità e dati delle partite. Tutti i contenuti sono esclusivamente informativi.
+    </p>
+    <p class="small muted">L'app è destinata esclusivamente a persone maggiorenni.</p>
+    <div class="action-row" style="justify-content:center">
+      <button class="primary-button" id="onboardingExplore">Esplora le Analisi</button>
+      <button class="secondary-button" id="onboardingInfo">Info</button>
+    </div>
+  </section>
+</div>
+
+<script>
+"use strict";
+
+/* =========================================================
+   PRONOSTICI352
+   Frontend autonomo: non richiede app.js o style.css.
+   Dati: public/data/matches.json
+   ========================================================= */
+
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+const LEAGUES = [
+  ["SA", "Serie A"],
+  ["PL", "Premier League"],
+  ["PD", "La Liga"],
+  ["BL1", "Bundesliga"],
+  ["FL1", "Ligue 1"],
+  ["CL", "Champions League"],
+  ["ELC", "Championship"],
+  ["DED", "Eredivisie"],
+  ["PPL", "Primeira Liga"],
+  ["BSA", "Brasileirão"],
+  ["WC", "Mondiali"],
+  ["EC", "Europei"]
+];
+
+const TEXT = {
+  it: {
+    subtitle: "Analisi & statistiche calcio",
+    welcomeTitle: "Il calcio, letto attraverso i dati.",
+    welcomeText: "Analisi statistiche, probabilità, formazioni stimate e dati reali delle partite, in un'unica applicazione.",
+    explore: "Esplora le Analisi",
+    matches: "Partite",
+    live: "Live",
+    generator: "Generatore",
+    players: "Marcatori",
+    leagues: "Campionati",
+    all: "Tutte",
+    favorites: "Preferite",
+    search: "Cerca una squadra o un campionato...",
+    liveHeading: "Live & Timeline",
+    liveIntro: "Risultati e marcatori vengono mostrati esclusivamente quando disponibili nei dati ufficiali dell'API.",
+    generatorHeading: "Generatore Schedine",
+    generatorIntro: "Crea una combinazione di analisi statistiche usando le probabilità disponibili. Lo strumento è esclusivamente informativo: non gestisce puntate, quote o denaro.",
+    playersHeading: "Marcatori & Ammoniti",
+    playersIntro: "Giocatori indicati dalle analisi come possibili protagonisti. Non sono previsioni certe e potrebbero non essere titolari.",
+    noMatches: "Nessuna partita trovata per i filtri selezionati.",
+    noLive: "Al momento non risultano partite in diretta nei dati disponibili.",
+    noPlayers: "Non sono disponibili indicazioni sui giocatori per le partite selezionate.",
+    noAnalysis: "Analisi non disponibile per questa partita.",
+    noEvents: "I marcatori reali non sono disponibili nei dati dell'API per questa partita.",
+    noScore: "Risultato reale non disponibile.",
+    loadingError: "Impossibile caricare i dati. Controlla la connessione e riprova.",
+    generated: "Combinazione statistica generata",
+    generate: "Genera combinazione",
+    clear: "Azzera",
+    top: "STIMA PIÙ ALTA",
+    liveBadge: "IN DIRETTA",
+    favorite: "PREFERITA",
+    addFavorite: "Aggiungi ai preferiti",
+    removeFavorite: "Rimuovi dai preferiti",
+    analysis: "Analisi tattica",
+    probabilities: "Probabilità 1X2",
+    goals: "Probabilità gol",
+    markets: "Mercati statistici",
+    formations: "Formazioni stimate",
+    scorers: "Possibili marcatori",
+    bookings: "Possibili ammoniti",
+    technical: "Osservazione tecnica",
+    home: "Casa",
+    away: "Trasferta",
+    draw: "Pareggio",
+    goal: "Gol",
+    noGoal: "No Gol",
+    over: "Over",
+    under: "Under",
+    unavailable: "Non disponibile",
+    about: "Chi siamo",
+    info: "Note legali e privacy",
+    days: "Giorni e partite",
+    close: "Chiudi",
+    generatedAt: "Dati aggiornati",
+    matchesAvailable: "Partite disponibili",
+    liveNow: "In diretta",
+    leagueCount: "Campionati",
+    onlyInfo: "Solo informazione e statistica. Vietato ai minori di 18 anni.",
+    noOdds: "Le percentuali sono stime statistiche e non costituiscono garanzie di risultato. Nessuna quota, puntata o transazione è prevista.",
+    scorer: "Possibile marcatore",
+    booked: "Possibile ammonito",
+    minute: "min",
+    assist: "Assist",
+    result: "Risultato",
+    status: "Stato",
+    noFormation: "Formazione non disponibile",
+    selectTeam: "Seleziona squadra",
+    league: "Campionato",
+    matches: "Partite"
+  },
+  en: {
+    subtitle: "Football analysis & statistics",
+    welcomeTitle: "Football, understood through data.",
+    welcomeText: "Statistics, probabilities, estimated lineups and real match data in one app.",
+    explore: "Explore analyses",
+    matches: "Matches",
+    live: "Live",
+    generator: "Generator",
+    players: "Players",
+    leagues: "Leagues",
+    all: "All",
+    favorites: "Favorites",
+    search: "Search for a team or league...",
+    liveHeading: "Live & Timeline",
+    liveIntro: "Scores and scorers are displayed only when available in the official API data.",
+    generatorHeading: "Combination generator",
+    generatorIntro: "Create a statistical combination using the available probabilities. This tool is for information only and does not handle bets, odds or money.",
+    playersHeading: "Scorers & Bookings",
+    playersIntro: "Players identified by the analysis as possible key contributors. These are not certain predictions.",
+    noMatches: "No matches found for the selected filters.",
+    noLive: "There are currently no live matches in the available data.",
+    noPlayers: "No player information is available for the selected matches.",
+    noAnalysis: "Analysis is not available for this match.",
+    noEvents: "Real scorers are not available in the API data for this match.",
+    noScore: "Real score not available.",
+    loadingError: "Unable to load data. Check your connection and try again.",
+    generated: "Statistical combination generated",
+    generate: "Generate combination",
+    clear: "Clear",
+    top: "HIGHEST ESTIMATE",
+    liveBadge: "LIVE",
+    favorite: "FAVORITE",
+    addFavorite: "Add to favorites",
+    removeFavorite: "Remove from favorites",
+    analysis: "Tactical analysis",
+    probabilities: "1X2 probabilities",
+    goals: "Goal probabilities",
+    markets: "Statistical markets",
+    formations: "Estimated lineups",
+    scorers: "Possible scorers",
+    bookings: "Possible bookings",
+    technical: "Technical observation",
+    home: "Home",
+    away: "Away",
+    draw: "Draw",
+    goal: "Both teams to score",
+    noGoal: "No goal",
+    over: "Over",
+    under: "Under",
+    unavailable: "Unavailable",
+    about: "About",
+    info: "Legal information & privacy",
+    days: "Days and matches",
+    close: "Close",
+    generatedAt: "Data updated",
+    matchesAvailable: "Available matches",
+    liveNow: "Live now",
+    leagueCount: "Leagues",
+    onlyInfo: "For information and statistics only. Not for under-18s.",
+    noOdds: "Percentages are statistical estimates, not guarantees. No odds, bets or transactions are provided.",
+    scorer: "Possible scorer",
+    booked: "Possible booking",
+    minute: "min",
+    assist: "Assist",
+    result: "Score",
+    status: "Status",
+    noFormation: "Lineup unavailable",
+    selectTeam: "Select team",
+    league: "League",
+    matches: "Matches"
+  },
+  es: {
+    subtitle: "Análisis y estadísticas de fútbol",
+    welcomeTitle: "El fútbol, interpretado con datos.",
+    welcomeText: "Estadísticas, probabilidades, alineaciones estimadas y datos reales de los partidos en una sola aplicación.",
+    explore: "Explorar análisis",
+    matches: "Partidos",
+    live: "En directo",
+    generator: "Generador",
+    players: "Jugadores",
+    leagues: "Competiciones",
+    all: "Todas",
+    favorites: "Favoritos",
+    search: "Buscar equipo o competición...",
+    liveHeading: "En directo y cronología",
+    liveIntro: "Los resultados y goleadores se muestran solo cuando están disponibles en los datos oficiales de la API.",
+    generatorHeading: "Generador de combinaciones",
+    generatorIntro: "Crea una combinación estadística usando las probabilidades disponibles. Herramienta exclusivamente informativa: no gestiona apuestas, cuotas ni dinero.",
+    playersHeading: "Goleadores y tarjetas",
+    playersIntro: "Jugadores señalados por el análisis como posibles protagonistas. No son predicciones seguras.",
+    noMatches: "No se encontraron partidos con los filtros seleccionados.",
+    noLive: "No hay partidos en directo en los datos disponibles.",
+    noPlayers: "No hay información de jugadores para los partidos seleccionados.",
+    noAnalysis: "Análisis no disponible para este partido.",
+    noEvents: "Los goleadores reales no están disponibles en los datos de la API.",
+    noScore: "Resultado real no disponible.",
+    loadingError: "No se pueden cargar los datos. Comprueba la conexión e inténtalo de nuevo.",
+    generated: "Combinación estadística generada",
+    generate: "Generar combinación",
+    clear: "Borrar",
+    top: "ESTIMACIÓN MÁS ALTA",
+    liveBadge: "EN DIRECTO",
+    favorite: "FAVORITO",
+    addFavorite: "Añadir a favoritos",
+    removeFavorite: "Eliminar de favoritos",
+    analysis: "Análisis táctico",
+    probabilities: "Probabilidades 1X2",
+    goals: "Probabilidades de gol",
+    markets: "Mercados estadísticos",
+    formations: "Alineaciones estimadas",
+    scorers: "Posibles goleadores",
+    bookings: "Posibles amonestados",
+    technical: "Observación técnica",
+    home: "Local",
+    away: "Visitante",
+    draw: "Empate",
+    goal: "Ambos marcan",
+    noGoal: "No marcan ambos",
+    over: "Más de",
+    under: "Menos de",
+    unavailable: "No disponible",
+    about: "Quiénes somos",
+    info: "Información legal y privacidad",
+    days: "Días y partidos",
+    close: "Cerrar",
+    generatedAt: "Datos actualizados",
+    matchesAvailable: "Partidos disponibles",
+    liveNow: "En directo",
+    leagueCount: "Competiciones",
+    onlyInfo: "Solo información y estadísticas. Prohibido para menores de 18 años.",
+    noOdds: "Los porcentajes son estimaciones estadísticas, no garantías. No se ofrecen cuotas, apuestas ni transacciones.",
+    scorer: "Posible goleador",
+    booked: "Posible amonestado",
+    minute: "min",
+    assist: "Asistencia",
+    result: "Resultado",
+    status: "Estado",
+    noFormation: "Alineación no disponible",
+    selectTeam: "Seleccionar equipo",
+    league: "Competición",
+    matches: "Partidos"
+  }
+};
+
+let data = null;
+let currentPanel = "Matches";
+let selectedLeague = "ALL";
+let selectedPlayerLeague = "ALL";
+let searchTerm = "";
+let favorites = new Set(readStorage("p352_favorites", []));
+let currentMatch = null;
+let formationSide = "casa";
+let language = localStorage.getItem("p352_language") || "it";
+let theme = localStorage.getItem("p352_theme") || "light";
+
+function readStorage(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function saveStorage(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+}
+
+function t(key) {
+  return TEXT[language]?.[key] || TEXT.it[key] || key;
+}
+
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+}
+
+function validNumber(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function percentage(value) {
+  const n = validNumber(value);
+  return n === null ? null : Math.max(0, Math.min(100, Math.round(n)));
+}
+
+function getMatches() {
+  return Array.isArray(data?.partite) ? data.partite : [];
+}
+
+function isLive(match) {
+  return ["IN_PLAY", "PAUSED", "LIVE"].includes(String(match?.stato || "").toUpperCase());
+}
+
+function isFinished(match) {
+  return String(match?.stato || "").toUpperCase() === "FINISHED";
+}
+
+function dateKey(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "unknown";
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Rome", year: "numeric", month: "2-digit", day: "2-digit"
+  }).format(d);
+}
+
+function formatDate(iso, options = {}) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return t("unavailable");
+  return new Intl.DateTimeFormat(language, {
+    timeZone: "Europe/Rome",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    ...options
+  }).format(d);
+}
+
+function formatTime(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "—";
+  return new Intl.DateTimeFormat(language, {
+    timeZone: "Europe/Rome", hour: "2-digit", minute: "2-digit"
+  }).format(d);
+}
+
+function formatGeneratedDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return `${t("generatedAt")}: ${new Intl.DateTimeFormat(language, {
+    timeZone: "Europe/Rome", day: "2-digit", month: "2-digit",
+    hour: "2-digit", minute: "2-digit"
+  }).format(d)}`;
+}
+
+function teamColors(team) {
+  const colors = team?.colori || [];
+  const valid = c => /^#[0-9a-f]{6}$/i.test(c || "");
+  return [
+    valid(colors[0]) ? colors[0] : "#173e4a",
+    valid(colors[1]) ? colors[1] : "#e9b63a"
+  ];
+}
+
+function teamCrest(team, size = 38) {
+  const [a, b] = teamColors(team);
+  const initials = esc((team?.sigla || team?.nome || "?").slice(0, 3));
+  const id = "crest" + Math.random().toString(36).slice(2);
+  return `<svg class="crest" width="${size}" height="${Math.round(size * 1.15)}" viewBox="0 0 40 46" role="img" aria-label="${esc(team?.nome || "")}">
+    <defs><clipPath id="${id}"><path d="M3 3h34v21c0 10-8 16-17 20C11 40 3 34 3 24z"/></clipPath></defs>
+    <g clip-path="url(#${id})">
+      <rect width="40" height="46" fill="${a}"/>
+      <rect y="29" width="40" height="18" fill="${b}"/>
+    </g>
+    <path d="M3 3h34v21c0 10-8 16-17 20C11 40 3 34 3 24z" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+    <text x="20" y="21" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" font-family="system-ui">${initials}</text>
+  </svg>`;
+}
+
+function probabilityBar(probabilities) {
+  if (!probabilities) return "";
+  const one = percentage(probabilities["1"]);
+  const draw = percentage(probabilities.X);
+  const two = percentage(probabilities["2"]);
+  if ([one, draw, two].some(v => v === null)) return "";
+  return `<div class="probability-bar" aria-label="Probabilità 1X2">
+    <span class="p-home" style="width:${one}%"></span>
+    <span class="p-draw" style="width:${draw}%"></span>
+    <span class="p-away" style="width:${two}%"></span>
+  </div>`;
+}
+
+function bestProbability(match) {
+  const p = match?.analisi?.probabilita_1x2;
+  if (!p) return null;
+  const values = [
+    ["1", percentage(p["1"])],
+    ["X", percentage(p.X)],
+    ["2", percentage(p["2"])]
+  ].filter(item => item[1] !== null);
+  if (!values.length) return null;
+  return values.sort((a, b) => b[1] - a[1])[0];
+}
+
+function matchScore(match) {
+  const score = match?.risultato_reale;
+  const ft = score?.fullTime || score?.regularTime || score;
+  const home = validNumber(ft?.home);
+  const away = validNumber(ft?.away);
+  if (home === null || away === null) return null;
+  return `${home} - ${away}`;
+}
+
+function matchStatus(match) {
+  if (isLive(match)) return t("liveBadge");
+  if (isFinished(match)) return "FINALE";
+  return formatTime(match?.ora_utc);
+}
+
+function getFilteredMatches(forPlayers = false) {
+  let matches = [...getMatches()];
+  const league = forPlayers ? selectedPlayerLeague : selectedLeague;
+
+  if (league !== "ALL") {
+    matches = matches.filter(m => m?.competizione?.codice === league);
+  }
+
+  if (!forPlayers && selectedLeague === "FAV") {
+    matches = matches.filter(m => favorites.has(String(m.id)));
+  }
+
+  if (!forPlayers && selectedLeague === "LIVE") {
+    matches = matches.filter(isLive);
+  }
+
+  if (searchTerm && !forPlayers) {
+    const term = searchTerm.toLocaleLowerCase();
+    matches = matches.filter(m =>
+      `${m?.squadra_casa?.nome || ""} ${m?.squadra_trasferta?.nome || ""} ${m?.competizione?.nome || ""}`
+        .toLocaleLowerCase().includes(term)
+    );
+  }
+
+  return matches.sort((a, b) =>
+    String(a?.ora_utc || "").localeCompare(String(b?.ora_utc || ""))
+  );
+}
+
+function renderLeagueFilters() {
+  const available = new Set(getMatches().map(m => m?.competizione?.codice));
+  const leagues = LEAGUES.filter(([code]) => available.has(code));
+
+  $("#leagueFilters").innerHTML = [
+    `<button class="chip ${selectedLeague === "ALL" ? "active" : ""}" data-league="ALL">${esc(t("all"))}</button>`,
+    ...leagues.map(([code, name]) =>
+      `<button class="chip ${selectedLeague === code ? "active" : ""}" data-league="${code}">${esc(name)}</button>`
+    )
+  ].join("");
+
+  $("#playerLeagueFilters").innerHTML = [
+    `<button class="chip ${selectedPlayerLeague === "ALL" ? "active" : ""}" data-player-league="ALL">${esc(t("all"))}</button>`,
+    ...leagues.map(([code, name]) =>
+      `<button class="chip ${selectedPlayerLeague === code ? "active" : ""}" data-player-league="${code}">${esc(name)}</button>`
+    )
+  ].join("");
+}
+
+function renderQuickFilters() {
+  const labels = [
+    ["ALL", t("all")],
+    ["FAV", "♥ " + t("favorites")],
+    ["LIVE", "● " + t("live")]
+  ];
+
+  $("#quickFilters").innerHTML = labels.map(([code, label]) =>
+    `<button class="chip ${selectedLeague === code ? "active" : ""}" data-filter="${code}">${esc(label)}</button>`
+  ).join("");
+}
+
+function matchBadges(match) {
+  const badges = [];
+  if (isLive(match)) badges.push(`<span class="badge live">${t("liveBadge")}</span>`);
+  const best = bestProbability(match);
+  if (best && best[1] >= 70 && !isLive(match)) {
+    badges.push(`<span class="badge top">${t("top")}</span>`);
+  }
+  if (favorites.has(String(match.id))) {
+    badges.push(`<span class="badge favorite">♥ ${t("favorite")}</span>`);
+  }
+  return badges.length ? `<div class="badges">${badges.join("")}</div>` : "";
+}
+
+function matchCard(match) {
+  const home = match?.squadra_casa || {};
+  const away = match?.squadra_trasferta || {};
+  const score = matchScore(match);
+  const center = score || matchStatus(match);
+  const best = bestProbability(match);
+
+  return `<button class="match-card" data-match="${esc(match.id)}">
+    <div class="match-meta">
+      <span>${esc(match?.competizione?.nome || "—")}</span>
+      <span>${match?.giornata ? "Giornata " + esc(match.giornata) : ""}</span>
+    </div>
+    <div class="match-main">
+      <div class="team">${teamCrest(home)}<span>${esc(home.nome || "—")}</span></div>
+      <div class="match-center">${esc(center)}<small>${esc(matchStatus(match))}</small></div>
+      <div class="team">${teamCrest(away)}<span>${esc(away.nome || "—")}</span></div>
+    </div>
+    ${probabilityBar(match?.analisi?.probabilita_1x2)}
+    ${matchBadges(match)}
+    <div class="match-meta" style="margin:9px 0 0">
+      <span>${esc(formatDate(match?.ora_utc, {weekday: "short", day: "numeric", month: "short"}))}</span>
+      <span>${best ? "Stima prevalente: " + best[0] + " · " + best[1] + "%" : ""}</span>
+    </div>
+  </button>`;
+}
+
+function renderMatches() {
+  const matches = getFilteredMatches();
+  if (!matches.length) {
+    $("#matchesList").innerHTML = `<div class="empty">${esc(t("noMatches"))}</div>`;
+    return;
+  }
+
+  let html = "";
+  let lastDay = "";
+
+  for (const match of matches) {
+    const key = dateKey(match.ora_utc);
+    if (key !== lastDay) {
+      lastDay = key;
+      html += `<h3 class="day-title">${esc(formatDate(match.ora_utc))}</h3>`;
+    }
+    html += matchCard(match);
+  }
+
+  $("#matchesList").innerHTML = html;
+}
+
+function renderStats() {
+  const matches = getMatches();
+  $("#statMatches").textContent = matches.length;
+  $("#statLive").textContent = matches.filter(isLive).length;
+  $("#statLeagues").textContent = new Set(matches.map(m => m?.competizione?.codice).filter(Boolean)).size || LEAGUES.length;
+  $("#generatedAt").textContent = formatGeneratedDate(data?.generato_il);
+}
+
+function realGoals(match) {
+  return Array.isArray(match?.marcatori_reali) ? match.marcatori_reali : [];
+}
+
+function goalMinute(goal) {
+  const minute = goal?.minuto;
+  const extra = goal?.recupero;
+  if (minute === null || minute === undefined) return "—";
+  return extra ? `${minute}+${extra}'` : `${minute}'`;
+}
+
+function renderTimeline(match) {
+  const goals = realGoals(match);
+  if (!goals.length) {
+    return `<p class="info-text">${esc(t("noEvents"))}</p>`;
+  }
+
+  const ordered = [...goals].sort((a, b) => {
+    const am = Number(a?.minuto) || 0;
+    const bm = Number(b?.minuto) || 0;
+    return am - bm;
+  });
+
+  return `<div class="timeline">${ordered.map(goal => {
+    const scorer = goal?.marcatore || t("unavailable");
+    const assist = goal?.assist ? ` · ${t("assist")}: ${goal.assist}` : "";
+    const score = goal?.risultato ? ` · ${goal.risultato}` : "";
+    return `<div class="timeline-item">
+      <span class="timeline-minute">${esc(goalMinute(goal))}</span>
+      <strong>${esc(scorer)}</strong>
+      <span class="muted">${esc(assist + score)}</span>
+    </div>`;
+  }).join("")}</div>`;
+}
+
+function liveCard(match) {
+  const score = matchScore(match);
+  const home = match?.squadra_casa?.nome || "—";
+  const away = match?.squadra_trasferta?.nome || "—";
+
+  return `<article class="match-card">
+    <div class="match-meta">
+      <span>${esc(match?.competizione?.nome || "")}</span>
+      <span class="badge live">${esc(matchStatus(match))}</span>
+    </div>
+    <div class="match-main">
+      <div class="team">${teamCrest(match.squadra_casa)}<span>${esc(home)}</span></div>
+      <div class="match-center">${score ? esc(score) : "—"}<small>${score ? t("result") : t("noScore")}</small></div>
+      <div class="team">${teamCrest(match.squadra_trasferta)}<span>${esc(away)}</span></div>
+    </div>
+    ${renderTimeline(match)}
+    <button class="secondary-button" data-match="${esc(match.id)}">Apri analisi</button>
+  </article>`;
+}
+
+function renderLive() {
+  const live = getMatches().filter(isLive).sort((a, b) =>
+    String(a.ora_utc).localeCompare(String(b.ora_utc))
+  );
+
+  if (!live.length) {
+    $("#liveList").innerHTML = `<div class="empty">${esc(t("noLive"))}</div>`;
+    return;
+  }
+
+  $("#liveList").innerHTML = live.map(liveCard).join("");
+}
+
+function marketValue(match, market) {
+  const analysis = match?.analisi || {};
+  const markets = analysis.mercati_completi || {};
+
+  if (market === "1" || market === "X" || market === "2") {
+    return percentage(analysis.probabilita_1x2?.[market]);
+  }
+
+  if (market === "GG") return percentage(analysis.probabilita_gol?.gol);
+  if (market === "NG") return percentage(analysis.probabilita_gol?.nogol);
+  if (market === "Over 2.5") return percentage(analysis.probabilita_gol?.over_2_5);
+  if (market === "Under 2.5") return percentage(analysis.probabilita_gol?.under_2_5);
+
+  return percentage(markets[market]);
+}
+
+function generateCombination() {
+  const count = Number($("#generatorCount").value);
+  const market = $("#generatorMarket").value;
+
+  const candidates = getMatches()
+    .filter(m => !isLive(m) && !isFinished(m))
+    .map(match => ({match, probability: marketValue(match, market)}))
+    .filter(item => item.probability !== null)
+    .sort((a, b) => b.probability - a.probability)
+    .slice(0, count);
+
+  if (!candidates.length) {
+    $("#generatorResult").innerHTML = `<div class="empty">${esc(t("noAnalysis"))}</div>`;
+    return;
+  }
+
+  const rows = candidates.map(({match, probability}) => `
+    <div class="generated-match">
+      <div>
+        <strong>${esc(match.squadra_casa?.nome)} – ${esc(match.squadra_trasferta?.nome)}</strong>
+        <small>${esc(match.competizione?.nome)} · ${esc(formatDate(match.ora_utc, {day:"numeric",month:"short"}))} ${esc(formatTime(match.ora_utc))}</small>
+        <small>${esc(market)}</small>
+      </div>
+      <span class="prob">${probability}%</span>
+    </div>
+  `).join("");
+
+  $("#generatorResult").innerHTML = `
+    <h3>${esc(t("generated"))}</h3>
+    ${rows}
+    <div class="action-row">
+      <button class="secondary-button" id="shareCombination">Condividi combinazione</button>
+    </div>
+    <p class="info-text">${esc(t("noOdds"))}</p>
+  `;
+
+  $("#shareCombination")?.addEventListener("click", () => {
+    const text = candidates.map(({match, probability}) =>
+      `${match.squadra_casa?.nome} - ${match.squadra_trasferta?.nome}: ${market} (${probability}%)`
+    ).join("\n");
+    shareText(`Pronostici352 – ${t("generated")}\n${text}`);
+  });
+}
+
+function renderPlayerCards(players, type) {
+  if (!Array.isArray(players) || !players.length) return "";
+  return players.map(player => `
+    <div class="player">
+      <strong>${esc(player?.nome || t("unavailable"))}</strong>
+      <span>${esc(player?.ruolo || "")}</span>
+      <p>${type === "scorer" ? t("scorer") : t("booked")} · ${percentage(player?.probabilita) ?? "—"}%</p>
+      ${player?.motivazione ? `<p>${esc(player.motivazione)}</p>` : ""}
+    </div>
+  `).join("");
+}
+
+function renderPlayers() {
+  const matches = getFilteredMatches(true);
+  let html = "";
+
+  for (const match of matches) {
+    const analysis = match?.analisi || {};
+    const scorers = analysis.possibili_marcatori || {};
+    const bookings = analysis.possibili_ammoniti || {};
+    const scorerCards = [
+      ...renderPlayerCards(scorers.casa, "scorer").split("</div>").filter(Boolean).map(x => x + "</div>"),
+      ...renderPlayerCards(scorers.trasferta, "scorer").split("</div>").filter(Boolean).map(x => x + "</div>")
+    ].join("");
+
+    const bookingCards = [
+      ...renderPlayerCards(bookings.casa, "booking").split("</div>").filter(Boolean).map(x => x + "</div>"),
+      ...renderPlayerCards(bookings.trasferta, "booking").split("</div>").filter(Boolean).map(x => x + "</div>")
+    ].join("");
+
+    if (!scorerCards && !bookingCards) continue;
+
+    html += `<article class="match-card">
+      <div class="match-meta">
+        <span>${esc(match.competizione?.nome || "")}</span>
+        <span>${esc(formatDate(match.ora_utc, {day:"numeric",month:"short"}))}</span>
+      </div>
+      <strong>${esc(match.squadra_casa?.nome)} – ${esc(match.squadra_trasferta?.nome)}</strong>
+      ${scorerCards ? `<h3>${esc(t("scorers"))}</h3><div class="player-list">${scorerCards}</div>` : ""}
+      ${bookingCards ? `<h3>${esc(t("bookings"))}</h3><div class="player-list">${bookingCards}</div>` : ""}
+    </article>`;
+  }
+
+  $("#playersList").innerHTML = html || `<div class="empty">${esc(t("noPlayers"))}</div>`;
+}
+
+function position(team) {
+  const table = team?.classifica;
+  if (!table || !table.posizione) return "";
+  return `<span class="small muted">${esc(table.posizione)}° · ${esc(table.punti ?? "—")} pt</span>`;
+}
+
+function formationSvg(formation, team) {
+  const players = Array.isArray(formation?.giocatori) ? formation.giocatori : [];
+  const module = String(formation?.modulo || "");
+  const numbers = module.split("-").map(Number);
+  const valid = players.length === 11 && numbers.length >= 2 &&
+    numbers.every(n => n > 0) && numbers.reduce((a,b) => a+b, 0) === 10;
+
+  const [primary, secondary] = teamColors(team);
+  let points = "";
+
+  if (valid) {
+    const rows = [[players[0]]];
+    let index = 1;
+    numbers.forEach(n => {
+      rows.push(players.slice(index, index + n));
+      index += n;
+    });
+
+    rows.forEach((row, rowIndex) => {
+      const y = rowIndex === 0 ? 116 : 96 - (rowIndex - 1) * (84 / (rows.length - 2));
+      row.forEach((name, colIndex) => {
+        const x = (colIndex + 1) * 100 / (row.length + 1);
+        const surname = String(name).trim().split(/\s+/).pop().slice(0, 10);
+        points += `<circle cx="${x}" cy="${y}" r="5" fill="${primary}" stroke="${secondary}" stroke-width="1.5"/>
+          <text x="${x}" y="${y+10}" text-anchor="middle" font-size="3.5" font-weight="700" fill="#fff" stroke="#10252b" stroke-width=".7" paint-order="stroke">${esc(surname)}</text>`;
+      });
+    });
+  }
+
+  return `<svg class="pitch" viewBox="0 0 100 130" role="img" aria-label="${esc(team?.nome || "")}">
+    <rect width="100" height="130" fill="#28764b"/>
+    <g stroke="#fff" stroke-opacity=".8" fill="none" stroke-width=".7">
+      <rect x="4" y="4" width="92" height="122"/>
+      <line x1="4" y1="65" x2="96" y2="65"/>
+      <circle cx="50" cy="65" r="9"/>
+      <rect x="24" y="4" width="52" height="18"/>
+      <rect x="24" y="108" width="52" height="18"/>
+      <rect x="38" y="4" width="24" height="7"/>
+      <rect x="38" y="119" width="24" height="7"/>
+    </g>
+    ${points || `<text x="50" y="65" text-anchor="middle" font-size="5" fill="#fff">${esc(t("noFormation"))}</text>`}
+  </svg>`;
+}
+
+function progressLine(label, value) {
+  const p = percentage(value);
+  if (p === null) return "";
+  return `<div class="probability-line"><span>${esc(label)}</span><strong>${p}%</strong></div>
+    <div class="progress"><span style="width:${p}%"></span></div>`;
+}
+
+function marketCards(markets) {
+  if (!markets || typeof markets !== "object") {
+    return `<p class="info-text">${esc(t("unavailable"))}</p>`;
+  }
+
+  return `<div class="market-grid">${Object.entries(markets).map(([name, value]) => {
+    const p = percentage(value);
+    if (p === null) return "";
+    return `<div class="market"><strong>${esc(name)}</strong><span>${p}%</span></div>`;
+  }).join("")}</div>`;
+}
+
+function playerSection(title, players, type) {
+  const cards = renderPlayerCards(players, type);
+  return `<h3>${esc(title)}</h3>${cards ? `<div class="player-list">${cards}</div>` : `<p class="info-text">${esc(t("unavailable"))}</p>`}`;
+}
+
+function openMatch(id) {
+  const match = getMatches().find(m => String(m.id) === String(id));
+  if (!match) return;
+
+  currentMatch = match;
+  formationSide = "casa";
+  renderMatchDetail();
+  $("#detailBackdrop").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function renderMatchDetail() {
+  const match = currentMatch;
+  if (!match) return;
+
+  const home = match.squadra_casa || {};
+  const away = match.squadra_trasferta || {};
+  const analysis = match.analisi || {};
+  const p = analysis.probabilita_1x2 || {};
+  const goals = analysis.probabilita_gol || {};
+  const favorite = favorites.has(String(match.id));
+
+  let html = `
+    <div class="match-detail-head">
+      <div class="small muted">${esc(match.competizione?.nome || "")} · ${esc(formatDate(match.ora_utc))} · ${esc(formatTime(match.ora_utc))}</div>
+      <div class="match-main">
+        <div class="team">${teamCrest(home, 48)}<strong>${esc(home.nome || "")}</strong>${position(home)}</div>
+        <div class="match-center">${matchScore(match) ? esc(matchScore(match)) : "VS"}</div>
+        <div class="team">${teamCrest(away, 48)}<strong>${esc(away.nome || "")}</strong>${position(away)}</div>
+      </div>
+      ${matchBadges(match)}
+    </div>
+    <div class="action-row">
+      <button class="favorite-button" id="detailFavorite">${favorite ? "♥ " + t("removeFavorite") : "♡ " + t("addFavorite")}</button>
+      <button class="secondary-button" id="detailShare">↗ Condividi</button>
+    </div>
+  `;
+
+  if (!Object.keys(analysis).length) {
+    $("#detailContent").innerHTML = html + `<div class="empty">${esc(t("noAnalysis"))}</div>`;
+    bindDetailActions();
+    return;
+  }
+
+  html += `<h2>${esc(t("probabilities"))}</h2>`;
+  html += progressLine(`${home.nome || t("home")} (1)`, p["1"]);
+  html += progressLine("X – " + t("draw"), p.X);
+  html += progressLine(`${away.nome || t("away")} (2)`, p["2"]);
+
+  html += `<h2>${esc(t("goals"))}</h2>`;
+  html += progressLine("Over 2.5", goals.over_2_5);
+  html += progressLine("Under 2.5", goals.under_2_5);
+  html += progressLine(t("goal"), goals.gol);
+  html += progressLine(t("noGoal"), goals.nogol);
+
+  html += `<h2>${esc(t("markets"))}</h2>${marketCards(analysis.mercati_completi)}`;
+
+  html += `<h2>${esc(t("formations"))}</h2>
+    <div class="tabs">
+      <button class="tab ${formationSide === "casa" ? "active" : ""}" data-formation="casa">${esc(home.nome || t("home"))}</button>
+      <button class="tab ${formationSide === "trasferta" ? "active" : ""}" data-formation="trasferta">${esc(away.nome || t("away"))}</button>
+    </div>`;
+
+  const formation = formationSide === "casa"
+    ? analysis.probabile_formazione_casa
+    : analysis.probabile_formazione_trasferta;
+  const team = formationSide === "casa" ? home : away;
+
+  html += formationSvg(formation, team);
+  html += `<p class="small muted" style="text-align:center">Modulo ${esc(formation?.modulo || t("unavailable"))} · ${esc(t("formations").toLowerCase())}</p>`;
+
+  html += playerSection(t("scorers"), analysis.possibili_marcatori?.casa, "scorer");
+  html += playerSection(t("scorers") + " – " + (away.nome || ""), analysis.possibili_marcatori?.trasferta, "scorer");
+  html += playerSection(t("bookings"), analysis.possibili_ammoniti?.casa, "booking");
+  html += playerSection(t("bookings") + " – " + (away.nome || ""), analysis.possibili_ammoniti?.trasferta, "booking");
+
+  html += `<h2>${esc(t("analysis"))}</h2><p>${esc(analysis.analisi_tattica || t("unavailable"))}</p>`;
+  html += `<h2>${esc(t("technical"))}</h2><p>${esc(analysis.consiglio_tecnico || t("unavailable"))}</p>`;
+
+  if (isLive(match) || isFinished(match)) {
+    html += `<h2>${esc(t("result"))} &amp; marcatori reali</h2>`;
+    html += `<p><strong>${esc(matchScore(match) || t("noScore"))}</strong></p>`;
+    html += renderTimeline(match);
+  }
+
+  html += `<p class="disclaimer">${esc(t("onlyInfo"))} ${esc(t("noOdds"))}</p>`;
+
+  $("#detailContent").innerHTML = html;
+  bindDetailActions();
+}
+
+function bindDetailActions() {
+  $("#detailFavorite")?.addEventListener("click", () => {
+    toggleFavorite(currentMatch.id);
+    renderMatchDetail();
+    renderAll();
+  });
+
+  $("#detailShare")?.addEventListener("click", () => {
+    const m = currentMatch;
+    shareText(`Pronostici352: ${m.squadra_casa?.nome} - ${m.squadra_trasferta?.nome}\n${m.competizione?.nome || ""}`);
+  });
+}
+
+function toggleFavorite(id) {
+  const key = String(id);
+  if (favorites.has(key)) favorites.delete(key);
+  else favorites.add(key);
+  saveStorage("p352_favorites", [...favorites]);
+}
+
+function showPanel(name) {
+  currentPanel = name;
+
+  $$(".panel").forEach(panel => panel.classList.remove("active"));
+  $(`#panel${name}`)?.classList.add("active");
+
+  $$(".nav-item").forEach(button => {
+    button.classList.toggle("active", button.dataset.panel === name);
+  });
+
+  if (name === "Live") renderLive();
+  if (name === "Players") renderPlayers();
+  if (name === "Matches") renderMatches();
+
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function openDrawer() {
+  $("#drawer").classList.add("open");
+  $("#drawer").setAttribute("aria-hidden", "false");
+  $("#drawerBackdrop").hidden = false;
+}
+
+function closeDrawer() {
+  $("#drawer").classList.remove("open");
+  $("#drawer").setAttribute("aria-hidden", "true");
+  $("#drawerBackdrop").hidden = true;
+}
+
+function renderDrawer() {
+  const counts = {};
+  getMatches().forEach(m => {
+    const code = m?.competizione?.codice;
+    if (code) counts[code] = (counts[code] || 0) + 1;
+  });
+
+  $("#drawerLeagues").innerHTML = LEAGUES.map(([code, name]) => `
+    <button class="drawer-button" data-drawer-league="${code}">
+      <span>${esc(name)}</span><span class="drawer-count">${counts[code] || 0}</span>
+    </button>
+  `).join("");
+
+  const days = {};
+  getMatches().forEach(m => {
+    const key = dateKey(m.ora_utc);
+    days[key] = (days[key] || 0) + 1;
+  });
+
+  $("#drawerDays").innerHTML = Object.entries(days).sort(([a],[b]) => a.localeCompare(b)).map(([day, count]) => {
+    const match = getMatches().find(m => dateKey(m.ora_utc) === day);
+    return `<button class="drawer-button" data-drawer-day="${esc(day)}">
+      <span>${esc(formatDate(match?.ora_utc || day))}</span><span class="drawer-count">${count}</span>
+    </button>`;
+  }).join("") || `<p class="info-text">${esc(t("unavailable"))}</p>`;
+}
+
+function renderAll() {
+  renderStats();
+  renderQuickFilters();
+  renderLeagueFilters();
+  renderMatches();
+  renderLive();
+  renderPlayers();
+  renderDrawer();
+}
+
+function showInfo(type) {
+  const about = type === "about";
+  $("#infoContent").innerHTML = about ? `
+    <h2>Pronostici352</h2>
+    <p>Pronostici352 è un progetto indipendente dedicato all'analisi statistica del calcio.</p>
+    <p>Raccoglie informazioni sulle partite, probabilità statistiche, formazioni stimate e dati disponibili tramite fonti sportive esterne.</p>
+    <p>Le analisi generate automaticamente possono contenere imprecisioni, essere incomplete o non riflettere gli aggiornamenti più recenti.</p>
+  ` : `
+    <h2>Informazioni legali</h2>
+    <p>Pronostici352 offre contenuti esclusivamente informativi, statistici e divulgativi.</p>
+    <p>Le percentuali e le analisi non garantiscono alcun risultato sportivo e non costituiscono invito a scommettere o a effettuare operazioni economiche.</p>
+    <p>L'applicazione non offre quote, non accetta puntate, non gestisce denaro e non contiene collegamenti a operatori di gioco.</p>
+    <p>Contenuti vietati ai minori di 18 anni.</p>
+    <h3>Privacy</h3>
+    <p>Le preferenze dell'interfaccia e le squadre preferite vengono memorizzate localmente nel browser dell'utente. Questa versione non richiede registrazione e non invia tali preferenze a un server.</p>
+    <p>I dati delle partite vengono caricati dal file pubblico aggiornato dal sistema di pubblicazione dell'applicazione.</p>
+    <p>Per informazioni complete sul trattamento dei dati, il gestore del sito dovrà pubblicare una propria informativa privacy e indicare i recapiti del titolare.</p>
+  `;
+
+  $("#infoBackdrop").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(id) {
+  $(id).hidden = true;
+  if ($("#detailBackdrop").hidden && $("#infoBackdrop").hidden && $("#onboardingBackdrop").hidden) {
+    document.body.style.overflow = "";
+  }
+}
+
+async function shareText(text) {
+  try {
+    if (navigator.share) {
+      await navigator.share({title: "Pronostici352", text});
+    } else if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      alert("Testo copiato.");
+    } else {
+      prompt("Copia il testo:", text);
+    }
+  } catch (error) {
+    if (error?.name !== "AbortError") console.warn("Condivisione non disponibile", error);
+  }
+}
+
+function applyTheme() {
+  document.documentElement.dataset.theme = theme;
+  $("#themeButton").textContent = theme === "dark" ? "☀" : "☾";
+  try { localStorage.setItem("p352_theme", theme); } catch {}
+}
+
+function applyLanguage() {
+  document.documentElement.lang = language;
+  $("#languageSelect").value = language;
+
+  $("#headerSubtitle").textContent = t("subtitle");
+  $("#welcomeTitle").textContent = t("welcomeTitle");
+  $("#welcomeText").textContent = t("welcomeText");
+  $("#welcomeExplore").textContent = t("explore");
+  $("#matchesHeading").textContent = t("matches");
+  $("#leagueHeading").textContent = t("leagues");
+  $("#liveHeading").textContent = t("liveHeading");
+  $("#liveIntro").textContent = t("liveIntro");
+  $("#generatorHeading").textContent = t("generatorHeading");
+  $("#generatorIntro").textContent = t("generatorIntro");
+  $("#playersHeading").textContent = t("playersHeading");
+  $("#playersIntro").textContent = t("playersIntro");
+  $("#navMatches").textContent = t("matches");
+  $("#navLive").textContent = t("live");
+  $("#navGenerator").textContent = t("generator");
+  $("#navPlayers").textContent = t("players");
+  $("#statMatchesLabel").textContent = t("matchesAvailable");
+  $("#statLiveLabel").textContent = t("liveNow");
+  $("#statLeaguesLabel").textContent = t("leagueCount");
+  $("#searchInput").placeholder = t("search");
+  $("#generateButton").textContent = t("generate");
+  $("#clearGenerator").textContent = t("clear");
+  $("#drawerLeaguesTitle").textContent = t("leagues");
+  $("#drawerDaysTitle").textContent = t("days");
+  $("#drawerInfoTitle").textContent = t("info");
+  $("#aboutLabel").textContent = t("about");
+  $("#infoLabel").textContent = t("info");
+  $("#footerNote").textContent = t("onlyInfo");
+
+  renderAll();
+}
+
+async function loadData() {
+  $("#matchesList").innerHTML = `<div class="empty">Caricamento...</div>`;
+
+  try {
+    const response = await fetch(`data/matches.json?v=${Date.now()}`, {cache: "no-store"});
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    data = await response.json();
+    if (!Array.isArray(data?.partite)) throw new Error("Formato dati non valido");
+
+    renderAll();
+
+    if (data.generato_il) {
+      $("#generatedAt").textContent = formatGeneratedDate(data.generato_il);
+    }
+
+    if (data.esempio) {
+      $("#matchesList").insertAdjacentHTML("afterbegin",
+        `<div class="notice">Sono visualizzati dati dimostrativi. Le partite reali compariranno dopo il primo aggiornamento automatico.</div>`
+      );
+    }
+  } catch (error) {
+    console.error("Errore caricamento dati:", error);
+    $("#matchesList").innerHTML = `<div class="empty">${esc(t("loadingError"))}</div>`;
+    $("#liveList").innerHTML = `<div class="empty">${esc(t("loadingError"))}</div>`;
+    $("#playersList").innerHTML = `<div class="empty">${esc(t("loadingError"))}</div>`;
+  }
+}
+
+/* ---------------- Eventi UI ---------------- */
+
+$("#menuButton").addEventListener("click", openDrawer);
+$("#closeDrawer").addEventListener("click", closeDrawer);
+$("#drawerBackdrop").addEventListener("click", closeDrawer);
+
+$("#themeButton").addEventListener("click", () => {
+  theme = theme === "dark" ? "light" : "dark";
+  applyTheme();
+});
+
+$("#languageSelect").addEventListener("change", event => {
+  language = ["it", "en", "es"].includes(event.target.value) ? event.target.value : "it";
+  try { localStorage.setItem("p352_language", language); } catch {}
+  applyLanguage();
+});
+
+$("#shareButton").addEventListener("click", () => {
+  shareText("Pronostici352 – Analisi & Statistiche Calcio\n" + location.href);
+});
+
+$("#welcomeExplore").addEventListener("click", () => {
+  $("#welcomeBox").hidden = true;
+  showPanel("Matches");
+});
+
+$("#onboardingExplore").addEventListener("click", () => {
+  try { localStorage.setItem("p352_onboarding_seen", "1"); } catch {}
+  $("#onboardingBackdrop").hidden = true;
+  $("#welcomeBox").hidden = true;
+  document.body.style.overflow = "";
+  showPanel("Matches");
+});
+
+$("#onboardingInfo").addEventListener("click", () => {
+  $("#onboardingBackdrop").hidden = true;
+  showInfo("info");
+});
+
+$("#aboutButton").addEventListener("click", () => {
+  closeDrawer();
+  showInfo("about");
+});
+
+$("#infoButton").addEventListener("click", () => {
+  closeDrawer();
+  showInfo("info");
+});
+
+$("#generateButton").addEventListener("click", generateCombination);
+$("#clearGenerator").addEventListener("click", () => {
+  $("#generatorResult").innerHTML = `<div class="empty">Seleziona i parametri e genera una combinazione statistica.</div>`;
+});
+
+$("#searchInput").addEventListener("input", event => {
+  searchTerm = event.target.value.trim();
+  renderMatches();
+});
+
+document.addEventListener("click", event => {
+  const nav = event.target.closest("[data-panel]");
+  const league = event.target.closest("[data-league]");
+  const quick = event.target.closest("[data-filter]");
+  const playerLeague = event.target.closest("[data-player-league]");
+  const match = event.target.closest("[data-match]");
+  const formation = event.target.closest("[data-formation]");
+  const drawerLeague = event.target.closest("[data-drawer-league]");
+  const drawerDay = event.target.closest("[data-drawer-day]");
+  const close = event.target.closest("[data-close]");
+
+  if (nav) {
+    showPanel(nav.dataset.panel);
+  } else if (league) {
+    selectedLeague = league.dataset.league;
+    renderQuickFilters();
+    renderLeagueFilters();
+    renderMatches();
+  } else if (quick) {
+    selectedLeague = quick.dataset.filter;
+    renderQuickFilters();
+    renderLeagueFilters();
+    renderMatches();
+  } else if (playerLeague) {
+    selectedPlayerLeague = playerLeague.dataset.playerLeague;
+    renderLeagueFilters();
+    renderPlayers();
+  } else if (match) {
+    openMatch(match.dataset.match);
+  } else if (formation) {
+    formationSide = formation.dataset.formation;
+    renderMatchDetail();
+  } else if (drawerLeague) {
+    selectedLeague = drawerLeague.dataset.drawerLeague;
+    closeDrawer();
+    showPanel("Matches");
+    renderQuickFilters();
+    renderLeagueFilters();
+    renderMatches();
+  } else if (drawerDay) {
+    const day = drawerDay.dataset.drawerDay;
+    closeDrawer();
+    selectedLeague = "ALL";
+    showPanel("Matches");
+    renderQuickFilters();
+    renderLeagueFilters();
+    const matches = getMatches().filter(m => dateKey(m.ora_utc) === day);
+    $("#matchesList").innerHTML = matches.length
+      ? matches.map(matchCard).join("")
+      : `<div class="empty">${esc(t("noMatches"))}</div>`;
+  } else if (close?.dataset.close === "detail") {
+    closeModal("#detailBackdrop");
+  } else if (close?.dataset.close === "info") {
+    closeModal("#infoBackdrop");
+  } else if (event.target.id === "detailBackdrop") {
+    closeModal("#detailBackdrop");
+  } else if (event.target.id === "infoBackdrop") {
+    closeModal("#infoBackdrop");
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeDrawer();
+    closeModal("#detailBackdrop");
+    closeModal("#infoBackdrop");
+  }
+});
+
+/* ---------------- Avvio ---------------- */
+
+(async function init() {
+  applyTheme();
+  await loadData();
+  applyLanguage();
+
+  let seen = false;
+  try { seen = localStorage.getItem("p352_onboarding_seen") === "1"; } catch {}
+
+  if (!seen) {
+    $("#onboardingBackdrop").hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js").catch(error => {
+      console.warn("Service worker non disponibile:", error);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
