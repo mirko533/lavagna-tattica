@@ -82,21 +82,19 @@ def fd(path, params=None):
 
 def scegli_modello():
     try:
-                r = requests.get("https://googleapis.com" + "/v1beta/models",
-
-                         params={"key": GM_KEY, "pageSize": 200}, timeout=20).json()
-        nomi = [m["name"].split("/")[-1] for m in r.get("models", [])
-                if "generateContent" in m.get("supportedGenerationMethods", [])]
+        u = "https://googleapis.com" + "/v1beta/models"
+        r = requests.get(u, params={"key": GM_KEY, "pageSize": 200}, timeout=20).json()
+        nomi = [m["name"].split("/")[-1] for m in r.get("models", []) if "generateContent" in m.get("supportedGenerationMethods", [])]
         print("Modelli Gemini disponibili:", nomi, flush=True)
     except Exception as e:
         print("Elenco modelli non disponibile:", e, flush=True)
         nomi = []
-    for preferito in ("gemini-3.5-flash-lite", "gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash-preview"):
-        if preferito in nomi:
-            print("Modello selezionato:", preferito, flush=True)
-            return preferito
-    fl = sorted(n for n in nomi if "flash" in n and not re.search(r"image|tts|live|audio|embedding", n))
-    return fl[-1] if fl else "gemini-3.5-flash-lite"
+    for p in ("gemini-3.5-flash-lite", "gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash-preview"):
+        if p in nomi:
+            print("Modello selezionato:", p, flush=True)
+            return p
+    return "gemini-3.5-flash-lite"
+
 
 def partite():
     oggi = dt.date.today(); fine = oggi + dt.timedelta(days=GIORNI); res = []
