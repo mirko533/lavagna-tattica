@@ -65,17 +65,17 @@ Rispondi SOLO con JSON valido, senza testo extra, senza alcun riferimento a scom
 {{"analisi":"3-4 frasi su forma, rendimento casa/trasferta e duelli tattici",
 "formazioni":{{"casa":{{"modulo":"4-3-3","undici":["11 nomi"]}},"trasferta":{{"modulo":"4-4-2","undici":["11 nomi"]}}}},
 "prob_1x2":{{"1":0,"X":0,"2":0}},
-"mercati_completi":{{"1X":0,"X2":0,"12":0,"GG":0,"NG":0,"U1.5":0,"O1.5":0,"U2.5":0,"O2.5":0,"U3.5":0,"O3.5":0,"MG1-3":0,"MG2-4":0,"1+O1.5":0,"1X+GG":0,"2+U3.5":0}},
+"mercati_completi":{{"1X":0,"X2":0,"12":0,"GG":0,"NG":0,"U1.5":0,"O1.5":0,"U2.5":0,"O2.5":0,"U3.5":0,"O3.5":0,"MG1-2":0,"MG1-3":0,"MG2-3":0,"MG2-4":0,"MG3-5":0,"1+O1.5":0,"1+O2.5":0,"2+O1.5":0,"2+O2.5":0,"1X+O1.5":0,"X2+O1.5":0,"1X+GG":0,"X2+GG":0,"GG+O2.5":0,"1+GG":0,"2+GG":0,"2+U3.5":0}},
 "possibili_marcatori":[{{"squadra":"casa","giocatore":"","ruolo":"","prob":0}}],
 "possibili_ammoniti":[{{"squadra":"casa","giocatore":"","ruolo":"","motivo":"motivazione tattica","prob":0}}],
-"pronostico_principale":{{"esito":"1X","probabilita":0,"motivazione_breve":"max 90 caratteri"}},
+"pronostico_principale":{{"esito":"1+O1.5","probabilita":0,"motivazione_breve":"max 90 caratteri"}},
 "affidabilita":0,
 "stemma_casa":{{"colori":["#hex","#hex"],"pattern":"vertical|horizontal|diagonal|half|solid"}},
 "stemma_trasf":{{"colori":["#hex","#hex"],"pattern":"vertical|horizontal|diagonal|half|solid"}}}}
 Regole: probabilita intere 0-100 coerenti (1+X+2=100; U+O della stessa linea=100; GG+NG=100); 2 marcatori e 2 ammoniti per squadra;
-squadra = "casa" o "trasferta"; esito di pronostico_principale scelto tra i mercati (es. "1X","Over 2.5","Esito 1","Gol");
+squadra = "casa" o "trasferta";
+IMPORTANTE per pronostico_principale: NON scegliere sempre 1X o X2; varia tra Combo (es. 1+O1.5, GG+O2.5, 1X+GG, X2+O1.5), Multigol (MG2-4, MG1-3), Esiti secchi (1, 2, X), Gol (GG) o Over 2.5 in base alle caratteristiche reali della partita;
 colori = i 2 colori HEX reali e fedeli alle maglie ufficiali; pattern = strisce reali della maglia (vertical, horizontal, diagonal, half, solid)."""
-
 
 def norm(s):
     s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
