@@ -1,16 +1,28 @@
-
 {
+  "id": "/lavagna-tattica/",
   "name": "Pronostici352 - Analisi & Statistiche Calcio",
   "short_name": "Pronostici352",
   "description": "Analisi statistiche e probabilità delle partite di calcio.",
   "lang": "it",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/lavagna-tattica/",
+  "scope": "/lavagna-tattica/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#101C31",
-  "theme_color": "#101C31",
+  "background_color": "#0B1120",
+  "theme_color": "#0B1120",
   "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "icons/pronostici352-1.svg",
       "sizes": "any",
