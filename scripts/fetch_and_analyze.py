@@ -284,25 +284,33 @@ def analizza_gemini(modello, m, rosa_c, rosa_t):
         rosa_c=", ".join(rosa_c[:25]) if rosa_c else "Non disponibile",
         rosa_t=", ".join(rosa_t[:25]) if rosa_t else "Non disponibile"
     )
-    url = f"{GM_BASE}/{modello}:generateContent"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.4}
     }
-    try:
-        r = requests.post(url, params={"key": GM_KEY}, json=payload, timeout=45)
-        time.sleep(PAUSA)
-        if r.status_code != 200:
-            print("Errore Gemini:", r.status_code, r.text[:200], flush=True)
-            return {}
-        data = r.json()
-        cand = (data.get("candidates") or [{}])[0]
-        part = ((cand.get("content") or {}).get("parts") or [{}])[0]
-        txt = part.get("text", "{}")
-        return pulisci(json.loads(txt))
-    except Exception as e:
-        print("Eccezione Gemini:", e, flush=True)
-        return {}
+    modelli_prova = list(dict.fromkeys([modello, "gemini-3.5-flash", "gemini-3-flash-preview"]))
+    for mod in modelli_prova:
+        url = f"{GM_BASE}/{mod}:generateContent"
+        for _ in range(2):
+            try:
+                r = requests.post(url, params={"key": GM_KEY}, json=payload, timeout=45)
+                time.sleep(PAUSA)
+                if r.status_code == 200:
+                    data = r.json()
+                    cand = (data.get("candidates") or [{}])
+                    part = ((cand.get("content") or {}).get("parts") or [{}])
+                    txt = part.get("text", "{}")
+                    return pulisci(json.loads(txt))
+                if r.status_code in (429, 500, 503):
+                    print(f"Modello {mod} occupato ({r.status_code}), passo al successivo...", flush=True)
+                    time.sleep(3)
+                    break
+                print("Errore Gemini:", mod, r.status_code, r.text[:150], flush=True)
+                break
+            except Exception as e:
+                print("Eccezione Gemini:", e, flush=True)
+                time.sleep(2)
+    return {}
 
 def main():
     vecchio = load_json(OUT, {"matches": []})
@@ -312,10 +320,11 @@ def main():
     cl_cache = load_json(CL_CACHE, {})
 
     partite = partite_fd() + partite_sdb() + partite_ol()
+    print(f"Trovate {len(partite)} partite totali da elaborare...", flush=True)
     modello = scegli_modello()
     risultati = []
 
-    for m in partite:
+    for idx, m in enumerate(partite, 1):
         mid = m["id"]
         prev = vecchie_map.get(mid)
         if prev and prev.get("prob_1x2"):
@@ -324,6 +333,7 @@ def main():
             risultati.append(prev)
             continue
 
+        print(f"[{idx}/{len(partite)}] Analisi {m['casa']} - {m['trasf']}...", flush=True)
         rosa_c = get_rosa(m.pop("_hid", 0), sq_cache)
         rosa_t = get_rosa(m.pop("_aid", 0), sq_cache)
         ai_data = analizza_gemini(modello, m, rosa_c, rosa_t)
