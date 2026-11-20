@@ -151,10 +151,11 @@ def scegli_modello(vecchio_modello=None):
         nomi = [m["name"].split("/")[-1] for m in r.get("models", []) if "generateContent" in m.get("supportedGenerationMethods", [])]
     except Exception:
         nomi = []
-    for p in ("gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash-preview"):
+       for p in ("gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.5-flash", "gemini-3-flash-preview"):
         if p in nomi:
             return p
-    return "gemini-2.5-flash"
+    return "gemini-3.5-flash-lite"
+
 
 def partite_fd():
     oggi = dt.date.today()
