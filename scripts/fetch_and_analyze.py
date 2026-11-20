@@ -226,7 +226,7 @@ def partite_sdb():
     res = []
     visti = set()
 
-    for code, (lid, _) in SDB_COMP.items():
+        for code, (lid, _) in SDB_COMP.items():
         for ep in ("eventsnextleague.php", "eventspastleague.php"):
             j = sdb(ep, {"id": lid})
             for ev in (j or {}).get("events") or []:
@@ -256,3 +256,15 @@ def partite_sdb():
                 res.append({
                     "id": SDB_OFFSET + int(eid),
                     "_c": code,
+                    "utcDate": f"{d_ev}T{ora}Z",
+                    "status": stato,
+                    "homeTeam": {"id": SDB_OFFSET + hid if hid else 0, "name": ev.get("strHomeTeam") or ""},
+                    "awayTeam": {"id": SDB_OFFSET + aid if aid else 0, "name": ev.get("strAwayTeam") or ""},
+                    "score": {
+                        "fullTime": {
+                            "home": int(hs) if hs is not None and str(hs).isdigit() else None,
+                            "away": int(as_) if as_ is not None and str(as_).isdigit() else None
+                        }
+                    }
+                })
+    return res
