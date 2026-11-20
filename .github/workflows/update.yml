@@ -2,7 +2,11 @@ name: Aggiorna analisi e pubblica
 
 on:
   schedule:
+    # 07:00 UTC (08:00 Italia): genera pronostici e analisi AI del giorno
     - cron: "0 7 * * *"
+    # 14:00, 18:00 e 22:30 UTC: aggiorna solo risultati live/finali (0 chiamate AI, 1 chiamata API)
+    - cron: "0 14,18 * * *"
+    - cron: "30 22 * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -38,8 +42,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/matches.json
-          git diff --cached --quiet || (git commit -m "Aggiornamento analisi $(date -u +%F)" && git push)
+          git add public/data/matches.json public/data/squads_cache.json public/data/standings_cache.json
+          git diff --cached --quiet || (git commit -m "Aggiornamento analisi $(date -u +%F_%H-%M)" && git push)
 
   deploy:
     needs: update
