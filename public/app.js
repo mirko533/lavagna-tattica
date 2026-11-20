@@ -117,13 +117,14 @@ function genera() {
   const activeGroups = G.best ? Object.keys(GR) : G.m;
   const keys = activeGroups.filter(g => g !== 'MARC').flatMap(g => GR[g] || []);
   const includeMarc = activeGroups.includes('MARC');
-  const [lo, hi] = {
+   const [lo, hi] = {
     prud:,
     bil: [60, 74.9],
     alto: [40, 59.9],
     estr: [18, 44.9],
     all: [0, 100]
-  }[G.risk] ||;
+  }[G.risk] || [60, 74.9];
+
 
   const pool = [];
   D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2).forEach(m => {
