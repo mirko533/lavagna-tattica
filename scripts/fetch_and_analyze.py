@@ -31,7 +31,11 @@ SDB_COMP = {
     "SCA": ("5340", "Serie C - Gir. A"),
     "SCB": ("5339", "Serie C - Gir. B"),
     "SCC": ("4398", "Serie C - Gir. C"),
+    "EL": ("4481", "Europa League"),
+    "ECL": ("5071", "Conference League"),
+    "CI": ("4506", "Coppa Italia"),
 }
+
 
 ALL_COMP = {**COMP, **{k: v[1] for k, v in SDB_COMP.items()}}
 PATTERN = {"vertical", "horizontal", "diagonal", "half", "solid"}
