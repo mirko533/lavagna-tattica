@@ -4,7 +4,7 @@ import os, re, json, time, unicodedata, datetime as dt, requests
 
 FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_API_KEY") or os.environ.get("FOOTBALL_API_KEY") or os.environ["FD_API_KEY"]
 GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ["GOOGLE_API_KEY"]
-GIORNI = 4          # finestra di ricerca (giorni)
+GIORNI = 1         # finestra di ricerca (giorni)
 PAUSA = 2           # pausa tra chiamate Gemini
 PAUSA_FD = 6.2      # pausa tra chiamate Football-Data (piano Free: 10/min)
 CACHE_GIORNI = 7    # validita cache rose
