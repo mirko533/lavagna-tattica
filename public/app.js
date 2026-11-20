@@ -114,20 +114,70 @@ ${ev.length ? `<div class="tl">${ev.map(e => `<div>${ic(evIc(e), /esp|ross|red/.
 const comb = () => (out.reduce((a, o) => a * o.v / 100, 1) * 100).toFixed(1);
 const gtext = () => '352 Pronostici - Combinazione statistica\n' + out.map((o, i) => `${i + 1}. ${o.m.casa} - ${o.m.trasf}: ${lbl(o.x)} (${o.v}%)`).join('\n') + `\nProbabilità combinata stimata: ${comb()}%\n18+ · Solo informativo e statistico.`;
 function genera() {
-  const keys = G.best ? Object.values(GR).flat() : G.m.flatMap(g => GR[g]), lo = { prud: 75.01, bil: 60, all: 0 }[G.risk], hi = { prud: 101, bil: 75, all: 101 }[G.risk], c = [];
-  D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2).forEach(m => { const k = mk(m); let b = null; keys.forEach(x => { const v = +k[x]; if (v >= lo && v <= hi && (!b || v > b.v)) b = { x, v } }); if (b) c.push({ m, ...b }) });
-  out = c.sort((a, b) => b.v - a.v).slice(0, G.n); cardUrl = ''; cardBlob = null;
+  const activeGroups = G.best ? Object.keys(GR) : G.m;
+  const keys = activeGroups.filter(g => g !== 'MARC').flatMap(g => GR[g] || []);
+  const includeMarc = activeGroups.includes('MARC');
+  const [lo, hi] = {
+    prud:,
+    bil: [60, 74.9],
+    alto: [40, 59.9],
+    estr: [18, 44.9],
+    all: [0, 100]
+  }[G.risk] ||;
+
+  const pool = [];
+  D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2).forEach(m => {
+    const k = mk(m);
+    const validi = [];
+
+    keys.forEach(x => {
+      const v = +k[x];
+      if (v >= lo && v <= hi) validi.push({ x, v });
+    });
+
+    if (includeMarc && Array.isArray(m.possibili_marcatori)) {
+      m.possibili_marcatori.forEach(p => {
+        const v = +p.prob;
+        if (p.giocatore && v >= lo && v <= hi) {
+          validi.push({ x: `Segna ${p.giocatore}`, v });
+        }
+      });
+    }
+
+    if (validi.length) {
+      const totW = validi.reduce((s, item) => s + Math.max(5, item.v), 0);
+      let r = Math.random() * totW, scelto = validi[0];
+      for (const item of validi) {
+        r -= Math.max(5, item.v);
+        if (r <= 0) { scelto = item; break; }
+      }
+      const peso = (scelto.v / 100) * (0.45 + Math.random() * 1.1);
+      pool.push({ m, ...scelto, peso });
+    }
+  });
+
+  out = pool.sort((a, b) => b.peso - a.peso).slice(0, G.n);
+  cardUrl = '';
+  cardBlob = null;
 }
+
 function vGen() {
   return `<div class="box"><h3>${ic('sliders')}Parametri</h3>
 <div class="row"><label>Eventi</label><select data-s="n">${[2, 3, 4, 5, 6, 7, 8].map(n => `<option ${G.n == n ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
-<div class="row"><button class="chip ${G.best ? 'on' : ''}" data-a="best">${ic('zap')}Miglior Esito Statistico</button></div>
+<div class="row"><button class="chip ${G.best ? 'on' : ''}" data-a="best">${ic('zap')}Mix Completo (Tutti i mercati)</button></div>
 <div class="row" style="${G.best ? 'opacity:.4;pointer-events:none' : ''}"><label>Mercati</label>${Object.keys(GR).map(g => `<button class="chip ${G.m.includes(g) ? 'on' : ''}" data-a="mkt" data-v="${g}">${GL[g]}</button>`).join('')}</div>
-<div class="row"><label>Livello di rischio</label>${[['prud', 'Prudente >75%'], ['bil', 'Bilanciato 60-75%'], ['all', 'Tutti']].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div>
-<button class="btn" data-a="gen">${ic('gen')}Genera</button></div>` +
+<div class="row"><label>Livello di rischio</label>${[
+    ['prud', 'Prudente >75%'],
+    ['bil', 'Bilanciato 60-74%'],
+    ['alto', 'Alto Rischio 40-59%'],
+    ['estr', 'Estremo <45%'],
+    ['all', 'Tutti']
+  ].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div>
+<button class="btn" data-a="gen">${ic('gen')}Genera Nuova Combinazione</button></div>` +
     (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map(o => `<div class="sg"><div class="pz">${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}<span class="tn">${E(o.m.casa)} - ${E(o.m.trasf)}</span></div><span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span></div>`).join('')}<div style="display:flex;align-items:center;gap:12px;margin-top:12px">${ring(Math.round(comb()), 64, 7)}<span class="mu" style="font-size:12px">Probabilità combinata stimata</span></div>
 <button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}</div>`) : '') + disc();
 }
+
 const cardHTML = () => `<img class="cimg" src="${cardUrl}" alt="Card 352 Pronostici"><button class="btn s" data-a="dl">${ic('down')}Scarica PNG</button><button class="btn s" data-a="shimg">${ic('share')}Condividi immagine</button>`;
 async function makeCard() {
   try { await document.fonts?.ready } catch { }
