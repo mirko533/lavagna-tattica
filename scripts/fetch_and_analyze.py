@@ -12,7 +12,6 @@ PAUSA_FD = 6.2              # pausa Football-Data (Free: 10/min)
 PAUSA_SDB = 2.2             # pausa TheSportsDB (Free: 30/min)
 PAUSA_OL = 0.5              # pausa OpenLigaDB (nessun limite)
 CACHE_GIORNI = 7            # validita cache rose (giorni)
-CACHE_CLASSIFICHE_ORE = 12  # validita cache classifiche (ore)
 
 SDB_OFFSET = 900_000_000    # offset numerico ID per TheSportsDB
 OL_OFFSET = 800_000_000     # offset numerico ID per OpenLigaDB
@@ -46,11 +45,10 @@ OL_COMP = {
 
 ALL_COMP = {
     **COMP,
-    **{k: v[1] for k, v in SDB_COMP.items()},
-    **{k: v[1] for k, v in OL_COMP.items()},
+    **{k: v for k, v in SDB_COMP.items()},
+    **{k: v for k, v in OL_COMP.items()},
 }
 
-PATTERN = {"vertical", "horizontal", "diagonal", "half", "solid"}
 FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
 
 PROMPT = """Sei un analista statistico di calcio. Partita: {casa} vs {trasf} ({comp}), {data} UTC.
@@ -73,17 +71,6 @@ Regole: probabilita intere 0-100 coerenti (1+X+2=100; U+O della stessa linea=100
 squadra = "casa" o "trasferta";
 IMPORTANTE per pronostico_principale: NON scegliere sempre 1X o X2; varia tra Combo (es. 1+O1.5, GG+O2.5, 1X+GG, X2+O1.5), Multigol (MG2-4, MG1-3), Esiti secchi (1, 2, X), Gol (GG) o Over 2.5 in base alle caratteristiche reali della partita;
 colori = i 2 colori HEX reali e fedeli alle maglie ufficiali; pattern = strisce reali della maglia (vertical, horizontal, diagonal, half, solid)."""
-
-def norm(s):
-    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
-    return re.sub(r"[^a-z ]", "", s).strip()
-
-def ok(nome, rosa):
-    n = norm(nome)
-    if not n:
-        return False
-    tn = set(n.split())
-    return any(n == r or tn <= set(r.split()) or (len(n) > 4 and n in r) for r in rosa)
 
 def pulisci(o):
     if isinstance(o, str):
@@ -157,8 +144,6 @@ def ol(endpoint):
         except Exception:
             time.sleep(1)
     return None
-# --- FINE PARTE 1 ---
-# --- INIZIO PARTE 2 ---
 def scegli_modello(vecchio_modello=None):
     if vecchio_modello:
         return vecchio_modello
@@ -178,13 +163,26 @@ def partite_fd():
     fine = oggi + dt.timedelta(days=GIORNI)
     j = fd("/matches", {"competitions": ",".join(COMP.keys()), "dateFrom": oggi.isoformat(), "dateTo": fine.isoformat()})
     if j is None:
-        return None
+        return []
     res = []
     for m in j.get("matches", []):
         c = (m.get("competition") or {}).get("code")
-        if c in COMP:
-            m["_c"] = c
-            res.append(m)
+        if c not in COMP:
+            continue
+        ft = (m.get("score") or {}).get("fullTime") or {}
+        hs, as_ = ft.get("home"), ft.get("away")
+        res.append({
+            "id": m["id"],
+            "comp": c,
+            "compNome": COMP[c],
+            "data": m.get("utcDate") or "",
+            "stato": m.get("status") or "TIMED",
+            "casa": (m.get("homeTeam") or {}).get("name") or "",
+            "trasf": (m.get("awayTeam") or {}).get("name") or "",
+            "score": [hs, as_] if hs is not None and as_ is not None else None,
+            "_hid": (m.get("homeTeam") or {}).get("id") or 0,
+            "_aid": (m.get("awayTeam") or {}).get("id") or 0
+        })
     return res
 
 def partite_sdb():
@@ -192,7 +190,7 @@ def partite_sdb():
     date_valide = {(oggi + dt.timedelta(days=i)).isoformat() for i in range(GIORNI + 1)}
     res = []
     visti = set()
-    for code, (lid, _) in SDB_COMP.items():
+    for code, (lid, cnome) in SDB_COMP.items():
         for ep in ("eventsnextleague.php", "eventspastleague.php"):
             j = sdb(ep, {"id": lid})
             for ev in (j or {}).get("events") or []:
@@ -216,14 +214,19 @@ def partite_sdb():
                     ora += ":00"
                 hid = int(ev.get("idHomeTeam") or 0)
                 aid = int(ev.get("idAwayTeam") or 0)
+                h_ok = hs is not None and str(hs).isdigit()
+                a_ok = as_ is not None and str(as_).isdigit()
                 res.append({
                     "id": SDB_OFFSET + int(eid),
-                    "_c": code,
-                    "utcDate": f"{d_ev}T{ora}Z",
-                    "status": stato,
-                    "homeTeam": {"id": SDB_OFFSET + hid if hid else 0, "name": ev.get("strHomeTeam") or ""},
-                    "awayTeam": {"id": SDB_OFFSET + aid if aid else 0, "name": ev.get("strAwayTeam") or ""},
-                    "score": {"fullTime": {"home": int(hs) if hs is not None and str(hs).isdigit() else None, "away": int(as_) if as_ is not None and str(as_).isdigit() else None}}
+                    "comp": code,
+                    "compNome": cnome,
+                    "data": f"{d_ev}T{ora}Z",
+                    "stato": stato,
+                    "casa": ev.get("strHomeTeam") or "",
+                    "trasf": ev.get("strAwayTeam") or "",
+                    "score": [int(hs), int(as_)] if (h_ok and a_ok) else None,
+                    "_hid": SDB_OFFSET + hid if hid else 0,
+                    "_aid": SDB_OFFSET + aid if aid else 0
                 })
     return res
 
@@ -231,7 +234,7 @@ def partite_ol():
     oggi = dt.date.today()
     date_valide = {(oggi + dt.timedelta(days=i)).isoformat() for i in range(GIORNI + 1)}
     res = []
-    for code, (shortcut, _) in OL_COMP.items():
+    for code, (shortcut, cnome) in OL_COMP.items():
         data = ol(f"/getmatchdata/{shortcut}")
         for m in data or []:
             d_ev = (m.get("matchDateTimeUTC") or "")[:10]
@@ -241,14 +244,18 @@ def partite_ol():
             finito = m.get("matchIsFinished", False)
             risultati = m.get("matchResults") or []
             finale = next((r for r in risultati if r.get("resultTypeID") == 2), risultati[-1] if risultati else {})
+            hs, as_ = finale.get("pointsTeam1"), finale.get("pointsTeam2")
             res.append({
                 "id": OL_OFFSET + int(mid),
-                "_c": code,
-                "utcDate": m.get("matchDateTimeUTC") or f"{d_ev}T15:00:00Z",
-                "status": "FINISHED" if finito else "TIMED",
-                "homeTeam": {"id": OL_OFFSET + int((m.get("team1") or {}).get("teamId") or 0), "name": (m.get("team1") or {}).get("teamName") or ""},
-                "awayTeam": {"id": OL_OFFSET + int((m.get("team2") or {}).get("teamId") or 0), "name": (m.get("team2") or {}).get("teamName") or ""},
-                "score": {"fullTime": {"home": finale.get("pointsTeam1"), "away": finale.get("pointsTeam2")}}
+                "comp": code,
+                "compNome": cnome,
+                "data": m.get("matchDateTimeUTC") or f"{d_ev}T15:00:00Z",
+                "stato": "FINISHED" if finito else "TIMED",
+                "casa": (m.get("team1") or {}).get("teamName") or "",
+                "trasf": (m.get("team2") or {}).get("teamName") or "",
+                "score": [hs, as_] if hs is not None and as_ is not None else None,
+                "_hid": OL_OFFSET + int((m.get("team1") or {}).get("teamId") or 0),
+                "_aid": OL_OFFSET + int((m.get("team2") or {}).get("teamId") or 0)
             })
     return res
 
@@ -271,10 +278,10 @@ def get_rosa(team_id, cache):
 
 def analizza_gemini(modello, m, rosa_c, rosa_t):
     prompt = PROMPT.format(
-        casa=m["homeTeam"]["name"],
-        trasf=m["awayTeam"]["name"],
-        comp=ALL_COMP.get(m["_c"], m["_c"]),
-        data=m["utcDate"],
+        casa=m["casa"],
+        trasf=m["trasf"],
+        comp=m["compNome"],
+        data=m["data"],
         classifica="Dati standard di campionato",
         rosa_c=", ".join(rosa_c[:25]) if rosa_c else "Non disponibile",
         rosa_t=", ".join(rosa_t[:25]) if rosa_t else "Non disponibile"
@@ -289,41 +296,43 @@ def analizza_gemini(modello, m, rosa_c, rosa_t):
         time.sleep(PAUSA)
         if r.status_code != 200:
             print("Errore Gemini:", r.status_code, r.text[:200], flush=True)
-            return None
-        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            return {}
+        txt = r.json()["candidates"]["content"]["parts"]["text"]
         return pulisci(json.loads(txt))
     except Exception as e:
         print("Eccezione Gemini:", e, flush=True)
-        return None
+        return {}
 
 def main():
     vecchio = load_json(OUT, {"matches": []})
-    vecchie_map = {m["id"]: m for m in vecchio.get("matches", [])}
+    lista_vecchia = vecchio if isinstance(vecchio, list) else (vecchio.get("matches") or vecchio.get("partite") or [])
+    vecchie_map = {m["id"]: m for m in lista_vecchia if isinstance(m, dict) and "id" in m}
     sq_cache = load_json(SQ, {})
     cl_cache = load_json(CL_CACHE, {})
 
-    partite = (partite_fd() or []) + (partite_sdb() or []) + (partite_ol() or [])
+    partite = partite_fd() + partite_sdb() + partite_ol()
     modello = scegli_modello()
     risultati = []
 
     for m in partite:
         mid = m["id"]
         prev = vecchie_map.get(mid)
-        if prev and prev.get("ai"):
-            prev["status"] = m["status"]
+        if prev and prev.get("prob_1x2"):
+            prev["stato"] = m["stato"]
             prev["score"] = m["score"]
             risultati.append(prev)
             continue
 
-        rosa_c = get_rosa(m["homeTeam"]["id"], sq_cache)
-        rosa_t = get_rosa(m["awayTeam"]["id"], sq_cache)
+        rosa_c = get_rosa(m.pop("_hid", 0), sq_cache)
+        rosa_t = get_rosa(m.pop("_aid", 0), sq_cache)
         ai_data = analizza_gemini(modello, m, rosa_c, rosa_t)
-        m["ai"] = ai_data
+        m.update(ai_data)
         risultati.append(m)
 
     save_json(SQ, sq_cache)
     save_json(CL_CACHE, cl_cache)
-    save_json(OUT, {"updated_at": dt.datetime.now(dt.timezone.utc).isoformat(), "matches": risultati}, indent=2)
+    now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
+    save_json(OUT, {"updated_at": now_iso, "aggiornato": now_iso, "matches": risultati, "partite": risultati}, indent=2)
     print(f"Salvate {len(risultati)} partite in {OUT}", flush=True)
 
 if __name__ == "__main__":
