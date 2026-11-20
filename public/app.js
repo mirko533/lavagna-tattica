@@ -108,12 +108,7 @@ ${m.prob_1x2 ? `<div class="box"><h3>Probabilità</h3>${bar([{ l: '1', v: k['1']
   openId = m.id; $('#sheet').scrollTop = 0; $('#sheet').classList.add('open'); $('#scrim').classList.add('open');
 }
 
-/* ---------- Live API (chiave Football-Data facoltativa, solo sul dispositivo) ---------- */
-async function fd(p) {
-  let k = L.fdkey; if (!k) { k = prompt('Inserisci la tua chiave gratuita di Football-Data.org (resta solo su questo dispositivo):'); if (!k) throw 0; L.fdkey = k.trim() }
-  const r = await fetch('https://api.football-data.org/v4' + p, { headers: { 'X-Auth-Token': L.fdkey } });
-  if (!r.ok) { if (r.status == 400 || r.status == 403) delete L.fdkey; throw r.status } return r.json();
-}
+/* ---------- Azioni & Aggiornamento Live ---------- */
 const A = {
   tab(v) { tab = v; render(); scrollTo(0, 0) },
   comp(v) { F.c = v; F.f = false; render() },
@@ -128,14 +123,32 @@ const A = {
   mkt(v) { G.m = G.m.includes(v) ? G.m.filter(x => x != v) : [...G.m, v]; render() },
   gen() { genera(); render() },
   async cp() { const ok = await share(gtext()); if (ok) { const b = $('#cpb'); if (b) { b.classList.add('ok'); b.innerHTML = ic('check') + 'Copiato!'; setTimeout(() => { b.classList.remove('ok'); b.innerHTML = ic('copy') + 'Copia / Condividi combinazione' }, 1800) } } },
-  async refresh() { try { const j = await fd('/matches'); (j.matches || []).forEach(a => { const m = D.find(x => x.id == a.id); if (m) { m.stato = a.status; const f = a.score?.fullTime; m.score = f && f.home != null ? [f.home, f.away] : null } }); render(); toast('Live aggiornato') } catch { toast('Aggiornamento non riuscito') } },
-  async ev(v) {
+  async refresh() {
+    toast('Aggiornamento dati in corso...');
     try {
-      const j = await fd('/matches/' + v), e = [...(j.goals || []).map(g => ({ min: g.minute, t: `⚽ ${g.scorer?.name || ''} (${g.team?.name || ''})` })), ...(j.bookings || []).map(b => ({ min: b.minute, t: `${b.card === 'RED' ? '🟥' : '🟨'} ${b.player?.name || ''}` }))].sort((a, b) => a.min - b.min);
-      TL[v] = e.length ? `<div class="tl">${e.map(x => `<div><b>${E(x.min)}'</b> ${E(x.t)}</div>`).join('')}</div>` : '<p class="mu" style="font-size:13px;margin-top:8px">Nessun evento disponibile.</p>'; $('#tl' + v).innerHTML = TL[v];
-    } catch { toast('Eventi non disponibili') }
+      const r = await fetch('data/matches.json?t=' + Date.now(), { cache: 'no-store' });
+      const j = await r.json();
+      D = j.matches || [];
+      meta = j.aggiornato_il || '';
+      render();
+      toast('Dati live aggiornati');
+    } catch {
+      toast('Aggiornamento non riuscito');
+    }
+  },
+  ev(v) {
+    const m = D.find(x => x.id == v);
+    if (!m) return;
+    if (TL[v]) { delete TL[v]; $('#tl' + v).innerHTML = ''; return; }
+    const evs = m.eventi || [];
+    const marc = (m.possibili_marcatori || []).map(p => `⚽ ${E(p.giocatore)} (${p.prob}%)`);
+    TL[v] = evs.length
+      ? `<div class="tl">${evs.map(x => `<div><b>${E(x.min)}'</b> ${E(x.t)}</div>`).join('')}</div>`
+      : (marc.length ? `<div class="tl"><div style="color:var(--mu);font-size:12px">Giocatori chiave: ${marc.join(' · ')}</div></div>` : '<p class="mu" style="font-size:13px;margin-top:8px">Nessun evento registrato al momento.</p>');
+    $('#tl' + v).innerHTML = TL[v];
   }
 };
+
 document.addEventListener('click', e => { const b = e.target.closest('[data-a]'); if (b && A[b.dataset.a]) A[b.dataset.a](b.dataset.v) });
 document.addEventListener('change', e => { if (e.target.dataset.s === 'n') G.n = +e.target.value });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') A.close() });
