@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-20T23:14:06.782618+00:00",
-  "aggiornato": "2026-11-20T23:14:06.782618+00:00",
+  "updated_at": "2026-11-20T23:21:07.859689+00:00",
+  "aggiornato": "2026-11-20T23:21:07.859689+00:00",
   "matches": [
     {
       "id": 555087,
@@ -1711,10 +1711,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-20T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "SV Darmstadt 98",
       "trasf": "1. FC Heidenheim 1846",
-      "score": null,
+      "score": [
+        3,
+        1
+      ],
       "analisi": "Il Darmstadt affronta l'Heidenheim in una sfida di 2. Bundesliga caratterizzata da equilibri tattici sottili. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre la formazione ospite vanta una maggiore solidità strutturale. L'incontro si preannuncia combattuto a centrocampo, con possibili spazi in ripartenza per gli ospiti.",
       "formazioni": {
         "casa": {
@@ -1867,10 +1870,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-20T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "DSC Arminia Bielefeld",
       "trasf": "1. FC Magdeburg",
-      "score": null,
+      "score": [
+        1,
+        2
+      ],
       "analisi": "La partita di 2. Bundesliga tra DSC Arminia Bielefeld e 1. FC Magdeburg si preannuncia equilibrata e tatticamente intensa. I padroni di casa cercano di sfruttare il fattore campo per imporre il proprio ritmo, mentre gli ospiti puntano su una solida organizzazione difensiva e ripartenze veloci. Entrambe le squadre lotteranno per conquistare punti preziosi in classifica, evidenziando duelli chiave a centrocampo.",
       "formazioni": {
         "casa": {
@@ -2627,10 +2633,13 @@
       "comp": "BL3",
       "compNome": "3. Liga",
       "data": "2026-11-20T18:00:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "TSV Havelse",
       "trasf": "Viktoria Köln",
-      "score": null,
+      "score": [
+        1,
+        6
+      ],
       "analisi": "Il TSV Havelse affronta il Viktoria Köln in una sfida cruciale di 3. Liga caratterizzata da un divario di esperienza nella categoria. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare la posizione di classifica grazie a una maggiore solidità difensiva. La partita si preannuncia tattica, con duelli intensi a centrocampo e transizioni rapide che potrebbero sbloccare il punteggio.",
       "formazioni": {
         "casa": {
@@ -5425,10 +5434,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-20T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "SV Darmstadt 98",
       "trasf": "1. FC Heidenheim 1846",
-      "score": null,
+      "score": [
+        3,
+        1
+      ],
       "analisi": "Il Darmstadt affronta l'Heidenheim in una sfida di 2. Bundesliga caratterizzata da equilibri tattici sottili. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre la formazione ospite vanta una maggiore solidità strutturale. L'incontro si preannuncia combattuto a centrocampo, con possibili spazi in ripartenza per gli ospiti.",
       "formazioni": {
         "casa": {
@@ -5581,10 +5593,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-20T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "DSC Arminia Bielefeld",
       "trasf": "1. FC Magdeburg",
-      "score": null,
+      "score": [
+        1,
+        2
+      ],
       "analisi": "La partita di 2. Bundesliga tra DSC Arminia Bielefeld e 1. FC Magdeburg si preannuncia equilibrata e tatticamente intensa. I padroni di casa cercano di sfruttare il fattore campo per imporre il proprio ritmo, mentre gli ospiti puntano su una solida organizzazione difensiva e ripartenze veloci. Entrambe le squadre lotteranno per conquistare punti preziosi in classifica, evidenziando duelli chiave a centrocampo.",
       "formazioni": {
         "casa": {
@@ -6341,10 +6356,13 @@
       "comp": "BL3",
       "compNome": "3. Liga",
       "data": "2026-11-20T18:00:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "TSV Havelse",
       "trasf": "Viktoria Köln",
-      "score": null,
+      "score": [
+        1,
+        6
+      ],
       "analisi": "Il TSV Havelse affronta il Viktoria Köln in una sfida cruciale di 3. Liga caratterizzata da un divario di esperienza nella categoria. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare la posizione di classifica grazie a una maggiore solidità difensiva. La partita si preannuncia tattica, con duelli intensi a centrocampo e transizioni rapide che potrebbero sbloccare il punteggio.",
       "formazioni": {
         "casa": {
