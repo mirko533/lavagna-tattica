@@ -297,8 +297,8 @@ def analizza_gemini(modello, m, rosa_c, rosa_t):
                 time.sleep(PAUSA)
                 if r.status_code == 200:
                     data = r.json()
-                    cand = (data.get("candidates") or [{}])
-                    part = ((cand.get("content") or {}).get("parts") or [{}])
+                    cand = next(iter(data.get("candidates") or []), {})
+                    part = next(iter((cand.get("content") or {}).get("parts") or []), {})
                     txt = part.get("text", "{}")
                     return pulisci(json.loads(txt))
                 if r.status_code in (429, 500, 503):
@@ -311,6 +311,7 @@ def analizza_gemini(modello, m, rosa_c, rosa_t):
                 print("Eccezione Gemini:", e, flush=True)
                 time.sleep(2)
     return {}
+
 
 def main():
     vecchio = load_json(OUT, {"matches": []})
