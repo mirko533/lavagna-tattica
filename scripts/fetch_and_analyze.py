@@ -1,31 +1,34 @@
 #!/usr/bin/env python3
-"""352 Pronostici - Football-Data.org v4 + TheSportsDB (Serie B & C) + analisi Gemini con cache."""
+"""352 Pronostici - Football-Data + TheSportsDB + OpenLigaDB + Gemini AI (con cache)."""
 import os, re, json, time, unicodedata, datetime as dt, requests
 
 FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_API_KEY") or os.environ.get("FOOTBALL_API_KEY") or os.environ["FD_API_KEY"]
 GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ["GOOGLE_API_KEY"]
-SDB_KEY = os.environ.get("THESPORTSDB_API_KEY") or "123"  # Chiave pubblica gratuita V1
+SDB_KEY = os.environ.get("THESPORTSDB_API_KEY") or "123"
 
 GIORNI = 1                  # finestra di ricerca (giorni)
 PAUSA = 2                   # pausa tra chiamate Gemini
-PAUSA_FD = 6.2              # pausa tra chiamate Football-Data (piano Free: 10/min)
-PAUSA_SDB = 2.2             # pausa tra chiamate TheSportsDB (piano Free: 30/min)
+PAUSA_FD = 6.2              # pausa Football-Data (Free: 10/min)
+PAUSA_SDB = 2.2             # pausa TheSportsDB (Free: 30/min)
+PAUSA_OL = 0.5              # pausa OpenLigaDB (nessun limite)
 CACHE_GIORNI = 7            # validita cache rose (giorni)
 CACHE_CLASSIFICHE_ORE = 12  # validita cache classifiche (ore)
-SDB_OFFSET = 900_000_000    # offset numerico per evitare collisioni ID con Football-Data
+
+SDB_OFFSET = 900_000_000    # offset numerico ID per TheSportsDB
+OL_OFFSET = 800_000_000     # offset numerico ID per OpenLigaDB
 
 OUT = "public/data/matches.json"
 SQ = "public/data/squads_cache.json"
 CL_CACHE = "public/data/standings_cache.json"
 
-# Campionati gestiti da Football-Data.org
+# 1. Campionati Football-Data.org
 COMP = {
     "SA": "Serie A", "PL": "Premier League", "PD": "La Liga", "BL1": "Bundesliga",
     "FL1": "Ligue 1", "CL": "Champions League", "ELC": "Championship", "DED": "Eredivisie",
     "PPL": "Primeira Liga", "BSA": "Serie A Brasile", "WC": "Mondiali FIFA", "EC": "Europei UEFA"
 }
 
-# Campionati aggiuntivi gestiti da TheSportsDB (esclusi quelli sopra)
+# 2. Campionati aggiuntivi TheSportsDB (Italia + Coppe UEFA)
 SDB_COMP = {
     "SB": ("4394", "Serie B"),
     "SCA": ("5340", "Serie C - Gir. A"),
@@ -36,8 +39,20 @@ SDB_COMP = {
     "CI": ("4506", "Coppa Italia"),
 }
 
+# 3. Campionati aggiuntivi OpenLigaDB (Germania 2/3/Coppa + Austria)
+OL_COMP = {
+    "BL2": ("bl2", "2. Bundesliga"),
+    "BL3": ("bl3", "3. Liga"),
+    "DFB": ("dfb", "DFB-Pokal"),
+    "AUT": ("öbl1", "Bundesliga Austria"),
+}
 
-ALL_COMP = {**COMP, **{k: v[1] for k, v in SDB_COMP.items()}}
+ALL_COMP = {
+    **COMP,
+    **{k: v[1] for k, v in SDB_COMP.items()},
+    **{k: v[1] for k, v in OL_COMP.items()},
+}
+
 PATTERN = {"vertical", "horizontal", "diagonal", "half", "solid"}
 FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
 
@@ -45,7 +60,7 @@ PROMPT = """Sei un analista statistico di calcio. Partita: {casa} vs {trasf} ({c
 CLASSIFICA/FORMA: {classifica}
 ROSA UFFICIALE {casa}: {rosa_c}
 ROSA UFFICIALE {trasf}: {rosa_t}
-VINCOLO ASSOLUTO: i titolari delle formazioni, i marcatori e gli ammoniti devono essere SOLO giocatori presenti nelle rose qui sopra (nome identico). Nessun giocatore esterno.
+VINCOLO ASSOLUTO: i titolari delle formazioni, i marcatori e gli ammoniti devono essere SOLO giocatori presenti nelle rose qui sopra (nome identico, se disponibile). Nessun giocatore esterno inventato.
 Rispondi SOLO con JSON valido, senza testo extra, senza alcun riferimento a scommesse, quote, bookmaker o denaro:
 {{"analisi":"3-4 frasi su forma, rendimento casa/trasferta e duelli tattici",
 "formazioni":{{"casa":{{"modulo":"4-3-3","undici":["11 nomi"]}},"trasferta":{{"modulo":"4-4-2","undici":["11 nomi"]}}}},
@@ -101,10 +116,14 @@ def save_json(path, data, indent=None):
         json.dump(data, f, ensure_ascii=False, indent=indent)
 
 
-def stagione_corrente():
+def anno_stagione():
     oggi = dt.date.today()
-    anno = oggi.year if oggi.month >= 7 else oggi.year - 1
-    return f"{anno}-{anno + 1}"
+    return oggi.year if oggi.month >= 7 else oggi.year - 1
+
+
+def stagione_corrente():
+    a = anno_stagione()
+    return f"{a}-{a + 1}"
 
 
 def fd(path, params=None):
@@ -129,8 +148,7 @@ def fd(path, params=None):
 
 
 def sdb(endpoint, params=None):
-    """Client HTTP per TheSportsDB V1."""
-    url = f"https://www.thesportsdb.com/api/v1/json/{SDB_KEY}/{endpoint}"
+    url = f"https://thesportsdb.com{SDB_KEY}/{endpoint}"
     for _ in range(3):
         try:
             r = requests.get(url, params=params, timeout=30)
@@ -147,6 +165,23 @@ def sdb(endpoint, params=None):
             print("SDB", endpoint, "HTTP", r.status_code, flush=True)
             return None
         return r.json()
+    return None
+
+
+def ol(endpoint):
+    """Client HTTP per OpenLigaDB (nessuna API key richiesta)."""
+    url = f"https://openligadb.de{endpoint}"
+    for _ in range(2):
+        try:
+            r = requests.get(url, timeout=25)
+            time.sleep(PAUSA_OL)
+            if r.status_code == 200:
+                return r.json()
+            print("OpenLigaDB", endpoint, "HTTP", r.status_code, flush=True)
+            return None
+        except Exception as e:
+            print("OpenLigaDB", endpoint, e, flush=True)
+            time.sleep(1)
     return None
 
 
@@ -181,21 +216,17 @@ def partite_fd():
         c = (m.get("competition") or {}).get("code")
         if c in COMP:
             m["_c"] = c
-            m["_src"] = "fd"
             res.append(m)
     return res
 
 
 def partite_sdb():
-    """Scarica partite di Serie B e Serie C da TheSportsDB normalizzandole nel formato standard."""
     oggi = dt.date.today()
-    fine = oggi + dt.timedelta(days=GIORNI)
     date_valide = {(oggi + dt.timedelta(days=i)).isoformat() for i in range(GIORNI + 1)}
     res = []
     visti = set()
 
     for code, (lid, _) in SDB_COMP.items():
-        # Controlla sia i prossimi match che gli ultimi (per aggiornare i risultati appena conclusi)
         for ep in ("eventsnextleague.php", "eventspastleague.php"):
             j = sdb(ep, {"id": lid})
             for ev in (j or {}).get("events") or []:
@@ -225,18 +256,3 @@ def partite_sdb():
                 res.append({
                     "id": SDB_OFFSET + int(eid),
                     "_c": code,
-                    "_src": "sdb",
-                    "utcDate": f"{d_ev}T{ora}Z",
-                    "status": stato,
-                    "homeTeam": {"id": SDB_OFFSET + hid if hid else 0, "name": ev.get("strHomeTeam") or ""},
-                    "awayTeam": {"id": SDB_OFFSET + aid if aid else 0, "name": ev.get("strAwayTeam") or ""},
-                    "score": {
-                        "fullTime": {
-                            "home": int(hs) if hs is not None and str(hs).isdigit() else None,
-                            "away": int(as_) if as_ is not None and str(as_).isdigit() else None
-                        }
-                    }
-                })
-    return res
-
-
