@@ -226,7 +226,7 @@ def partite_sdb():
     res = []
     visti = set()
 
-        for code, (lid, _) in SDB_COMP.items():
+    for code, (lid, _) in SDB_COMP.items():
         for ep in ("eventsnextleague.php", "eventspastleague.php"):
             j = sdb(ep, {"id": lid})
             for ev in (j or {}).get("events") or []:
