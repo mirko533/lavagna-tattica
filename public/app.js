@@ -8,10 +8,23 @@ const clean = s => { s = String(s ?? ''); return FORB.test(s) ? (s.match(/[^.!?]
 const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const ic = (n, c = '') => `<svg class="ic ${c}"><use href="#i-${n}"/></svg>`;
 let D = [], meta = '', fav = J('fav', []), F = { c: '', f: false, t: false, top: false, q: '' }, tab = 'home', out = null, cardUrl = '', cardBlob = null;
-let G = { n: 5, m: ['1X2', 'DC', 'UO'], best: false, risk: 'all' };
-const GR = { '1X2': ['1', 'X', '2'], DC: ['1X', 'X2', '12'], UO: ['U1.5', 'O1.5', 'U2.5', 'O2.5', 'U3.5', 'O3.5'], GN: ['GG', 'NG'], MG: ['MG1-3', 'MG2-4'], CB: ['1+O1.5', '1X+GG', '2+U3.5'] };
-const GL = { '1X2': '1X2', DC: 'Doppia Chance', UO: 'Under/Over', GN: 'Gol/NoGol', MG: 'Multigol', CB: 'Combo' };
-const lbl = k => ({ '1': 'Esito 1', X: 'Esito X', '2': 'Esito 2', GG: 'Gol', NG: 'NoGol' }[k]) || k.replace(/U(?=\d)/g, 'Under ').replace(/O(?=\d)/g, 'Over ').replace('MG', 'Multigol ').replace('GG', 'Gol');
+let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB'], best: false, risk: 'all' };
+const GR = {
+  '1X2': ['1', 'X', '2'],
+  DC: ['1X', 'X2', '12'],
+  UO: ['U1.5', 'O1.5', 'U2.5', 'O2.5', 'U3.5', 'O3.5'],
+  GN: ['GG', 'NG'],
+  MG: ['MG1-2', 'MG1-3', 'MG2-3', 'MG2-4', 'MG3-5'],
+  CB: ['1+O1.5', '1+O2.5', '2+O1.5', '2+O2.5', '1X+O1.5', 'X2+O1.5', '1X+GG', 'X2+GG', 'GG+O2.5', '1+GG', '2+GG', '2+U3.5'],
+  MARC: ['MARC']
+};
+const GL = { '1X2': '1X2', DC: 'Doppia Chance', UO: 'Under/Over', GN: 'Gol/NoGol', MG: 'Multigol', CB: 'Combo', MARC: 'Marcatore' };
+const lbl = k => {
+  if (k.startsWith('Segna ')) return k;
+  return ({ '1': 'Esito 1', X: 'Esito X', '2': 'Esito 2', GG: 'Gol', NG: 'NoGol' }[k])
+    || k.replace(/U(?=\d)/g, 'Under ').replace(/O(?=\d)/g, 'Over ').replace('MG', 'Multigol ').replace('GG', 'Gol');
+};
+
 const mk = m => ({ ...(m.prob_1x2 || {}), ...(m.mercati_completi || {}) });
 const LV = s => s === 'IN_PLAY' || s === 'PAUSED';
 const day = m => new Date(m.data).toLocaleDateString('sv');
