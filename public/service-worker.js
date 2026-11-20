@@ -1,4 +1,4 @@
-const CACHE_NAME = "pronostici352-v2";
+const CACHE_NAME = "pronostici352-v3";
 const SHELL = ["./", "index.html", "style.css", "app.js", "manifest.json", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(SHELL)));
@@ -11,12 +11,12 @@ self.addEventListener("fetch", e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== location.origin) return;
   if (url.pathname.endsWith("/data/matches.json") || url.pathname.endsWith("/data/squads_cache.json")) {
-    // Network First, senza cache HTTP: cache solo come fallback offline
+    // Network First con cache: "no-store"; la cache serve solo se si e' offline
     e.respondWith(fetch(req, { cache: "no-store" }).then(r => {
       const copy = r.clone();
-      caches.open(CACHE_NAME).then(c => c.put(req, copy));
+      caches.open(CACHE_NAME).then(c => c.put(url.origin + url.pathname, copy));
       return r;
-    }).catch(() => caches.match(req)));
+    }).catch(() => caches.match(url.origin + url.pathname)));
     return;
   }
   e.respondWith(caches.match(req).then(hit => {
