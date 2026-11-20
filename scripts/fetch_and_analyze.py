@@ -2,8 +2,8 @@
 """352 Pronostici - Football-Data + TheSportsDB + OpenLigaDB + Gemini AI (con cache)."""
 import os, re, json, time, unicodedata, datetime as dt, requests
 
-FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_API_KEY") or os.environ.get("FOOTBALL_API_KEY") or os.environ["FD_API_KEY"]
-GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ["GOOGLE_API_KEY"]
+FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_API_KEY") or os.environ.get("FOOTBALL_API_KEY") or os.environ.get("FD_API_KEY", "")
+GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY", "")
 SDB_KEY = os.environ.get("THESPORTSDB_API_KEY") or "123"
 
 GIORNI = 1                  # finestra di ricerca (giorni)
@@ -21,14 +21,12 @@ OUT = "public/data/matches.json"
 SQ = "public/data/squads_cache.json"
 CL_CACHE = "public/data/standings_cache.json"
 
-# 1. Campionati Football-Data.org
 COMP = {
     "SA": "Serie A", "PL": "Premier League", "PD": "La Liga", "BL1": "Bundesliga",
     "FL1": "Ligue 1", "CL": "Champions League", "ELC": "Championship", "DED": "Eredivisie",
     "PPL": "Primeira Liga", "BSA": "Serie A Brasile", "WC": "Mondiali FIFA", "EC": "Europei UEFA"
 }
 
-# 2. Campionati aggiuntivi TheSportsDB (Italia + Coppe UEFA)
 SDB_COMP = {
     "SB": ("4394", "Serie B"),
     "SCA": ("5340", "Serie C - Gir. A"),
@@ -39,7 +37,6 @@ SDB_COMP = {
     "CI": ("4506", "Coppa Italia"),
 }
 
-# 3. Campionati aggiuntivi OpenLigaDB (Germania 2/3/Coppa + Austria)
 OL_COMP = {
     "BL2": ("bl2", "2. Bundesliga"),
     "BL3": ("bl3", "3. Liga"),
@@ -81,14 +78,12 @@ def norm(s):
     s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z ]", "", s).strip()
 
-
 def ok(nome, rosa):
     n = norm(nome)
     if not n:
         return False
     tn = set(n.split())
     return any(n == r or tn <= set(r.split()) or (len(n) > 4 and n in r) for r in rosa)
-
 
 def pulisci(o):
     if isinstance(o, str):
@@ -101,7 +96,6 @@ def pulisci(o):
         return {k: pulisci(v) for k, v in o.items()}
     return o
 
-
 def load_json(path, default):
     try:
         with open(path, encoding="utf-8") as f:
@@ -109,35 +103,21 @@ def load_json(path, default):
     except Exception:
         return default
 
-
 def save_json(path, data, indent=None):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=indent)
 
-
-def anno_stagione():
-    oggi = dt.date.today()
-    return oggi.year if oggi.month >= 7 else oggi.year - 1
-
-
-def stagione_corrente():
-    a = anno_stagione()
-    return f"{a}-{a + 1}"
-
-
 def fd(path, params=None):
     for _ in range(3):
         try:
-            r = requests.get("https://football-data.org" + path, headers={"X-Auth-Token": FD_KEY},
-                             params=params, timeout=30)
+            r = requests.get("https://football-data.org" + path, headers={"X-Auth-Token": FD_KEY}, params=params, timeout=30)
         except Exception as e:
             print(path, e, flush=True)
             time.sleep(PAUSA_FD)
             continue
         time.sleep(PAUSA_FD)
         if r.status_code == 429:
-            print("Rate limit Football-Data, attendo 35s...", flush=True)
             time.sleep(35)
             continue
         if r.status_code != 200:
@@ -145,7 +125,6 @@ def fd(path, params=None):
             return None
         return r.json()
     return None
-
 
 def sdb(endpoint, params=None):
     url = f"https://thesportsdb.com{SDB_KEY}/{endpoint}"
@@ -158,7 +137,6 @@ def sdb(endpoint, params=None):
             continue
         time.sleep(PAUSA_SDB)
         if r.status_code == 429:
-            print("Rate limit TheSportsDB, attendo 25s...", flush=True)
             time.sleep(25)
             continue
         if r.status_code != 200:
@@ -167,9 +145,7 @@ def sdb(endpoint, params=None):
         return r.json()
     return None
 
-
 def ol(endpoint):
-    """Client HTTP per OpenLigaDB (nessuna API key richiesta)."""
     url = f"https://openligadb.de{endpoint}"
     for _ in range(2):
         try:
@@ -177,14 +153,12 @@ def ol(endpoint):
             time.sleep(PAUSA_OL)
             if r.status_code == 200:
                 return r.json()
-            print("OpenLigaDB", endpoint, "HTTP", r.status_code, flush=True)
             return None
-        except Exception as e:
-            print("OpenLigaDB", endpoint, e, flush=True)
+        except Exception:
             time.sleep(1)
     return None
-
-
+# --- FINE PARTE 1 ---
+# --- INIZIO PARTE 2 ---
 def scegli_modello(vecchio_modello=None):
     if vecchio_modello:
         return vecchio_modello
@@ -192,23 +166,17 @@ def scegli_modello(vecchio_modello=None):
         u = "https://googleapis.com"
         r = requests.get(u, params={"key": GM_KEY, "pageSize": 200}, timeout=20).json()
         nomi = [m["name"].split("/")[-1] for m in r.get("models", []) if "generateContent" in m.get("supportedGenerationMethods", [])]
-    except Exception as e:
-        print("Elenco modelli non disponibile:", e, flush=True)
+    except Exception:
         nomi = []
     for p in ("gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-flash-preview"):
         if p in nomi:
             return p
     return "gemini-2.5-flash"
 
-
 def partite_fd():
     oggi = dt.date.today()
     fine = oggi + dt.timedelta(days=GIORNI)
-    j = fd("/matches", {
-        "competitions": ",".join(COMP.keys()),
-        "dateFrom": oggi.isoformat(),
-        "dateTo": fine.isoformat()
-    })
+    j = fd("/matches", {"competitions": ",".join(COMP.keys()), "dateFrom": oggi.isoformat(), "dateTo": fine.isoformat()})
     if j is None:
         return None
     res = []
@@ -219,13 +187,11 @@ def partite_fd():
             res.append(m)
     return res
 
-
 def partite_sdb():
     oggi = dt.date.today()
     date_valide = {(oggi + dt.timedelta(days=i)).isoformat() for i in range(GIORNI + 1)}
     res = []
     visti = set()
-
     for code, (lid, _) in SDB_COMP.items():
         for ep in ("eventsnextleague.php", "eventspastleague.php"):
             j = sdb(ep, {"id": lid})
@@ -235,7 +201,6 @@ def partite_sdb():
                 if not eid or d_ev not in date_valide or eid in visti:
                     continue
                 visti.add(eid)
-
                 raw_st = (ev.get("strStatus") or "").upper()
                 hs, as_ = ev.get("intHomeScore"), ev.get("intAwayScore")
                 if raw_st in ("FT", "AET", "PEN", "FINISHED") or (hs is not None and as_ is not None and raw_st in ("", "FT")):
@@ -246,13 +211,11 @@ def partite_sdb():
                     stato = "PAUSED"
                 else:
                     stato = "TIMED"
-
                 ora = (ev.get("strTime") or "15:00:00")[:8]
                 if len(ora) == 5:
                     ora += ":00"
                 hid = int(ev.get("idHomeTeam") or 0)
                 aid = int(ev.get("idAwayTeam") or 0)
-
                 res.append({
                     "id": SDB_OFFSET + int(eid),
                     "_c": code,
@@ -260,11 +223,108 @@ def partite_sdb():
                     "status": stato,
                     "homeTeam": {"id": SDB_OFFSET + hid if hid else 0, "name": ev.get("strHomeTeam") or ""},
                     "awayTeam": {"id": SDB_OFFSET + aid if aid else 0, "name": ev.get("strAwayTeam") or ""},
-                    "score": {
-                        "fullTime": {
-                            "home": int(hs) if hs is not None and str(hs).isdigit() else None,
-                            "away": int(as_) if as_ is not None and str(as_).isdigit() else None
-                        }
-                    }
+                    "score": {"fullTime": {"home": int(hs) if hs is not None and str(hs).isdigit() else None, "away": int(as_) if as_ is not None and str(as_).isdigit() else None}}
                 })
     return res
+
+def partite_ol():
+    oggi = dt.date.today()
+    date_valide = {(oggi + dt.timedelta(days=i)).isoformat() for i in range(GIORNI + 1)}
+    res = []
+    for code, (shortcut, _) in OL_COMP.items():
+        data = ol(f"/getmatchdata/{shortcut}")
+        for m in data or []:
+            d_ev = (m.get("matchDateTimeUTC") or "")[:10]
+            mid = m.get("matchID")
+            if not mid or d_ev not in date_valide:
+                continue
+            finito = m.get("matchIsFinished", False)
+            risultati = m.get("matchResults") or []
+            finale = next((r for r in risultati if r.get("resultTypeID") == 2), risultati[-1] if risultati else {})
+            res.append({
+                "id": OL_OFFSET + int(mid),
+                "_c": code,
+                "utcDate": m.get("matchDateTimeUTC") or f"{d_ev}T15:00:00Z",
+                "status": "FINISHED" if finito else "TIMED",
+                "homeTeam": {"id": OL_OFFSET + int((m.get("team1") or {}).get("teamId") or 0), "name": (m.get("team1") or {}).get("teamName") or ""},
+                "awayTeam": {"id": OL_OFFSET + int((m.get("team2") or {}).get("teamId") or 0), "name": (m.get("team2") or {}).get("teamName") or ""},
+                "score": {"fullTime": {"home": finale.get("pointsTeam1"), "away": finale.get("pointsTeam2")}}
+            })
+    return res
+
+def get_rosa(team_id, cache):
+    if not team_id:
+        return []
+    tid_str = str(team_id)
+    ora_ts = time.time()
+    if tid_str in cache and (ora_ts - cache[tid_str].get("ts", 0)) < CACHE_GIORNI * 86400:
+        return cache[tid_str].get("players", [])
+    players = []
+    if team_id >= SDB_OFFSET:
+        j = sdb("lookup_all_players.php", {"id": team_id - SDB_OFFSET})
+        players = [p.get("strPlayer") for p in (j or {}).get("player") or [] if p.get("strPlayer")]
+    elif team_id < OL_OFFSET:
+        j = fd(f"/teams/{team_id}")
+        players = [p.get("name") for p in (j or {}).get("squad") or [] if p.get("name")]
+    cache[tid_str] = {"ts": ora_ts, "players": players}
+    return players
+
+def analizza_gemini(modello, m, rosa_c, rosa_t):
+    prompt = PROMPT.format(
+        casa=m["homeTeam"]["name"],
+        trasf=m["awayTeam"]["name"],
+        comp=ALL_COMP.get(m["_c"], m["_c"]),
+        data=m["utcDate"],
+        classifica="Dati standard di campionato",
+        rosa_c=", ".join(rosa_c[:25]) if rosa_c else "Non disponibile",
+        rosa_t=", ".join(rosa_t[:25]) if rosa_t else "Non disponibile"
+    )
+    url = f"https://googleapis.com/{modello}:generateContent"
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"responseMimeType": "application/json", "temperature": 0.4}
+    }
+    try:
+        r = requests.post(url, params={"key": GM_KEY}, json=payload, timeout=45)
+        time.sleep(PAUSA)
+        if r.status_code != 200:
+            print("Errore Gemini:", r.status_code, r.text[:200], flush=True)
+            return None
+        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        return pulisci(json.loads(txt))
+    except Exception as e:
+        print("Eccezione Gemini:", e, flush=True)
+        return None
+
+def main():
+    vecchio = load_json(OUT, {"matches": []})
+    vecchie_map = {m["id"]: m for m in vecchio.get("matches", [])}
+    sq_cache = load_json(SQ, {})
+    cl_cache = load_json(CL_CACHE, {})
+
+    partite = (partite_fd() or []) + (partite_sdb() or []) + (partite_ol() or [])
+    modello = scegli_modello()
+    risultati = []
+
+    for m in partite:
+        mid = m["id"]
+        prev = vecchie_map.get(mid)
+        if prev and prev.get("ai"):
+            prev["status"] = m["status"]
+            prev["score"] = m["score"]
+            risultati.append(prev)
+            continue
+
+        rosa_c = get_rosa(m["homeTeam"]["id"], sq_cache)
+        rosa_t = get_rosa(m["awayTeam"]["id"], sq_cache)
+        ai_data = analizza_gemini(modello, m, rosa_c, rosa_t)
+        m["ai"] = ai_data
+        risultati.append(m)
+
+    save_json(SQ, sq_cache)
+    save_json(CL_CACHE, cl_cache)
+    save_json(OUT, {"updated_at": dt.datetime.now(dt.timezone.utc).isoformat(), "matches": risultati}, indent=2)
+    print(f"Salvate {len(risultati)} partite in {OUT}", flush=True)
+
+if __name__ == "__main__":
+    main()
