@@ -6,7 +6,7 @@ FD_KEY = os.environ.get("FOOTBALL_DATA_KEY") or os.environ.get("FOOTBALL_DATA_AP
 GM_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY", "")
 SDB_KEY = os.environ.get("THESPORTSDB_API_KEY") or "123"
 
-GIORNI = 1
+GIORNI = 3
 PAUSA = 2
 PAUSA_FD = 6.2
 PAUSA_SDB = 2.2
