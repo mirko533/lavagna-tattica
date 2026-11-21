@@ -423,7 +423,7 @@ function vGen() {
             </div>
           </div>`).join('')}<div class="gg" style="margin-top:12px">${ring(+comb(), col(+comb()), 64)}<span class="mu" style="font-size:12.5px">Probabilità combinata stimata</span></div>` : `<div class="box"><p class="mu">Nessun evento disponibile per questi filtri. Prova a ridurre il livello di rischio o ad aprire i mercati.</p></div>`) : '') +
 
-<button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}</div>`) : '') + savedHTML() + disc();
+`<button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}</div>`) : '') + savedHTML() + disc();
 }
 
 const cardHTML = () => `<img class="cimg" src="${cardUrl}" alt="Card 352 Pronostici"><button class="btn s" data-a="dl">${ic('down')}Scarica PNG</button><button class="btn s" data-a="shimg">${ic('share')}Condividi immagine</button>`;
