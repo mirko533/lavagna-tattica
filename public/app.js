@@ -287,3 +287,9 @@ if (!L.ok18) $('#welcome').classList.add('open'); instUI();
 $('#view').innerHTML = skeleton();
 loadData().catch(() => { $('#view').innerHTML = `<div class="empty">${ic('refresh')}</div>` });
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(() => { });
+new MutationObserver(() => {
+  document.querySelectorAll('input, select, textarea').forEach((el, i) => {
+    if (!el.id && !el.name) el.id = el.name = 'field_' + i;
+    if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', el.placeholder || el.name || 'Campo ' + (i + 1));
+  });
+}).observe(document.body, { childList: true, subtree: true });
