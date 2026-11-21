@@ -1,4 +1,4 @@
-const CACHE_NAME = "pronostici352-v11";
+const CACHE_NAME = "pronostici352-v12";
 const SHELL = ["./", "index.html", "style.css", "app.js", "manifest.json", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", e => {
