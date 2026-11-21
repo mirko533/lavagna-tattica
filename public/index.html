@@ -66,51 +66,52 @@
  </div>
  <span class="sp"></span>
  <span id="hb"></span>
- <button class="ib" id="fxb" data-a="fx" aria-label="Notifiche: suoni e vibrazione"><svg class="ic"><use href="#i-bell"/></svg></button>
+ <button class="ib hide" id="inst" data-a="install" aria-label="Installa app"><svg class="ic"><use href="#i-down"/></svg></button>
+ <button class="ib" id="fxb" data-a="fx" aria-label="Notifiche"><svg class="ic"><use href="#i-bell"/></svg></button>
 </header>
 <main><div id="view"></div></main>
 <button class="hide" id="top" data-a="totop" aria-label="Torna su"><svg class="ic"><use href="#i-chev" style="transform-origin:center;transform:rotate(180deg)"/></svg>↑ Torna su</button>
 <nav aria-label="Navigazione">
  <button data-a="tab" data-v="home" aria-label="Partite"><svg class="ic"><use href="#i-pitch"/></svg>Partite</button>
  <button data-a="tab" data-v="live" aria-label="Live"><svg class="ic"><use href="#i-live"/></svg>Live</button>
- <button data-a="tab" data-v="gen" aria-label="Generatore"><svg class="ic"><use href="#i-zap"/></svg>Generatore</button>
+ <button data-a="tab" data-v="gen" aria-label="Genera"><svg class="ic"><use href="#i-zap"/></svg>Genera</button>
  <button data-a="tab" data-v="list" aria-label="La Mia Lista"><svg class="ic"><use href="#i-list"/></svg>Lista<span class="nb hide" id="lstb">0</span></button>
  <button class="vip" data-a="tab" data-v="vip" aria-label="352 VIP Club"><svg class="ic"><use href="#i-gem"/></svg>VIP</button>
  <button data-a="tab" data-v="win" aria-label="Centrate"><svg class="ic"><use href="#i-arm"/></svg>Centrate</button>
  <button data-a="tab" data-v="info" aria-label="Info"><svg class="ic"><use href="#i-info"/></svg>Info</button>
 </nav>
-<div class="scrim" id="scrim" data-a="close"></div>
-<section class="sheet" id="sheet" aria-modal="true" role="dialog">
- <div class="grab"></div>
- <button class="ib xb" data-a="close" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button>
- <div id="sbody"></div>
-</section>
-<div class="modal" id="welcome"><div class="mb">
- <div class="age">18+</div>
- <h2>Benvenuto in 352 Pronostici</h2>
- <p>Statistiche calcistiche in percentuale. Contenuti solo informativi, riservati ai maggiorenni.</p>
- <button class="btn" data-a="enter">Ho almeno 18 anni, entra</button>
-</div></div>
-<div class="modal" id="ios"><div class="mb">
- <h2>Installa su iPhone</h2>
- <div class="step"><span>1</span>Tocca <svg class="ic"><use href="#i-share"/></svg> in Safari</div>
- <div class="step"><span>2</span>Scegli “Aggiungi alla schermata Home”</div>
- <button class="btn" data-a="closeios">Ho capito</button>
-</div></div>
-<div class="modal vm" id="vipm" role="dialog" aria-modal="true" aria-labelledby="vipt"><div class="mb">
- <button class="ib vx" data-a="vipclose" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button>
- <div class="vgem"><svg class="ic"><use href="#i-gem"/></svg></div>
- <h2 id="vipt">352 VIP Club</h2>
- <p id="vipmsg"></p>
- <div class="vfeat">
-  <div><svg class="ic"><use href="#i-inf"/></svg>Analisi illimitate</div>
-  <div><svg class="ic"><use href="#i-gen"/></svg>Generatore Pro</div>
-  <div><svg class="ic"><use href="#i-block"/></svg>Zero pubblicità</div>
+
+<div class="modal" id="welcome" role="dialog" aria-modal="true" aria-label="Verifica età">
+ <div class="mb">
+  <div class="age">18+</div>
+  <h2>Benvenuto in 352 Pronostici</h2>
+  <p class="mu">Statistiche calcistiche in percentuale. Contenuti solo informativi, riservati ai maggiorenni.</p>
+  <button class="btn" data-a="enter">Ho almeno 18 anni, entra</button>
  </div>
- <button class="btn gold" data-a="vipgo">Scopri il Club VIP 💎</button>
- <button class="btn s" data-a="vipclose">Non ora</button>
-</div></div>
-<div id="toast"></div>
-<script src="app.js"></script>
-</body>
-</html>
+</div>
+
+<div class="modal" id="ios" role="dialog" aria-modal="true" aria-label="Installa su iPhone">
+ <div class="mb">
+  <h2>Installa su iPhone</h2>
+  <p class="mu"><b>1</b> Tocca <svg class="ic" style="vertical-align:-4px"><use href="#i-share"/></svg> in Safari</p>
+  <p class="mu"><b>2</b> Scegli “Aggiungi alla schermata Home”</p>
+  <button class="btn" data-a="closeios">Ho capito</button>
+ </div>
+</div>
+
+<div class="modal" id="vipm" role="dialog" aria-modal="true" aria-label="352 VIP Club">
+ <div class="mb vmb">
+  <button class="ib vx" data-a="vipclose" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button>
+  <div class="vgem"><svg class="ic"><use href="#i-gem"/></svg></div>
+  <h2>352 VIP Club</h2>
+  <p class="mu" id="vipmsg"></p>
+  <div class="vperks">
+   <span><svg class="ic"><use href="#i-inf"/></svg>Analisi illimitate</span>
+   <span><svg class="ic"><use href="#i-gen"/></svg>Generatore Pro</span>
+   <span><svg class="ic"><use href="#i-block"/></svg>Zero pubblicità</span>
+  </div>
+  <button class="btn gold" data-a="vipgo">Scopri il Club VIP 💎</button>
+  <button class="btn s" data-a="vipclose">Non ora</button>
+ </div>
+</div>
+
