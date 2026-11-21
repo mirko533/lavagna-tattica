@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-21T02:22:39.770951+00:00",
-  "aggiornato": "2026-11-21T02:22:39.770951+00:00",
+  "updated_at": "2026-11-21T02:40:21.593782+00:00",
+  "aggiornato": "2026-11-21T02:40:21.593782+00:00",
   "matches": [
     {
       "id": 560643,
@@ -2816,6 +2816,162 @@
       }
     },
     {
+      "id": 560648,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-21T15:00:00Z",
+      "stato": "TIMED",
+      "casa": "Tottenham Hotspur FC",
+      "trasf": "Ipswich Town FC",
+      "score": null,
+      "analisi": "Il Tottenham scende in campo con una rosa di altissimo livello e forte di un impianto offensivo guidato da Kudus e Marmoush. L'Ipswich Town, schierato con un compatto 4-4-2, punta sulla densità difensiva e sulle ripartenze di Maeda e Enciso. I padroni di casa mantengono il controllo del possesso grazie alla qualità tecnica a centrocampo, costringendo gli ospiti a una partita di contenimento. La superiorità tecnica e il fattore casalingo indirizzano nettamente il favore del pronostico verso i Lilywhites.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Antonin Kinsky",
+            "Pedro Porro",
+            "Jan Paul van Hecke",
+            "Micky van de Ven",
+            "Destiny Udogie",
+            "Sandro Tonali",
+            "James Maddison",
+            "Xavi Simons",
+            "Mohammed Kudus",
+            "Dominic Solanke",
+            "Omar Marmoush"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Christian Walton",
+            "Darnell Furlong",
+            "Dara O'Shea",
+            "Jacob Greaves",
+            "Leif Davis",
+            "Jaden Philogene-Bidace",
+            "Exequiel Palacios",
+            "Saša Lukić",
+            "Jack Clarke",
+            "Daizen Maeda",
+            "Julio Enciso"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 70,
+        "X": 20,
+        "2": 10
+      },
+      "mercati_completi": {
+        "1X": 92,
+        "X2": 35,
+        "12": 80,
+        "GG": 50,
+        "NG": 50,
+        "U1.5": 28,
+        "O1.5": 72,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 55,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 62,
+        "1+O2.5": 42,
+        "2+O1.5": 12,
+        "2+O2.5": 7,
+        "1X+O1.5": 68,
+        "X2+O1.5": 32,
+        "1X+GG": 40,
+        "X2+GG": 20,
+        "GG+O2.5": 40,
+        "1+GG": 32,
+        "2+GG": 8,
+        "2+U3.5": 10
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Dominic Solanke",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Mohammed Kudus",
+          "ruolo": "Centrocampista",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Julio Enciso",
+          "ruolo": "Attaccante",
+          "prob": 20
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Daizen Maeda",
+          "ruolo": "Attaccante",
+          "prob": 15
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Destiny Udogie",
+          "ruolo": "Difensore",
+          "motivo": "Interventi fallosi ripetuti sulle ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Sandro Tonali",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per interrompere il contropiede",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Dara O'Shea",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Exequiel Palacios",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri in zona mediana",
+          "prob": 40
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 62,
+        "motivazione_breve": "Tottenham superiore e spinto dal fattore casa, match da vittoria con almeno due reti."
+      },
+      "affidabilita": 82,
+      "stemma_casa": {
+        "colori": [
+          "#132257",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 560644,
       "comp": "PL",
       "compNome": "Premier League",
@@ -3749,162 +3905,6 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
-      }
-    },
-    {
-      "id": 560648,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-21T15:00:00Z",
-      "stato": "TIMED",
-      "casa": "Tottenham Hotspur FC",
-      "trasf": "Ipswich Town FC",
-      "score": null,
-      "analisi": "Il Tottenham scende in campo con una rosa di altissimo livello e forte di un impianto offensivo guidato da Kudus e Marmoush. L'Ipswich Town, schierato con un compatto 4-4-2, punta sulla densità difensiva e sulle ripartenze di Maeda e Enciso. I padroni di casa mantengono il controllo del possesso grazie alla qualità tecnica a centrocampo, costringendo gli ospiti a una partita di contenimento. La superiorità tecnica e il fattore casalingo indirizzano nettamente il favore del pronostico verso i Lilywhites.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Antonin Kinsky",
-            "Pedro Porro",
-            "Jan Paul van Hecke",
-            "Micky van de Ven",
-            "Destiny Udogie",
-            "Sandro Tonali",
-            "James Maddison",
-            "Xavi Simons",
-            "Mohammed Kudus",
-            "Dominic Solanke",
-            "Omar Marmoush"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Christian Walton",
-            "Darnell Furlong",
-            "Dara O'Shea",
-            "Jacob Greaves",
-            "Leif Davis",
-            "Jaden Philogene-Bidace",
-            "Exequiel Palacios",
-            "Saša Lukić",
-            "Jack Clarke",
-            "Daizen Maeda",
-            "Julio Enciso"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 70,
-        "X": 20,
-        "2": 10
-      },
-      "mercati_completi": {
-        "1X": 92,
-        "X2": 35,
-        "12": 80,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 28,
-        "O1.5": 72,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 55,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 62,
-        "1+O2.5": 42,
-        "2+O1.5": 12,
-        "2+O2.5": 7,
-        "1X+O1.5": 68,
-        "X2+O1.5": 32,
-        "1X+GG": 40,
-        "X2+GG": 20,
-        "GG+O2.5": 40,
-        "1+GG": 32,
-        "2+GG": 8,
-        "2+U3.5": 10
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Dominic Solanke",
-          "ruolo": "Attaccante",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Mohammed Kudus",
-          "ruolo": "Centrocampista",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Julio Enciso",
-          "ruolo": "Attaccante",
-          "prob": 20
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Daizen Maeda",
-          "ruolo": "Attaccante",
-          "prob": 15
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Destiny Udogie",
-          "ruolo": "Difensore",
-          "motivo": "Interventi fallosi ripetuti sulle ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Sandro Tonali",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per interrompere il contropiede",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Dara O'Shea",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
-          "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Exequiel Palacios",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri in zona mediana",
-          "prob": 40
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 62,
-        "motivazione_breve": "Tottenham superiore e spinto dal fattore casa, match da vittoria con almeno due reti."
-      },
-      "affidabilita": 82,
-      "stemma_casa": {
-        "colori": [
-          "#132257",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0000FF",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
       }
     },
     {
@@ -5000,162 +5000,6 @@
       }
     },
     {
-      "id": 558831,
-      "comp": "DED",
-      "compNome": "Eredivisie",
-      "data": "2026-11-21T17:45:00Z",
-      "stato": "TIMED",
-      "casa": "Feyenoord Rotterdam",
-      "trasf": "SBV Excelsior",
-      "score": null,
-      "analisi": "Il Feyenoord si presenta a questo derby cittadino in un ottimo momento di forma, forte di un rendimento casalingo quasi perfetto caratterizzato da un'elevata spinta offensiva. L'SBV Excelsior fatica particolarmente nelle trasferte contro le big, soffrendo la pressione alta e concedendo molti spazi centrali. Tatticamente, il 4-3-3 del Feyenoord proverà a dominare il possesso palla per allargare la difesa avversaria, mentre l'Excelsior cercherà di chiudersi e ripartire in contropiede sfruttando l'esperienza degli attaccanti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Florian Kastenmeier",
-            "Bart Nieuwkoop",
-            "Jerry St. Juste",
-            "Thomas Beelen",
-            "Gijs Smal",
-            "Jakub Moder",
-            "Charles Vanhoutte",
-            "Sem Steijn",
-            "Gonçalo Borges",
-            "Luciano Valente",
-            "Javi López"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Stijn van Gassel",
-            "Eric da Silva Moreira",
-            "Casper Widell",
-            "Rick Meissen",
-            "Simon Janssen",
-            "Lennard Hartjes",
-            "Noah Naujoks",
-            "Irakli Yegoian",
-            "Valentin Sulzbacher",
-            "Alireza Jahanbakhsh",
-            "Mario Dominguez"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 72,
-        "X": 18,
-        "2": 10
-      },
-      "mercati_completi": {
-        "1X": 90,
-        "X2": 28,
-        "12": 82,
-        "GG": 48,
-        "NG": 52,
-        "U1.5": 18,
-        "O1.5": 82,
-        "U2.5": 40,
-        "O2.5": 60,
-        "U3.5": 65,
-        "O3.5": 35,
-        "MG1-2": 42,
-        "MG1-3": 80,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 55,
-        "1+O1.5": 65,
-        "1+O2.5": 52,
-        "2+O1.5": 8,
-        "2+O2.5": 6,
-        "1X+O1.5": 76,
-        "X2+O1.5": 22,
-        "1X+GG": 42,
-        "X2+GG": 20,
-        "GG+O2.5": 42,
-        "1+GG": 34,
-        "2+GG": 6,
-        "2+U3.5": 8
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sem Steijn",
-          "ruolo": "Centrocampista",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Borges",
-          "ruolo": "Attaccante",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alireza Jahanbakhsh",
-          "ruolo": "Attaccante",
-          "prob": 25
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mario Dominguez",
-          "ruolo": "Attaccante",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Charles Vanhoutte",
-          "ruolo": "Centrocampista",
-          "motivo": "Fallo tattico per bloccare la ripartenza",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Jerry St. Juste",
-          "ruolo": "Difensore",
-          "motivo": "Intervento irruente su palla contesa",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Casper Widell",
-          "ruolo": "Difensore",
-          "motivo": "Trattenuta sistematica in area di rigore",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Noah Naujoks",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste reiterate nei confronti dell'arbitro",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O2.5",
-        "probabilita": 52,
-        "motivazione_breve": "Feyenoord nettamente favorito in un match casalingo che promette diverse reti."
-      },
-      "affidabilita": 85,
-      "stemma_casa": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#000000",
-          "#E30613"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 558835,
       "comp": "DED",
       "compNome": "Eredivisie",
@@ -5307,6 +5151,162 @@
         "colori": [
           "#FFDD00",
           "#0055A5"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
+      "id": 558831,
+      "comp": "DED",
+      "compNome": "Eredivisie",
+      "data": "2026-11-21T17:45:00Z",
+      "stato": "TIMED",
+      "casa": "Feyenoord Rotterdam",
+      "trasf": "SBV Excelsior",
+      "score": null,
+      "analisi": "Il Feyenoord si presenta a questo derby cittadino in un ottimo momento di forma, forte di un rendimento casalingo quasi perfetto caratterizzato da un'elevata spinta offensiva. L'SBV Excelsior fatica particolarmente nelle trasferte contro le big, soffrendo la pressione alta e concedendo molti spazi centrali. Tatticamente, il 4-3-3 del Feyenoord proverà a dominare il possesso palla per allargare la difesa avversaria, mentre l'Excelsior cercherà di chiudersi e ripartire in contropiede sfruttando l'esperienza degli attaccanti.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Florian Kastenmeier",
+            "Bart Nieuwkoop",
+            "Jerry St. Juste",
+            "Thomas Beelen",
+            "Gijs Smal",
+            "Jakub Moder",
+            "Charles Vanhoutte",
+            "Sem Steijn",
+            "Gonçalo Borges",
+            "Luciano Valente",
+            "Javi López"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Stijn van Gassel",
+            "Eric da Silva Moreira",
+            "Casper Widell",
+            "Rick Meissen",
+            "Simon Janssen",
+            "Lennard Hartjes",
+            "Noah Naujoks",
+            "Irakli Yegoian",
+            "Valentin Sulzbacher",
+            "Alireza Jahanbakhsh",
+            "Mario Dominguez"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 72,
+        "X": 18,
+        "2": 10
+      },
+      "mercati_completi": {
+        "1X": 90,
+        "X2": 28,
+        "12": 82,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 18,
+        "O1.5": 82,
+        "U2.5": 40,
+        "O2.5": 60,
+        "U3.5": 65,
+        "O3.5": 35,
+        "MG1-2": 42,
+        "MG1-3": 80,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 55,
+        "1+O1.5": 65,
+        "1+O2.5": 52,
+        "2+O1.5": 8,
+        "2+O2.5": 6,
+        "1X+O1.5": 76,
+        "X2+O1.5": 22,
+        "1X+GG": 42,
+        "X2+GG": 20,
+        "GG+O2.5": 42,
+        "1+GG": 34,
+        "2+GG": 6,
+        "2+U3.5": 8
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sem Steijn",
+          "ruolo": "Centrocampista",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Borges",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alireza Jahanbakhsh",
+          "ruolo": "Attaccante",
+          "prob": 25
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Mario Dominguez",
+          "ruolo": "Attaccante",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Charles Vanhoutte",
+          "ruolo": "Centrocampista",
+          "motivo": "Fallo tattico per bloccare la ripartenza",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Jerry St. Juste",
+          "ruolo": "Difensore",
+          "motivo": "Intervento irruente su palla contesa",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Casper Widell",
+          "ruolo": "Difensore",
+          "motivo": "Trattenuta sistematica in area di rigore",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Noah Naujoks",
+          "ruolo": "Centrocampista",
+          "motivo": "Proteste reiterate nei confronti dell'arbitro",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O2.5",
+        "probabilita": 52,
+        "motivazione_breve": "Feyenoord nettamente favorito in un match casalingo che promette diverse reti."
+      },
+      "affidabilita": 85,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000000",
+          "#E30613"
         ],
         "pattern": "vertical"
       }
@@ -5465,6 +5465,162 @@
           "#000000"
         ],
         "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 559621,
+      "comp": "FL1",
+      "compNome": "Ligue 1",
+      "data": "2026-11-21T19:45:00Z",
+      "stato": "TIMED",
+      "casa": "AS Monaco FC",
+      "trasf": "AJ Auxerre",
+      "score": null,
+      "analisi": "L'AS Monaco si presenta con una rosa superiore e un ottimo rendimento casalingo, puntando sul talento di Ansu Fati e Balogun. L'AJ Auxerre cerca di compattarsi con un solido 4-4-2 e ripartire in contropiede sfruttando la rapidità di Romain Faivre. I duelli chiave si vedranno a centrocampo dove la fisicità di Zakaria scontrarsi con la mediana avversaria. I padroni di casa partono favoriti per la vittoria finale.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Philipp Köhn",
+            "Vanderson",
+            "Thilo Kehrer",
+            "Mohammed Salisu",
+            "Flávio Nazinho",
+            "Denis Zakaria",
+            "Lamine Camara",
+            "Aleksandr Golovin",
+            "Takumi Minamino",
+            "Folarin Balogun",
+            "Ansu Fati"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Paul Nardi",
+            "Marvin Senaya",
+            "Axel Tuanzebe",
+            "Francisco Sierralta",
+            "Fredrik Oppegard",
+            "Romain Faivre",
+            "Pierre Ekwah",
+            "Assane Dioussé",
+            "Naouirou Ahamada",
+            "Daniel Namaso",
+            "Sekou Fofana"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 65,
+        "X": 22,
+        "2": 13
+      },
+      "mercati_completi": {
+        "1X": 87,
+        "X2": 35,
+        "12": 78,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 30,
+        "O1.5": 70,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 40,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 35,
+        "1+O1.5": 58,
+        "1+O2.5": 38,
+        "2+O1.5": 12,
+        "2+O2.5": 8,
+        "1X+O1.5": 62,
+        "X2+O1.5": 30,
+        "1X+GG": 45,
+        "X2+GG": 25,
+        "GG+O2.5": 42,
+        "1+GG": 24,
+        "2+GG": 10,
+        "2+U3.5": 13
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Folarin Balogun",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ansu Fati",
+          "ruolo": "Attaccante",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Daniel Namaso",
+          "ruolo": "Attaccante",
+          "prob": 25
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Romain Faivre",
+          "ruolo": "Centrocampista",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Denis Zakaria",
+          "ruolo": "Centrocampista",
+          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Thilo Kehrer",
+          "ruolo": "Difensore",
+          "motivo": "Fallo tattico su attaccante lanciato",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Axel Tuanzebe",
+          "ruolo": "Difensore",
+          "motivo": "Ripetuti falli sulla pressione degli attaccanti di casa",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Assane Dioussé",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici a centrocampo",
+          "prob": 45
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 58,
+        "motivazione_breve": "Monaco superiore in casa, attacco prolifico per almeno due reti."
+      },
+      "affidabilita": 80,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "diagonal"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#002B49",
+          "#87CEEB"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -5780,159 +5936,159 @@
       }
     },
     {
-      "id": 559621,
+      "id": 559627,
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-21T19:45:00Z",
       "stato": "TIMED",
-      "casa": "AS Monaco FC",
-      "trasf": "AJ Auxerre",
+      "casa": "RC Strasbourg Alsace",
+      "trasf": "Stade Brestois 29",
       "score": null,
-      "analisi": "L'AS Monaco si presenta con una rosa superiore e un ottimo rendimento casalingo, puntando sul talento di Ansu Fati e Balogun. L'AJ Auxerre cerca di compattarsi con un solido 4-4-2 e ripartire in contropiede sfruttando la rapidità di Romain Faivre. I duelli chiave si vedranno a centrocampo dove la fisicità di Zakaria scontrarsi con la mediana avversaria. I padroni di casa partono favoriti per la vittoria finale.",
+      "analisi": "Il RC Strasbourg Alsace si affida al talento offensivo di Sebastian Nanasi e alla qualità a centrocampo di Gio Reyna per imporre il proprio gioco in casa. Lo Stade Brestois 29 risponde con un blocco compatto guidato dall'esperienza di Ludovic Ajorque e Kenny Lala, puntando su ripartenze veloci. Ci si attende una gara intensa a centrocampo, dove la profondità della rosa dello Strasburgo potrebbe fare la differenza nel finale.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Philipp Köhn",
-            "Vanderson",
-            "Thilo Kehrer",
-            "Mohammed Salisu",
-            "Flávio Nazinho",
-            "Denis Zakaria",
-            "Lamine Camara",
-            "Aleksandr Golovin",
-            "Takumi Minamino",
-            "Folarin Balogun",
-            "Ansu Fati"
+            "Filip Jörgensen",
+            "Ismaël Doukouré",
+            "Abakar Sylla",
+            "Andrew Omobamidele",
+            "Jeyland Mitchell",
+            "Dario Essugo",
+            "Pape Diop",
+            "Gio Reyna",
+            "Sebastian Nanasi",
+            "Sekou Mara",
+            "Conrad Harder"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Paul Nardi",
-            "Marvin Senaya",
-            "Axel Tuanzebe",
-            "Francisco Sierralta",
-            "Fredrik Oppegard",
-            "Romain Faivre",
-            "Pierre Ekwah",
-            "Assane Dioussé",
-            "Naouirou Ahamada",
-            "Daniel Namaso",
-            "Sekou Fofana"
+            "Egil Selvik",
+            "Kenny Lala",
+            "Brendan Chardonnet",
+            "Gautier Lloris",
+            "Bradley Locko",
+            "Lucas Tousart",
+            "Hugo Magnetti",
+            "Kamory Doumbia",
+            "Axel Camblan",
+            "Ludovic Ajorque",
+            "Mama Baldé"
           ]
         }
       },
       "prob_1x2": {
-        "1": 65,
-        "X": 22,
-        "2": 13
+        "1": 42,
+        "X": 31,
+        "2": 27
       },
       "mercati_completi": {
-        "1X": 87,
-        "X2": 35,
-        "12": 78,
+        "1X": 73,
+        "X2": 58,
+        "12": 69,
         "GG": 52,
         "NG": 48,
-        "U1.5": 30,
-        "O1.5": 70,
+        "U1.5": 34,
+        "O1.5": 66,
         "U2.5": 55,
         "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
+        "U3.5": 78,
+        "O3.5": 22,
         "MG1-2": 40,
         "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 35,
-        "1+O1.5": 58,
-        "1+O2.5": 38,
-        "2+O1.5": 12,
-        "2+O2.5": 8,
-        "1X+O1.5": 62,
-        "X2+O1.5": 30,
-        "1X+GG": 45,
-        "X2+GG": 25,
-        "GG+O2.5": 42,
-        "1+GG": 24,
-        "2+GG": 10,
-        "2+U3.5": 13
+        "MG2-3": 51,
+        "MG2-4": 64,
+        "MG3-5": 38,
+        "1+O1.5": 35,
+        "1+O2.5": 22,
+        "2+O1.5": 24,
+        "2+O2.5": 15,
+        "1X+O1.5": 52,
+        "X2+O1.5": 44,
+        "1X+GG": 41,
+        "X2+GG": 36,
+        "GG+O2.5": 38,
+        "1+GG": 21,
+        "2+GG": 16,
+        "2+U3.5": 26
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Folarin Balogun",
+          "giocatore": "Sebastian Nanasi",
           "ruolo": "Attaccante",
-          "prob": 45
+          "prob": 34
         },
         {
           "squadra": "casa",
-          "giocatore": "Ansu Fati",
+          "giocatore": "Conrad Harder",
           "ruolo": "Attaccante",
-          "prob": 38
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Daniel Namaso",
+          "giocatore": "Ludovic Ajorque",
           "ruolo": "Attaccante",
-          "prob": 25
+          "prob": 31
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Romain Faivre",
+          "giocatore": "Kamory Doumbia",
           "ruolo": "Centrocampista",
-          "prob": 20
+          "prob": 22
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Denis Zakaria",
-          "ruolo": "Centrocampista",
-          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
-          "prob": 35
+          "giocatore": "Ismaël Doukouré",
+          "ruolo": "Difensore",
+          "motivo": "Intervento falloso in ritardo sulla trequarti difensiva",
+          "prob": 38
         },
         {
           "squadra": "casa",
-          "giocatore": "Thilo Kehrer",
+          "giocatore": "Abakar Sylla",
           "ruolo": "Difensore",
-          "motivo": "Fallo tattico su attaccante lanciato",
-          "prob": 30
+          "motivo": "Fermare fallosamente una ripartenza pericolosa",
+          "prob": 35
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Axel Tuanzebe",
-          "ruolo": "Difensore",
-          "motivo": "Ripetuti falli sulla pressione degli attaccanti di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Assane Dioussé",
+          "giocatore": "Lucas Tousart",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici a centrocampo",
-          "prob": 45
+          "motivo": "Ripetuti falli tattici a centrocampo",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Gautier Lloris",
+          "ruolo": "Difensore",
+          "motivo": "Duelli duri in area di rigore sui calci piazzati",
+          "prob": 36
         }
       ],
       "pronostico_principale": {
         "esito": "1+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": "Monaco superiore in casa, attacco prolifico per almeno due reti."
+        "probabilita": 35,
+        "motivazione_breve": "Strasburgo favorito in casa con buon potenziale offensivo."
       },
-      "affidabilita": 80,
+      "affidabilita": 70,
       "stemma_casa": {
         "colori": [
-          "#E30613",
+          "#0047AB",
           "#FFFFFF"
         ],
-        "pattern": "diagonal"
+        "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#002B49",
-          "#87CEEB"
+          "#FF0000",
+          "#FFFFFF"
         ],
-        "pattern": "vertical"
+        "pattern": "horizontal"
       }
     },
     {
@@ -6089,162 +6245,6 @@
           "#FFFFFF"
         ],
         "pattern": "vertical"
-      }
-    },
-    {
-      "id": 559627,
-      "comp": "FL1",
-      "compNome": "Ligue 1",
-      "data": "2026-11-21T19:45:00Z",
-      "stato": "TIMED",
-      "casa": "RC Strasbourg Alsace",
-      "trasf": "Stade Brestois 29",
-      "score": null,
-      "analisi": "Il RC Strasbourg Alsace si affida al talento offensivo di Sebastian Nanasi e alla qualità a centrocampo di Gio Reyna per imporre il proprio gioco in casa. Lo Stade Brestois 29 risponde con un blocco compatto guidato dall'esperienza di Ludovic Ajorque e Kenny Lala, puntando su ripartenze veloci. Ci si attende una gara intensa a centrocampo, dove la profondità della rosa dello Strasburgo potrebbe fare la differenza nel finale.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Filip Jörgensen",
-            "Ismaël Doukouré",
-            "Abakar Sylla",
-            "Andrew Omobamidele",
-            "Jeyland Mitchell",
-            "Dario Essugo",
-            "Pape Diop",
-            "Gio Reyna",
-            "Sebastian Nanasi",
-            "Sekou Mara",
-            "Conrad Harder"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Egil Selvik",
-            "Kenny Lala",
-            "Brendan Chardonnet",
-            "Gautier Lloris",
-            "Bradley Locko",
-            "Lucas Tousart",
-            "Hugo Magnetti",
-            "Kamory Doumbia",
-            "Axel Camblan",
-            "Ludovic Ajorque",
-            "Mama Baldé"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 31,
-        "2": 27
-      },
-      "mercati_completi": {
-        "1X": 73,
-        "X2": 58,
-        "12": 69,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 40,
-        "MG1-3": 68,
-        "MG2-3": 51,
-        "MG2-4": 64,
-        "MG3-5": 38,
-        "1+O1.5": 35,
-        "1+O2.5": 22,
-        "2+O1.5": 24,
-        "2+O2.5": 15,
-        "1X+O1.5": 52,
-        "X2+O1.5": 44,
-        "1X+GG": 41,
-        "X2+GG": 36,
-        "GG+O2.5": 38,
-        "1+GG": 21,
-        "2+GG": 16,
-        "2+U3.5": 26
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sebastian Nanasi",
-          "ruolo": "Attaccante",
-          "prob": 34
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Conrad Harder",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ludovic Ajorque",
-          "ruolo": "Attaccante",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Kamory Doumbia",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Ismaël Doukouré",
-          "ruolo": "Difensore",
-          "motivo": "Intervento falloso in ritardo sulla trequarti difensiva",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Abakar Sylla",
-          "ruolo": "Difensore",
-          "motivo": "Fermare fallosamente una ripartenza pericolosa",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lucas Tousart",
-          "ruolo": "Centrocampista",
-          "motivo": "Ripetuti falli tattici a centrocampo",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gautier Lloris",
-          "ruolo": "Difensore",
-          "motivo": "Duelli duri in area di rigore sui calci piazzati",
-          "prob": 36
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 35,
-        "motivazione_breve": "Strasburgo favorito in casa con buon potenziale offensivo."
-      },
-      "affidabilita": 70,
-      "stemma_casa": {
-        "colori": [
-          "#0047AB",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FF0000",
-          "#FFFFFF"
-        ],
-        "pattern": "horizontal"
       }
     },
     {
@@ -17619,6 +17619,162 @@
       }
     },
     {
+      "id": 560648,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-21T15:00:00Z",
+      "stato": "TIMED",
+      "casa": "Tottenham Hotspur FC",
+      "trasf": "Ipswich Town FC",
+      "score": null,
+      "analisi": "Il Tottenham scende in campo con una rosa di altissimo livello e forte di un impianto offensivo guidato da Kudus e Marmoush. L'Ipswich Town, schierato con un compatto 4-4-2, punta sulla densità difensiva e sulle ripartenze di Maeda e Enciso. I padroni di casa mantengono il controllo del possesso grazie alla qualità tecnica a centrocampo, costringendo gli ospiti a una partita di contenimento. La superiorità tecnica e il fattore casalingo indirizzano nettamente il favore del pronostico verso i Lilywhites.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Antonin Kinsky",
+            "Pedro Porro",
+            "Jan Paul van Hecke",
+            "Micky van de Ven",
+            "Destiny Udogie",
+            "Sandro Tonali",
+            "James Maddison",
+            "Xavi Simons",
+            "Mohammed Kudus",
+            "Dominic Solanke",
+            "Omar Marmoush"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Christian Walton",
+            "Darnell Furlong",
+            "Dara O'Shea",
+            "Jacob Greaves",
+            "Leif Davis",
+            "Jaden Philogene-Bidace",
+            "Exequiel Palacios",
+            "Saša Lukić",
+            "Jack Clarke",
+            "Daizen Maeda",
+            "Julio Enciso"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 70,
+        "X": 20,
+        "2": 10
+      },
+      "mercati_completi": {
+        "1X": 92,
+        "X2": 35,
+        "12": 80,
+        "GG": 50,
+        "NG": 50,
+        "U1.5": 28,
+        "O1.5": 72,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 55,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 62,
+        "1+O2.5": 42,
+        "2+O1.5": 12,
+        "2+O2.5": 7,
+        "1X+O1.5": 68,
+        "X2+O1.5": 32,
+        "1X+GG": 40,
+        "X2+GG": 20,
+        "GG+O2.5": 40,
+        "1+GG": 32,
+        "2+GG": 8,
+        "2+U3.5": 10
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Dominic Solanke",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Mohammed Kudus",
+          "ruolo": "Centrocampista",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Julio Enciso",
+          "ruolo": "Attaccante",
+          "prob": 20
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Daizen Maeda",
+          "ruolo": "Attaccante",
+          "prob": 15
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Destiny Udogie",
+          "ruolo": "Difensore",
+          "motivo": "Interventi fallosi ripetuti sulle ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Sandro Tonali",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per interrompere il contropiede",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Dara O'Shea",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Exequiel Palacios",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri in zona mediana",
+          "prob": 40
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 62,
+        "motivazione_breve": "Tottenham superiore e spinto dal fattore casa, match da vittoria con almeno due reti."
+      },
+      "affidabilita": 82,
+      "stemma_casa": {
+        "colori": [
+          "#132257",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 560644,
       "comp": "PL",
       "compNome": "Premier League",
@@ -18552,162 +18708,6 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
-      }
-    },
-    {
-      "id": 560648,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-21T15:00:00Z",
-      "stato": "TIMED",
-      "casa": "Tottenham Hotspur FC",
-      "trasf": "Ipswich Town FC",
-      "score": null,
-      "analisi": "Il Tottenham scende in campo con una rosa di altissimo livello e forte di un impianto offensivo guidato da Kudus e Marmoush. L'Ipswich Town, schierato con un compatto 4-4-2, punta sulla densità difensiva e sulle ripartenze di Maeda e Enciso. I padroni di casa mantengono il controllo del possesso grazie alla qualità tecnica a centrocampo, costringendo gli ospiti a una partita di contenimento. La superiorità tecnica e il fattore casalingo indirizzano nettamente il favore del pronostico verso i Lilywhites.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Antonin Kinsky",
-            "Pedro Porro",
-            "Jan Paul van Hecke",
-            "Micky van de Ven",
-            "Destiny Udogie",
-            "Sandro Tonali",
-            "James Maddison",
-            "Xavi Simons",
-            "Mohammed Kudus",
-            "Dominic Solanke",
-            "Omar Marmoush"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Christian Walton",
-            "Darnell Furlong",
-            "Dara O'Shea",
-            "Jacob Greaves",
-            "Leif Davis",
-            "Jaden Philogene-Bidace",
-            "Exequiel Palacios",
-            "Saša Lukić",
-            "Jack Clarke",
-            "Daizen Maeda",
-            "Julio Enciso"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 70,
-        "X": 20,
-        "2": 10
-      },
-      "mercati_completi": {
-        "1X": 92,
-        "X2": 35,
-        "12": 80,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 28,
-        "O1.5": 72,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 55,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 62,
-        "1+O2.5": 42,
-        "2+O1.5": 12,
-        "2+O2.5": 7,
-        "1X+O1.5": 68,
-        "X2+O1.5": 32,
-        "1X+GG": 40,
-        "X2+GG": 20,
-        "GG+O2.5": 40,
-        "1+GG": 32,
-        "2+GG": 8,
-        "2+U3.5": 10
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Dominic Solanke",
-          "ruolo": "Attaccante",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Mohammed Kudus",
-          "ruolo": "Centrocampista",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Julio Enciso",
-          "ruolo": "Attaccante",
-          "prob": 20
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Daizen Maeda",
-          "ruolo": "Attaccante",
-          "prob": 15
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Destiny Udogie",
-          "ruolo": "Difensore",
-          "motivo": "Interventi fallosi ripetuti sulle ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Sandro Tonali",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per interrompere il contropiede",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Dara O'Shea",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
-          "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Exequiel Palacios",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri in zona mediana",
-          "prob": 40
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 62,
-        "motivazione_breve": "Tottenham superiore e spinto dal fattore casa, match da vittoria con almeno due reti."
-      },
-      "affidabilita": 82,
-      "stemma_casa": {
-        "colori": [
-          "#132257",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0000FF",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
       }
     },
     {
@@ -19803,162 +19803,6 @@
       }
     },
     {
-      "id": 558831,
-      "comp": "DED",
-      "compNome": "Eredivisie",
-      "data": "2026-11-21T17:45:00Z",
-      "stato": "TIMED",
-      "casa": "Feyenoord Rotterdam",
-      "trasf": "SBV Excelsior",
-      "score": null,
-      "analisi": "Il Feyenoord si presenta a questo derby cittadino in un ottimo momento di forma, forte di un rendimento casalingo quasi perfetto caratterizzato da un'elevata spinta offensiva. L'SBV Excelsior fatica particolarmente nelle trasferte contro le big, soffrendo la pressione alta e concedendo molti spazi centrali. Tatticamente, il 4-3-3 del Feyenoord proverà a dominare il possesso palla per allargare la difesa avversaria, mentre l'Excelsior cercherà di chiudersi e ripartire in contropiede sfruttando l'esperienza degli attaccanti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Florian Kastenmeier",
-            "Bart Nieuwkoop",
-            "Jerry St. Juste",
-            "Thomas Beelen",
-            "Gijs Smal",
-            "Jakub Moder",
-            "Charles Vanhoutte",
-            "Sem Steijn",
-            "Gonçalo Borges",
-            "Luciano Valente",
-            "Javi López"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Stijn van Gassel",
-            "Eric da Silva Moreira",
-            "Casper Widell",
-            "Rick Meissen",
-            "Simon Janssen",
-            "Lennard Hartjes",
-            "Noah Naujoks",
-            "Irakli Yegoian",
-            "Valentin Sulzbacher",
-            "Alireza Jahanbakhsh",
-            "Mario Dominguez"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 72,
-        "X": 18,
-        "2": 10
-      },
-      "mercati_completi": {
-        "1X": 90,
-        "X2": 28,
-        "12": 82,
-        "GG": 48,
-        "NG": 52,
-        "U1.5": 18,
-        "O1.5": 82,
-        "U2.5": 40,
-        "O2.5": 60,
-        "U3.5": 65,
-        "O3.5": 35,
-        "MG1-2": 42,
-        "MG1-3": 80,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 55,
-        "1+O1.5": 65,
-        "1+O2.5": 52,
-        "2+O1.5": 8,
-        "2+O2.5": 6,
-        "1X+O1.5": 76,
-        "X2+O1.5": 22,
-        "1X+GG": 42,
-        "X2+GG": 20,
-        "GG+O2.5": 42,
-        "1+GG": 34,
-        "2+GG": 6,
-        "2+U3.5": 8
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sem Steijn",
-          "ruolo": "Centrocampista",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Borges",
-          "ruolo": "Attaccante",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alireza Jahanbakhsh",
-          "ruolo": "Attaccante",
-          "prob": 25
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mario Dominguez",
-          "ruolo": "Attaccante",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Charles Vanhoutte",
-          "ruolo": "Centrocampista",
-          "motivo": "Fallo tattico per bloccare la ripartenza",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Jerry St. Juste",
-          "ruolo": "Difensore",
-          "motivo": "Intervento irruente su palla contesa",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Casper Widell",
-          "ruolo": "Difensore",
-          "motivo": "Trattenuta sistematica in area di rigore",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Noah Naujoks",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste reiterate nei confronti dell'arbitro",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O2.5",
-        "probabilita": 52,
-        "motivazione_breve": "Feyenoord nettamente favorito in un match casalingo che promette diverse reti."
-      },
-      "affidabilita": 85,
-      "stemma_casa": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#000000",
-          "#E30613"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 558835,
       "comp": "DED",
       "compNome": "Eredivisie",
@@ -20110,6 +19954,162 @@
         "colori": [
           "#FFDD00",
           "#0055A5"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
+      "id": 558831,
+      "comp": "DED",
+      "compNome": "Eredivisie",
+      "data": "2026-11-21T17:45:00Z",
+      "stato": "TIMED",
+      "casa": "Feyenoord Rotterdam",
+      "trasf": "SBV Excelsior",
+      "score": null,
+      "analisi": "Il Feyenoord si presenta a questo derby cittadino in un ottimo momento di forma, forte di un rendimento casalingo quasi perfetto caratterizzato da un'elevata spinta offensiva. L'SBV Excelsior fatica particolarmente nelle trasferte contro le big, soffrendo la pressione alta e concedendo molti spazi centrali. Tatticamente, il 4-3-3 del Feyenoord proverà a dominare il possesso palla per allargare la difesa avversaria, mentre l'Excelsior cercherà di chiudersi e ripartire in contropiede sfruttando l'esperienza degli attaccanti.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Florian Kastenmeier",
+            "Bart Nieuwkoop",
+            "Jerry St. Juste",
+            "Thomas Beelen",
+            "Gijs Smal",
+            "Jakub Moder",
+            "Charles Vanhoutte",
+            "Sem Steijn",
+            "Gonçalo Borges",
+            "Luciano Valente",
+            "Javi López"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Stijn van Gassel",
+            "Eric da Silva Moreira",
+            "Casper Widell",
+            "Rick Meissen",
+            "Simon Janssen",
+            "Lennard Hartjes",
+            "Noah Naujoks",
+            "Irakli Yegoian",
+            "Valentin Sulzbacher",
+            "Alireza Jahanbakhsh",
+            "Mario Dominguez"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 72,
+        "X": 18,
+        "2": 10
+      },
+      "mercati_completi": {
+        "1X": 90,
+        "X2": 28,
+        "12": 82,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 18,
+        "O1.5": 82,
+        "U2.5": 40,
+        "O2.5": 60,
+        "U3.5": 65,
+        "O3.5": 35,
+        "MG1-2": 42,
+        "MG1-3": 80,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 55,
+        "1+O1.5": 65,
+        "1+O2.5": 52,
+        "2+O1.5": 8,
+        "2+O2.5": 6,
+        "1X+O1.5": 76,
+        "X2+O1.5": 22,
+        "1X+GG": 42,
+        "X2+GG": 20,
+        "GG+O2.5": 42,
+        "1+GG": 34,
+        "2+GG": 6,
+        "2+U3.5": 8
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sem Steijn",
+          "ruolo": "Centrocampista",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Borges",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alireza Jahanbakhsh",
+          "ruolo": "Attaccante",
+          "prob": 25
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Mario Dominguez",
+          "ruolo": "Attaccante",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Charles Vanhoutte",
+          "ruolo": "Centrocampista",
+          "motivo": "Fallo tattico per bloccare la ripartenza",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Jerry St. Juste",
+          "ruolo": "Difensore",
+          "motivo": "Intervento irruente su palla contesa",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Casper Widell",
+          "ruolo": "Difensore",
+          "motivo": "Trattenuta sistematica in area di rigore",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Noah Naujoks",
+          "ruolo": "Centrocampista",
+          "motivo": "Proteste reiterate nei confronti dell'arbitro",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O2.5",
+        "probabilita": 52,
+        "motivazione_breve": "Feyenoord nettamente favorito in un match casalingo che promette diverse reti."
+      },
+      "affidabilita": 85,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000000",
+          "#E30613"
         ],
         "pattern": "vertical"
       }
@@ -20268,6 +20268,162 @@
           "#000000"
         ],
         "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 559621,
+      "comp": "FL1",
+      "compNome": "Ligue 1",
+      "data": "2026-11-21T19:45:00Z",
+      "stato": "TIMED",
+      "casa": "AS Monaco FC",
+      "trasf": "AJ Auxerre",
+      "score": null,
+      "analisi": "L'AS Monaco si presenta con una rosa superiore e un ottimo rendimento casalingo, puntando sul talento di Ansu Fati e Balogun. L'AJ Auxerre cerca di compattarsi con un solido 4-4-2 e ripartire in contropiede sfruttando la rapidità di Romain Faivre. I duelli chiave si vedranno a centrocampo dove la fisicità di Zakaria scontrarsi con la mediana avversaria. I padroni di casa partono favoriti per la vittoria finale.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Philipp Köhn",
+            "Vanderson",
+            "Thilo Kehrer",
+            "Mohammed Salisu",
+            "Flávio Nazinho",
+            "Denis Zakaria",
+            "Lamine Camara",
+            "Aleksandr Golovin",
+            "Takumi Minamino",
+            "Folarin Balogun",
+            "Ansu Fati"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Paul Nardi",
+            "Marvin Senaya",
+            "Axel Tuanzebe",
+            "Francisco Sierralta",
+            "Fredrik Oppegard",
+            "Romain Faivre",
+            "Pierre Ekwah",
+            "Assane Dioussé",
+            "Naouirou Ahamada",
+            "Daniel Namaso",
+            "Sekou Fofana"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 65,
+        "X": 22,
+        "2": 13
+      },
+      "mercati_completi": {
+        "1X": 87,
+        "X2": 35,
+        "12": 78,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 30,
+        "O1.5": 70,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 40,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 35,
+        "1+O1.5": 58,
+        "1+O2.5": 38,
+        "2+O1.5": 12,
+        "2+O2.5": 8,
+        "1X+O1.5": 62,
+        "X2+O1.5": 30,
+        "1X+GG": 45,
+        "X2+GG": 25,
+        "GG+O2.5": 42,
+        "1+GG": 24,
+        "2+GG": 10,
+        "2+U3.5": 13
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Folarin Balogun",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ansu Fati",
+          "ruolo": "Attaccante",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Daniel Namaso",
+          "ruolo": "Attaccante",
+          "prob": 25
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Romain Faivre",
+          "ruolo": "Centrocampista",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Denis Zakaria",
+          "ruolo": "Centrocampista",
+          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Thilo Kehrer",
+          "ruolo": "Difensore",
+          "motivo": "Fallo tattico su attaccante lanciato",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Axel Tuanzebe",
+          "ruolo": "Difensore",
+          "motivo": "Ripetuti falli sulla pressione degli attaccanti di casa",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Assane Dioussé",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici a centrocampo",
+          "prob": 45
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 58,
+        "motivazione_breve": "Monaco superiore in casa, attacco prolifico per almeno due reti."
+      },
+      "affidabilita": 80,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "diagonal"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#002B49",
+          "#87CEEB"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -20583,159 +20739,159 @@
       }
     },
     {
-      "id": 559621,
+      "id": 559627,
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-21T19:45:00Z",
       "stato": "TIMED",
-      "casa": "AS Monaco FC",
-      "trasf": "AJ Auxerre",
+      "casa": "RC Strasbourg Alsace",
+      "trasf": "Stade Brestois 29",
       "score": null,
-      "analisi": "L'AS Monaco si presenta con una rosa superiore e un ottimo rendimento casalingo, puntando sul talento di Ansu Fati e Balogun. L'AJ Auxerre cerca di compattarsi con un solido 4-4-2 e ripartire in contropiede sfruttando la rapidità di Romain Faivre. I duelli chiave si vedranno a centrocampo dove la fisicità di Zakaria scontrarsi con la mediana avversaria. I padroni di casa partono favoriti per la vittoria finale.",
+      "analisi": "Il RC Strasbourg Alsace si affida al talento offensivo di Sebastian Nanasi e alla qualità a centrocampo di Gio Reyna per imporre il proprio gioco in casa. Lo Stade Brestois 29 risponde con un blocco compatto guidato dall'esperienza di Ludovic Ajorque e Kenny Lala, puntando su ripartenze veloci. Ci si attende una gara intensa a centrocampo, dove la profondità della rosa dello Strasburgo potrebbe fare la differenza nel finale.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Philipp Köhn",
-            "Vanderson",
-            "Thilo Kehrer",
-            "Mohammed Salisu",
-            "Flávio Nazinho",
-            "Denis Zakaria",
-            "Lamine Camara",
-            "Aleksandr Golovin",
-            "Takumi Minamino",
-            "Folarin Balogun",
-            "Ansu Fati"
+            "Filip Jörgensen",
+            "Ismaël Doukouré",
+            "Abakar Sylla",
+            "Andrew Omobamidele",
+            "Jeyland Mitchell",
+            "Dario Essugo",
+            "Pape Diop",
+            "Gio Reyna",
+            "Sebastian Nanasi",
+            "Sekou Mara",
+            "Conrad Harder"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Paul Nardi",
-            "Marvin Senaya",
-            "Axel Tuanzebe",
-            "Francisco Sierralta",
-            "Fredrik Oppegard",
-            "Romain Faivre",
-            "Pierre Ekwah",
-            "Assane Dioussé",
-            "Naouirou Ahamada",
-            "Daniel Namaso",
-            "Sekou Fofana"
+            "Egil Selvik",
+            "Kenny Lala",
+            "Brendan Chardonnet",
+            "Gautier Lloris",
+            "Bradley Locko",
+            "Lucas Tousart",
+            "Hugo Magnetti",
+            "Kamory Doumbia",
+            "Axel Camblan",
+            "Ludovic Ajorque",
+            "Mama Baldé"
           ]
         }
       },
       "prob_1x2": {
-        "1": 65,
-        "X": 22,
-        "2": 13
+        "1": 42,
+        "X": 31,
+        "2": 27
       },
       "mercati_completi": {
-        "1X": 87,
-        "X2": 35,
-        "12": 78,
+        "1X": 73,
+        "X2": 58,
+        "12": 69,
         "GG": 52,
         "NG": 48,
-        "U1.5": 30,
-        "O1.5": 70,
+        "U1.5": 34,
+        "O1.5": 66,
         "U2.5": 55,
         "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
+        "U3.5": 78,
+        "O3.5": 22,
         "MG1-2": 40,
         "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 35,
-        "1+O1.5": 58,
-        "1+O2.5": 38,
-        "2+O1.5": 12,
-        "2+O2.5": 8,
-        "1X+O1.5": 62,
-        "X2+O1.5": 30,
-        "1X+GG": 45,
-        "X2+GG": 25,
-        "GG+O2.5": 42,
-        "1+GG": 24,
-        "2+GG": 10,
-        "2+U3.5": 13
+        "MG2-3": 51,
+        "MG2-4": 64,
+        "MG3-5": 38,
+        "1+O1.5": 35,
+        "1+O2.5": 22,
+        "2+O1.5": 24,
+        "2+O2.5": 15,
+        "1X+O1.5": 52,
+        "X2+O1.5": 44,
+        "1X+GG": 41,
+        "X2+GG": 36,
+        "GG+O2.5": 38,
+        "1+GG": 21,
+        "2+GG": 16,
+        "2+U3.5": 26
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Folarin Balogun",
+          "giocatore": "Sebastian Nanasi",
           "ruolo": "Attaccante",
-          "prob": 45
+          "prob": 34
         },
         {
           "squadra": "casa",
-          "giocatore": "Ansu Fati",
+          "giocatore": "Conrad Harder",
           "ruolo": "Attaccante",
-          "prob": 38
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Daniel Namaso",
+          "giocatore": "Ludovic Ajorque",
           "ruolo": "Attaccante",
-          "prob": 25
+          "prob": 31
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Romain Faivre",
+          "giocatore": "Kamory Doumbia",
           "ruolo": "Centrocampista",
-          "prob": 20
+          "prob": 22
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Denis Zakaria",
-          "ruolo": "Centrocampista",
-          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
-          "prob": 35
+          "giocatore": "Ismaël Doukouré",
+          "ruolo": "Difensore",
+          "motivo": "Intervento falloso in ritardo sulla trequarti difensiva",
+          "prob": 38
         },
         {
           "squadra": "casa",
-          "giocatore": "Thilo Kehrer",
+          "giocatore": "Abakar Sylla",
           "ruolo": "Difensore",
-          "motivo": "Fallo tattico su attaccante lanciato",
-          "prob": 30
+          "motivo": "Fermare fallosamente una ripartenza pericolosa",
+          "prob": 35
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Axel Tuanzebe",
-          "ruolo": "Difensore",
-          "motivo": "Ripetuti falli sulla pressione degli attaccanti di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Assane Dioussé",
+          "giocatore": "Lucas Tousart",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici a centrocampo",
-          "prob": 45
+          "motivo": "Ripetuti falli tattici a centrocampo",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Gautier Lloris",
+          "ruolo": "Difensore",
+          "motivo": "Duelli duri in area di rigore sui calci piazzati",
+          "prob": 36
         }
       ],
       "pronostico_principale": {
         "esito": "1+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": "Monaco superiore in casa, attacco prolifico per almeno due reti."
+        "probabilita": 35,
+        "motivazione_breve": "Strasburgo favorito in casa con buon potenziale offensivo."
       },
-      "affidabilita": 80,
+      "affidabilita": 70,
       "stemma_casa": {
         "colori": [
-          "#E30613",
+          "#0047AB",
           "#FFFFFF"
         ],
-        "pattern": "diagonal"
+        "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#002B49",
-          "#87CEEB"
+          "#FF0000",
+          "#FFFFFF"
         ],
-        "pattern": "vertical"
+        "pattern": "horizontal"
       }
     },
     {
@@ -20892,162 +21048,6 @@
           "#FFFFFF"
         ],
         "pattern": "vertical"
-      }
-    },
-    {
-      "id": 559627,
-      "comp": "FL1",
-      "compNome": "Ligue 1",
-      "data": "2026-11-21T19:45:00Z",
-      "stato": "TIMED",
-      "casa": "RC Strasbourg Alsace",
-      "trasf": "Stade Brestois 29",
-      "score": null,
-      "analisi": "Il RC Strasbourg Alsace si affida al talento offensivo di Sebastian Nanasi e alla qualità a centrocampo di Gio Reyna per imporre il proprio gioco in casa. Lo Stade Brestois 29 risponde con un blocco compatto guidato dall'esperienza di Ludovic Ajorque e Kenny Lala, puntando su ripartenze veloci. Ci si attende una gara intensa a centrocampo, dove la profondità della rosa dello Strasburgo potrebbe fare la differenza nel finale.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Filip Jörgensen",
-            "Ismaël Doukouré",
-            "Abakar Sylla",
-            "Andrew Omobamidele",
-            "Jeyland Mitchell",
-            "Dario Essugo",
-            "Pape Diop",
-            "Gio Reyna",
-            "Sebastian Nanasi",
-            "Sekou Mara",
-            "Conrad Harder"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Egil Selvik",
-            "Kenny Lala",
-            "Brendan Chardonnet",
-            "Gautier Lloris",
-            "Bradley Locko",
-            "Lucas Tousart",
-            "Hugo Magnetti",
-            "Kamory Doumbia",
-            "Axel Camblan",
-            "Ludovic Ajorque",
-            "Mama Baldé"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 31,
-        "2": 27
-      },
-      "mercati_completi": {
-        "1X": 73,
-        "X2": 58,
-        "12": 69,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 40,
-        "MG1-3": 68,
-        "MG2-3": 51,
-        "MG2-4": 64,
-        "MG3-5": 38,
-        "1+O1.5": 35,
-        "1+O2.5": 22,
-        "2+O1.5": 24,
-        "2+O2.5": 15,
-        "1X+O1.5": 52,
-        "X2+O1.5": 44,
-        "1X+GG": 41,
-        "X2+GG": 36,
-        "GG+O2.5": 38,
-        "1+GG": 21,
-        "2+GG": 16,
-        "2+U3.5": 26
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sebastian Nanasi",
-          "ruolo": "Attaccante",
-          "prob": 34
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Conrad Harder",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ludovic Ajorque",
-          "ruolo": "Attaccante",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Kamory Doumbia",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Ismaël Doukouré",
-          "ruolo": "Difensore",
-          "motivo": "Intervento falloso in ritardo sulla trequarti difensiva",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Abakar Sylla",
-          "ruolo": "Difensore",
-          "motivo": "Fermare fallosamente una ripartenza pericolosa",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lucas Tousart",
-          "ruolo": "Centrocampista",
-          "motivo": "Ripetuti falli tattici a centrocampo",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gautier Lloris",
-          "ruolo": "Difensore",
-          "motivo": "Duelli duri in area di rigore sui calci piazzati",
-          "prob": 36
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 35,
-        "motivazione_breve": "Strasburgo favorito in casa con buon potenziale offensivo."
-      },
-      "affidabilita": 70,
-      "stemma_casa": {
-        "colori": [
-          "#0047AB",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FF0000",
-          "#FFFFFF"
-        ],
-        "pattern": "horizontal"
       }
     },
     {
