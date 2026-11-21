@@ -419,7 +419,8 @@ function vGen() {
           <button class="sw" data-a="swap" data-v="${i}" title="Cambia evento" aria-label="Cambia evento">↻</button>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
-          <span class="mu" style="font-size:11.5px">${E(o.m.lega)} · ${E(dayLbl(o.m.data))} ${E(o.m.ora)}</span>
+         <span class="mu" style="font-size:11.5px">${E(o.m.lega)} · ${E(o.m.data)} ${E(o.m.ora)}</span>
+
           <span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span>
         </div>
           </div>`).join('')}<div class="gg" style="margin-top:12px">${ring(+comb(), col(+comb()), 64)}<span class="mu" style="font-size:12.5px">Probabilità combinata stimata</span></div><button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}<p style="font-size:13px;margin-top:6px">Nessun evento disponibile per questi filtri.</p></div>`) : '') + savedHTML() + disc();
