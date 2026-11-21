@@ -338,8 +338,12 @@ def main():
         rosa_c = get_rosa(m.pop("_hid", 0), sq_cache)
         rosa_t = get_rosa(m.pop("_aid", 0), sq_cache)
         ai_data = analizza_gemini(modello, m, rosa_c, rosa_t)
-        m.update(ai_data)
+        if isinstance(ai_data, list) and ai_data:
+            ai_data = ai_data.pop(0)
+        if isinstance(ai_data, dict):
+            m.update(ai_data)
         risultati.append(m)
+
 
     save_json(SQ, sq_cache)
     save_json(CL_CACHE, cl_cache)
