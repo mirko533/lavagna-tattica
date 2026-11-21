@@ -351,7 +351,8 @@ function genera() {
   const td = todayK(), tr = tmrK();
 
   const pool = [];
-  D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2 && (G.day === 'all' || (G.day === 'today' && day(m) === td) || (G.day === 'tomorrow' && day(m) === tr))).forEach(m => {
+   D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2 && (G.day === 'all' || (G.day === 'today' && m.data === td) || (G.day === 'tomorrow' && m.data === tr))).forEach(m => {
+
     const k = mk(m);
     const validi = [];
 
