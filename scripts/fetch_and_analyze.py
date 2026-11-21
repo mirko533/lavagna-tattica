@@ -50,11 +50,15 @@ OL_COMP = {
 
 FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
 
+# Segnaposto generici che NON sono nomi reali di giocatori
+GENERICI = re.compile(r"\b(marcator\w*|attaccant\w*|centrocampist\w*|difensor\w*|esterno|esterni|casa|trasferta|giocator\w*)\b", re.I)
+
 PROMPT = """Sei un analista statistico di calcio. Partita: {casa} vs {trasf} ({comp}), {data} UTC.
 CLASSIFICA/FORMA: {classifica}
 ROSA UFFICIALE {casa}: {rosa_c}
 ROSA UFFICIALE {trasf}: {rosa_t}
 VINCOLO ASSOLUTO: i titolari delle formazioni, i marcatori e gli ammoniti devono essere SOLO giocatori presenti nelle rose qui sopra (nome identico, se disponibile). Nessun giocatore esterno inventato.
+REGOLA ROSE VUOTE (OBBLIGATORIA): se la rosa di una squadra e' "Non disponibile", vuota o non contiene nomi reali di giocatori, per QUELLA squadra NON inserire nessun giocatore in possibili_marcatori e possibili_ammoniti. Se entrambe le rose non sono disponibili, possibili_marcatori e possibili_ammoniti DEVONO essere array vuoti []. E' VIETATO inserire segnaposto generici come "marcatore centrale", "marcatore esterno casa", "attaccante", "centrocampista", "difensore", "giocatore" o simili: meglio [] che un nome finto.
 Rispondi SOLO con JSON valido, senza testo extra, senza alcun riferimento a scommesse, quote, bookmaker o denaro:
 {{"analisi":"3-4 frasi su forma, rendimento casa/trasferta e duelli tattici",
 "formazioni":{{"casa":{{"modulo":"4-3-3","undici":["11 nomi"]}},"trasferta":{{"modulo":"4-4-2","undici":["11 nomi"]}}}},
@@ -66,7 +70,7 @@ Rispondi SOLO con JSON valido, senza testo extra, senza alcun riferimento a scom
 "affidabilita":0,
 "stemma_casa":{{"colori":["#hex","#hex"],"pattern":"vertical|horizontal|diagonal|half|solid"}},
 "stemma_trasf":{{"colori":["#hex","#hex"],"pattern":"vertical|horizontal|diagonal|half|solid"}}}}
-Regole: probabilita intere 0-100 coerenti (1+X+2=100; U+O della stessa linea=100; GG+NG=100); 2 marcatori e 2 ammoniti per squadra;
+Regole: probabilita intere 0-100 coerenti (1+X+2=100; U+O della stessa linea=100; GG+NG=100); 2 marcatori e 2 ammoniti per squadra SOLO se la rosa di quella squadra contiene nomi reali, altrimenti array vuoto [];
 squadra = "casa" o "trasferta";
 IMPORTANTE per pronostico_principale: NON scegliere sempre 1X o X2; varia tra Combo (es. 1+O1.5, GG+O2.5, 1X+GG, X2+O1.5), Multigol (MG2-4, MG1-3), Esiti secchi (1, 2, X), Gol (GG) o Over 2.5 in base alle caratteristiche reali della partita;
 colori = i 2 colori HEX reali e fedeli alle maglie ufficiali; pattern = strisce reali della maglia (vertical, horizontal, diagonal, half, solid)."""
@@ -81,6 +85,31 @@ def pulisci(o):
     if isinstance(o, dict):
         return {k: pulisci(v) for k, v in o.items()}
     return o
+
+def nome_reale(n):
+    """True se n sembra il nome di un giocatore vero e non un segnaposto generico."""
+    n = str(n or "").strip()
+    return len(n) > 2 and any(c.isalpha() for c in n) and not GENERICI.search(n)
+
+def depura_giocatori(ai, rosa_c, rosa_t):
+    """Rete di sicurezza: scarta segnaposto e svuota gli array se la rosa della squadra manca."""
+    if not isinstance(ai, dict):
+        return ai
+    for chiave in ("possibili_marcatori", "possibili_ammoniti"):
+        lista = ai.get(chiave)
+        if not isinstance(lista, list):
+            continue
+        ok = []
+        for p in lista:
+            if not isinstance(p, dict) or not nome_reale(p.get("giocatore")):
+                continue
+            if p.get("squadra") == "casa" and not rosa_c:
+                continue
+            if p.get("squadra") == "trasferta" and not rosa_t:
+                continue
+            ok.append(p)
+        ai[chiave] = ok
+    return ai
 
 def load_json(path, default):
     try:
@@ -341,6 +370,7 @@ def main():
         if isinstance(ai_data, list) and ai_data:
             ai_data = ai_data.pop(0)
         if isinstance(ai_data, dict):
+            ai_data = depura_giocatori(ai_data, rosa_c, rosa_t)
             m.update(ai_data)
         risultati.append(m)
 
