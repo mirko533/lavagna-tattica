@@ -1,4 +1,4 @@
-const CACHE_NAME = "pronostici352-v3";
+const CACHE_NAME = "pronostici352-v5";
 const SHELL = ["./", "index.html", "style.css", "app.js", "manifest.json", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(SHELL)));
