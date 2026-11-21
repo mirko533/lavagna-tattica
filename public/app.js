@@ -4,7 +4,8 @@
    CONFIGURAZIONE VIP (modifica solo qui)
    ===================================================================== */
 // Link di pagamento: sostituisci con il TUO link personale, es. 'https://revolut.me/tuousername'
-const VIP_PAY_URL = 'https://revolut.me';
+const VIP_PAY_URL = 'https://revolut.me/mbarbaro92';
+
 const VIP_MAIL = 'info.hubcorsi@gmail.com';
 // Piani in vendita (i giorni devono coincidere con le chiavi di VIP_CODES)
 const VIP_PLANS = [
