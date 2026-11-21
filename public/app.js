@@ -410,7 +410,19 @@ function vGen() {
       ['all', 'Tutti']
     ].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div>
 <button class="btn" data-a="gen">${ic('gen')}Genera Nuova Combinazione</button></div>` +
-    (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map((o, i) => `<div class="sg gs"><div class="pz">${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}<span class="tn">${E(o.m.casa)} - ${E(o.m.trasf)}</span></div><div class="gb"><span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span>${o.v >= 75 ? '<span class="hc">Alta confidenza</span>' : ''}</div><button class="sw" data-a="swap" data-v="${i}" aria-label="Cambia evento" title="Cambia evento">↻</button></div>`).join('')}<div style="display:flex;align-items:center;gap:12px;margin-top:12px">${ring(Math.round(comb()), 64, 7)}<span class="mu" style="font-size:12px">Probabilità combinata stimata</span></div>
+          (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map((o, i) => `
+          <div class="sg gs" data-a="open" data-id="${o.m.id}" style="display:block;cursor:pointer">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              ${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}
+              <b style="flex:1;min-width:0;font-size:13.5px;line-height:1.25">${E(o.m.casa)} <span class="mu" style="font-weight:500">vs</span> ${E(o.m.trasf)}</b>
+              <button class="sw" data-a="swap" data-v="${i}" title="Cambia evento" aria-label="Cambia evento">↻</button>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+              <span class="mu" style="font-size:11.5px">${E(o.m.lega)} · ${E(dayLbl(o.m.data))} ${E(o.m.ora)}</span>
+              <span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span>
+            </div>
+          </div>`).join('')}<div class="gg" style="margin-top:12px">${ring(+comb(), col(+comb()), 64)}<span class="mu" style="font-size:12.5px">Probabilità combinata stimata</span></div>` : `<div class="box"><p class="mu">Nessun evento disponibile per questi filtri. Prova a ridurre il livello di rischio o ad aprire i mercati.</p></div>`) : '') +
+
 <button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}</div>`) : '') + savedHTML() + disc();
 }
 
