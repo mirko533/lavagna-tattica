@@ -457,34 +457,34 @@ ${standalone ? '' : `<button class="btn" data-a="install">${ic('down')}Installa 
 }
 
 /* ---------- Centrate / Braccio di Ferro ---------- */
-const WIN_DEMO = [
-  { k: 'd1', n: 10, t: '👑 Luca · Cliente VIP', l: 'Simulazione Statistica 10/10' },
-  { k: 'd2', n: 8, t: '⚡ User34 · Generatore 352', l: 'Simulazione 8/8' },
-  { k: 'd3', n: 15, t: '💎 Marco_89 · Cliente VIP', l: 'Simulazione 15/15' }
+const WIN_PRESETS = [
+  { k: 'w8', n: 8, t: '⚡ Generatore 352 · Combinazione 8/8', tag: 'CENTRATA' },
+  { k: 'w10', n: 10, t: '👑 Selezione VIP · Combinazione 10/10', tag: 'VIP 100%' },
+  { k: 'w15', n: 15, t: '🔥 Modello AI 352 · Combinazione 15/15', tag: 'RECORD' }
 ];
-// Combinazioni REALI: solo con partite FINISHED centrate dal pronostico principale 352 (servono almeno N partite centrate in archivio)
 function winCards() {
-  const hits = D.filter(m => esitoOf(m) === true).sort((a, b) => b.data.localeCompare(a.data)), r = [];
-  [8, 10, 15].forEach(n => { if (hits.length >= n) r.push({ k: 'r' + n, n, real: true, rows: hits.slice(0, n) }) });
-  WIN_DEMO.forEach(d => r.push({ k: d.k, n: d.n, real: false, title: d.t, label: d.l }));
-  return { hits: hits.length, list: r.sort((a, b) => b.real - a.real || a.n - b.n) };
+  const hits = D.filter(m => esitoOf(m) === true).sort((a, b) => b.data.localeCompare(a.data));
+  const list = WIN_PRESETS.filter(p => hits.length >= p.n).map((p, idx) => ({
+    ...p,
+    rows: hits.slice(idx * 2, idx * 2 + p.n).length === p.n ? hits.slice(idx * 2, idx * 2 + p.n) : hits.slice(0, p.n)
+  }));
+  return { hits: hits.length, list };
 }
 const ticks = n => `<div class="wtk">${'<span class="tk">✓</span>'.repeat(n)}</div>`;
 function winText(c) {
-  if (c.real) return `352 Pronostici - Combinazione centrata ${c.n}/${c.n}\n` + c.rows.map(m => `✓ ${m.casa} - ${m.trasf}: ${m.pronostico_principale.esito}${m.score ? ' (' + m.score.join('-') + ')' : ''}`).join('\n') + '\n18+ · Solo informativo e statistico.';
-  return `${c.title} - ${c.label}\n(Esempio dimostrativo: nome e risultato sono fittizi)\n352 Pronostici · 18+ · Solo informativo e statistico.`;
+  return `352 Pronostici - ${c.t}\n` + c.rows.map(m => `✓ ${m.casa} - ${m.trasf}: ${m.pronostico_principale.esito}${m.score ? ' (' + m.score.join('-') + ')' : ''}`).join('\n') + '\n18+ · Solo informativo e statistico.';
 }
 function vWin() {
   const w = winCards(), l = w.list.filter(c => winF === 'all' || c.n === +winF);
   const chips = [['all', 'Tutte'], ['8', '8 Eventi'], ['10', '10 Eventi'], ['15', '15 Eventi']].map(([v, t]) => `<button class="chip ${winF === v ? 'on' : ''}" data-a="wf" data-v="${v}">${t}</button>`).join('');
-  const miss = [8, 10, 15].filter(n => w.hits < n);
   return `<div class="chips">${chips}</div>
-<p class="mu" style="font-size:12px;margin:0 2px 10px">Pronostici principali 352 centrati nelle ultime partite concluse: <b style="color:var(--tx)">${w.hits}</b>${miss.length ? ` · combinazioni reali disponibili da ${miss.join(', ')} centrati` : ''}.</p>`
-    + (l.length ? l.map(c => `<article class="wc ${c.real ? 'real' : 'demo'}"><div class="wh"><span class="wt tn">${c.real ? ic('trophy') + 'Combinazione reale · ' + c.n + '/' + c.n : E(c.title)}</span><span class="wbd ${c.real ? 'ok' : 'sim'}">${c.real ? 'DATI 352' : 'SIMULAZIONE'}</span></div>
-${c.real ? '' : `<p class="wl">${E(c.label)}</p>`}${ticks(c.n)}
-${c.real ? c.rows.map(m => `<div class="wr"><span class="tk s">✓</span><div class="pz">${scudetto(m.casa, m.stemma_casa, 22)}${scudetto(m.trasf, m.stemma_trasf, 22)}<span class="tn">${E(m.casa)} - ${E(m.trasf)}</span></div><span class="bdg" style="--bc:${col(m.pronostico_principale.probabilita)}">${E(m.pronostico_principale.esito)}</span><b class="sc2">${m.score ? m.score.join('-') : ''}</b></div>`).join('') : '<p class="wfn">Esempio dimostrativo: nome e risultato sono fittizi e non rappresentano utenti reali.</p>'}
-<button class="btn s" data-a="wshare" data-v="${c.k}">${ic('share')}Condividi risultato</button></article>`).join('') : `<div class="empty">${ic('arm')}</div>`) + disc();
+<p class="mu" style="font-size:12px;margin:0 2px 10px">Esiti principali 352 centrati verificati: <b style="color:var(--tx)">${w.hits}</b></p>`
+    + (l.length ? l.map(c => `<article class="wc real"><div class="wh"><span class="wt tn">${ic('trophy')}${E(c.t)}</span><span class="wbd ok">${E(c.tag)}</span></div>
+${ticks(c.n)}
+${c.rows.map(m => `<div class="wr"><span class="tk s">✓</span><div class="pz">${scudetto(m.casa, m.stemma_casa, 22)}${scudetto(m.trasf, m.stemma_trasf, 22)}<span class="tn">${E(m.casa)} - ${E(m.trasf)}</span></div><span class="bdg" style="--bc:${col(m.pronostico_principale.probabilita)}">${E(m.pronostico_principale.esito)}</span><b class="sc2">${m.score ? m.score.join('-') : ''}</b></div>`).join('')}
+<button class="btn s" data-a="wshare" data-v="${c.k}">${ic('share')}Condividi risultato</button></article>`).join('') : `<div class="empty">${ic('arm')}<b style="display:block;color:var(--tx);font-family:var(--fh)">Nessuna combinazione da ${winF} eventi ancora</b><p style="font-size:13px;margin-top:4px">Le combinazioni appaiono automaticamente man mano che le partite concluse vengono centrate.</p></div>`) + disc();
 }
+
 
 /* ---------- Zona VIP ---------- */
 // Link Revolut con importo e causale precompilati (REVOLUT_CENTS: importo in centesimi)
