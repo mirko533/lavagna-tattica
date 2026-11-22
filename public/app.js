@@ -573,25 +573,19 @@ ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days 
   <p class="vnote" style="border:0;padding:0 0 10px 0;color:#cbd5e1;">
     Per garantire la massima qualità delle analisi, gli accessi VIP di questo mese sono al completo. Lascia la tua email per prenotare un posto e ricevere il <b>20% di sconto</b> appena riaprono le iscrizioni:
   </p>
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.formSubmitted){document.getElementById('vwait-form').style.display='none';document.getElementById('vwait-ok').style.display='block';}"></iframe>
-  <form id="vwait-form" action="https://web3forms.com" method="POST" target="hidden_iframe" onsubmit="window.formSubmitted=true; const b=this.querySelector('button'); b.disabled=true; b.innerText='Invio in corso...';" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
-    <input type="hidden" name="access_key" value="e4694674-17f8-4eb9-ab0b-d29430ae98d3">
-    <input type="hidden" name="subject" value="Nuovo iscritto Lista d'Attesa 352 VIP (Pagina Piani)!">
-    <select name="piano_interessato" style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+  <div id="vwait-box" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+    <select id="vwait-plan" style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
       <option value="Pass Mensile (14,99 €)" selected>Piano preferito: Pass Mensile (14,99 €)</option>
       <option value="Pass Settimanale (4,99 €)">Piano preferito: Pass Settimanale (4,99 €)</option>
       <option value="Pass Annuale (49,99 €)">Piano preferito: Pass Annuale (49,99 €)</option>
     </select>
-    <input type="email" name="email" required placeholder="Inserisci la tua email..." style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+    <input type="email" id="vwait-email" placeholder="Inserisci la tua email..." style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
     <label style="font-size:11px;color:#94a3b8;text-align:left;display:flex;align-items:flex-start;gap:6px;">
-      <input type="checkbox" required style="margin-top:2px;">
+      <input type="checkbox" id="vwait-chk" style="margin-top:2px;">
       <span>Acconsento a ricevere una singola email di avviso alla riapertura dei posti VIP (nessuno spam).</span>
     </label>
-    <button type="submit" class="gbtn" style="border:none;cursor:pointer;width:100%;justify-content:center;">${ic('gem')}Avvisami quando riapre 🚀</button>
-  </form>
-  <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
-</div>
-
+    <button type="button" id="vwait-btn" onclick="const e=document.getElementById('vwait-email').value.trim(), c=document.getElementById('vwait-chk').checked, p=document.getElementById('vwait-plan').value, b=this; if(!e||!e.includes('@')){alert('Inserisci una email valida');return;} if(!c){alert('Spunta la casella del consenso');return;} b.disabled=true; b.innerText='Invio in corso...'; fetch('https://web3forms.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'e4694674-17f8-4eb9-ab0b-d29430ae98d3',subject:'Nuovo iscritto Lista d Attesa 352 VIP!',email:e,piano_interessato:p})}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('vwait-box').style.display='none';document.getElementById('vwait-ok').style.display='block';}else{b.disabled=false;b.innerText='Errore: '+(res.message||'riprova');}}).catch(()=>{b.disabled=false;b.innerText='Errore di connessione';});" class="gbtn" style="border:none;cursor:pointer;width:100%;justify-content:center;">${ic('gem')}Avvisami quando riapre 🚀</button>
+  </div>
   <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
 </div>
 
