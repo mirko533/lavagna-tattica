@@ -185,6 +185,8 @@ const inLst = id => J('lst', []).includes(+id);
 const lbT = on => on ? '✓ Nella lista' : '+ Aggiungi alla lista';
 const lbBtn = (m, x = '') => `<button class="lb ${x} ${inLst(m.id) ? 'on' : ''}" data-a="lst" data-v="${m.id}">${lbT(inLst(m.id))}</button>`;
 const lstItems = () => J('lst', []).map(id => D.find(m => m.id == id)).filter(Boolean);
+let lcardUrl = '';
+
 function lstText(withUrl = true) {
   const it = lstItems();
   const rows = it.map((m, i) => { const pp = m.pronostico_principale; return `${i + 1}. ${m.casa} - ${m.trasf} (${dlab(day(m), true)} ${tm(m)})${pp ? `: ${pp.esito} ${num(pp.probabilita)}%` : ''}${m.affidabilita != null ? ` · aff. ${num(m.affidabilita)}%` : ''}` });
@@ -203,7 +205,8 @@ function vList() {
 <div class="meta"><span>${E(m.compNome)}</span><span>${E(dlab(day(m), true))} · ${tm(m)}</span>${m.affidabilita != null ? `<span style="color:${col(num(m.affidabilita))};font-weight:700">Affidabilità ${num(m.affidabilita)}%</span>` : ''}${m.score ? `<span><b>${m.score.join(' - ')}</b></span>` : ''}</div>
 <button class="lx" data-a="lrm" data-v="${m.id}" aria-label="Rimuovi dalla lista">✕</button></div>`;
     }).join('')
-    + `<div class="lshare"><button class="btn wa" data-a="lwa">Condividi su WhatsApp</button><button class="btn tg" data-a="ltg">Condividi su Telegram</button></div><button class="btn del" data-a="lclr">${ic('x')}Svuota tutto</button>` + disc();
+       + `<div class="lshare"><button class="btn wa" data-a="lwa">Condividi su WhatsApp</button><button class="btn tg" data-a="ltg">Condividi su Telegram</button></div><button class="btn" data-a="lmkcard">${ic('img')}Crea Card Immagine della Lista</button><div id="lcardout">${lcardUrl ? `<img class="cimg" src="${lcardUrl}" alt="Card Lista 352"><button class="btn s" data-a="ldl">${ic('down')}Scarica Immagine</button>` : ''}</div>` + disc();
+
 }
 
 /* ---------- Selezioni Top del Giorno (>= 80%) ---------- */
@@ -708,6 +711,22 @@ const A = {
   lclr() { if (!confirm('Svuotare tutta la lista?')) return; L.lst = '[]'; tap(500); render() },
   lwa() { if (!lstItems().length) return; window.open('https://wa.me/?text=' + encodeURIComponent(lstText(true)), '_blank', 'noopener') },
   ltg() { if (!lstItems().length) return; window.open('https://t.me/share/url?url=' + encodeURIComponent(siteUrl()) + '&text=' + encodeURIComponent(lstText(false)), '_blank', 'noopener') },
+    async lmkcard() {
+    const it = lstItems(); if (!it.length) return;
+    const c = document.createElement('canvas'); c.width = 900; c.height = 240 + it.length * 88;
+    const g = c.getContext('2d'); g.fillStyle = '#0B1120'; g.fillRect(0, 0, c.width, c.height);
+    g.fillStyle = '#10B981'; g.font = 'bold 34px sans-serif'; g.fillText('352 PRONOSTICI · LA MIA LISTA', 44, 68);
+    g.fillStyle = '#8A97AD'; g.font = '22px sans-serif'; g.fillText(`${it.length} eventi selezionati · Solo uso statistico 18+`, 44, 106);
+    it.forEach((m, i) => {
+      const y = 145 + i * 88, pp = m.pronostico_principale || {};
+      g.fillStyle = '#131C31'; g.beginPath(); g.roundRect(36, y, 828, 72, 16); g.fill();
+      g.fillStyle = '#E6EDF7'; g.font = 'bold 24px sans-serif'; g.fillText(`${m.casa} - ${m.trasf}`.slice(0, 36), 56, y + 44);
+      g.fillStyle = '#10B981'; g.font = 'bold 24px sans-serif'; g.textAlign = 'right'; g.fillText(`${pp.esito || '-'} · ${pp.probabilita || ''}%`, 844, y + 44); g.textAlign = 'left';
+    });
+    lcardUrl = c.toDataURL('image/png'); render();
+  },
+  ldl() { if (!lcardUrl) return; const a = document.createElement('a'); a.href = lcardUrl; a.download = '352-lista.png'; a.click(); },
+ 
   vote(v) { const [id, x] = v.split('|'), m = D.find(y => y.id == id), p = J('poll', {}); p[id] = x; L.poll = JSON.stringify(p); tap(740); if (m) $('#poll').innerHTML = pollBox(m) },
   theme() { const d = document.documentElement, t = d.dataset.theme === 'dark' ? 'light' : 'dark'; d.dataset.theme = t; L.theme = t; document.querySelector('meta[name=theme-color]').content = t === 'dark' ? '#0B1120' : '#F1F5FB'; render() },
   fx() { tap(); openNP() },
