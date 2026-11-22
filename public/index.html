@@ -101,20 +101,45 @@
 </div>
 
 <div class="modal" id="vipm" role="dialog" aria-modal="true" aria-label="352 VIP Club">
- <div class="mb vmb">
-  <button class="ib vx" data-a="vipclose" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button>
-  <div class="vgem"><svg class="ic"><use href="#i-gem"/></svg></div>
-  <h2>352 VIP Club</h2>
-  <p class="mu" id="vipmsg"></p>
-  <div class="vperks">
-   <span><svg class="ic"><use href="#i-inf"/></svg>Analisi illimitate</span>
-   <span><svg class="ic"><use href="#i-gen"/></svg>Generatore Pro</span>
-   <span><svg class="ic"><use href="#i-block"/></svg>Zero pubblicità</span>
+  <div class="mb vmb">
+    <button class="ib vx" data-a="vipclose" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button>
+    <div class="vgem"><svg class="ic"><use href="#i-gem"/></svg></div>
+    <h2>352 VIP Club</h2>
+    <p class="mu" id="vipmsg" style="display:none;"></p>
+    <p class="mu">I posti per questo mese sono al completo. Lascia la tua email per entrare in lista d'attesa e ricevere il 20% di sconto alla riapertura:</p>
+    <div class="vperks">
+      <span><svg class="ic"><use href="#i-inf"/></svg>Analisi illimitate</span>
+      <span><svg class="ic"><use href="#i-gen"/></svg>Generatore Pro</span>
+      <span><svg class="ic"><use href="#i-block"/></svg>Zero pubblicità</span>
+    </div>
+
+    <form id="waitlist-form-modal" action="https://web3forms.com" method="POST" style="display:flex;flex-direction:column;gap:8px;margin:12px 0;">
+      <input type="hidden" name="access_key" value="e4694674-17f8-4eb9-ab0b-d29430ae98d3">
+      <input type="hidden" name="subject" value="Nuovo iscritto Lista d'Attesa 352 VIP (Popup)!">
+      <input type="email" name="email" required placeholder="La tua email..." style="padding:10px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+      <label style="font-size:11px;color:#94a3b8;text-align:left;display:flex;align-items:flex-start;gap:6px;">
+        <input type="checkbox" required style="margin-top:2px;">
+        <span>Acconsento a ricevere l'avviso di apertura iscrizioni (no spam).</span>
+      </label>
+      <button type="submit" class="btn gold">Avvisami quando riapre 🚀</button>
+    </form>
+    <p id="waitlist-ok-modal" style="display:none;color:#4ade80;font-weight:bold;font-size:13px;margin:10px 0;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
+
+    <button class="btn s" data-a="vipclose">Non ora</button>
   </div>
-  <button class="btn gold" data-a="vipgo">Scopri il Club VIP 💎</button>
-  <button class="btn s" data-a="vipclose">Non ora</button>
- </div>
 </div>
+
+<script>
+  document.getElementById('waitlist-form-modal').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const f = this, btn = f.querySelector('button');
+    btn.disabled = true; btn.innerText = "Invio...";
+    fetch('https://web3forms.com', { method: 'POST', body: new FormData(f) })
+      .then(r => { if (r.status === 200) { f.style.display = 'none'; document.getElementById('waitlist-ok-modal').style.display = 'block'; } })
+      .catch(() => { btn.disabled = false; btn.innerText = "Riprova"; });
+  });
+</script>
+
 <div class="scrim" id="scrim" data-a="close"></div>
 <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Dettaglio partita">
  <div class="shbar"><button class="ib" data-a="close" aria-label="Chiudi"><svg class="ic"><use href="#i-x"/></svg></button></div>
