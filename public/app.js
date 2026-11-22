@@ -410,20 +410,20 @@ function vGen() {
       ['estr', 'Estremo <45%'],
       ['all', 'Tutti']
     ].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div>
-<button class="btn" data-a="gen">${ic('gen')}Genera Nuova Combinazione</button></div>` +
     (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map((o, i) => `
-      <div class="sg gs" data-a="open" data-id="${o.m.id}" style="display:block;cursor:pointer">
+      <div class="sg gs" style="display:block">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          ${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}
-          <b style="flex:1;min-width:0;font-size:13.5px;line-height:1.25">${E(o.m.casa)} <span class="mu" style="font-weight:500">vs</span> ${E(o.m.trasf)}</b>
+          <div data-a="open" data-id="${o.m.id}" style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer">
+            ${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}
+            <b style="flex:1;min-width:0;font-size:13.5px;line-height:1.25">${E(o.m.casa)} <span class="mu" style="font-weight:500">vs</span> ${E(o.m.trasf)}</b>
+          </div>
           <button class="sw" data-a="swap" data-v="${i}" title="Cambia evento" aria-label="Cambia evento">↻</button>
         </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
-         <span class="mu" style="font-size:11.5px">${E(o.m.lega)} · ${E(o.m.data)} ${E(o.m.ora)}</span>
-
+        <div data-a="open" data-id="${o.m.id}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;cursor:pointer">
+          <span class="mu" style="font-size:11.5px">${E(o.m.competizione || o.m.lega || '')} · ${new Date(o.m.data).toLocaleDateString('it-IT', { weekday: 'short', day: '2-digit', month: 'short' })} ${new Date(o.m.data).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}</span>
           <span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span>
         </div>
-          </div>`).join('')}<div class="gg" style="margin-top:12px">${ring(+comb(), col(+comb()), 64)}<span class="mu" style="font-size:12.5px">Probabilità combinata stimata</span></div><button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}<p style="font-size:13px;margin-top:6px">Nessun evento disponibile per questi filtri.</p></div>`) : '') + savedHTML() + disc();
+      </div>`).join('')}<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;margin-top:10px;border-radius:12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3)"><span class="mu" style="font-size:12.5px;font-weight:600">Indice combinato stimato</span><b style="font-size:16px;color:var(--ac)">${comb()}%</b></div><button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" id="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}<p style="font-size:13px;margin-top:6px">Nessun evento trovato con questi filtri. Prova ad ampliare il livello di rischio o i mercati.</p></div>`) : '') + savedHTML() + disc();
 
 }
 
