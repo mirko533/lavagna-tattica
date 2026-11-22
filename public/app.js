@@ -221,10 +221,15 @@ function topSel() {
 /* ---------- Home ---------- */
 const hay = m => norm([m.casa, m.trasf, ...pls(m.possibili_marcatori).map(p => p.giocatore), ...pls(m.possibili_ammoniti).map(p => p.giocatore), ...Object.values(m.formazioni || {}).flatMap(x => x.undici || [])].join(' '));
 // ex = filtri da saltare (serve ai contatori: "quante partite avrei se attivassi questo filtro")
+const isSurp = m => {
+  const k = mk(m);
+  return m.stato !== 'FINISHED' && ((+k['X2'] >= 62 && +k['1'] < 45) || +k['2'] >= 52 || (+k['GG'] >= 72 && +k['O2.5'] >= 65));
+};
 const vis = (ex = {}) => {
   const q = norm(F.q.trim()), td = todayK(), tr = tmrK();
-  return D.filter(m => (!F.c || m.comp === F.c) && (!F.f || fav.includes(m.id)) && (ex.t || !F.t || day(m) === td) && (ex.tm || !F.tm || day(m) === tr) && (ex.top || !F.top || isTop(m)) && (!F.res || esitoOf(m) !== null) && (!q || hay(m).includes(q)));
+  return D.filter(m => (!F.c || m.comp === F.c) && (!F.f || fav.includes(m.id)) && (ex.t || !F.t || day(m) === td) && (ex.tm || !F.tm || day(m) === tr) && (ex.top || !F.top || isTop(m)) && (ex.surp || !F.surp || isSurp(m)) && (!q || hay(m).includes(q)));
 };
+
 function colpo() {
   const m = D.filter(x => x.stato !== 'FINISHED' && x.affidabilita != null).sort((a, b) => b.affidabilita - a.affidabilita || (b.pronostico_principale?.probabilita || 0) - (a.pronostico_principale?.probabilita || 0))[0]; if (!m) return '';
   const pp = m.pronostico_principale || {};
@@ -274,9 +279,11 @@ function subRows() {
 }
 function filtHTML() {
   const td = todayK(), tr = tmrK(), base = vis({ t: 1, tm: 1 });
-  const nT = base.filter(m => day(m) === td).length, nM = base.filter(m => day(m) === tr).length, nTop = vis({ top: 1 }).filter(isTop).length;
-  return chp(F.t, 'ftoday', undefined, 'cal', `Oggi (${nT})`) + chp(F.tm, 'ftomorrow', undefined, 'cal', `Domani (${nM})`) + chp(F.top, 'ftop', undefined, 'flame', `Top 80%+ (${nTop})`) + chp(F.res, 'fres', undefined, 'check', `Risultati ✓/✗ (${D.filter(m => esitoOf(m) !== null).length})`) + chp(F.f, 'favf', undefined, 'heart', 'Preferiti');
+  const nT = base.filter(m => day(m) === td).length, nM = base.filter(m => day(m) === tr).length;
+  const nTop = vis({ top: 1 }).filter(isTop).length, nSurp = vis({ surp: 1 }).filter(isSurp).length;
+  return chp(F.t, 'ftoday', undefined, 'cal', `Oggi (${nT})`) + chp(F.tm, 'ftomorrow', undefined, 'cal', `Domani (${nM})`) + chp(F.top, 'ftop', undefined, 'zap', `75%+ (${nTop})`) + chp(F.surp, 'fsurp', undefined, 'flame', `Sorprese (${nSurp})`) + chp(F.f, 'ffav', undefined, 'heart', 'Preferiti');
 }
+
 function refreshList() {
   $('#hl').innerHTML = listHTML(); const h = $('#hf'); if (h) h.innerHTML = filtHTML();
   $('.sx')?.classList.toggle('hide', !F.q);
@@ -704,6 +711,8 @@ const A = {
   npclose() { $('#np')?.classList.remove('open') },
   fxtog() { L.fx = fx() ? '0' : '1'; $('#fxb').classList.toggle('on', fx()); if ($('#np')?.classList.contains('open')) $('#np').innerHTML = npHTML(); toast(fx() ? 'Suoni e vibrazione attivi' : 'Suoni e vibrazione spenti'); tap() },
   fres() { F.res = !F.res; render() },
+     fsurp() { F.surp = !F.surp; refreshList(); },
+
   lvall() { liveOnly = false; render() }, lvana() { liveOnly = true; render() },
   wf(v) { winF = v; render() },
   wshare(v) { const c = winCards().list.find(x => x.k === v); if (c) share(winText(c), siteUrl()) },
