@@ -573,7 +573,8 @@ ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days 
   <p class="vnote" style="border:0;padding:0 0 10px 0;color:#cbd5e1;">
     Per garantire la massima qualità delle analisi, gli accessi VIP di questo mese sono al completo. Lascia la tua email per prenotare un posto e ricevere il <b>20% di sconto</b> appena riaprono le iscrizioni${sel ? ` (Piano scelto: <b>${E(sel.name)} - ${E(sel.price)}</b>)` : ''}:
   </p>
- <form onsubmit="event.preventDefault(); const f=this, b=f.querySelector('button'); b.disabled=true; b.innerText='Invio...'; const d=Object.fromEntries(new FormData(f)); fetch('https://web3forms.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)}).then(async r=>{const j=await r.json(); if(r.status===200){f.style.display='none';document.getElementById('vwait-ok').style.display='block';}else{b.disabled=false;b.innerText=j.message||'Errore';}}).catch(e=>{b.disabled=false;b.innerText='Bloccato: '+e.message;});" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+<form onsubmit="event.preventDefault(); const f=this, b=f.querySelector('button'); b.disabled=true; b.innerText='Invio in corso...'; fetch('https://web3forms.com',{method:'POST',body:new FormData(f)}).then(r=>{if(r.status===200){f.style.display='none';document.getElementById('vwait-ok').style.display='block';}else{b.disabled=false;b.innerText='Riprova';}}).catch(()=>{b.disabled=false;b.innerText='Errore di rete';});" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+
 
     <input type="hidden" name="access_key" value="e4694674-17f8-4eb9-ab0b-d29430ae98d3">
     <input type="hidden" name="subject" value="Nuovo iscritto Lista d'Attesa 352 VIP (Pagina Piani)!">
