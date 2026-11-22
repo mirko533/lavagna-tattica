@@ -41,24 +41,51 @@ const ic = (n, c = '') => `<svg class="ic ${c}"><use href="#i-${n}"/></svg>`;
 const siteUrl = () => location.href.split('#')[0].split('?')[0];
 let D = [], meta = '', fav = J('fav', []), F = { c: '', f: false, t: false, tm: false, top: false, res: false, q: '' }, tab = 'home', out = null, POOL = [], cardUrl = '', cardBlob = null, topOpen = false, vipSel = null, liveOnly = false, winF = 'all', simStd = false, storyUrl = '', storyBlob = null, liveT = null, liveCd = 50, flash = {};
 const openG = new Set();   // gruppi di campionati espansi (menu +/−)
-let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB'], best: false, risk: 'all', day: 'all' };
+let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB', 'DNB', 'SQ', 'TM'], best: false, risk: 'all', day: 'all' };
 const GR = {
   '1X2': ['1', 'X', '2'],
   DC: ['1X', 'X2', '12'],
-  UO: ['U1.5', 'O1.5', 'U2.5', 'O2.5', 'U3.5', 'O3.5'],
+  DNB: ['DNB 1', 'DNB 2', 'Win 0 Casa', 'Win 0 Trasf'],
+  UO: ['U1.5', 'O1.5', 'U2.5', 'O2.5', 'U3.5', 'O3.5', 'U4.5', 'O4.5'],
   GN: ['GG', 'NG'],
-  MG: ['MG1-2', 'MG1-3', 'MG2-3', 'MG2-4', 'MG3-5'],
+  MG: ['MG1-2', 'MG1-3', 'MG2-3', 'MG2-4', 'MG2-5', 'MG3-5'],
+  SQ: ['Casa O0.5', 'Casa O1.5', 'Trasf O0.5', 'Trasf O1.5', 'Clean Sheet 1', 'Clean Sheet 2', 'MG Casa 1-2', 'MG Trasf 1-2'],
+  TM: ['1T 1', '1T X', '1T 2', '1T O0.5', '1T U0.5', '1T O1.5', '2T O0.5', 'Gol Entrambi Tempi'],
   CB: ['1+O1.5', '1+O2.5', '2+O1.5', '2+O2.5', '1X+O1.5', 'X2+O1.5', '1X+GG', 'X2+GG', 'GG+O2.5', '1+GG', '2+GG', '2+U3.5'],
   MARC: ['MARC']
 };
-const GL = { '1X2': '1X2', DC: 'Doppia Chance', UO: 'Under/Over', GN: 'Gol/NoGol', MG: 'Multigol', CB: 'Combo', MARC: 'Marcatore' };
+const GL = { '1X2': '1X2', DC: 'Doppia Chance', DNB: 'Rimborso & Win 0', UO: 'Under/Over', GN: 'Gol/NoGol', MG: 'Multigol', SQ: 'Gol Squadre & CS', TM: '1° e 2° Tempo', CB: 'Combo', MARC: 'Marcatore' };
 const lbl = k => {
   if (k.startsWith('Segna ')) return k;
-  return ({ '1': 'Esito 1', X: 'Esito X', '2': 'Esito 2', GG: 'Gol', NG: 'NoGol' }[k])
-    || k.replace(/U(?=\d)/g, 'Under ').replace(/O(?=\d)/g, 'Over ').replace('MG', 'Multigol ').replace('GG', 'Gol');
+  return ({ '1': 'Esito 1', X: 'Esito X', '2': 'Esito 2', GG: 'Goal (GG)', NG: 'NoGoal (NG)', 'DNB 1': 'Rimborso Parità 1', 'DNB 2': 'Rimborso Parità 2', 'Win 0 Casa': 'Casa Vince a Zero', 'Win 0 Trasf': 'Trasf Vince a Zero', 'Clean Sheet 1': 'Casa Non Subisce', 'Clean Sheet 2': 'Trasf Non Subisce', 'Gol Entrambi Tempi': 'Gol in 1° e 2° Tempo' }[k])
+    || k.replace(/^1T /, '1° Tempo ').replace(/^2T /, '2° Tempo ').replace(/U(?=\d)/g, 'Under ').replace(/O(?=\d)/g, 'Over ').replace('MG', 'Multigol ');
 };
 
-const mk = m => ({ ...(m.prob_1x2 || {}), ...(m.mercati_completi || {}) });
+const mk = m => {
+  const b = { ...(m.prob_1x2 || {}), ...(m.mercatI_completi || m.mercat_completi || m.mercati_completi || {}) };
+  const p1 = +b['1'] || 35, px = +b['X'] || 28, p2 = +b['2'] || 37, o25 = +b['O2.5'] || 50, gg = +b['GG'] || 50;
+  const lh = Math.max(0.25, (o25 / 50) * (p1 / 45) * 1.35), la = Math.max(0.2, (o25 / 50) * (p2 / 45) * 1.15);
+  const pois = (l, k) => { let f = 1; for (let i = 2; i <= k; i++) f *= i; return Math.exp(-l) * Math.pow(l, k) / f; };
+  const pct = x => Math.max(4, Math.min(94, Math.round(x * 100)));
+  const cs1 = pois(la, 0), cs2 = pois(lh, 0);
+  const extra = {
+    'DNB 1': Math.round((p1 / Math.max(1, p1 + p2)) * 100), 'DNB 2': Math.round((p2 / Math.max(1, p1 + p2)) * 100),
+    'Win 0 Casa': pct((p1 / 100) * cs1 * 1.25), 'Win 0 Trasf': pct((p2 / 100) * cs2 * 1.25),
+    'U4.5': Math.min(96, Math.round((+b['U3.5'] || 78) + 12)), 'O4.5': Math.max(4, 100 - Math.min(96, Math.round((+b['U3.5'] || 78) + 12))),
+    'MG2-5': Math.min(88, Math.round((+b['MG2-4'] || 52) + 14)),
+    'Casa O0.5': pct(1 - cs2), 'Casa O1.5': pct(1 - cs2 - pois(lh, 1)),
+    'Trasf O0.5': pct(1 - cs1), 'Trasf O1.5': pct(1 - cs1 - pois(la, 1)),
+    'Clean Sheet 1': pct(cs1), 'Clean Sheet 2': pct(cs2),
+    'MG Casa 1-2': pct(pois(lh, 1) + pois(lh, 2)), 'MG Trasf 1-2': pct(pois(la, 1) + pois(la, 2)),
+    '1T 1': pct((p1 / 100) * 0.68), '1T X': pct(0.42), '1T 2': pct((p2 / 100) * 0.66),
+    '1T O0.5': pct(1 - pois((lh + la) * 0.44, 0)), '1T U0.5': pct(pois((lh + la) * 0.44, 0)),
+    '1T O1.5': pct(1 - pois((lh + la) * 0.44, 0) - pois((lh + la) * 0.44, 1)),
+    '2T O0.5': pct(1 - pois((lh + la) * 0.56, 0)),
+    'Gol Entrambi Tempi': pct((1 - pois((lh + la) * 0.44, 0)) * (1 - pois((lh + la) * 0.56, 0)))
+  };
+  return { ...extra, ...b };
+};
+
 const LV = s => s === 'IN_PLAY' || s === 'PAUSED';
 const day = m => new Date(m.data).toLocaleDateString('sv');
 const tm = m => new Date(m.data).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
