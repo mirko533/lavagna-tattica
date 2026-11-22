@@ -239,7 +239,8 @@ function colpo() {
 }
 const tri = p => `<div class="tri"><div class="tb"><i style="flex:${num(p['1']) || 1};background:#10B981"></i><i style="flex:${num(p.X) || 1};background:#64748B"></i><i style="flex:${num(p['2']) || 1};background:#06B6D4"></i></div><div class="tl3"><span>1 · ${num(p['1'])}</span><span>X · ${num(p.X)}</span><span>2 · ${num(p['2'])}</span></div></div>`;
 function card(m) {
-  const lv = LV(m.stato), pp = m.pronostico_principale, ev = esitoOf(m), alta = pp && num(pp.probabilita) >= 75;
+   const lv = LV(m.stato) && !isExpiredLive(m), pp = m.pronostico_principale, ev = esitoOf(m), alta = pp && num(pp.probabilita) >= 75;
+
   return `<article class="card" data-a="open" data-v="${m.id}"><div class="ct"><span class="tn">${E(m.compNome)}</span>${isBig(m) ? '<span class="bm">★ Big Match</span>' : ''}</div><button class="fav ${fav.includes(m.id) ? 'on' : ''}" data-a="fav" data-v="${m.id}" aria-label="Preferita">${ic('heart')}</button>
 <div class="mr"><div class="tz">${scudetto(m.casa, m.stemma_casa)}<span class="tn">${E(m.casa)}</span></div><div class="mc">${lv ? '<span class="live"><i></i>LIVE</span>' : ''}<span class="cdt">${E(dlab(day(m), true))}</span><b class="tt">${m.score ? m.score.join(' - ') : tm(m)}</b>${pp ? `<div class="pr">${ev !== null ? `<span class="eo ${ev ? 'ok' : 'ko'}" aria-label="${ev ? 'Pronostico centrato' : 'Pronostico mancato'}">${ev ? '✓' : '✗'}</span>` : ''}<span class="bdg" style="--bc:${col(pp.probabilita)}">${E(pp.esito)} · ${num(pp.probabilita)}%</span></div>${alta ? '<span class="hc">Alta confidenza</span>' : ''}` : ''}</div><div class="tz">${scudetto(m.trasf, m.stemma_trasf)}<span class="tn">${E(m.trasf)}</span></div></div>${m.prob_1x2 ? tri(m.prob_1x2) : ''}<div class="cta">${lbBtn(m)}<span class="cv">Visualizza pronostico${ic('chev')}</span></div></article>`;
 }
