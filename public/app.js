@@ -409,7 +409,8 @@ function vGen() {
       ['alto', 'Alto Rischio 40-59%'],
       ['estr', 'Estremo <45%'],
       ['all', 'Tutti']
-    ].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div>
+       ].map(([v, l]) => `<button class="chip ${G.risk === v ? 'on' : ''}" data-a="risk" data-v="${v}">${l}</button>`).join('')}</div><button class="btn" data-a="gen">${ic('gen')}Genera Nuova Combinazione</button></div>` +
+
     (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map((o, i) => `
       <div class="sg gs" style="display:block">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
