@@ -41,7 +41,8 @@ const ic = (n, c = '') => `<svg class="ic ${c}"><use href="#i-${n}"/></svg>`;
 const siteUrl = () => location.href.split('#')[0].split('?')[0];
 let D = [], meta = '', fav = J('fav', []), F = { c: '', f: false, t: false, tm: false, top: false, res: false, q: '' }, tab = 'home', out = null, POOL = [], cardUrl = '', cardBlob = null, topOpen = false, vipSel = null, liveOnly = false, winF = 'all', simStd = false, storyUrl = '', storyBlob = null, liveT = null, liveCd = 50, flash = {};
 const openG = new Set();   // gruppi di campionati espansi (menu +/−)
-let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB', 'DNB', 'SQ', 'TM'], best: false, risk: 'all', day: 'all' };
+let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB', 'DNB', 'SQ', 'TM'], best: false, risk: 'all', day: 'all', one: '' };
+
 const GR = {
   '1X2': ['1', 'X', '2'],
   DC: ['1X', 'X2', '12'],
