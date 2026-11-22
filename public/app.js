@@ -221,10 +221,12 @@ function topSel() {
 /* ---------- Home ---------- */
 const hay = m => norm([m.casa, m.trasf, ...pls(m.possibili_marcatori).map(p => p.giocatore), ...pls(m.possibili_ammoniti).map(p => p.giocatore), ...Object.values(m.formazioni || {}).flatMap(x => x.undici || [])].join(' '));
 // ex = filtri da saltare (serve ai contatori: "quante partite avrei se attivassi questo filtro")
+const isExpiredLive = m => LV(m.stato) && (Date.now() - Date.parse(m.data)) > 160 * 60 * 1000;
 const isSurp = m => {
   const k = mk(m);
-  return m.stato !== 'FINISHED' && ((+k['X2'] >= 62 && +k['1'] < 45) || +k['2'] >= 52 || (+k['GG'] >= 72 && +k['O2.5'] >= 65));
+  return m.stato !== 'FINISHED' && !isExpiredLive(m) && ((+k['X2'] >= 62 && +k['1'] < 45) || +k['2'] >= 52 || (+k['GG'] >= 72 && +k['O2.5'] >= 65));
 };
+
 const vis = (ex = {}) => {
   const q = norm(F.q.trim()), td = todayK(), tr = tmrK();
   return D.filter(m => (!F.c || m.comp === F.c) && (!F.f || fav.includes(m.id)) && (ex.t || !F.t || day(m) === td) && (ex.tm || !F.tm || day(m) === tr) && (ex.top || !F.top || isTop(m)) && (ex.surp || !F.surp || isSurp(m)) && (!q || hay(m).includes(q)));
