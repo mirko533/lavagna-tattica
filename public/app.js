@@ -319,8 +319,15 @@ ${ev.length ? `<div class="tl">${ev.map(e => `<div>${ic(evIc(e), /esp|ross|red/.
 <div class="cta">${lbBtn(m)}<span class="cv">Visualizza pronostico${ic('chev')}</span></div></article>`;
 }
 function vLive() {
-  const td = todayK(); let l = D.filter(m => LV(m.stato) || day(m) === td).sort((a, b) => LV(b.stato) - LV(a.stato) || a.data.localeCompare(b.data));
+  const now = Date.now(), MAX_LIVE_MS = 160 * 60 * 1000;
+  const isRealLive = m => {
+    if (!LV(m.stato)) return false;
+    const t = Date.parse(m.data);
+    return !isNaN(t) && (now - t) >= -5 * 60 * 1000 && (now - t) <= MAX_LIVE_MS;
+  };
+  let l = D.filter(isRealLive).sort((a, b) => a.data.localeCompare(b.data));
   if (liveOnly) l = l.filter(m => m.prob_1x2 || m.pronostico_principale);
+
   return `<button class="btn" data-a="refresh">${ic('refresh')}Aggiorna Live</button><p class="lcd" id="lcd">Aggiornamento tra ${liveCd}s</p><div class="chips">${chp(!liveOnly, 'lvall', undefined, 'live', 'Tutte le Live')}${chp(liveOnly, 'lvana', undefined, 'chart', 'Solo gare con analisi 352')}</div>` + (l.length ? l.map(liveCard).join('') : `<div class="empty">${ic('live')}</div>`) + disc();
 }
 // Auto-refresh ogni 50s SOLO con la tab Live aperta e la pagina visibile
