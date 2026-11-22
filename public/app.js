@@ -4,7 +4,8 @@
    CONFIGURAZIONE VIP (modifica solo qui)
    ===================================================================== */
 // Link di pagamento: sostituisci con il TUO link personale, es. 'https://revolut.me/tuousername'
-const VIP_PAY_URL = 'https://revolut.me/mbarbaro92';
+const VIP_PAY_URL = '';
+
 // Revolut.me: se il link richiede l'importo in CENTESIMI (es. 499 invece di 4.99) imposta true
 const REVOLUT_CENTS = false;
 
@@ -567,17 +568,25 @@ ${status}
 <p class="vnote">Contest riservati ai membri con Pass VIP attivo. Date, modalità di partecipazione e premi di ogni iniziativa sono indicati nel relativo regolamento, pubblicato prima dell'avvio e comunicato agli iscritti via email. I premi sono articoli sportivi in natura.</p></div>
 <h2 class="vt">Scegli il tuo Pass</h2>
 ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days ? 'sel' : ''}">${p.tag ? `<span class="ptag">${E(p.tag)}</span>` : ''}<div class="pn2"><b>${E(p.name)}</b><small>${E(p.note)}</small></div><div class="pr2">${E(p.price)}</div><div class="psub">${E(p.sub)}</div><button class="gbtn" type="button" data-a="vipsel" data-v="${p.days}">${ic('gem')}Scegli ${E(p.name.replace('Pass ', ''))} · ${E(p.price)}</button></div>`).join('')}
-${sel ? `<div class="vbox vsum" id="vsum"><h3>${ic('check')}Riepilogo pagamento</h3>
-<div class="vrow"><span>Piano</span><b>${E(sel.name)} · ${E(sel.note)}</b></div>
-<div class="vrow"><span>Causale</span><b>${E(sel.cause)}</b></div>
-<div class="vrow tot"><span>Importo esatto</span><b>${E(sel.price)}</b></div>
-<button class="btn s" type="button" data-a="copycause">${ic('copy')}Copia causale</button>
-<a class="gbtn" href="${E(payUrl(sel))}" target="_blank" rel="noopener noreferrer">${ic('gem')}Paga ${E(sel.price)} su Revolut</a>
-<p class="vnote">Si apre Revolut con importo e causale già inseriti. Se non risultano precompilati, digita tu stesso <b>${E(sel.price)}</b> e incolla la causale.</p></div>` : ''}
-<div class="vbox"><h3>${ic('shield')}Come attivare il tuo Pass</h3>
-<div class="vst"><span>1</span><div>Scegli il piano: vedrai importo esatto (<b>4,99 €</b>, <b>14,99 €</b> o <b>49,99 €</b>) e causale, poi paga con Revolut (anche con carta, Apple Pay o Google Pay senza avere un conto Revolut).</div></div>
-<div class="vst"><span>2</span><div>Scrivi la tua <b>email</b> nella nota del pagamento oppure invia lo screenshot del pagamento a <a href="mailto:${E(VIP_MAIL)}?subject=Codice%20Pass%20VIP">${E(VIP_MAIL)}</a> per ricevere subito il tuo <b>Codice Pass VIP</b>.</div></div>
-<div class="vst"><span>3</span><div>Inserisci il codice ricevuto nel campo qui sotto per attivare istantaneamente il tuo periodo VIP.</div></div></div>
+<div class="vbox vsum" id="vsum">
+  <h3>${ic('gem')}Lista d'Attesa VIP (Posti Esauriti)</h3>
+  <p class="vnote" style="border:0;padding:0 0 10px 0;color:#cbd5e1;">
+    Per garantire la massima qualità delle analisi, gli accessi VIP di questo mese sono al completo. Lascia la tua email per prenotare un posto e ricevere il <b>20% di sconto</b> appena riaprono le iscrizioni${sel ? ` (Piano scelto: <b>${E(sel.name)} - ${E(sel.price)}</b>)` : ''}:
+  </p>
+  <form onsubmit="event.preventDefault(); const f=this, b=f.querySelector('button'); b.disabled=true; b.innerText='Invio in corso...'; fetch('https://web3forms.com',{method:'POST',body:new FormData(f)}).then(r=>{if(r.status===200){f.style.display='none';document.getElementById('vwait-ok').style.display='block';}}).catch(()=>{b.disabled=false;b.innerText='Riprova';});" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+    <input type="hidden" name="access_key" value="e4694674-17f8-4eb9-ab0b-d29430ae98d3">
+    <input type="hidden" name="subject" value="Nuovo iscritto Lista d'Attesa 352 VIP (Pagina Piani)!">
+    <input type="hidden" name="piano_selezionato" value="${sel ? `${E(sel.name)} (${E(sel.price)})` : 'Nessuno selezionato'}">
+    <input type="email" name="email" required placeholder="Inserisci la tua email..." style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+    <label style="font-size:11px;color:#94a3b8;text-align:left;display:flex;align-items:flex-start;gap:6px;">
+      <input type="checkbox" required style="margin-top:2px;">
+      <span>Acconsento a ricevere una singola email di avviso alla riapertura dei posti VIP (nessuno spam).</span>
+    </label>
+    <button type="submit" class="gbtn" style="border:none;cursor:pointer;width:100%;justify-content:center;">${ic('gem')}Avvisami quando riapre 🚀</button>
+  </form>
+  <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
+</div>
+
 <div class="vbox"><h3>${ic('key')}Attiva il tuo Codice Pass VIP</h3>
 <div class="vin"><input id="vcode" type="text" placeholder="Es. M30-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="gbtn" type="button" data-a="vipact">Attiva Pass VIP</button></div>
 ${act ? `<p class="vnote" style="border:0;padding-top:6px">Se inserisci un nuovo codice, i giorni si sommano al tuo Pass attuale.</p>` : ''}</div>
