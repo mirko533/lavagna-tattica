@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-22T14:44:37.367396+00:00",
-  "aggiornato": "2026-11-22T14:44:37.367396+00:00",
+  "updated_at": "2026-11-22T18:33:51.000140+00:00",
+  "aggiornato": "2026-11-22T18:33:51.000140+00:00",
   "matches": [
     {
       "id": 555095,
@@ -643,7 +643,7 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T13:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "FC Barcelona",
       "trasf": "Villarreal CF",
       "score": [
@@ -802,12 +802,12 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Sparta Rotterdam",
       "trasf": "AZ",
       "score": [
         1,
-        1
+        5
       ],
       "analisi": "Lo Sparta Rotterdam affronta l'AZ in una sfida di Eredivisie caratterizzata dalla solidità casalinga dei padroni di casa e dalla qualità tecnica degli ospiti. L'AZ, schierato con un 4-4-2 compatto, cercherà di controllare il centrocampo grazie all'esperienza di Jordy Clasie. Lo Sparta risponderà con un 4-3-3 propositivo, puntando sulle fasce e sulla vena realizzativa dei suoi attaccanti per scardinare la difesa avversaria.",
       "formazioni": {
@@ -961,7 +961,7 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "AFC Ajax",
       "trasf": "ADO Den Haag",
       "score": [
@@ -1120,12 +1120,12 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "US Sassuolo Calcio",
       "trasf": "Genoa CFC",
       "score": [
         0,
-        1
+        2
       ],
       "analisi": "Il Sassuolo affronta il Genoa in una sfida di metà classifica caratterizzata da grande equilibrio tattico e difese solide. I neroverdi cercano di sfruttare il fattore campo affidandosi alla qualità del proprio centrocampo e alla spinta degli esterni. Il Genoa risponde con un assetto prudente ma pronto a pungere in ripartenza grazie alla velocità dei suoi attaccanti. Ci si attende una gara combattuta a centrocampo, con episodi decisivi sui calci piazzati.",
       "formazioni": {
@@ -1279,11 +1279,11 @@
       "comp": "PL",
       "compNome": "Premier League",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Hull City AFC",
       "trasf": "Brighton & Hove Albion FC",
       "score": [
-        0,
+        2,
         0
       ],
       "analisi": "L'Hull City AFC affronta il Brighton & Hove Albion FC in un match di Premier League caratterizzato da duelli intensi a centrocampo. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano sulla qualità tecnica degli esterni offensivi. La sfida tattica si deciderà sulle fasce laterali e sulla precisione nei calci piazzati.",
@@ -1438,12 +1438,12 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Bologna FC 1909",
       "trasf": "Udinese Calcio",
       "score": [
-        0,
-        0
+        1,
+        1
       ],
       "analisi": "Il Bologna affronta l'Udinese in un match casalingo di fondamentale importanza per la lotta alle zone alte della classifica. I felsinei puntano sulla solidità del proprio stadio e sulla qualità offensiva guidata da Orsolini e Dovbyk. L'Udinese si schiera con un blocco prudente affidandosi alle ripartenze di Zaniolo e Davis. Ci si attende una gara equilibrata ma con i padroni di casa leggermente favoriti.",
       "formazioni": {
@@ -1597,11 +1597,11 @@
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Paris FC",
       "trasf": "Angers SCO",
       "score": [
-        0,
+        4,
         0
       ],
       "analisi": "Il Paris FC sfrutta il fattore campo grazie a una rosa tecnica e profonda, guidata da elementi di spessore internazionale come Kevin Trapp e Maxime López. L'Angers SCO si schiera con un blocco difensivo compatto ma fatica in trasferta, affidandosi alle ripartenze di Amine El Ouazzani. Ci si attende una gara dominata dai padroni di casa, capaci di imporre il proprio ritmo a centrocampo attraverso la qualità di Pierre Lees Melou.",
@@ -1756,12 +1756,12 @@
       "comp": "BL1",
       "compNome": "Bundesliga",
       "data": "2026-11-22T14:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "FC Augsburg",
       "trasf": "1. FSV Mainz 05",
       "score": [
-        0,
-        0
+        3,
+        1
       ],
       "analisi": "L'FC Augsburg affronta il 1. FSV Mainz 05 in una sfida di Bundesliga molto equilibrata a tinte salvezza. I padroni di casa puntano sulla solidità casalinga guidata da Jeffrey Gouweleeuw e la fisicità di Michael Gregoritsch in attacco. Il Mainz risponde con la qualità in mezzo al campo di Nadiem Amiri e la velocità di Sheraldo Becker, cercando punti preziosi in trasferta attraverso un blocco compatto.",
       "formazioni": {
@@ -1915,10 +1915,13 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T15:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Real Racing Club de Santander",
       "trasf": "Real Sociedad de Fútbol",
-      "score": null,
+      "score": [
+        3,
+        2
+      ],
       "analisi": "Il Racing Santander affronta la Real Sociedad puntando sulla solidità casalinga e sulla vena realizzativa di Arana. La Real Sociedad risponde con la qualità tecnica di Oyarzabal e Kubo, cercando di imporre il proprio palleggio. Ci si attende una gara intensa a centrocampo, con i baschi favoriti ma il Santander pronto a pungere in contropiede.",
       "formazioni": {
         "casa": {
@@ -2071,10 +2074,13 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T15:45:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Go Ahead Eagles",
       "trasf": "Fortuna Sittard",
-      "score": null,
+      "score": [
+        0,
+        1
+      ],
       "analisi": "Il Go Ahead Eagles sfrutta il fattore campo grazie a un'organizzazione solida e a una manovra offensiva fluida. Il Fortuna Sittard si affida a un blocco difensivo basso e a ripartenze rapide per arginare i padroni di casa. La sfida tattica si deciderà sulle fasce, dove i terzini di entrambe le squadre dovranno supportare la fase di spinta.",
       "formazioni": {
         "casa": {
@@ -2227,10 +2233,13 @@
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-22T16:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "FC Lorient",
       "trasf": "Stade Rennais FC 1901",
-      "score": null,
+      "score": [
+        1,
+        1
+      ],
       "analisi": "Il Lorient cerca riscatto tra le mura amiche per allontanarsi dalle zone calde della classifica, puntando su una transizione offensiva rapida. Il Rennes si presenta con una rosa di qualità superiore e un ottimo rendimento esterno, guidato da un attacco molto dinamico. I duelli a centrocampo tra l'aggressività dei padroni di casa e la qualità tecnica degli ospiti saranno decisivi per l'inerzia del match. Si preannuncia una gara aperta con opportunità da entrambe le parti.",
       "formazioni": {
         "casa": {
@@ -2383,10 +2392,13 @@
       "comp": "BL1",
       "compNome": "Bundesliga",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "SV Werder Bremen",
       "trasf": "Hamburger SV",
-      "score": null,
+      "score": [
+        3,
+        0
+      ],
       "analisi": "Il Werder Brema affronta l'Hamburger SV nel classico scontro della Germania settentrionale. I padroni di casa cercano di sfruttare il fattore campo grazie a una manovra offensiva solida, mentre gli ospiti puntano su un blocco basso e ripartenze veloci. Ci si attende una partita intensa, caratterizzata da duelli fisici a centrocampo e diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -2539,10 +2551,13 @@
       "comp": "PL",
       "compNome": "Premier League",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Liverpool FC",
       "trasf": "Manchester United FC",
-      "score": null,
+      "score": [
+        4,
+        0
+      ],
       "analisi": "Il Liverpool affronta il Manchester United ad Anfield con una rosa altamente rinnovata e competitiva. I Reds sfruttano il fattore campo e la qualità di Wirtz e Isak per dominare il possesso palla. I Red Devils rispondono con un blocco prudente guidato da Bruno Fernandes e Cunha, affidandosi alle ripartenze.",
       "formazioni": {
         "casa": {
@@ -2695,10 +2710,13 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T17:00:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "AC Milan",
       "trasf": "Frosinone Calcio",
-      "score": null,
+      "score": [
+        4,
+        1
+      ],
       "analisi": "Il Milan affronta il Frosinone a San Siro puntando sul controllo del centrocampo grazie alla qualità di Modrić e Rabiot. I ciociari si schierano con un 4-4-2 compatto per chiudere gli spazi e ripartire in contropiede. La differenza tecnica tra i reparti offensivi dovrebbe indirizzare il match a favore dei rossoneri.",
       "formazioni": {
         "casa": {
@@ -2851,10 +2869,13 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "CA Osasuna",
       "trasf": "Málaga CF",
-      "score": null,
+      "score": [
+        1,
+        0
+      ],
       "analisi": "L'Osasuna affronta questa sfida casalinga forte di una maggiore solidità strutturale e di un rendimento interno tradizionalmente ostico per gli avversari. Il Málaga CF, pur ben organizzato tatticamente, fatica a trovare continuità nei match in trasferta dove concede spazi importanti sulle corsie esterne. La chiave tattica risiederà nel controllo del centrocampo da parte dei padroni di casa, che cercheranno di sfruttare la fisicità dei propri attaccanti per scardinare la linea difensiva ospite.",
       "formazioni": {
         "casa": {
@@ -6747,162 +6768,6 @@
       }
     },
     {
-      "id": 575399,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-24T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Arsenal FC",
-      "trasf": "Borussia Dortmund",
-      "score": null,
-      "analisi": "L'Arsenal si presenta all'Emirates in un momento di forma eccellente, puntando sul possesso palla e l'aggressività delle ali per scardinare la difesa avversaria. Il Borussia Dortmund risponde con transizioni offensive rapide guidate da Guirassy e dalla creatività dei suoi giovani trequartisti. I duelli chiave a centrocampo tra Rice e Can potrebbero determinare l'inerzia del match. Si prevede una partita aperta, con i Gunners favoriti dal fattore campo ma il Dortmund sempre pericoloso in ripartenza.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "David Raya",
-            "Ben White",
-            "William Saliba",
-            "Gabriel Magalhães",
-            "Riccardo Calafiori",
-            "Martin Ødegaard",
-            "Declan Rice",
-            "Bruno Guimarães",
-            "Bukayo Saka",
-            "Viktor Gyökeres",
-            "Eberechi Eze"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Gregor Kobel",
-            "Julian Ryerson",
-            "Waldemar Anton",
-            "Nico Schlotterbeck",
-            "Ramy Bensebaini",
-            "Emre Can",
-            "Marcel Sabitzer",
-            "Joey Veerman",
-            "Ethan Nwaneri",
-            "Carney Chukwuemeka",
-            "Sehrou Guirassy"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 60,
-        "X": 22,
-        "2": 18
-      },
-      "mercati_completi": {
-        "1X": 82,
-        "X2": 40,
-        "12": 78,
-        "GG": 56,
-        "NG": 44,
-        "U1.5": 25,
-        "O1.5": 75,
-        "U2.5": 48,
-        "O2.5": 52,
-        "U3.5": 72,
-        "O3.5": 28,
-        "MG1-2": 46,
-        "MG1-3": 78,
-        "MG2-3": 50,
-        "MG2-4": 64,
-        "MG3-5": 48,
-        "1+O1.5": 52,
-        "1+O2.5": 42,
-        "2+O1.5": 14,
-        "2+O2.5": 11,
-        "1X+O1.5": 68,
-        "X2+O1.5": 32,
-        "1X+GG": 46,
-        "X2+GG": 28,
-        "GG+O2.5": 44,
-        "1+GG": 34,
-        "2+GG": 12,
-        "2+U3.5": 15
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Viktor Gyökeres",
-          "ruolo": "Attaccante",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Bukayo Saka",
-          "ruolo": "Attaccante",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Sehrou Guirassy",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Carney Chukwuemeka",
-          "ruolo": "Centrocampista",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Bruno Guimarães",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi irruenti nella trequarti difensiva",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Declan Rice",
-          "ruolo": "Centrocampista",
-          "motivo": "Interruzioni tattiche sulle ripartenze avversarie",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Emre Can",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli sistematici sulla trequarti per spezzare il ritmo",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Nico Schlotterbeck",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
-          "prob": 33
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Arsenal solido in casa, attacco molto proattivo contro una difesa vulnerabile."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#EF0107",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FDE100",
-          "#000000"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 575401,
       "comp": "CL",
       "compNome": "Champions League",
@@ -7501,6 +7366,162 @@
       }
     },
     {
+      "id": 575399,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-24T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Arsenal FC",
+      "trasf": "Borussia Dortmund",
+      "score": null,
+      "analisi": "L'Arsenal si presenta all'Emirates in un momento di forma eccellente, puntando sul possesso palla e l'aggressività delle ali per scardinare la difesa avversaria. Il Borussia Dortmund risponde con transizioni offensive rapide guidate da Guirassy e dalla creatività dei suoi giovani trequartisti. I duelli chiave a centrocampo tra Rice e Can potrebbero determinare l'inerzia del match. Si prevede una partita aperta, con i Gunners favoriti dal fattore campo ma il Dortmund sempre pericoloso in ripartenza.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "David Raya",
+            "Ben White",
+            "William Saliba",
+            "Gabriel Magalhães",
+            "Riccardo Calafiori",
+            "Martin Ødegaard",
+            "Declan Rice",
+            "Bruno Guimarães",
+            "Bukayo Saka",
+            "Viktor Gyökeres",
+            "Eberechi Eze"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Gregor Kobel",
+            "Julian Ryerson",
+            "Waldemar Anton",
+            "Nico Schlotterbeck",
+            "Ramy Bensebaini",
+            "Emre Can",
+            "Marcel Sabitzer",
+            "Joey Veerman",
+            "Ethan Nwaneri",
+            "Carney Chukwuemeka",
+            "Sehrou Guirassy"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 60,
+        "X": 22,
+        "2": 18
+      },
+      "mercati_completi": {
+        "1X": 82,
+        "X2": 40,
+        "12": 78,
+        "GG": 56,
+        "NG": 44,
+        "U1.5": 25,
+        "O1.5": 75,
+        "U2.5": 48,
+        "O2.5": 52,
+        "U3.5": 72,
+        "O3.5": 28,
+        "MG1-2": 46,
+        "MG1-3": 78,
+        "MG2-3": 50,
+        "MG2-4": 64,
+        "MG3-5": 48,
+        "1+O1.5": 52,
+        "1+O2.5": 42,
+        "2+O1.5": 14,
+        "2+O2.5": 11,
+        "1X+O1.5": 68,
+        "X2+O1.5": 32,
+        "1X+GG": 46,
+        "X2+GG": 28,
+        "GG+O2.5": 44,
+        "1+GG": 34,
+        "2+GG": 12,
+        "2+U3.5": 15
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Viktor Gyökeres",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Bukayo Saka",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Sehrou Guirassy",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Carney Chukwuemeka",
+          "ruolo": "Centrocampista",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Bruno Guimarães",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi irruenti nella trequarti difensiva",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Declan Rice",
+          "ruolo": "Centrocampista",
+          "motivo": "Interruzioni tattiche sulle ripartenze avversarie",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Emre Can",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli sistematici sulla trequarti per spezzare il ritmo",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nico Schlotterbeck",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
+          "prob": 33
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Arsenal solido in casa, attacco molto proattivo contro una difesa vulnerabile."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#EF0107",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FDE100",
+          "#000000"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 555102,
       "comp": "BSA",
       "compNome": "Serie A Brasile",
@@ -7657,14 +7678,173 @@
       }
     },
     {
+      "id": 902547798,
+      "comp": "SB",
+      "compNome": "Serie B",
+      "data": "2026-11-24T14:00:00Z",
+      "stato": "TIMED",
+      "casa": "Cremonese",
+      "trasf": "Avellino",
+      "score": null,
+      "analisi": "La Cremonese affronta l'Avellino in un match di Serie B caratterizzato da una solida organizzazione difensiva dei padroni di casa. Gli ospiti cercano punti salvezza affidandosi alle ripartenze guidate da Favilli e Patierno. La sfida tattica si preannuncia equilibrata, con i grigiorossi favoriti dal fattore campo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Andrea Fulignati",
+            "Alessandro Vogliacco",
+            "Federico Baschirotto",
+            "Federico Agazzi",
+            "Alberto Grassi",
+            "Fabio Gerli",
+            "Adin Licina",
+            "Adrian Lickūnas",
+            "Federico Bonazzoli",
+            "David Stuckler",
+            "Federico Bonazzoli"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Antony Iannarilli",
+            "Armando Izzo",
+            "Alessandro Nesta",
+            "Brando Moruzzi",
+            "Alessandro Di Bitonto",
+            "Claudiu Micovschi",
+            "Andrea Favilli",
+            "Cosimo Patierno",
+            "Benjamin Mokulu Tembe",
+            "Daniel Fila",
+            "Armando Izzo"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 45,
+        "X": 30,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 81,
+        "O3.5": 19,
+        "MG1-2": 42,
+        "MG1-3": 69,
+        "MG2-3": 51,
+        "MG2-4": 64,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 22,
+        "2+O1.5": 21,
+        "2+O2.5": 12,
+        "1X+O1.5": 52,
+        "X2+O1.5": 41,
+        "1X+GG": 40,
+        "X2+GG": 34,
+        "GG+O2.5": 39,
+        "1+GG": 24,
+        "2+GG": 18,
+        "2+U3.5": 23
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Federico Bonazzoli",
+          "ruolo": "attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "David Stuckler",
+          "ruolo": "attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Andrea Favilli",
+          "ruolo": "attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cosimo Patierno",
+          "ruolo": "attaccante",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Federico Baschirotto",
+          "ruolo": "difensore",
+          "motivo": "Interventi duri per fermare le ripartenze avversarie",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alberto Grassi",
+          "ruolo": "centrocampista",
+          "motivo": "Falli tattici a centrocampo",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Armando Izzo",
+          "ruolo": "difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti di casa",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alessandro Di Bitonto",
+          "ruolo": "centrocampista",
+          "motivo": "Ritardo nei contrasti sulle transizioni",
+          "prob": 36
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 38,
+        "motivazione_breve": "Vittoria interna con almeno due reti complessive nel match."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "colori": [
+          "#d71920",
+          "#00539f"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#006600",
+          "#ffffff"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 902547791,
       "comp": "SB",
       "compNome": "Serie B",
       "data": "2026-11-22T16:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Arezzo",
       "trasf": "Padova",
-      "score": null,
+      "score": [
+        1,
+        1
+      ],
       "analisi": "L'Arezzo affronta il Padova in una sfida di Serie B molto equilibrata dal punto di vista tattico. I padroni di casa cercano di sfruttare il fattore campo affidandosi alla qualità del proprio reparto offensivo. Il Padova risponde con una struttura difensiva solida e ripartenze veloci, pronte a colpire gli spazi concessi. L'andamento della gara dipenderà molto dai duelli a centrocampo e dalla precisione sotto porta.",
       "formazioni": {
         "casa": {
@@ -7813,314 +7993,36 @@
       }
     },
     {
-      "id": 902547790,
-      "comp": "SB",
-      "compNome": "Serie B",
-      "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Avellino",
-      "trasf": "Mantova",
-      "score": [
-        2,
-        1
-      ],
-      "analisi": "L'Avellino cerca di sfruttare il fattore campo al Partenio-Lombardi per conquistare punti preziosi in ottica classifica, contando sul reparto offensivo guidato da Patierno. Il Mantova risponde con un assetto dinamico, affidandosi alle giocate di qualita di Aramu e Falletti sulla trequarti. Ci si attende una gara combattuta a centrocampo con l'Avellino propenso a condurre il gioco e il Mantova pronto a colpire in contropiede.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Antony Iannarilli",
-            "Armando Izzo",
-            "Alessandro Di Bitonto",
-            "Brando Moruzzi",
-            "Alessandro Nesta",
-            "Claudiu Micovschi",
-            "Benjamin Mokulu Tembe",
-            "Andrea Favilli",
-            "Cosimo Patierno",
-            "Daniel Fila"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-3-1-2",
-          "undici": [
-            "Lorenzo Andrenacci",
-            "Cristiano Bani",
-            "Matteo Solini",
-            "Davide Bragantini",
-            "Mirko Bruccini",
-            "Mattia Aramu",
-            "Cesar Falletti",
-            "Francesco Ruocco",
-            "Francesco Galuppini",
-            "Davis Mensah"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 28,
-        "O1.5": 72,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 35,
-        "1+O1.5": 35,
-        "1+O2.5": 25,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 58,
-        "X2+O1.5": 40,
-        "1X+GG": 45,
-        "X2+GG": 33,
-        "GG+O2.5": 38,
-        "1+GG": 24,
-        "2+GG": 14,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Cosimo Patierno",
-          "ruolo": "Attaccante",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Andrea Favilli",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Francesco Galuppini",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mattia Aramu",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Armando Izzo",
-          "ruolo": "Difensore",
-          "motivo": "Fallo tattico per fermare la ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Brando Moruzzi",
-          "ruolo": "Difensore",
-          "motivo": "Intervento in ritardo sulla fascia",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cristiano Bani",
-          "ruolo": "Difensore",
-          "motivo": "Trattenuta vistosa a centrocampo",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mirko Bruccini",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste reiterate verso l'arbitro",
-          "prob": 32
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": "L'Avellino sfrutta il fattore campo in un match aperto da almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#008751",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "diagonal"
-      }
-    },
-    {
-      "id": 902556940,
+      "id": 902556937,
       "comp": "SCA",
       "compNome": "Serie C - Gir. A",
-      "data": "2026-11-22T16:30:00Z",
+      "data": "2026-11-23T19:45:00Z",
       "stato": "TIMED",
-      "casa": "Desenzano",
-      "trasf": "AlbinoLeffe",
+      "casa": "Lecco",
+      "trasf": "Lumezzane",
       "score": null,
-      "analisi": "Il Desenzano affronta l'AlbinoLeffe in una sfida di Serie C caratterizzata da equilibri tattici complessi. La formazione di casa cerca punti preziosi per migliorare il proprio rendimento interno, mentre l'AlbinoLeffe fa della solidità difensiva e delle ripartenze rapide le sue armi principali. Ci si attende un match combattuto a centrocampo, con occasioni da rete su entrambi i fronti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": []
-        },
-        "trasferta": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Christian Marietta",
-            "Diego Borghini",
-            "Gabriele Boloca",
-            "Enrico Giannini",
-            "Francesco Zambelli",
-            "Andrea Astrologo",
-            "Emanuele De Gennaro",
-            "Davide Munari",
-            "Giacomo Freri",
-            "Andrea Capelli",
-            "Christian Marietta"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 35,
-        "X": 30,
-        "2": 35
-      },
-      "mercati_completi": {
-        "1X": 65,
-        "X2": 65,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 30,
-        "O1.5": 70,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 60,
-        "MG3-5": 35,
-        "1+O1.5": 25,
-        "1+O2.5": 18,
-        "2+O1.5": 25,
-        "2+O2.5": 18,
-        "1X+O1.5": 48,
-        "X2+O1.5": 48,
-        "1X+GG": 40,
-        "X2+GG": 40,
-        "GG+O2.5": 32,
-        "1+GG": 20,
-        "2+GG": 20,
-        "2+U3.5": 30
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "trasferta",
-          "giocatore": "Andrea Capelli",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Davide Munari",
-          "ruolo": "Centrocampista",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "trasferta",
-          "giocatore": "Diego Borghini",
-          "ruolo": "Difensore",
-          "motivo": "Falli tattici su ripartenze avversarie",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Andrea Astrologo",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi irruenti in mediana",
-          "prob": 30
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Sfida equilibrata con l'AlbinoLeffe in grado di strappare un punto e almeno due gol totali."
-      },
-      "affidabilita": 65,
-      "stemma_casa": {
-        "colori": [
-          "#0047AB",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#00A3E0",
-          "#E30613"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
-      "id": 902556942,
-      "comp": "SCA",
-      "compNome": "Serie C - Gir. A",
-      "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Alcione Milano",
-      "trasf": "Ospitaletto",
-      "score": [
-        2,
-        0
-      ],
-      "analisi": "L'Alcione Milano si affida alla qualità tecnica di elementi come Antonio Palma e Fabio Morselli per imporre il proprio gioco tra le mura amiche. L'Ospitaletto, pur disponendo di una rosa non completamente tracciata nei dettagli anagrafici in questo contesto, mantiene una struttura difensiva solida. Ci si attende una gara equilibrata con l'Alcione che cercherà di fare la partita sfruttando le corsie laterali.",
+      "analisi": "Il Lecco affronta il Lumezzane in una sfida di Serie C caratterizzata da equilibri tattici complessi. I padroni di casa possono contare su elementi di esperienza come Franco Lepore e Giovanni Crociata per impostare la manovra. Il Lumezzane cercherà di chiudere gli spazi affidandosi a ripartenze veloci per sorprendere la retroguardia avversaria. Ci si attende una gara combattuta a centrocampo con poche vere occasioni nitide da rete.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Filippo Bacchin",
-            "Christian Dimarco",
-            "Daniele Ciappellano",
-            "Filippo Bertolotti",
-            "Christian Foglio",
-            "Antonio Palma",
-            "Andrea Pio Loco",
-            "Armando Miculi",
-            "Fabio Morselli",
-            "Andrea Invernizzi",
-            "Filippo Bacchin"
+            "Elio Capradossi",
+            "Alessandro Caporale",
+            "Alessandro Bianconi",
+            "Franco Lepore",
+            "Andrea Beghetto",
+            "Alessandro Sersanti",
+            "Giorgio Galli",
+            "Giovanni Crociata",
+            "Luca Marrone",
+            "Christopher Attys",
+            "Franco Lepore"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Portiere Ospiti",
+            "Portiere",
             "Terzino Destro",
             "Difensore Centrale 1",
             "Difensore Centrale 2",
@@ -8135,144 +8037,14 @@
         }
       },
       "prob_1x2": {
-        "1": 48,
-        "X": 28,
-        "2": 24
+        "1": 45,
+        "X": 30,
+        "2": 25
       },
       "mercati_completi": {
-        "1X": 76,
-        "X2": 52,
-        "12": 72,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 84,
-        "O3.5": 16,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 52,
-        "MG2-4": 65,
-        "MG3-5": 30,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 20,
-        "2+O2.5": 12,
-        "1X+O1.5": 52,
-        "X2+O1.5": 40,
-        "1X+GG": 42,
-        "X2+GG": 36,
-        "GG+O2.5": 38,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Fabio Morselli",
-          "ruolo": "Attaccante",
-          "prob": 34
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Andrea Invernizzi",
-          "ruolo": "Attaccante",
-          "prob": 28
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Antonio Palma",
-          "ruolo": "Centrocampista",
-          "motivo": "Intervento duro in mediana per fermare una ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Christian Dimarco",
-          "ruolo": "Difensore",
-          "motivo": "Fallaccio tattico sulla fascia di competenza",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Alcione favorito in casa con match da almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#003366",
-          "#ffffff"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#006633",
-          "#ffffff"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 902556518,
-      "comp": "SCB",
-      "compNome": "Serie C - Gir. B",
-      "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
-      "casa": "Sambenedettese",
-      "trasf": "Perugia",
-      "score": null,
-      "analisi": "La Sambenedettese affronta il Perugia in un match cruciale del Girone B di Serie C, caratterizzato da un equilibrio tattico notevole. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli umbri puntano a consolidare la propria posizione nei playoff. Ci si attende una gara combattuta a centrocampo con pochi spazi per le ripartenze.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano",
-            "Paolo Montero",
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano",
-            "Paolo Montero",
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Jacopo Furlan",
-            "Gabriele Angella",
-            "Cristian Dell'Orco",
-            "Francesco Lisi",
-            "Paolo Bartolomei",
-            "Giacomo Manzari",
-            "Giovanni Terrani",
-            "Ryder Matos",
-            "Radosław Żelezny",
-            "Gabriele Angella",
-            "Francesco Lisi"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 35,
-        "X": 35,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 65,
-        "12": 65,
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
         "GG": 50,
         "NG": 50,
         "U1.5": 35,
@@ -8283,256 +8055,635 @@
         "O3.5": 20,
         "MG1-2": 50,
         "MG1-3": 75,
-        "MG2-3": 55,
-        "MG2-4": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
         "MG3-5": 30,
-        "1+O1.5": 25,
-        "1+O2.5": 15,
+        "1+O1.5": 35,
+        "1+O2.5": 25,
         "2+O1.5": 20,
-        "2+O2.5": 12,
-        "1X+O1.5": 48,
-        "X2+O1.5": 45,
-        "1X+GG": 38,
+        "2+O2.5": 15,
+        "1X+O1.5": 50,
+        "X2+O1.5": 40,
+        "1X+GG": 40,
         "X2+GG": 35,
-        "GG+O2.5": 42,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 28
+        "GG+O2.5": 40,
+        "1+GG": 25,
+        "2+GG": 20,
+        "2+U3.5": 22
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luca Napolitano",
-          "ruolo": "Attaccante",
-          "prob": 25
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "José Dicombo",
+          "giocatore": "Giovanni Crociata",
           "ruolo": "Centrocampista",
-          "prob": 20
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ryder Matos",
-          "ruolo": "Attaccante",
           "prob": 28
         },
         {
-          "squadra": "trasferta",
-          "giocatore": "Giacomo Manzari",
-          "ruolo": "Attaccante",
-          "prob": 24
+          "squadra": "casa",
+          "giocatore": "Franco Lepore",
+          "ruolo": "Difensore",
+          "prob": 20
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Paolo Montero",
-          "ruolo": "Difensore",
-          "motivo": "Interventi duri per fermare le ripartenze avversarie",
-          "prob": 35
+          "giocatore": "Luca Marrone",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze",
+          "prob": 40
         },
         {
           "squadra": "casa",
-          "giocatore": "Elia Plicco",
+          "giocatore": "Alessandro Caporale",
           "ruolo": "Difensore",
-          "motivo": "Falliti tempi di marcatura sugli esterni",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Paolo Bartolomei",
-          "ruolo": "Centrocampista",
-          "motivo": "Speso il fallo tattico sulla trequarti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gabriele Angella",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli avanti di casa",
-          "prob": 32
+          "motivo": "Duelli fisici ripetuti con gli attaccanti avversari",
+          "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata ma con almeno due reti complessive e favore ai padroni di casa."
+        "esito": "1+O1.5",
+        "probabilita": 35,
+        "motivazione_breve": "Lecco favorito in casa con almeno due reti complessive nel match."
       },
-      "affidabilita": 72,
+      "affidabilita": 65,
       "stemma_casa": {
         "colori": [
-          "#E30613",
-          "#0000FF"
+          "#00539F",
+          "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#D00000",
+          "#A51C30",
+          "#002B49"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
+      "id": 902556941,
+      "comp": "SCA",
+      "compNome": "Serie C - Gir. A",
+      "data": "2026-11-22T16:30:00Z",
+      "stato": "IN_PLAY",
+      "casa": "Dolomiti Bellunesi",
+      "trasf": "Carpi",
+      "score": [
+        1,
+        1
+      ],
+      "analisi": "Il match di Serie C tra Dolomiti Bellunesi e Carpi si preannuncia equilibrato e tatticamente bloccato. I padroni di casa puntano su una solida organizzazione difensiva, mentre il Carpi cerca di sfruttare la qualità a centrocampo per manovrare. Ci si attende una gara povera di spazi e decisa da episodi isolati.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Davide Mazzocco",
+            "Nicolas Trabucchi",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Leonardo Morosini",
+            "Giocatore 2",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 34,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 62,
+        "12": 66,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 58,
+        "O2.5": 42,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 52,
+        "MG1-3": 74,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 45,
+        "1+O2.5": 30,
+        "2+O1.5": 35,
+        "2+O2.5": 22,
+        "1X+O1.5": 55,
+        "X2+O1.5": 50,
+        "1X+GG": 42,
+        "X2+GG": 38,
+        "GG+O2.5": 40,
+        "1+GG": 25,
+        "2+GG": 20,
+        "2+U3.5": 32
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Davide Mazzocco",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Nicolas Trabucchi",
+          "ruolo": "Difensore",
+          "prob": 12
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Leonardo Morosini",
+          "ruolo": "Centrocampista",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Davide Mazzocco",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Leonardo Morosini",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per interrompere le ripartenze",
+          "prob": 30
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "MG2-4",
+        "probabilita": 62,
+        "motivazione_breve": "Partita equilibrata con un numero controllato di reti."
+      },
+      "affidabilita": 68,
+      "stemma_casa": {
+        "colori": [
+          "#003366",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
+      "id": 902556522,
+      "comp": "SCB",
+      "compNome": "Serie C - Gir. B",
+      "data": "2026-11-23T19:30:00Z",
+      "stato": "TIMED",
+      "casa": "Grosseto",
+      "trasf": "Guidonia Montecelio",
+      "score": null,
+      "analisi": "Il Grosseto affronta il Guidonia Montecelio in una sfida di Serie C caratterizzata da un grande equilibrio tattico. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare una posizione tranquilla in classifica. La gara si preannuncia combattuta a centrocampo con poche occasioni nitide da rete.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Portiere Casa",
+            "Terzino Destro",
+            "1o Centrale Casa",
+            "2o Centrale Casa",
+            "Terzino Sinistro",
+            "Mediano Casa",
+            "Mezzala Destra",
+            "Mezzala Sinistra",
+            "Ala Destra",
+            "Centravanti Casa",
+            "Ala Sinistra"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Michele Avella",
+            "Mattia Tonetto",
+            "Nicola Borghetto",
+            "Marco Alia",
+            "Difensore Esterno OSP",
+            "Centrocampista Centrale 1 OSP",
+            "Centrocampista Centrale 2 OSP",
+            "Esterno Alto OSP",
+            "Esterno Basso OSP",
+            "Prima Punta OSP",
+            "Seconda Punta OSP"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 34,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 62,
+        "12": 66,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 58,
+        "O2.5": 42,
+        "U3.5": 82,
+        "O3.5": 18,
+        "MG1-2": 45,
+        "MG1-3": 74,
+        "MG2-3": 52,
+        "MG2-4": 65,
+        "MG3-5": 25,
+        "1+O1.5": 42,
+        "1+O2.5": 24,
+        "2+O1.5": 32,
+        "2+O2.5": 18,
+        "1X+O1.5": 52,
+        "X2+O1.5": 46,
+        "1X+GG": 36,
+        "X2+GG": 32,
+        "GG+O2.5": 38,
+        "1+GG": 14,
+        "2+GG": 12,
+        "2+U3.5": 26
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Mattia Tonetto",
+          "ruolo": "Difensore",
+          "prob": 12
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nicola Borghetto",
+          "ruolo": "Difensore",
+          "prob": 8
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marco Alia",
+          "ruolo": "Portiere",
+          "motivo": "Per perdite di tempo nei minuti finali",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Michele Avella",
+          "ruolo": "Portiere",
+          "motivo": "Proteste reiterate verso il direttore di gara",
+          "prob": 18
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "MG2-4",
+        "probabilita": 65,
+        "motivazione_breve": "Partita equilibrata con un numero moderato di reti complessive."
+      },
+      "affidabilita": 70,
+      "stemma_casa": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000080",
           "#FFFFFF"
         ],
         "pattern": "solid"
       }
     },
     {
-      "id": 902556526,
+      "id": 902556519,
       "comp": "SCB",
       "compNome": "Serie C - Gir. B",
-      "data": "2026-11-22T13:30:00Z",
+      "data": "2026-11-22T16:30:00Z",
       "stato": "IN_PLAY",
-      "casa": "Torres",
-      "trasf": "Spezia",
+      "casa": "Forlì",
+      "trasf": "Reggiana",
       "score": [
         1,
-        0
+        1
       ],
-      "analisi": "La Torres punta sulla solidità interna e sulla vena realizzativa di Nanni per contrastare uno Spezia tecnicamente superiore. Gli ospiti vantano un attacco esperto con Falcinelli e Di Serio, capaci di punire le disattenzioni difensive sarde. Il duello a centrocampo tra Mastinu e Cassata sarà determinante per il controllo del ritmo di gioco.",
+      "analisi": "Il Forlì affronta la Reggiana in una sfida di Serie C Girone B caratterizzata da un divario tecnico sulla carta. La Reggiana vanta elementi di categoria superiore in rosa, mentre il Forlì punta sul fattore campo e sulle ripartenze. Ci si attende una partita tattica con gli ospiti maggiormente proposti al controllo del gioco.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Giuseppe Mastinu",
-            "Michael Brentan",
-            "Nicola Nanni",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Abdel Noufou Zagré",
+            "Giocatore 2",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Fallou Sarr",
-            "Aleš Matějů",
-            "Andrea Cistana",
-            "Antonio Candela",
-            "Jacopo Sala",
-            "Francesco Cassata",
-            "Gabriele Artistico",
-            "Diego Zuppel",
-            "Diego Falcinelli",
-            "Giuseppe Di Serio",
-            ""
+            "Andrea Papetti",
+            "Filip Brekalo",
+            "Fausto Rossi",
+            "Elvis Kabashi",
+            "Davide Voltan",
+            "Cedric Gondo",
+            "Charlys",
+            "Damiano Basili",
+            "Filippo Nardi",
+            "Edoardo Cavaliere",
+            "Portiere"
           ]
         }
       },
       "prob_1x2": {
-        "1": 28,
-        "X": 32,
+        "1": 25,
+        "X": 35,
         "2": 40
       },
       "mercati_completi": {
         "1X": 60,
-        "X2": 72,
-        "12": 68,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 30,
-        "O1.5": 70,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 82,
-        "O3.5": 18,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 48,
-        "MG2-4": 44,
-        "MG3-5": 22,
-        "1+O1.5": 35,
-        "1+O2.5": 22,
-        "2+O1.5": 52,
-        "2+O2.5": 34,
-        "1X+O1.5": 55,
-        "X2+O1.5": 65,
-        "1X+GG": 45,
-        "X2+GG": 50,
+        "X2": 75,
+        "12": 65,
+        "GG": 50,
+        "NG": 50,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 30,
+        "1+O1.5": 30,
+        "1+O2.5": 20,
+        "2+O1.5": 45,
+        "2+O2.5": 35,
+        "1X+O1.5": 45,
+        "X2+O1.5": 55,
+        "1X+GG": 35,
+        "X2+GG": 45,
         "GG+O2.5": 40,
-        "1+GG": 20,
-        "2+GG": 25,
-        "2+U3.5": 32
+        "1+GG": 22,
+        "2+GG": 30,
+        "2+U3.5": 35
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Nicola Nanni",
+          "giocatore": "Abdel Noufou Zagré",
           "ruolo": "Attaccante",
           "prob": 25
         },
         {
-          "squadra": "casa",
-          "giocatore": "Giuseppe Mastinu",
+          "squadra": "trasferta",
+          "giocatore": "Cedric Gondo",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Davide Voltan",
           "ruolo": "Centrocampista",
-          "prob": 15
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Diego Falcinelli",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Giuseppe Di Serio",
-          "ruolo": "Attaccante",
-          "prob": 28
+          "prob": 20
         }
       ],
       "possibili_ammoniti": [
         {
-          "squadra": "casa",
-          "giocatore": "Michael Brentan",
-          "ruolo": "Centrocampista",
-          "motivo": "Fallo tattico per interrompere ripartenza",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Giuseppe Mastinu",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste verso il direttore di gara",
-          "prob": 25
-        },
-        {
           "squadra": "trasferta",
-          "giocatore": "Andrea Cistana",
-          "ruolo": "Difensore",
-          "motivo": "Intervento irruente su contrasto aereo",
+          "giocatore": "Fausto Rossi",
+          "ruolo": "Centrocampista",
+          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
           "prob": 30
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Francesco Cassata",
-          "ruolo": "Centrocampista",
-          "motivo": "Gioco scorretto sistematico",
-          "prob": 40
+          "giocatore": "Andrea Papetti",
+          "ruolo": "Difensore",
+          "motivo": "Falloso in marcatura stretta sull'attaccante",
+          "prob": 25
         }
       ],
       "pronostico_principale": {
         "esito": "X2+O1.5",
-        "probabilita": 65,
-        "motivazione_breve": "Spezia superiore tecnicamente, probabile gara con almeno due reti totali."
+        "probabilita": 55,
+        "motivazione_breve": "Reggiana favorita per qualità della rosa, match con almeno due reti."
       },
-      "affidabilita": 70,
+      "affidabilita": 65,
       "stemma_casa": {
         "colori": [
-          "#E30613",
-          "#0054A6"
+          "#ffffff",
+          "#red"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#FFFFFF",
-          "#000000"
+          "#8b0000",
+          "#ffffff"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 902555120,
+      "comp": "SCC",
+      "compNome": "Serie C - Gir. C",
+      "data": "2026-11-25T13:30:00Z",
+      "stato": "TIMED",
+      "casa": "Audace Cerignola",
+      "trasf": "Inter Milan U23",
+      "score": null,
+      "analisi": "L'Audace Cerignola affronta l'Inter Milan U23 in una sfida di Serie C caratterizzata da un sostanziale equilibrio tattico. I padroni di casa puntano sul fattore campo e sull'esperienza, mentre i giovani nerazzurri cercano di imporre ritmo e freschezza atletica. Ci si attende una gara combattuta a centrocampo con episodi decisivi sui calci piazzati.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Alessandro Bassino",
+            "Antonio Boccadamo",
+            "Giocatore Casa 3",
+            "Giocatore Casa 4",
+            "Giocatore Casa 5",
+            "Giocatore Casa 6",
+            "Giocatore Casa 7",
+            "Giocatore Casa 8",
+            "Giocatore Casa 9",
+            "Giocatore Casa 10",
+            "Giocatore Casa 11"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Luca Fordilino",
+            "Matteo Lavelli",
+            "Giocatore Ospite 3",
+            "Giocatore Ospite 4",
+            "Giocatore Ospite 5",
+            "Giocatore Ospite 6",
+            "Giocatore Ospite 7",
+            "Giocatore Ospite 8",
+            "Giocatore Ospite 9",
+            "Giocatore Ospite 10",
+            "Giocatore Ospite 11"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 33,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 58,
+        "12": 67,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 30,
+        "1+O1.5": 38,
+        "1+O2.5": 22,
+        "2+O1.5": 20,
+        "2+O2.5": 12,
+        "1X+O1.5": 50,
+        "X2+O1.5": 42,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 18,
+        "2+U3.5": 24
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Antonio Boccadamo",
+          "ruolo": "Difensore",
+          "prob": 15
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alessandro Bassino",
+          "ruolo": "Difensore",
+          "prob": 10
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matteo Lavelli",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Fordilino",
+          "ruolo": "Centrocampista",
+          "prob": 12
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Antonio Boccadamo",
+          "ruolo": "Difensore",
+          "motivo": "Interventi duri in copertura sulla fascia",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alessandro Bassino",
+          "ruolo": "Difensore",
+          "motivo": "Falli tattici per fermare le ripartenze",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Fordilino",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri a centrocampo",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matteo Lavelli",
+          "ruolo": "Attaccante",
+          "motivo": "Proteste prolungate con il direttore di gara",
+          "prob": 25
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 50,
+        "motivazione_breve": "Cerignola favorito in casa con match da almeno due reti complessive."
+      },
+      "affidabilita": 65,
+      "stemma_casa": {
+        "colori": [
+          "#yellow",
+          "#blue"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#black",
+          "#blue"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -8540,10 +8691,13 @@
       "comp": "SCC",
       "compNome": "Serie C - Gir. C",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "Picerno",
       "trasf": "Giugliano",
-      "score": null,
+      "score": [
+        4,
+        2
+      ],
       "analisi": "Il Picerno affronta il Giugliano in una sfida di Serie C caratterizzata da grande equilibrio tattico e difese solide. I padroni di casa puntano sul fattore campo per imporre il proprio ritmo, mentre gli ospiti cercano ripartenze veloci. Ci si attende una gara combattuta a centrocampo con poche vere occasioni da rete.",
       "formazioni": {
         "casa": {
@@ -8638,173 +8792,17 @@
       }
     },
     {
-      "id": 902555127,
-      "comp": "SCC",
-      "compNome": "Serie C - Gir. C",
-      "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Catania",
-      "trasf": "Bari",
-      "score": [
-        0,
-        0
-      ],
-      "analisi": "Il Catania affronta il Bari in una classica sfida di Serie C caratterizzata da grande rivalità e tensione tattica. I rossazzurri cercano conferme tra le mura amiche sfruttando la spinta del proprio pubblico, mentre i galletti pugliesi puntano sulla solidità del proprio organico. La gara si preannuncia equilibrata a centrocampo, con duelli serrati sulle fasce e possibili episodi decisivi sui calci piazzati.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Filippo Rinaldi",
-            "Giovanni Marchese",
-            "Vince Grella",
-            "Francesco Lodi",
-            "Miloš Bočić",
-            "Filippo Rinaldi",
-            "Giovanni Marchese",
-            "Vince Grella",
-            "Francesco Lodi",
-            "Miloš Bočić",
-            "Filippo Rinaldi"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Francesco Vicari",
-            "Emmanuele Matino",
-            "Giacomo Ricci",
-            "Gianvito Misuraca",
-            "Gaetano Castrovilli",
-            "Franco Brienza",
-            "Anthony Partipilo",
-            "Giuseppe Sibilli",
-            "Damir Ceter",
-            "Balla Manè",
-            "Francesco Vicari"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 40,
-        "X": 30,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 60,
-        "12": 70,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 35,
-        "O1.5": 65,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 45,
-        "MG1-3": 75,
-        "MG2-3": 55,
-        "MG2-4": 65,
-        "MG3-5": 35,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 38,
-        "2+O2.5": 25,
-        "1X+O1.5": 52,
-        "X2+O1.5": 45,
-        "1X+GG": 40,
-        "X2+GG": 38,
-        "GG+O2.5": 40,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 28
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Francesco Lodi",
-          "ruolo": "Centrocampista",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Miloš Bočić",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Anthony Partipilo",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Giuseppe Sibilli",
-          "ruolo": "Attaccante",
-          "prob": 28
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Giovanni Marchese",
-          "ruolo": "Difensore",
-          "motivo": "Intervento duro su 1vs1",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Vince Grella",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli ripetuti a centrocampo",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Emmanuele Matino",
-          "ruolo": "Difensore",
-          "motivo": "Fermo falloso in ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gianvito Misuraca",
-          "ruolo": "Centrocampista",
-          "motivo": "Gioco scorretto",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Catania favorito in casa con match da almeno due reti complessive"
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#E00000",
-          "#000080"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FFFFFF",
-          "#D00000"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
       "id": 800083698,
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "1. FC Kaiserslautern",
       "trasf": "Dynamo Dresden",
-      "score": null,
+      "score": [
+        2,
+        2
+      ],
       "analisi": "Il 1. FC Kaiserslautern affronta la Dynamo Dresden in una classica sfida della 2. Bundesliga caratterizzata da grande intensità e rivalità storica. I padroni di casa puntano sul fattore campo per imporre il proprio ritmo, mentre gli ospiti cercano di sfruttare le ripartenze in un duello tattico a centrocampo molto equilibrato.",
       "formazioni": {
         "casa": {
@@ -8957,10 +8955,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Karlsruher SC",
       "trasf": "VfL Osnabrück",
-      "score": null,
+      "score": [
+        0,
+        0
+      ],
       "analisi": "Il Karlsruher SC affronta il VfL Osnabrück in un match di 2. Bundesliga caratterizzato da un rendimento casalingo solido per i padroni di casa. La formazione ospite fatica tradizionalmente in trasferta, mostrando fragilità difensive nei duelli aerei. Tatticamente il Karlsruher cercherà di imporre il ritmo a centrocampo sfruttando le fasce laterali.",
       "formazioni": {
         "casa": {
@@ -9113,10 +9114,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Energie Cottbus",
       "trasf": "Hertha BSC",
-      "score": null,
+      "score": [
+        0,
+        4
+      ],
       "analisi": "L'Energie Cottbus affronta l'Hertha BSC in un match di Zweite Bundesliga caratterizzato da grande intensità agonistica. I padroni di casa puntano su un blocco compatto per arginare la maggiore qualità tecnica della formazione ospite. Gli ospiti cercano di imporre il proprio palleggio sfruttando le fasce laterali, mentre il Cottbus agisce prevalentemente di rimessa. Ci si attende una partita aperta con duelli fisici a centrocampo e diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -9269,10 +9273,13 @@
       "comp": "BL3",
       "compNome": "3. Liga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "VfB Stuttgart II",
       "trasf": "FC Ingolstadt 04",
-      "score": null,
+      "score": [
+        5,
+        0
+      ],
       "analisi": "Il VfB Stuttgart II affronta l'FC Ingolstadt 04 in un match di 3. Liga caratterizzato da difese non impeccabili e una spiccata tendenza al gioco offensivo. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare la propria posizione di classifica grazie a maggiore esperienza. Ci si attende una partita aperta con diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -9428,7 +9435,10 @@
       "stato": "TIMED",
       "casa": "1. FC Saarbrücken",
       "trasf": "SV Wehen Wiesbaden",
-      "score": null,
+      "score": [
+        1,
+        0
+      ],
       "analisi": "Il Saarbrücken vanta un rendimento casalingo molto solido e una buona continuità di risultati tra le mura amiche. Il Wehen Wiesbaden ha mostrato un'ottima capacità offensiva nelle ultime uscite ma concede spesso spazi sulle ripartenze avversarie. Dal punto di vista tattico si prevede una partita aperta con occasioni da rete da ambo le parti, dove la fisicità del centrocampo di casa potrebbe rivelarsi decisiva.",
       "formazioni": {
         "casa": {
@@ -10375,7 +10385,7 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T13:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "FC Barcelona",
       "trasf": "Villarreal CF",
       "score": [
@@ -10534,12 +10544,12 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Sparta Rotterdam",
       "trasf": "AZ",
       "score": [
         1,
-        1
+        5
       ],
       "analisi": "Lo Sparta Rotterdam affronta l'AZ in una sfida di Eredivisie caratterizzata dalla solidità casalinga dei padroni di casa e dalla qualità tecnica degli ospiti. L'AZ, schierato con un 4-4-2 compatto, cercherà di controllare il centrocampo grazie all'esperienza di Jordy Clasie. Lo Sparta risponderà con un 4-3-3 propositivo, puntando sulle fasce e sulla vena realizzativa dei suoi attaccanti per scardinare la difesa avversaria.",
       "formazioni": {
@@ -10693,7 +10703,7 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "AFC Ajax",
       "trasf": "ADO Den Haag",
       "score": [
@@ -10852,12 +10862,12 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "US Sassuolo Calcio",
       "trasf": "Genoa CFC",
       "score": [
         0,
-        1
+        2
       ],
       "analisi": "Il Sassuolo affronta il Genoa in una sfida di metà classifica caratterizzata da grande equilibrio tattico e difese solide. I neroverdi cercano di sfruttare il fattore campo affidandosi alla qualità del proprio centrocampo e alla spinta degli esterni. Il Genoa risponde con un assetto prudente ma pronto a pungere in ripartenza grazie alla velocità dei suoi attaccanti. Ci si attende una gara combattuta a centrocampo, con episodi decisivi sui calci piazzati.",
       "formazioni": {
@@ -11011,11 +11021,11 @@
       "comp": "PL",
       "compNome": "Premier League",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Hull City AFC",
       "trasf": "Brighton & Hove Albion FC",
       "score": [
-        0,
+        2,
         0
       ],
       "analisi": "L'Hull City AFC affronta il Brighton & Hove Albion FC in un match di Premier League caratterizzato da duelli intensi a centrocampo. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano sulla qualità tecnica degli esterni offensivi. La sfida tattica si deciderà sulle fasce laterali e sulla precisione nei calci piazzati.",
@@ -11170,12 +11180,12 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Bologna FC 1909",
       "trasf": "Udinese Calcio",
       "score": [
-        0,
-        0
+        1,
+        1
       ],
       "analisi": "Il Bologna affronta l'Udinese in un match casalingo di fondamentale importanza per la lotta alle zone alte della classifica. I felsinei puntano sulla solidità del proprio stadio e sulla qualità offensiva guidata da Orsolini e Dovbyk. L'Udinese si schiera con un blocco prudente affidandosi alle ripartenze di Zaniolo e Davis. Ci si attende una gara equilibrata ma con i padroni di casa leggermente favoriti.",
       "formazioni": {
@@ -11329,11 +11339,11 @@
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "Paris FC",
       "trasf": "Angers SCO",
       "score": [
-        0,
+        4,
         0
       ],
       "analisi": "Il Paris FC sfrutta il fattore campo grazie a una rosa tecnica e profonda, guidata da elementi di spessore internazionale come Kevin Trapp e Maxime López. L'Angers SCO si schiera con un blocco difensivo compatto ma fatica in trasferta, affidandosi alle ripartenze di Amine El Ouazzani. Ci si attende una gara dominata dai padroni di casa, capaci di imporre il proprio ritmo a centrocampo attraverso la qualità di Pierre Lees Melou.",
@@ -11488,12 +11498,12 @@
       "comp": "BL1",
       "compNome": "Bundesliga",
       "data": "2026-11-22T14:30:00Z",
-      "stato": "IN_PLAY",
+      "stato": "FINISHED",
       "casa": "FC Augsburg",
       "trasf": "1. FSV Mainz 05",
       "score": [
-        0,
-        0
+        3,
+        1
       ],
       "analisi": "L'FC Augsburg affronta il 1. FSV Mainz 05 in una sfida di Bundesliga molto equilibrata a tinte salvezza. I padroni di casa puntano sulla solidità casalinga guidata da Jeffrey Gouweleeuw e la fisicità di Michael Gregoritsch in attacco. Il Mainz risponde con la qualità in mezzo al campo di Nadiem Amiri e la velocità di Sheraldo Becker, cercando punti preziosi in trasferta attraverso un blocco compatto.",
       "formazioni": {
@@ -11647,10 +11657,13 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T15:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Real Racing Club de Santander",
       "trasf": "Real Sociedad de Fútbol",
-      "score": null,
+      "score": [
+        3,
+        2
+      ],
       "analisi": "Il Racing Santander affronta la Real Sociedad puntando sulla solidità casalinga e sulla vena realizzativa di Arana. La Real Sociedad risponde con la qualità tecnica di Oyarzabal e Kubo, cercando di imporre il proprio palleggio. Ci si attende una gara intensa a centrocampo, con i baschi favoriti ma il Santander pronto a pungere in contropiede.",
       "formazioni": {
         "casa": {
@@ -11803,10 +11816,13 @@
       "comp": "DED",
       "compNome": "Eredivisie",
       "data": "2026-11-22T15:45:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Go Ahead Eagles",
       "trasf": "Fortuna Sittard",
-      "score": null,
+      "score": [
+        0,
+        1
+      ],
       "analisi": "Il Go Ahead Eagles sfrutta il fattore campo grazie a un'organizzazione solida e a una manovra offensiva fluida. Il Fortuna Sittard si affida a un blocco difensivo basso e a ripartenze rapide per arginare i padroni di casa. La sfida tattica si deciderà sulle fasce, dove i terzini di entrambe le squadre dovranno supportare la fase di spinta.",
       "formazioni": {
         "casa": {
@@ -11959,10 +11975,13 @@
       "comp": "FL1",
       "compNome": "Ligue 1",
       "data": "2026-11-22T16:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "FC Lorient",
       "trasf": "Stade Rennais FC 1901",
-      "score": null,
+      "score": [
+        1,
+        1
+      ],
       "analisi": "Il Lorient cerca riscatto tra le mura amiche per allontanarsi dalle zone calde della classifica, puntando su una transizione offensiva rapida. Il Rennes si presenta con una rosa di qualità superiore e un ottimo rendimento esterno, guidato da un attacco molto dinamico. I duelli a centrocampo tra l'aggressività dei padroni di casa e la qualità tecnica degli ospiti saranno decisivi per l'inerzia del match. Si preannuncia una gara aperta con opportunità da entrambe le parti.",
       "formazioni": {
         "casa": {
@@ -12115,10 +12134,13 @@
       "comp": "BL1",
       "compNome": "Bundesliga",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "SV Werder Bremen",
       "trasf": "Hamburger SV",
-      "score": null,
+      "score": [
+        3,
+        0
+      ],
       "analisi": "Il Werder Brema affronta l'Hamburger SV nel classico scontro della Germania settentrionale. I padroni di casa cercano di sfruttare il fattore campo grazie a una manovra offensiva solida, mentre gli ospiti puntano su un blocco basso e ripartenze veloci. Ci si attende una partita intensa, caratterizzata da duelli fisici a centrocampo e diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -12271,10 +12293,13 @@
       "comp": "PL",
       "compNome": "Premier League",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Liverpool FC",
       "trasf": "Manchester United FC",
-      "score": null,
+      "score": [
+        4,
+        0
+      ],
       "analisi": "Il Liverpool affronta il Manchester United ad Anfield con una rosa altamente rinnovata e competitiva. I Reds sfruttano il fattore campo e la qualità di Wirtz e Isak per dominare il possesso palla. I Red Devils rispondono con un blocco prudente guidato da Bruno Fernandes e Cunha, affidandosi alle ripartenze.",
       "formazioni": {
         "casa": {
@@ -12427,10 +12452,13 @@
       "comp": "SA",
       "compNome": "Serie A",
       "data": "2026-11-22T17:00:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "AC Milan",
       "trasf": "Frosinone Calcio",
-      "score": null,
+      "score": [
+        4,
+        1
+      ],
       "analisi": "Il Milan affronta il Frosinone a San Siro puntando sul controllo del centrocampo grazie alla qualità di Modrić e Rabiot. I ciociari si schierano con un 4-4-2 compatto per chiudere gli spazi e ripartire in contropiede. La differenza tecnica tra i reparti offensivi dovrebbe indirizzare il match a favore dei rossoneri.",
       "formazioni": {
         "casa": {
@@ -12583,10 +12611,13 @@
       "comp": "PD",
       "compNome": "La Liga",
       "data": "2026-11-22T17:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "CA Osasuna",
       "trasf": "Málaga CF",
-      "score": null,
+      "score": [
+        1,
+        0
+      ],
       "analisi": "L'Osasuna affronta questa sfida casalinga forte di una maggiore solidità strutturale e di un rendimento interno tradizionalmente ostico per gli avversari. Il Málaga CF, pur ben organizzato tatticamente, fatica a trovare continuità nei match in trasferta dove concede spazi importanti sulle corsie esterne. La chiave tattica risiederà nel controllo del centrocampo da parte dei padroni di casa, che cercheranno di sfruttare la fisicità dei propri attaccanti per scardinare la linea difensiva ospite.",
       "formazioni": {
         "casa": {
@@ -16479,162 +16510,6 @@
       }
     },
     {
-      "id": 575399,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-24T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Arsenal FC",
-      "trasf": "Borussia Dortmund",
-      "score": null,
-      "analisi": "L'Arsenal si presenta all'Emirates in un momento di forma eccellente, puntando sul possesso palla e l'aggressività delle ali per scardinare la difesa avversaria. Il Borussia Dortmund risponde con transizioni offensive rapide guidate da Guirassy e dalla creatività dei suoi giovani trequartisti. I duelli chiave a centrocampo tra Rice e Can potrebbero determinare l'inerzia del match. Si prevede una partita aperta, con i Gunners favoriti dal fattore campo ma il Dortmund sempre pericoloso in ripartenza.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "David Raya",
-            "Ben White",
-            "William Saliba",
-            "Gabriel Magalhães",
-            "Riccardo Calafiori",
-            "Martin Ødegaard",
-            "Declan Rice",
-            "Bruno Guimarães",
-            "Bukayo Saka",
-            "Viktor Gyökeres",
-            "Eberechi Eze"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Gregor Kobel",
-            "Julian Ryerson",
-            "Waldemar Anton",
-            "Nico Schlotterbeck",
-            "Ramy Bensebaini",
-            "Emre Can",
-            "Marcel Sabitzer",
-            "Joey Veerman",
-            "Ethan Nwaneri",
-            "Carney Chukwuemeka",
-            "Sehrou Guirassy"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 60,
-        "X": 22,
-        "2": 18
-      },
-      "mercati_completi": {
-        "1X": 82,
-        "X2": 40,
-        "12": 78,
-        "GG": 56,
-        "NG": 44,
-        "U1.5": 25,
-        "O1.5": 75,
-        "U2.5": 48,
-        "O2.5": 52,
-        "U3.5": 72,
-        "O3.5": 28,
-        "MG1-2": 46,
-        "MG1-3": 78,
-        "MG2-3": 50,
-        "MG2-4": 64,
-        "MG3-5": 48,
-        "1+O1.5": 52,
-        "1+O2.5": 42,
-        "2+O1.5": 14,
-        "2+O2.5": 11,
-        "1X+O1.5": 68,
-        "X2+O1.5": 32,
-        "1X+GG": 46,
-        "X2+GG": 28,
-        "GG+O2.5": 44,
-        "1+GG": 34,
-        "2+GG": 12,
-        "2+U3.5": 15
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Viktor Gyökeres",
-          "ruolo": "Attaccante",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Bukayo Saka",
-          "ruolo": "Attaccante",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Sehrou Guirassy",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Carney Chukwuemeka",
-          "ruolo": "Centrocampista",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Bruno Guimarães",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi irruenti nella trequarti difensiva",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Declan Rice",
-          "ruolo": "Centrocampista",
-          "motivo": "Interruzioni tattiche sulle ripartenze avversarie",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Emre Can",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli sistematici sulla trequarti per spezzare il ritmo",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Nico Schlotterbeck",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
-          "prob": 33
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Arsenal solido in casa, attacco molto proattivo contro una difesa vulnerabile."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#EF0107",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FDE100",
-          "#000000"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 575401,
       "comp": "CL",
       "compNome": "Champions League",
@@ -17233,6 +17108,162 @@
       }
     },
     {
+      "id": 575399,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-24T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Arsenal FC",
+      "trasf": "Borussia Dortmund",
+      "score": null,
+      "analisi": "L'Arsenal si presenta all'Emirates in un momento di forma eccellente, puntando sul possesso palla e l'aggressività delle ali per scardinare la difesa avversaria. Il Borussia Dortmund risponde con transizioni offensive rapide guidate da Guirassy e dalla creatività dei suoi giovani trequartisti. I duelli chiave a centrocampo tra Rice e Can potrebbero determinare l'inerzia del match. Si prevede una partita aperta, con i Gunners favoriti dal fattore campo ma il Dortmund sempre pericoloso in ripartenza.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "David Raya",
+            "Ben White",
+            "William Saliba",
+            "Gabriel Magalhães",
+            "Riccardo Calafiori",
+            "Martin Ødegaard",
+            "Declan Rice",
+            "Bruno Guimarães",
+            "Bukayo Saka",
+            "Viktor Gyökeres",
+            "Eberechi Eze"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Gregor Kobel",
+            "Julian Ryerson",
+            "Waldemar Anton",
+            "Nico Schlotterbeck",
+            "Ramy Bensebaini",
+            "Emre Can",
+            "Marcel Sabitzer",
+            "Joey Veerman",
+            "Ethan Nwaneri",
+            "Carney Chukwuemeka",
+            "Sehrou Guirassy"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 60,
+        "X": 22,
+        "2": 18
+      },
+      "mercati_completi": {
+        "1X": 82,
+        "X2": 40,
+        "12": 78,
+        "GG": 56,
+        "NG": 44,
+        "U1.5": 25,
+        "O1.5": 75,
+        "U2.5": 48,
+        "O2.5": 52,
+        "U3.5": 72,
+        "O3.5": 28,
+        "MG1-2": 46,
+        "MG1-3": 78,
+        "MG2-3": 50,
+        "MG2-4": 64,
+        "MG3-5": 48,
+        "1+O1.5": 52,
+        "1+O2.5": 42,
+        "2+O1.5": 14,
+        "2+O2.5": 11,
+        "1X+O1.5": 68,
+        "X2+O1.5": 32,
+        "1X+GG": 46,
+        "X2+GG": 28,
+        "GG+O2.5": 44,
+        "1+GG": 34,
+        "2+GG": 12,
+        "2+U3.5": 15
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Viktor Gyökeres",
+          "ruolo": "Attaccante",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Bukayo Saka",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Sehrou Guirassy",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Carney Chukwuemeka",
+          "ruolo": "Centrocampista",
+          "prob": 20
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Bruno Guimarães",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi irruenti nella trequarti difensiva",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Declan Rice",
+          "ruolo": "Centrocampista",
+          "motivo": "Interruzioni tattiche sulle ripartenze avversarie",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Emre Can",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli sistematici sulla trequarti per spezzare il ritmo",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nico Schlotterbeck",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nel contenere la velocità degli attaccanti",
+          "prob": 33
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Arsenal solido in casa, attacco molto proattivo contro una difesa vulnerabile."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#EF0107",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FDE100",
+          "#000000"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 555102,
       "comp": "BSA",
       "compNome": "Serie A Brasile",
@@ -17389,14 +17420,173 @@
       }
     },
     {
+      "id": 902547798,
+      "comp": "SB",
+      "compNome": "Serie B",
+      "data": "2026-11-24T14:00:00Z",
+      "stato": "TIMED",
+      "casa": "Cremonese",
+      "trasf": "Avellino",
+      "score": null,
+      "analisi": "La Cremonese affronta l'Avellino in un match di Serie B caratterizzato da una solida organizzazione difensiva dei padroni di casa. Gli ospiti cercano punti salvezza affidandosi alle ripartenze guidate da Favilli e Patierno. La sfida tattica si preannuncia equilibrata, con i grigiorossi favoriti dal fattore campo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Andrea Fulignati",
+            "Alessandro Vogliacco",
+            "Federico Baschirotto",
+            "Federico Agazzi",
+            "Alberto Grassi",
+            "Fabio Gerli",
+            "Adin Licina",
+            "Adrian Lickūnas",
+            "Federico Bonazzoli",
+            "David Stuckler",
+            "Federico Bonazzoli"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Antony Iannarilli",
+            "Armando Izzo",
+            "Alessandro Nesta",
+            "Brando Moruzzi",
+            "Alessandro Di Bitonto",
+            "Claudiu Micovschi",
+            "Andrea Favilli",
+            "Cosimo Patierno",
+            "Benjamin Mokulu Tembe",
+            "Daniel Fila",
+            "Armando Izzo"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 45,
+        "X": 30,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 81,
+        "O3.5": 19,
+        "MG1-2": 42,
+        "MG1-3": 69,
+        "MG2-3": 51,
+        "MG2-4": 64,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 22,
+        "2+O1.5": 21,
+        "2+O2.5": 12,
+        "1X+O1.5": 52,
+        "X2+O1.5": 41,
+        "1X+GG": 40,
+        "X2+GG": 34,
+        "GG+O2.5": 39,
+        "1+GG": 24,
+        "2+GG": 18,
+        "2+U3.5": 23
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Federico Bonazzoli",
+          "ruolo": "attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "David Stuckler",
+          "ruolo": "attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Andrea Favilli",
+          "ruolo": "attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cosimo Patierno",
+          "ruolo": "attaccante",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Federico Baschirotto",
+          "ruolo": "difensore",
+          "motivo": "Interventi duri per fermare le ripartenze avversarie",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alberto Grassi",
+          "ruolo": "centrocampista",
+          "motivo": "Falli tattici a centrocampo",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Armando Izzo",
+          "ruolo": "difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti di casa",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alessandro Di Bitonto",
+          "ruolo": "centrocampista",
+          "motivo": "Ritardo nei contrasti sulle transizioni",
+          "prob": 36
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 38,
+        "motivazione_breve": "Vittoria interna con almeno due reti complessive nel match."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "colori": [
+          "#d71920",
+          "#00539f"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#006600",
+          "#ffffff"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 902547791,
       "comp": "SB",
       "compNome": "Serie B",
       "data": "2026-11-22T16:15:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Arezzo",
       "trasf": "Padova",
-      "score": null,
+      "score": [
+        1,
+        1
+      ],
       "analisi": "L'Arezzo affronta il Padova in una sfida di Serie B molto equilibrata dal punto di vista tattico. I padroni di casa cercano di sfruttare il fattore campo affidandosi alla qualità del proprio reparto offensivo. Il Padova risponde con una struttura difensiva solida e ripartenze veloci, pronte a colpire gli spazi concessi. L'andamento della gara dipenderà molto dai duelli a centrocampo e dalla precisione sotto porta.",
       "formazioni": {
         "casa": {
@@ -17545,314 +17735,36 @@
       }
     },
     {
-      "id": 902547790,
-      "comp": "SB",
-      "compNome": "Serie B",
-      "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Avellino",
-      "trasf": "Mantova",
-      "score": [
-        2,
-        1
-      ],
-      "analisi": "L'Avellino cerca di sfruttare il fattore campo al Partenio-Lombardi per conquistare punti preziosi in ottica classifica, contando sul reparto offensivo guidato da Patierno. Il Mantova risponde con un assetto dinamico, affidandosi alle giocate di qualita di Aramu e Falletti sulla trequarti. Ci si attende una gara combattuta a centrocampo con l'Avellino propenso a condurre il gioco e il Mantova pronto a colpire in contropiede.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Antony Iannarilli",
-            "Armando Izzo",
-            "Alessandro Di Bitonto",
-            "Brando Moruzzi",
-            "Alessandro Nesta",
-            "Claudiu Micovschi",
-            "Benjamin Mokulu Tembe",
-            "Andrea Favilli",
-            "Cosimo Patierno",
-            "Daniel Fila"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-3-1-2",
-          "undici": [
-            "Lorenzo Andrenacci",
-            "Cristiano Bani",
-            "Matteo Solini",
-            "Davide Bragantini",
-            "Mirko Bruccini",
-            "Mattia Aramu",
-            "Cesar Falletti",
-            "Francesco Ruocco",
-            "Francesco Galuppini",
-            "Davis Mensah"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 28,
-        "O1.5": 72,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 35,
-        "1+O1.5": 35,
-        "1+O2.5": 25,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 58,
-        "X2+O1.5": 40,
-        "1X+GG": 45,
-        "X2+GG": 33,
-        "GG+O2.5": 38,
-        "1+GG": 24,
-        "2+GG": 14,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Cosimo Patierno",
-          "ruolo": "Attaccante",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Andrea Favilli",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Francesco Galuppini",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mattia Aramu",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Armando Izzo",
-          "ruolo": "Difensore",
-          "motivo": "Fallo tattico per fermare la ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Brando Moruzzi",
-          "ruolo": "Difensore",
-          "motivo": "Intervento in ritardo sulla fascia",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cristiano Bani",
-          "ruolo": "Difensore",
-          "motivo": "Trattenuta vistosa a centrocampo",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Mirko Bruccini",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste reiterate verso l'arbitro",
-          "prob": 32
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": "L'Avellino sfrutta il fattore campo in un match aperto da almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#008751",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "diagonal"
-      }
-    },
-    {
-      "id": 902556940,
+      "id": 902556937,
       "comp": "SCA",
       "compNome": "Serie C - Gir. A",
-      "data": "2026-11-22T16:30:00Z",
+      "data": "2026-11-23T19:45:00Z",
       "stato": "TIMED",
-      "casa": "Desenzano",
-      "trasf": "AlbinoLeffe",
+      "casa": "Lecco",
+      "trasf": "Lumezzane",
       "score": null,
-      "analisi": "Il Desenzano affronta l'AlbinoLeffe in una sfida di Serie C caratterizzata da equilibri tattici complessi. La formazione di casa cerca punti preziosi per migliorare il proprio rendimento interno, mentre l'AlbinoLeffe fa della solidità difensiva e delle ripartenze rapide le sue armi principali. Ci si attende un match combattuto a centrocampo, con occasioni da rete su entrambi i fronti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": []
-        },
-        "trasferta": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Christian Marietta",
-            "Diego Borghini",
-            "Gabriele Boloca",
-            "Enrico Giannini",
-            "Francesco Zambelli",
-            "Andrea Astrologo",
-            "Emanuele De Gennaro",
-            "Davide Munari",
-            "Giacomo Freri",
-            "Andrea Capelli",
-            "Christian Marietta"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 35,
-        "X": 30,
-        "2": 35
-      },
-      "mercati_completi": {
-        "1X": 65,
-        "X2": 65,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 30,
-        "O1.5": 70,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 60,
-        "MG3-5": 35,
-        "1+O1.5": 25,
-        "1+O2.5": 18,
-        "2+O1.5": 25,
-        "2+O2.5": 18,
-        "1X+O1.5": 48,
-        "X2+O1.5": 48,
-        "1X+GG": 40,
-        "X2+GG": 40,
-        "GG+O2.5": 32,
-        "1+GG": 20,
-        "2+GG": 20,
-        "2+U3.5": 30
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "trasferta",
-          "giocatore": "Andrea Capelli",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Davide Munari",
-          "ruolo": "Centrocampista",
-          "prob": 20
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "trasferta",
-          "giocatore": "Diego Borghini",
-          "ruolo": "Difensore",
-          "motivo": "Falli tattici su ripartenze avversarie",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Andrea Astrologo",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi irruenti in mediana",
-          "prob": 30
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Sfida equilibrata con l'AlbinoLeffe in grado di strappare un punto e almeno due gol totali."
-      },
-      "affidabilita": 65,
-      "stemma_casa": {
-        "colori": [
-          "#0047AB",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#00A3E0",
-          "#E30613"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
-      "id": 902556942,
-      "comp": "SCA",
-      "compNome": "Serie C - Gir. A",
-      "data": "2026-11-22T13:30:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Alcione Milano",
-      "trasf": "Ospitaletto",
-      "score": [
-        2,
-        0
-      ],
-      "analisi": "L'Alcione Milano si affida alla qualità tecnica di elementi come Antonio Palma e Fabio Morselli per imporre il proprio gioco tra le mura amiche. L'Ospitaletto, pur disponendo di una rosa non completamente tracciata nei dettagli anagrafici in questo contesto, mantiene una struttura difensiva solida. Ci si attende una gara equilibrata con l'Alcione che cercherà di fare la partita sfruttando le corsie laterali.",
+      "analisi": "Il Lecco affronta il Lumezzane in una sfida di Serie C caratterizzata da equilibri tattici complessi. I padroni di casa possono contare su elementi di esperienza come Franco Lepore e Giovanni Crociata per impostare la manovra. Il Lumezzane cercherà di chiudere gli spazi affidandosi a ripartenze veloci per sorprendere la retroguardia avversaria. Ci si attende una gara combattuta a centrocampo con poche vere occasioni nitide da rete.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Filippo Bacchin",
-            "Christian Dimarco",
-            "Daniele Ciappellano",
-            "Filippo Bertolotti",
-            "Christian Foglio",
-            "Antonio Palma",
-            "Andrea Pio Loco",
-            "Armando Miculi",
-            "Fabio Morselli",
-            "Andrea Invernizzi",
-            "Filippo Bacchin"
+            "Elio Capradossi",
+            "Alessandro Caporale",
+            "Alessandro Bianconi",
+            "Franco Lepore",
+            "Andrea Beghetto",
+            "Alessandro Sersanti",
+            "Giorgio Galli",
+            "Giovanni Crociata",
+            "Luca Marrone",
+            "Christopher Attys",
+            "Franco Lepore"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Portiere Ospiti",
+            "Portiere",
             "Terzino Destro",
             "Difensore Centrale 1",
             "Difensore Centrale 2",
@@ -17867,144 +17779,14 @@
         }
       },
       "prob_1x2": {
-        "1": 48,
-        "X": 28,
-        "2": 24
+        "1": 45,
+        "X": 30,
+        "2": 25
       },
       "mercati_completi": {
-        "1X": 76,
-        "X2": 52,
-        "12": 72,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 84,
-        "O3.5": 16,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 52,
-        "MG2-4": 65,
-        "MG3-5": 30,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 20,
-        "2+O2.5": 12,
-        "1X+O1.5": 52,
-        "X2+O1.5": 40,
-        "1X+GG": 42,
-        "X2+GG": 36,
-        "GG+O2.5": 38,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Fabio Morselli",
-          "ruolo": "Attaccante",
-          "prob": 34
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Andrea Invernizzi",
-          "ruolo": "Attaccante",
-          "prob": 28
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Antonio Palma",
-          "ruolo": "Centrocampista",
-          "motivo": "Intervento duro in mediana per fermare una ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Christian Dimarco",
-          "ruolo": "Difensore",
-          "motivo": "Fallaccio tattico sulla fascia di competenza",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Alcione favorito in casa con match da almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#003366",
-          "#ffffff"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#006633",
-          "#ffffff"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 902556518,
-      "comp": "SCB",
-      "compNome": "Serie C - Gir. B",
-      "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
-      "casa": "Sambenedettese",
-      "trasf": "Perugia",
-      "score": null,
-      "analisi": "La Sambenedettese affronta il Perugia in un match cruciale del Girone B di Serie C, caratterizzato da un equilibrio tattico notevole. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli umbri puntano a consolidare la propria posizione nei playoff. Ci si attende una gara combattuta a centrocampo con pochi spazi per le ripartenze.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano",
-            "Paolo Montero",
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano",
-            "Paolo Montero",
-            "Elia Plicco",
-            "José Dicombo",
-            "Luca Napolitano"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Jacopo Furlan",
-            "Gabriele Angella",
-            "Cristian Dell'Orco",
-            "Francesco Lisi",
-            "Paolo Bartolomei",
-            "Giacomo Manzari",
-            "Giovanni Terrani",
-            "Ryder Matos",
-            "Radosław Żelezny",
-            "Gabriele Angella",
-            "Francesco Lisi"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 35,
-        "X": 35,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 65,
-        "12": 65,
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
         "GG": 50,
         "NG": 50,
         "U1.5": 35,
@@ -18015,256 +17797,635 @@
         "O3.5": 20,
         "MG1-2": 50,
         "MG1-3": 75,
-        "MG2-3": 55,
-        "MG2-4": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
         "MG3-5": 30,
-        "1+O1.5": 25,
-        "1+O2.5": 15,
+        "1+O1.5": 35,
+        "1+O2.5": 25,
         "2+O1.5": 20,
-        "2+O2.5": 12,
-        "1X+O1.5": 48,
-        "X2+O1.5": 45,
-        "1X+GG": 38,
+        "2+O2.5": 15,
+        "1X+O1.5": 50,
+        "X2+O1.5": 40,
+        "1X+GG": 40,
         "X2+GG": 35,
-        "GG+O2.5": 42,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 28
+        "GG+O2.5": 40,
+        "1+GG": 25,
+        "2+GG": 20,
+        "2+U3.5": 22
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luca Napolitano",
-          "ruolo": "Attaccante",
-          "prob": 25
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "José Dicombo",
+          "giocatore": "Giovanni Crociata",
           "ruolo": "Centrocampista",
-          "prob": 20
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ryder Matos",
-          "ruolo": "Attaccante",
           "prob": 28
         },
         {
-          "squadra": "trasferta",
-          "giocatore": "Giacomo Manzari",
-          "ruolo": "Attaccante",
-          "prob": 24
+          "squadra": "casa",
+          "giocatore": "Franco Lepore",
+          "ruolo": "Difensore",
+          "prob": 20
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Paolo Montero",
-          "ruolo": "Difensore",
-          "motivo": "Interventi duri per fermare le ripartenze avversarie",
-          "prob": 35
+          "giocatore": "Luca Marrone",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze",
+          "prob": 40
         },
         {
           "squadra": "casa",
-          "giocatore": "Elia Plicco",
+          "giocatore": "Alessandro Caporale",
           "ruolo": "Difensore",
-          "motivo": "Falliti tempi di marcatura sugli esterni",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Paolo Bartolomei",
-          "ruolo": "Centrocampista",
-          "motivo": "Speso il fallo tattico sulla trequarti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gabriele Angella",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli avanti di casa",
-          "prob": 32
+          "motivo": "Duelli fisici ripetuti con gli attaccanti avversari",
+          "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata ma con almeno due reti complessive e favore ai padroni di casa."
+        "esito": "1+O1.5",
+        "probabilita": 35,
+        "motivazione_breve": "Lecco favorito in casa con almeno due reti complessive nel match."
       },
-      "affidabilita": 72,
+      "affidabilita": 65,
       "stemma_casa": {
         "colori": [
-          "#E30613",
-          "#0000FF"
+          "#00539F",
+          "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#D00000",
+          "#A51C30",
+          "#002B49"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
+      "id": 902556941,
+      "comp": "SCA",
+      "compNome": "Serie C - Gir. A",
+      "data": "2026-11-22T16:30:00Z",
+      "stato": "IN_PLAY",
+      "casa": "Dolomiti Bellunesi",
+      "trasf": "Carpi",
+      "score": [
+        1,
+        1
+      ],
+      "analisi": "Il match di Serie C tra Dolomiti Bellunesi e Carpi si preannuncia equilibrato e tatticamente bloccato. I padroni di casa puntano su una solida organizzazione difensiva, mentre il Carpi cerca di sfruttare la qualità a centrocampo per manovrare. Ci si attende una gara povera di spazi e decisa da episodi isolati.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Davide Mazzocco",
+            "Nicolas Trabucchi",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Leonardo Morosini",
+            "Giocatore 2",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 34,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 62,
+        "12": 66,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 58,
+        "O2.5": 42,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 52,
+        "MG1-3": 74,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 45,
+        "1+O2.5": 30,
+        "2+O1.5": 35,
+        "2+O2.5": 22,
+        "1X+O1.5": 55,
+        "X2+O1.5": 50,
+        "1X+GG": 42,
+        "X2+GG": 38,
+        "GG+O2.5": 40,
+        "1+GG": 25,
+        "2+GG": 20,
+        "2+U3.5": 32
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Davide Mazzocco",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Nicolas Trabucchi",
+          "ruolo": "Difensore",
+          "prob": 12
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Leonardo Morosini",
+          "ruolo": "Centrocampista",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Davide Mazzocco",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Leonardo Morosini",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per interrompere le ripartenze",
+          "prob": 30
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "MG2-4",
+        "probabilita": 62,
+        "motivazione_breve": "Partita equilibrata con un numero controllato di reti."
+      },
+      "affidabilita": 68,
+      "stemma_casa": {
+        "colori": [
+          "#003366",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
+      "id": 902556522,
+      "comp": "SCB",
+      "compNome": "Serie C - Gir. B",
+      "data": "2026-11-23T19:30:00Z",
+      "stato": "TIMED",
+      "casa": "Grosseto",
+      "trasf": "Guidonia Montecelio",
+      "score": null,
+      "analisi": "Il Grosseto affronta il Guidonia Montecelio in una sfida di Serie C caratterizzata da un grande equilibrio tattico. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare una posizione tranquilla in classifica. La gara si preannuncia combattuta a centrocampo con poche occasioni nitide da rete.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Portiere Casa",
+            "Terzino Destro",
+            "1o Centrale Casa",
+            "2o Centrale Casa",
+            "Terzino Sinistro",
+            "Mediano Casa",
+            "Mezzala Destra",
+            "Mezzala Sinistra",
+            "Ala Destra",
+            "Centravanti Casa",
+            "Ala Sinistra"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Michele Avella",
+            "Mattia Tonetto",
+            "Nicola Borghetto",
+            "Marco Alia",
+            "Difensore Esterno OSP",
+            "Centrocampista Centrale 1 OSP",
+            "Centrocampista Centrale 2 OSP",
+            "Esterno Alto OSP",
+            "Esterno Basso OSP",
+            "Prima Punta OSP",
+            "Seconda Punta OSP"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 34,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 62,
+        "12": 66,
+        "GG": 48,
+        "NG": 52,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 58,
+        "O2.5": 42,
+        "U3.5": 82,
+        "O3.5": 18,
+        "MG1-2": 45,
+        "MG1-3": 74,
+        "MG2-3": 52,
+        "MG2-4": 65,
+        "MG3-5": 25,
+        "1+O1.5": 42,
+        "1+O2.5": 24,
+        "2+O1.5": 32,
+        "2+O2.5": 18,
+        "1X+O1.5": 52,
+        "X2+O1.5": 46,
+        "1X+GG": 36,
+        "X2+GG": 32,
+        "GG+O2.5": 38,
+        "1+GG": 14,
+        "2+GG": 12,
+        "2+U3.5": 26
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Mattia Tonetto",
+          "ruolo": "Difensore",
+          "prob": 12
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nicola Borghetto",
+          "ruolo": "Difensore",
+          "prob": 8
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marco Alia",
+          "ruolo": "Portiere",
+          "motivo": "Per perdite di tempo nei minuti finali",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Michele Avella",
+          "ruolo": "Portiere",
+          "motivo": "Proteste reiterate verso il direttore di gara",
+          "prob": 18
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "MG2-4",
+        "probabilita": 65,
+        "motivazione_breve": "Partita equilibrata con un numero moderato di reti complessive."
+      },
+      "affidabilita": 70,
+      "stemma_casa": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000080",
           "#FFFFFF"
         ],
         "pattern": "solid"
       }
     },
     {
-      "id": 902556526,
+      "id": 902556519,
       "comp": "SCB",
       "compNome": "Serie C - Gir. B",
-      "data": "2026-11-22T13:30:00Z",
+      "data": "2026-11-22T16:30:00Z",
       "stato": "IN_PLAY",
-      "casa": "Torres",
-      "trasf": "Spezia",
+      "casa": "Forlì",
+      "trasf": "Reggiana",
       "score": [
         1,
-        0
+        1
       ],
-      "analisi": "La Torres punta sulla solidità interna e sulla vena realizzativa di Nanni per contrastare uno Spezia tecnicamente superiore. Gli ospiti vantano un attacco esperto con Falcinelli e Di Serio, capaci di punire le disattenzioni difensive sarde. Il duello a centrocampo tra Mastinu e Cassata sarà determinante per il controllo del ritmo di gioco.",
+      "analisi": "Il Forlì affronta la Reggiana in una sfida di Serie C Girone B caratterizzata da un divario tecnico sulla carta. La Reggiana vanta elementi di categoria superiore in rosa, mentre il Forlì punta sul fattore campo e sulle ripartenze. Ci si attende una partita tattica con gli ospiti maggiormente proposti al controllo del gioco.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Giuseppe Mastinu",
-            "Michael Brentan",
-            "Nicola Nanni",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Abdel Noufou Zagré",
+            "Giocatore 2",
+            "Giocatore 3",
+            "Giocatore 4",
+            "Giocatore 5",
+            "Giocatore 6",
+            "Giocatore 7",
+            "Giocatore 8",
+            "Giocatore 9",
+            "Giocatore 10",
+            "Giocatore 11"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Fallou Sarr",
-            "Aleš Matějů",
-            "Andrea Cistana",
-            "Antonio Candela",
-            "Jacopo Sala",
-            "Francesco Cassata",
-            "Gabriele Artistico",
-            "Diego Zuppel",
-            "Diego Falcinelli",
-            "Giuseppe Di Serio",
-            ""
+            "Andrea Papetti",
+            "Filip Brekalo",
+            "Fausto Rossi",
+            "Elvis Kabashi",
+            "Davide Voltan",
+            "Cedric Gondo",
+            "Charlys",
+            "Damiano Basili",
+            "Filippo Nardi",
+            "Edoardo Cavaliere",
+            "Portiere"
           ]
         }
       },
       "prob_1x2": {
-        "1": 28,
-        "X": 32,
+        "1": 25,
+        "X": 35,
         "2": 40
       },
       "mercati_completi": {
         "1X": 60,
-        "X2": 72,
-        "12": 68,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 30,
-        "O1.5": 70,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 82,
-        "O3.5": 18,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 48,
-        "MG2-4": 44,
-        "MG3-5": 22,
-        "1+O1.5": 35,
-        "1+O2.5": 22,
-        "2+O1.5": 52,
-        "2+O2.5": 34,
-        "1X+O1.5": 55,
-        "X2+O1.5": 65,
-        "1X+GG": 45,
-        "X2+GG": 50,
+        "X2": 75,
+        "12": 65,
+        "GG": 50,
+        "NG": 50,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 30,
+        "1+O1.5": 30,
+        "1+O2.5": 20,
+        "2+O1.5": 45,
+        "2+O2.5": 35,
+        "1X+O1.5": 45,
+        "X2+O1.5": 55,
+        "1X+GG": 35,
+        "X2+GG": 45,
         "GG+O2.5": 40,
-        "1+GG": 20,
-        "2+GG": 25,
-        "2+U3.5": 32
+        "1+GG": 22,
+        "2+GG": 30,
+        "2+U3.5": 35
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Nicola Nanni",
+          "giocatore": "Abdel Noufou Zagré",
           "ruolo": "Attaccante",
           "prob": 25
         },
         {
-          "squadra": "casa",
-          "giocatore": "Giuseppe Mastinu",
+          "squadra": "trasferta",
+          "giocatore": "Cedric Gondo",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Davide Voltan",
           "ruolo": "Centrocampista",
-          "prob": 15
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Diego Falcinelli",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Giuseppe Di Serio",
-          "ruolo": "Attaccante",
-          "prob": 28
+          "prob": 20
         }
       ],
       "possibili_ammoniti": [
         {
-          "squadra": "casa",
-          "giocatore": "Michael Brentan",
-          "ruolo": "Centrocampista",
-          "motivo": "Fallo tattico per interrompere ripartenza",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Giuseppe Mastinu",
-          "ruolo": "Centrocampista",
-          "motivo": "Proteste verso il direttore di gara",
-          "prob": 25
-        },
-        {
           "squadra": "trasferta",
-          "giocatore": "Andrea Cistana",
-          "ruolo": "Difensore",
-          "motivo": "Intervento irruente su contrasto aereo",
+          "giocatore": "Fausto Rossi",
+          "ruolo": "Centrocampista",
+          "motivo": "Intervento duro per interrompere una ripartenza avversaria",
           "prob": 30
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Francesco Cassata",
-          "ruolo": "Centrocampista",
-          "motivo": "Gioco scorretto sistematico",
-          "prob": 40
+          "giocatore": "Andrea Papetti",
+          "ruolo": "Difensore",
+          "motivo": "Falloso in marcatura stretta sull'attaccante",
+          "prob": 25
         }
       ],
       "pronostico_principale": {
         "esito": "X2+O1.5",
-        "probabilita": 65,
-        "motivazione_breve": "Spezia superiore tecnicamente, probabile gara con almeno due reti totali."
+        "probabilita": 55,
+        "motivazione_breve": "Reggiana favorita per qualità della rosa, match con almeno due reti."
       },
-      "affidabilita": 70,
+      "affidabilita": 65,
       "stemma_casa": {
         "colori": [
-          "#E30613",
-          "#0054A6"
+          "#ffffff",
+          "#red"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#FFFFFF",
-          "#000000"
+          "#8b0000",
+          "#ffffff"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 902555120,
+      "comp": "SCC",
+      "compNome": "Serie C - Gir. C",
+      "data": "2026-11-25T13:30:00Z",
+      "stato": "TIMED",
+      "casa": "Audace Cerignola",
+      "trasf": "Inter Milan U23",
+      "score": null,
+      "analisi": "L'Audace Cerignola affronta l'Inter Milan U23 in una sfida di Serie C caratterizzata da un sostanziale equilibrio tattico. I padroni di casa puntano sul fattore campo e sull'esperienza, mentre i giovani nerazzurri cercano di imporre ritmo e freschezza atletica. Ci si attende una gara combattuta a centrocampo con episodi decisivi sui calci piazzati.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Alessandro Bassino",
+            "Antonio Boccadamo",
+            "Giocatore Casa 3",
+            "Giocatore Casa 4",
+            "Giocatore Casa 5",
+            "Giocatore Casa 6",
+            "Giocatore Casa 7",
+            "Giocatore Casa 8",
+            "Giocatore Casa 9",
+            "Giocatore Casa 10",
+            "Giocatore Casa 11"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Luca Fordilino",
+            "Matteo Lavelli",
+            "Giocatore Ospite 3",
+            "Giocatore Ospite 4",
+            "Giocatore Ospite 5",
+            "Giocatore Ospite 6",
+            "Giocatore Ospite 7",
+            "Giocatore Ospite 8",
+            "Giocatore Ospite 9",
+            "Giocatore Ospite 10",
+            "Giocatore Ospite 11"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 33,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 58,
+        "12": 67,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 30,
+        "1+O1.5": 38,
+        "1+O2.5": 22,
+        "2+O1.5": 20,
+        "2+O2.5": 12,
+        "1X+O1.5": 50,
+        "X2+O1.5": 42,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 18,
+        "2+U3.5": 24
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Antonio Boccadamo",
+          "ruolo": "Difensore",
+          "prob": 15
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alessandro Bassino",
+          "ruolo": "Difensore",
+          "prob": 10
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matteo Lavelli",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Fordilino",
+          "ruolo": "Centrocampista",
+          "prob": 12
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Antonio Boccadamo",
+          "ruolo": "Difensore",
+          "motivo": "Interventi duri in copertura sulla fascia",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alessandro Bassino",
+          "ruolo": "Difensore",
+          "motivo": "Falli tattici per fermare le ripartenze",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Fordilino",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri a centrocampo",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matteo Lavelli",
+          "ruolo": "Attaccante",
+          "motivo": "Proteste prolungate con il direttore di gara",
+          "prob": 25
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 50,
+        "motivazione_breve": "Cerignola favorito in casa con match da almeno due reti complessive."
+      },
+      "affidabilita": 65,
+      "stemma_casa": {
+        "colori": [
+          "#yellow",
+          "#blue"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#black",
+          "#blue"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -18272,10 +18433,13 @@
       "comp": "SCC",
       "compNome": "Serie C - Gir. C",
       "data": "2026-11-22T16:30:00Z",
-      "stato": "TIMED",
+      "stato": "IN_PLAY",
       "casa": "Picerno",
       "trasf": "Giugliano",
-      "score": null,
+      "score": [
+        4,
+        2
+      ],
       "analisi": "Il Picerno affronta il Giugliano in una sfida di Serie C caratterizzata da grande equilibrio tattico e difese solide. I padroni di casa puntano sul fattore campo per imporre il proprio ritmo, mentre gli ospiti cercano ripartenze veloci. Ci si attende una gara combattuta a centrocampo con poche vere occasioni da rete.",
       "formazioni": {
         "casa": {
@@ -18370,173 +18534,17 @@
       }
     },
     {
-      "id": 902555127,
-      "comp": "SCC",
-      "compNome": "Serie C - Gir. C",
-      "data": "2026-11-22T14:00:00Z",
-      "stato": "IN_PLAY",
-      "casa": "Catania",
-      "trasf": "Bari",
-      "score": [
-        0,
-        0
-      ],
-      "analisi": "Il Catania affronta il Bari in una classica sfida di Serie C caratterizzata da grande rivalità e tensione tattica. I rossazzurri cercano conferme tra le mura amiche sfruttando la spinta del proprio pubblico, mentre i galletti pugliesi puntano sulla solidità del proprio organico. La gara si preannuncia equilibrata a centrocampo, con duelli serrati sulle fasce e possibili episodi decisivi sui calci piazzati.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Filippo Rinaldi",
-            "Giovanni Marchese",
-            "Vince Grella",
-            "Francesco Lodi",
-            "Miloš Bočić",
-            "Filippo Rinaldi",
-            "Giovanni Marchese",
-            "Vince Grella",
-            "Francesco Lodi",
-            "Miloš Bočić",
-            "Filippo Rinaldi"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Francesco Vicari",
-            "Emmanuele Matino",
-            "Giacomo Ricci",
-            "Gianvito Misuraca",
-            "Gaetano Castrovilli",
-            "Franco Brienza",
-            "Anthony Partipilo",
-            "Giuseppe Sibilli",
-            "Damir Ceter",
-            "Balla Manè",
-            "Francesco Vicari"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 40,
-        "X": 30,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 60,
-        "12": 70,
-        "GG": 50,
-        "NG": 50,
-        "U1.5": 35,
-        "O1.5": 65,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 45,
-        "MG1-3": 75,
-        "MG2-3": 55,
-        "MG2-4": 65,
-        "MG3-5": 35,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 38,
-        "2+O2.5": 25,
-        "1X+O1.5": 52,
-        "X2+O1.5": 45,
-        "1X+GG": 40,
-        "X2+GG": 38,
-        "GG+O2.5": 40,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 28
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Francesco Lodi",
-          "ruolo": "Centrocampista",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Miloš Bočić",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Anthony Partipilo",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Giuseppe Sibilli",
-          "ruolo": "Attaccante",
-          "prob": 28
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Giovanni Marchese",
-          "ruolo": "Difensore",
-          "motivo": "Intervento duro su 1vs1",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Vince Grella",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli ripetuti a centrocampo",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Emmanuele Matino",
-          "ruolo": "Difensore",
-          "motivo": "Fermo falloso in ripartenza",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gianvito Misuraca",
-          "ruolo": "Centrocampista",
-          "motivo": "Gioco scorretto",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Catania favorito in casa con match da almeno due reti complessive"
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#E00000",
-          "#000080"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FFFFFF",
-          "#D00000"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
       "id": 800083698,
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "1. FC Kaiserslautern",
       "trasf": "Dynamo Dresden",
-      "score": null,
+      "score": [
+        2,
+        2
+      ],
       "analisi": "Il 1. FC Kaiserslautern affronta la Dynamo Dresden in una classica sfida della 2. Bundesliga caratterizzata da grande intensità e rivalità storica. I padroni di casa puntano sul fattore campo per imporre il proprio ritmo, mentre gli ospiti cercano di sfruttare le ripartenze in un duello tattico a centrocampo molto equilibrato.",
       "formazioni": {
         "casa": {
@@ -18689,10 +18697,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Karlsruher SC",
       "trasf": "VfL Osnabrück",
-      "score": null,
+      "score": [
+        0,
+        0
+      ],
       "analisi": "Il Karlsruher SC affronta il VfL Osnabrück in un match di 2. Bundesliga caratterizzato da un rendimento casalingo solido per i padroni di casa. La formazione ospite fatica tradizionalmente in trasferta, mostrando fragilità difensive nei duelli aerei. Tatticamente il Karlsruher cercherà di imporre il ritmo a centrocampo sfruttando le fasce laterali.",
       "formazioni": {
         "casa": {
@@ -18845,10 +18856,13 @@
       "comp": "BL2",
       "compNome": "2. Bundesliga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "Energie Cottbus",
       "trasf": "Hertha BSC",
-      "score": null,
+      "score": [
+        0,
+        4
+      ],
       "analisi": "L'Energie Cottbus affronta l'Hertha BSC in un match di Zweite Bundesliga caratterizzato da grande intensità agonistica. I padroni di casa puntano su un blocco compatto per arginare la maggiore qualità tecnica della formazione ospite. Gli ospiti cercano di imporre il proprio palleggio sfruttando le fasce laterali, mentre il Cottbus agisce prevalentemente di rimessa. Ci si attende una partita aperta con duelli fisici a centrocampo e diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -19001,10 +19015,13 @@
       "comp": "BL3",
       "compNome": "3. Liga",
       "data": "2026-11-22T12:30:00Z",
-      "stato": "TIMED",
+      "stato": "FINISHED",
       "casa": "VfB Stuttgart II",
       "trasf": "FC Ingolstadt 04",
-      "score": null,
+      "score": [
+        5,
+        0
+      ],
       "analisi": "Il VfB Stuttgart II affronta l'FC Ingolstadt 04 in un match di 3. Liga caratterizzato da difese non impeccabili e una spiccata tendenza al gioco offensivo. I padroni di casa cercano punti salvezza sfruttando il fattore campo, mentre gli ospiti puntano a consolidare la propria posizione di classifica grazie a maggiore esperienza. Ci si attende una partita aperta con diverse occasioni da rete su entrambi i fronti.",
       "formazioni": {
         "casa": {
@@ -19160,7 +19177,10 @@
       "stato": "TIMED",
       "casa": "1. FC Saarbrücken",
       "trasf": "SV Wehen Wiesbaden",
-      "score": null,
+      "score": [
+        1,
+        0
+      ],
       "analisi": "Il Saarbrücken vanta un rendimento casalingo molto solido e una buona continuità di risultati tra le mura amiche. Il Wehen Wiesbaden ha mostrato un'ottima capacità offensiva nelle ultime uscite ma concede spesso spazi sulle ripartenze avversarie. Dal punto di vista tattico si prevede una partita aperta con occasioni da rete da ambo le parti, dove la fisicità del centrocampo di casa potrebbe rivelarsi decisiva.",
       "formazioni": {
         "casa": {
