@@ -904,6 +904,8 @@ try {
 } catch { }
 document.querySelectorAll('nav [data-v=gen]').forEach(b => b.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent = 'Genera' }));
 if (!L.ok18) $('#welcome').classList.add('open'); instUI();
+// Deep link dai canali esterni: ?tab=vip (anche home, live, gen, list, win, info). ?src=telegram resta nell'URL per le statistiche.
+try { const t = new URLSearchParams(location.search).get('tab'); if (['home', 'live', 'gen', 'list', 'vip', 'win', 'info'].includes(t)) tab = t } catch { }
 render();   // header (badge VIP) e contatore Lista subito visibili
 $('#view').innerHTML = skeleton();
 loadData().catch(() => { $('#view').innerHTML = `<div class="empty">${ic('refresh')}</div>` });
