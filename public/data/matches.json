@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-23T02:24:02.193476+00:00",
-  "aggiornato": "2026-11-23T02:24:02.193476+00:00",
+  "updated_at": "2026-11-23T02:36:55.094493+00:00",
+  "aggiornato": "2026-11-23T02:36:55.094493+00:00",
   "matches": [
     {
       "id": 558519,
@@ -1251,318 +1251,6 @@
       }
     },
     {
-      "id": 561960,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-24T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Norwich City FC",
-      "trasf": "Queens Park Rangers FC",
-      "score": null,
-      "analisi": "Il Norwich City affronta il Queens Park Rangers in un match di Championship caratterizzato da un equilibrio tattico a centrocampo. I padroni di casa puntano sulla spinta dei propri esterni per scardinare la retroguardia avversaria. Gli ospiti, dal canto loro, prediligono una difesa solida e ripartenze veloci per colpire di rimessa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Daniel Grimshaw",
-            "Jack Stacey",
-            "Harry Darling",
-            "José Cordoba",
-            "Benjamin Chrisene",
-            "Kenny McLean",
-            "Anis Ben Slimane",
-            "Mirko Topić",
-            "Anthony Musaba",
-            "Mohamed Toure",
-            "Oscar Schwartau"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Calum Ward",
-            "Tariq Lamptey",
-            "Jake Clarke-Salter",
-            "Jimmy Dunne",
-            "Dennis Cirkin",
-            "Ilias Chair",
-            "Glen Kamara",
-            "Nicolas Madsen",
-            "Karamoko Dembélé",
-            "Kwame Poku",
-            "Richard Kone"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 68,
-        "MG2-3": 51,
-        "MG2-4": 74,
-        "MG3-5": 38,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 21,
-        "2+O2.5": 14,
-        "1X+O1.5": 52,
-        "X2+O1.5": 41,
-        "1X+GG": 40,
-        "X2+GG": 34,
-        "GG+O2.5": 44,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 23
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Mohamed Toure",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Oscar Schwartau",
-          "ruolo": "Centrocampista",
-          "prob": 24
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ilias Chair",
-          "ruolo": "Centrocampista",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Richard Kone",
-          "ruolo": "Attaccante",
-          "prob": 26
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kenny McLean",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze avversarie",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Harry Darling",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jimmy Dunne",
-          "ruolo": "Difensore",
-          "motivo": "Falli tattici per arginare la velocità degli esterni di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Glen Kamara",
-          "ruolo": "Centrocampista",
-          "motivo": "Sanato per eccesso di foga nel recupero palla in mediana",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 38,
-        "motivazione_breve": "Vittoria interna probabile con almeno due reti complessive nel match."
-      },
-      "affidabilita": 72,
-      "stemma_casa": {
-        "color5": [
-          "#00A650",
-          "#FFF200"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#00539F",
-          "#FFFFFF"
-        ],
-        "pattern": "horizontal"
-      }
-    },
-    {
-      "id": 561956,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-24T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Sheffield United FC",
-      "trasf": "Southampton FC",
-      "score": null,
-      "analisi": "Lo Sheffield United affronta il Southampton in una classica sfida di alta classifica in Championship, caratterizzata da grande intensità fisica e solidità difensiva. I padroni di casa fanno affidamento sulla spinta del proprio pubblico e sulla qualità di elementi come Kalvin Phillips e Patrick Bamford. Gli ospiti rispondono con la regia di James Ward-Prowse e la velocità sulle fasce, promettendo un duello tattico molto equilibrato a centrocampo.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Michael Cooper",
-            "Matt Doherty",
-            "Japhet Tanganga",
-            "Mark McGuinness",
-            "Harrison Burrows",
-            "Kalvin Phillips",
-            "Joe Rothwell",
-            "Ollie Arblaster",
-            "Tahith Chong",
-            "Patrick Bamford",
-            "Ben Brereton"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Aaron Ramsdale",
-            "James Bree",
-            "Jack Stephens",
-            "Nathan Wood-Gordon",
-            "Ryan Manning",
-            "James Ward-Prowse",
-            "Flynn Downes",
-            "Tom Fellows",
-            "Léo Scienza",
-            "Cyle Larin",
-            "Samuel Edozie"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 31,
-        "2": 27
-      },
-      "mercati_completi": {
-        "1X": 73,
-        "X2": 58,
-        "12": 69,
-        "GG": 53,
-        "NG": 47,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 69,
-        "MG2-3": 51,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 31,
-        "1+O2.5": 21,
-        "2+O1.5": 20,
-        "2+O2.5": 13,
-        "1X+O1.5": 52,
-        "X2+O1.5": 43,
-        "1X+GG": 40,
-        "X2+GG": 33,
-        "GG+O2.5": 41,
-        "1+GG": 23,
-        "2+GG": 15,
-        "2+U3.5": 25
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Patrick Bamford",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Ben Brereton",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cyle Larin",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "James Ward-Prowse",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kalvin Phillips",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici di interruzione a centrocampo",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Japhet Tanganga",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ravvicinati con gli attaccanti avversari",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Flynn Downes",
-          "ruolo": "Centrocampista",
-          "motivo": "Pressione costante e falli sistematici in mediana",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jack Stephens",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri per arginare le ripartenze veloci",
-          "prob": 36
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Fattore campo favorevole allo Sheffield e match con almeno due reti complessive."
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#EE2737",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#D71920",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 561958,
       "comp": "ELC",
       "compNome": "Championship",
@@ -1875,159 +1563,315 @@
       }
     },
     {
-      "id": 561955,
+      "id": 561960,
       "comp": "ELC",
       "compNome": "Championship",
       "data": "2026-11-24T19:45:00Z",
       "stato": "SCHEDULED",
-      "casa": "Portsmouth FC",
-      "trasf": "West Ham United FC",
+      "casa": "Norwich City FC",
+      "trasf": "Queens Park Rangers FC",
       "score": null,
-      "analisi": "Il Portsmouth affronta il West Ham in un match di Championship dal divario tecnico evidente sulla carta. Gli Hammers vantano una rosa di categoria superiore con individualità offensive di spicco come Jarrod Bowen e Valentín Castellanos. Il Portsmouth cercherà di chiudere gli spazi affidandosi al proprio pubblico e alla compattezza difensiva. La maggiore qualità ospite dovrebbe tuttavia prevalere nel corso dei novanta minuti.",
+      "analisi": "Il Norwich City affronta il Queens Park Rangers in un match di Championship caratterizzato da un equilibrio tattico a centrocampo. I padroni di casa puntano sulla spinta dei propri esterni per scardinare la retroguardia avversaria. Gli ospiti, dal canto loro, prediligono una difesa solida e ripartenze veloci per colpire di rimessa.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Nicolas Schmid",
-            "Terry Devlin",
-            "Conor Shaughnessy",
-            "Regan Poole",
-            "Connor Ogilvie",
-            "Marlon Pack",
-            "John Swift",
-            "Rocco Robert Shein",
-            "Josh Murphy",
-            "Colby Bishop",
-            "Keshi Anderson"
+            "Daniel Grimshaw",
+            "Jack Stacey",
+            "Harry Darling",
+            "José Cordoba",
+            "Benjamin Chrisene",
+            "Kenny McLean",
+            "Anis Ben Slimane",
+            "Mirko Topić",
+            "Anthony Musaba",
+            "Mohamed Toure",
+            "Oscar Schwartau"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Alphonse Aréola",
-            "Kyle Walker-Peters",
-            "Konstantinos Mavropanos",
-            "Max Kilman",
-            "Joël Veltman",
-            "Jarrod Bowen",
-            "Edson Álvarez",
-            "Tomáš Souček",
-            "Manor Solomon",
-            "Valentín Castellanos",
-            "Joël Piroe"
+            "Calum Ward",
+            "Tariq Lamptey",
+            "Jake Clarke-Salter",
+            "Jimmy Dunne",
+            "Dennis Cirkin",
+            "Ilias Chair",
+            "Glen Kamara",
+            "Nicolas Madsen",
+            "Karamoko Dembélé",
+            "Kwame Poku",
+            "Richard Kone"
           ]
         }
       },
       "prob_1x2": {
-        "1": 22,
-        "X": 28,
-        "2": 50
+        "1": 45,
+        "X": 30,
+        "2": 25
       },
       "mercati_completi": {
-        "1X": 50,
-        "X2": 78,
-        "12": 72,
-        "GG": 54,
-        "NG": 46,
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
         "U1.5": 33,
         "O1.5": 67,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 74,
-        "O3.5": 26,
-        "MG1-2": 38,
-        "MG1-3": 62,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 68,
         "MG2-3": 51,
-        "MG2-4": 65,
-        "MG3-5": 39,
-        "1+O1.5": 20,
-        "1+O2.5": 14,
-        "2+O1.5": 42,
-        "2+O2.5": 31,
-        "1X+O1.5": 38,
-        "X2+O1.5": 60,
-        "1X+GG": 30,
-        "X2+GG": 44,
-        "GG+O2.5": 48,
-        "1+GG": 16,
-        "2+GG": 35,
-        "2+U3.5": 39
+        "MG2-4": 74,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 24,
+        "2+O1.5": 21,
+        "2+O2.5": 14,
+        "1X+O1.5": 52,
+        "X2+O1.5": 41,
+        "1X+GG": 40,
+        "X2+GG": 34,
+        "GG+O2.5": 44,
+        "1+GG": 22,
+        "2+GG": 18,
+        "2+U3.5": 23
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Colby Bishop",
+          "giocatore": "Mohamed Toure",
           "ruolo": "Attaccante",
-          "prob": 25
+          "prob": 32
         },
         {
           "squadra": "casa",
-          "giocatore": "Josh Murphy",
-          "ruolo": "Attaccante",
-          "prob": 20
+          "giocatore": "Oscar Schwartau",
+          "ruolo": "Centrocampista",
+          "prob": 24
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Valentín Castellanos",
-          "ruolo": "Attaccante",
-          "prob": 40
+          "giocatore": "Ilias Chair",
+          "ruolo": "Centrocampista",
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Jarrod Bowen",
+          "giocatore": "Richard Kone",
           "ruolo": "Attaccante",
-          "prob": 35
+          "prob": 26
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Marlon Pack",
+          "giocatore": "Kenny McLean",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici per fermare le ripartenze avversarie",
+          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze avversarie",
           "prob": 42
         },
         {
           "squadra": "casa",
-          "giocatore": "Conor Shaughnessy",
+          "giocatore": "Harry Darling",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti ospiti",
+          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Edson Álvarez",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri a centrocampo",
-          "prob": 45
+          "giocatore": "Jimmy Dunne",
+          "ruolo": "Difensore",
+          "motivo": "Falli tattici per arginare la velocità degli esterni di casa",
+          "prob": 40
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Joël Veltman",
-          "ruolo": "Difensore",
-          "motivo": "Falli di contenimento sulle corsie laterali",
+          "giocatore": "Glen Kamara",
+          "ruolo": "Centrocampista",
+          "motivo": "Sanato per eccesso di foga nel recupero palla in mediana",
           "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 60,
-        "motivazione_breve": "Il West Ham ha maggiore qualità e dovrebbe evitare la sconfitta in un match da almeno due gol."
+        "esito": "1+O1.5",
+        "probabilita": 38,
+        "motivazione_breve": "Vittoria interna probabile con almeno due reti complessive nel match."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "color5": [
+          "#00A650",
+          "#FFF200"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#00539F",
+          "#FFFFFF"
+        ],
+        "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 561956,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-24T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Sheffield United FC",
+      "trasf": "Southampton FC",
+      "score": null,
+      "analisi": "Lo Sheffield United affronta il Southampton in una classica sfida di alta classifica in Championship, caratterizzata da grande intensità fisica e solidità difensiva. I padroni di casa fanno affidamento sulla spinta del proprio pubblico e sulla qualità di elementi come Kalvin Phillips e Patrick Bamford. Gli ospiti rispondono con la regia di James Ward-Prowse e la velocità sulle fasce, promettendo un duello tattico molto equilibrato a centrocampo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Michael Cooper",
+            "Matt Doherty",
+            "Japhet Tanganga",
+            "Mark McGuinness",
+            "Harrison Burrows",
+            "Kalvin Phillips",
+            "Joe Rothwell",
+            "Ollie Arblaster",
+            "Tahith Chong",
+            "Patrick Bamford",
+            "Ben Brereton"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Aaron Ramsdale",
+            "James Bree",
+            "Jack Stephens",
+            "Nathan Wood-Gordon",
+            "Ryan Manning",
+            "James Ward-Prowse",
+            "Flynn Downes",
+            "Tom Fellows",
+            "Léo Scienza",
+            "Cyle Larin",
+            "Samuel Edozie"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 31,
+        "2": 27
+      },
+      "mercati_completi": {
+        "1X": 73,
+        "X2": 58,
+        "12": 69,
+        "GG": 53,
+        "NG": 47,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 69,
+        "MG2-3": 51,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 31,
+        "1+O2.5": 21,
+        "2+O1.5": 20,
+        "2+O2.5": 13,
+        "1X+O1.5": 52,
+        "X2+O1.5": 43,
+        "1X+GG": 40,
+        "X2+GG": 33,
+        "GG+O2.5": 41,
+        "1+GG": 23,
+        "2+GG": 15,
+        "2+U3.5": 25
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Patrick Bamford",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ben Brereton",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cyle Larin",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "James Ward-Prowse",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Kalvin Phillips",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi tattici di interruzione a centrocampo",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Japhet Tanganga",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ravvicinati con gli attaccanti avversari",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Flynn Downes",
+          "ruolo": "Centrocampista",
+          "motivo": "Pressione costante e falli sistematici in mediana",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jack Stephens",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti duri per arginare le ripartenze veloci",
+          "prob": 36
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Fattore campo favorevole allo Sheffield e match con almeno due reti complessive."
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#001489",
+          "#EE2737",
           "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#7A263A",
-          "#1BB1E7"
+          "#D71920",
+          "#FFFFFF"
         ],
-        "pattern": "solid"
+        "pattern": "vertical"
       }
     },
     {
@@ -2343,133 +2187,159 @@
       }
     },
     {
-      "id": 575401,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-24T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "ŠK Slovan Bratislava",
-      "trasf": "Real Betis Balompié",
+      "id": 561955,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-24T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Portsmouth FC",
+      "trasf": "West Ham United FC",
       "score": null,
-      "analisi": "Lo Slovan Bratislava cercherà di sfruttare il fattore campo e la compattezza difensiva per arginare le offensive andaluse.  Gli ospiti partono favoriti grazie a una maggiore esperienza internazionale e a un tasso tecnico superiore in ogni reparto.",
+      "analisi": "Il Portsmouth affronta il West Ham in un match di Championship dal divario tecnico evidente sulla carta. Gli Hammers vantano una rosa di categoria superiore con individualità offensive di spicco come Jarrod Bowen e Valentín Castellanos. Il Portsmouth cercherà di chiudere gli spazi affidandosi al proprio pubblico e alla compattezza difensiva. La maggiore qualità ospite dovrebbe tuttavia prevalere nel corso dei novanta minuti.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Dominik Takac",
-            "Jurij Medvedev",
-            "Guram Kashia",
-            "Kevin Wimmer",
-            "Lucas Lovat",
-            "Kankava",
-            "Jaba Kankava",
-            "Tigran Barseghyan",
-            "Aleksandar Cavric",
-            "Vladimir Weiss",
-            "David Strelec"
+            "Nicolas Schmid",
+            "Terry Devlin",
+            "Conor Shaughnessy",
+            "Regan Poole",
+            "Connor Ogilvie",
+            "Marlon Pack",
+            "John Swift",
+            "Rocco Robert Shein",
+            "Josh Murphy",
+            "Colby Bishop",
+            "Keshi Anderson"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Álvaro Vallés Rosa",
-            "Héctor Bellerín",
-            "Diego Llorente",
-            "Natan",
-            "Júnior Firpo",
-            "Antony",
-            "Giovani Lo Celso",
-            "Marc Roca",
-            "Abdessamad Ezzalzouli",
-            "Isco",
-            "Cucho Hernández"
+            "Alphonse Aréola",
+            "Kyle Walker-Peters",
+            "Konstantinos Mavropanos",
+            "Max Kilman",
+            "Joël Veltman",
+            "Jarrod Bowen",
+            "Edson Álvarez",
+            "Tomáš Souček",
+            "Manor Solomon",
+            "Valentín Castellanos",
+            "Joël Piroe"
           ]
         }
       },
       "prob_1x2": {
-        "1": 18,
-        "X": 27,
-        "2": 55
+        "1": 22,
+        "X": 28,
+        "2": 50
       },
       "mercati_completi": {
-        "1X": 45,
-        "X2": 82,
-        "12": 73,
+        "1X": 50,
+        "X2": 78,
+        "12": 72,
         "GG": 54,
         "NG": 46,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 70,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 21,
-        "1+O2.5": 15,
-        "2+O1.5": 58,
-        "2+O2.5": 44,
-        "1X+O1.5": 36,
-        "X2+O1.5": 65,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 74,
+        "O3.5": 26,
+        "MG1-2": 38,
+        "MG1-3": 62,
+        "MG2-3": 51,
+        "MG2-4": 65,
+        "MG3-5": 39,
+        "1+O1.5": 20,
+        "1+O2.5": 14,
+        "2+O1.5": 42,
+        "2+O2.5": 31,
+        "1X+O1.5": 38,
+        "X2+O1.5": 60,
         "1X+GG": 30,
-        "X2+GG": 48,
-        "GG+O2.5": 42,
-        "1+GG": 20,
-        "2+GG": 38,
-        "2+U3.5": 46
+        "X2+GG": 44,
+        "GG+O2.5": 48,
+        "1+GG": 16,
+        "2+GG": 35,
+        "2+U3.5": 39
       },
       "possibili_marcatori": [
         {
-          "squadra": "trasferta",
-          "giocatore": "Cucho Hernández",
+          "squadra": "casa",
+          "giocatore": "Colby Bishop",
           "ruolo": "Attaccante",
-          "prob": 42
+          "prob": 25
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Josh Murphy",
+          "ruolo": "Attaccante",
+          "prob": 20
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Isco",
-          "ruolo": "Centrocampista",
-          "prob": 30
+          "giocatore": "Valentín Castellanos",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jarrod Bowen",
+          "ruolo": "Attaccante",
+          "prob": 35
         }
       ],
       "possibili_ammoniti": [
         {
-          "squadra": "trasferta",
-          "giocatore": "Marc Roca",
+          "squadra": "casa",
+          "giocatore": "Marlon Pack",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per interrompere le ripartenze avversarie",
+          "motivo": "Interventi tattici per fermare le ripartenze avversarie",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Conor Shaughnessy",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti ospiti",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Diego Llorente",
+          "giocatore": "Edson Álvarez",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri a centrocampo",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joël Veltman",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti di casa",
-          "prob": 34
+          "motivo": "Falli di contenimento sulle corsie laterali",
+          "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "2+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": ""
+        "esito": "X2+O1.5",
+        "probabilita": 60,
+        "motivazione_breve": "Il West Ham ha maggiore qualità e dovrebbe evitare la sconfitta in un match da almeno due gol."
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#0055A5",
+          "#001489",
           "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#008000",
-          "#FFFFFF"
+          "#7A263A",
+          "#1BB1E7"
         ],
-        "pattern": "vertical"
+        "pattern": "solid"
       }
     },
     {
@@ -2941,58 +2811,58 @@
       }
     },
     {
-      "id": 575400,
+      "id": 575401,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-24T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Feyenoord Rotterdam",
-      "trasf": "FC Porto",
+      "casa": "ŠK Slovan Bratislava",
+      "trasf": "Real Betis Balompié",
       "score": null,
-      "analisi": "Il Feyenoord affronta il Porto in una sfida di Champions League caratterizzata da grande equilibrio tattico. Gli olandesi fanno affidamento sulla spinta del proprio pubblico e sulla qualità di Sem Steijn in mezzo al campo. Il Porto, solido con il suo 4-4-2, punta sulla fisicità di Santiago Giménez e la regia di Alan Varela per colpire in contropiede. Ci si attende una gara intensa con spazi ridotti e duelli decisivi sulle fasce.",
+      "analisi": "Lo Slovan Bratislava cercherà di sfruttare il fattore campo e la compattezza difensiva per arginare le offensive andaluse.  Gli ospiti partono favoriti grazie a una maggiore esperienza internazionale e a un tasso tecnico superiore in ogni reparto.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Florian Kastenmeier",
-            "Bart Nieuwkoop",
-            "Jerry St. Juste",
-            "Thomas Beelen",
-            "Gijs Smal",
-            "Charles Vanhoutte",
-            "Sem Steijn",
-            "Jakub Moder",
-            "Gonçalo Borges",
-            "Jordan Lotomba",
-            "Luciano Valente"
+            "Dominik Takac",
+            "Jurij Medvedev",
+            "Guram Kashia",
+            "Kevin Wimmer",
+            "Lucas Lovat",
+            "Kankava",
+            "Jaba Kankava",
+            "Tigran Barseghyan",
+            "Aleksandar Cavric",
+            "Vladimir Weiss",
+            "David Strelec"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Diogo Costa",
-            "Martim Fernandes",
-            "Jan Bednarek",
-            "Nehuén Pérez",
-            "Moura",
-            "Pepê",
-            "Alan Varela",
-            "In-beom Hwang",
-            "Borja Sainz",
-            "Gabriel Veiga",
-            "Santiago Giménez"
+            "Álvaro Vallés Rosa",
+            "Héctor Bellerín",
+            "Diego Llorente",
+            "Natan",
+            "Júnior Firpo",
+            "Antony",
+            "Giovani Lo Celso",
+            "Marc Roca",
+            "Abdessamad Ezzalzouli",
+            "Isco",
+            "Cucho Hernández"
           ]
         }
       },
       "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
+        "1": 18,
+        "X": 27,
+        "2": 55
       },
       "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
+        "1X": 45,
+        "X2": 82,
+        "12": 73,
         "GG": 54,
         "NG": 46,
         "U1.5": 32,
@@ -3002,95 +2872,69 @@
         "U3.5": 78,
         "O3.5": 22,
         "MG1-2": 42,
-        "MG1-3": 72,
+        "MG1-3": 70,
         "MG2-3": 50,
         "MG2-4": 62,
-        "MG3-5": 36,
-        "1+O1.5": 48,
-        "1+O2.5": 34,
-        "2+O1.5": 36,
-        "2+O2.5": 26,
-        "1X+O1.5": 54,
-        "X2+O1.5": 46,
-        "1X+GG": 40,
-        "X2+GG": 35,
+        "MG3-5": 38,
+        "1+O1.5": 21,
+        "1+O2.5": 15,
+        "2+O1.5": 58,
+        "2+O2.5": 44,
+        "1X+O1.5": 36,
+        "X2+O1.5": 65,
+        "1X+GG": 30,
+        "X2+GG": 48,
         "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 22,
-        "2+U3.5": 28
+        "1+GG": 20,
+        "2+GG": 38,
+        "2+U3.5": 46
       },
       "possibili_marcatori": [
         {
-          "squadra": "casa",
-          "giocatore": "Sem Steijn",
-          "ruolo": "Centrocampista",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Borges",
+          "squadra": "trasferta",
+          "giocatore": "Cucho Hernández",
           "ruolo": "Attaccante",
-          "prob": 27
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Santiago Giménez",
-          "ruolo": "Attaccante",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gabriel Veiga",
-          "ruolo": "Centrocampista",
-          "prob": 24
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Charles Vanhoutte",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per fermare le ripartenze avversarie",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Bart Nieuwkoop",
-          "ruolo": "Difensore",
-          "motivo": "Duelli costanti contro gli esterni rapidi del Porto sulla fascia",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alan Varela",
-          "ruolo": "Centrocampista",
-          "motivo": "Spendersi in interventi tattici per arginare la qualità di Sem Steijn",
           "prob": 42
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Nehuén Pérez",
+          "giocatore": "Isco",
+          "ruolo": "Centrocampista",
+          "prob": 30
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marc Roca",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per interrompere le ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Diego Llorente",
           "ruolo": "Difensore",
-          "motivo": "Pressione alta e contrasti frequenti al limite dell'area",
-          "prob": 35
+          "motivo": "Duelli fisici ripetuti con gli attaccanti di casa",
+          "prob": 34
         }
       ],
       "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Feyenoord favorito in casa con un match che promette almeno due reti totali."
+        "esito": "2+O1.5",
+        "probabilita": 58,
+        "motivazione_breve": ""
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#FF0000",
+          "#0055A5",
           "#FFFFFF"
         ],
-        "pattern": "half"
+        "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#003399",
+          "#008000",
           "#FFFFFF"
         ],
         "pattern": "vertical"
@@ -3562,6 +3406,162 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 575400,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-24T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Feyenoord Rotterdam",
+      "trasf": "FC Porto",
+      "score": null,
+      "analisi": "Il Feyenoord affronta il Porto in una sfida di Champions League caratterizzata da grande equilibrio tattico. Gli olandesi fanno affidamento sulla spinta del proprio pubblico e sulla qualità di Sem Steijn in mezzo al campo. Il Porto, solido con il suo 4-4-2, punta sulla fisicità di Santiago Giménez e la regia di Alan Varela per colpire in contropiede. Ci si attende una gara intensa con spazi ridotti e duelli decisivi sulle fasce.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Florian Kastenmeier",
+            "Bart Nieuwkoop",
+            "Jerry St. Juste",
+            "Thomas Beelen",
+            "Gijs Smal",
+            "Charles Vanhoutte",
+            "Sem Steijn",
+            "Jakub Moder",
+            "Gonçalo Borges",
+            "Jordan Lotomba",
+            "Luciano Valente"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Diogo Costa",
+            "Martim Fernandes",
+            "Jan Bednarek",
+            "Nehuén Pérez",
+            "Moura",
+            "Pepê",
+            "Alan Varela",
+            "In-beom Hwang",
+            "Borja Sainz",
+            "Gabriel Veiga",
+            "Santiago Giménez"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 28,
+        "2": 30
+      },
+      "mercati_completi": {
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 54,
+        "NG": 46,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 72,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 36,
+        "1+O1.5": 48,
+        "1+O2.5": 34,
+        "2+O1.5": 36,
+        "2+O2.5": 26,
+        "1X+O1.5": 54,
+        "X2+O1.5": 46,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 22,
+        "2+U3.5": 28
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sem Steijn",
+          "ruolo": "Centrocampista",
+          "prob": 32
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Borges",
+          "ruolo": "Attaccante",
+          "prob": 27
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Santiago Giménez",
+          "ruolo": "Attaccante",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Gabriel Veiga",
+          "ruolo": "Centrocampista",
+          "prob": 24
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Charles Vanhoutte",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri in mediana per fermare le ripartenze avversarie",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Bart Nieuwkoop",
+          "ruolo": "Difensore",
+          "motivo": "Duelli costanti contro gli esterni rapidi del Porto sulla fascia",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alan Varela",
+          "ruolo": "Centrocampista",
+          "motivo": "Spendersi in interventi tattici per arginare la qualità di Sem Steijn",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nehuén Pérez",
+          "ruolo": "Difensore",
+          "motivo": "Pressione alta e contrasti frequenti al limite dell'area",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Feyenoord favorito in casa con un match che promette almeno due reti totali."
+      },
+      "affidabilita": 75,
+      "stemma_casa": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#003399",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -4189,162 +4189,6 @@
       }
     },
     {
-      "id": 561961,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-25T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Watford FC",
-      "trasf": "Blackburn Rovers FC",
-      "score": null,
-      "analisi": "Il Watford affronta il Blackburn Rovers in una sfida di Championship molto equilibrata. I padroni di terra puntano sulla spinta di Mavididi e Antonio per scardinare la difesa avversaria. Gli ospiti rispondono con la qualità a centrocampo di Cantwell e il fiuto del gol di Ohashi.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Daniel Bachmann",
-            "Marc Bola",
-            "Matthew Pollock",
-            "Jordan Zemura",
-            "Soumaïla Coulibaly",
-            "Edo Kayembe",
-            "Martín Payero",
-            "Edoardo Bove",
-            "Stephy Mavididi",
-            "Michail Antonio",
-            "Iker Bravo"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Aynsley Pears",
-            "Harry Pickering",
-            "Scott Wharton",
-            "Hayden Carter",
-            "Lewis Miller",
-            "Sam Morsy",
-            "Todd Cantwell",
-            "Adam Forshaw",
-            "Oladapo Afolayan",
-            "Yuki Ohashi",
-            "Andri Guðjohnsen"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
-        "GG": 54,
-        "NG": 46,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 36,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 28,
-        "2+O2.5": 18,
-        "1X+O1.5": 52,
-        "X2+O1.5": 45,
-        "1X+GG": 42,
-        "X2+GG": 38,
-        "GG+O2.5": 46,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 28
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Michail Antonio",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Stephy Mavididi",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Yuki Ohashi",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Todd Cantwell",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Edo Kayembe",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri sulla trequarti difensiva",
-          "prob": 40
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Marc Bola",
-          "ruolo": "Difensore",
-          "motivo": "Duelli veloci con gli esterni ospiti",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Sam Morsy",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per interrompere le ripartenze",
-          "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lewis Miller",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri sugli esterni offensivi",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Watford favorito in casa con almeno due reti complessive nel match."
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#FBEE23",
-          "#ED1C24"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0093D0",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
       "id": 561963,
       "comp": "ELC",
       "compNome": "Championship",
@@ -4501,159 +4345,159 @@
       }
     },
     {
-      "id": 575411,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Sporting Clube de Portugal",
-      "trasf": "Manchester United FC",
+      "id": 561961,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-25T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Watford FC",
+      "trasf": "Blackburn Rovers FC",
       "score": null,
-      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "analisi": "Il Watford affronta il Blackburn Rovers in una sfida di Championship molto equilibrata. I padroni di terra puntano sulla spinta di Mavididi e Antonio per scardinare la difesa avversaria. Gli ospiti rispondono con la qualità a centrocampo di Cantwell e il fiuto del gol di Ohashi.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Rui Silva",
-            "Ivan Fresneda",
-            "Gonçalo Inácio",
-            "Zeno Debast",
-            "Maximiliano Araújo",
-            "Sergi Altimira",
-            "Rodrigo Zalazar",
-            "Geny Catamo",
-            "Luis Suárez",
-            "Fotis Ioannidis",
-            "Luis Guilherme"
+            "Daniel Bachmann",
+            "Marc Bola",
+            "Matthew Pollock",
+            "Jordan Zemura",
+            "Soumaïla Coulibaly",
+            "Edo Kayembe",
+            "Martín Payero",
+            "Edoardo Bove",
+            "Stephy Mavididi",
+            "Michail Antonio",
+            "Iker Bravo"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Senne Lammens",
-            "Noussair Mazraoui",
-            "Matthijs de Ligt",
-            "Lisandro Martínez",
-            "Luke Shaw",
-            "Bryan Mbeumo",
-            "Bruno Fernandes",
-            "Manuel Ugarte",
-            "Marcus Rashford",
-            "Matheus Cunha",
-            "Joshua Zirkzee"
+            "Aynsley Pears",
+            "Harry Pickering",
+            "Scott Wharton",
+            "Hayden Carter",
+            "Lewis Miller",
+            "Sam Morsy",
+            "Todd Cantwell",
+            "Adam Forshaw",
+            "Oladapo Afolayan",
+            "Yuki Ohashi",
+            "Andri Guðjohnsen"
           ]
         }
       },
       "prob_1x2": {
-        "1": 38,
-        "X": 27,
-        "2": 35
+        "1": 42,
+        "X": 28,
+        "2": 30
       },
       "mercati_completi": {
-        "1X": 65,
-        "X2": 62,
-        "12": 73,
-        "GG": 56,
-        "NG": 44,
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 54,
+        "NG": 46,
         "U1.5": 32,
         "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
+        "U2.5": 52,
+        "O2.5": 48,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 38,
-        "MG1-3": 62,
-        "MG2-3": 51,
-        "MG2-4": 67,
-        "MG3-5": 39,
-        "1+O1.5": 42,
-        "1+O2.5": 28,
-        "2+O1.5": 39,
-        "2+O2.5": 25,
-        "1X+O1.5": 48,
-        "X2+O1.5": 46,
-        "1X+GG": 41,
-        "X2+GG": 39,
-        "GG+O2.5": 45,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 36,
+        "1+O1.5": 38,
+        "1+O2.5": 24,
+        "2+O1.5": 28,
+        "2+O2.5": 18,
+        "1X+O1.5": 52,
+        "X2+O1.5": 45,
+        "1X+GG": 42,
+        "X2+GG": 38,
+        "GG+O2.5": 46,
         "1+GG": 22,
-        "2+GG": 20,
-        "2+U3.5": 31
+        "2+GG": 18,
+        "2+U3.5": 28
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luis Suárez",
+          "giocatore": "Michail Antonio",
           "ruolo": "Attaccante",
-          "prob": 34
+          "prob": 35
         },
         {
           "squadra": "casa",
-          "giocatore": "Fotis Ioannidis",
+          "giocatore": "Stephy Mavididi",
           "ruolo": "Attaccante",
-          "prob": 29
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Marcus Rashford",
+          "giocatore": "Yuki Ohashi",
           "ruolo": "Attaccante",
-          "prob": 31
+          "prob": 32
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Bruno Fernandes",
+          "giocatore": "Todd Cantwell",
           "ruolo": "Centrocampista",
-          "prob": 26
+          "prob": 22
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Sergi Altimira",
+          "giocatore": "Edo Kayembe",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
-          "prob": 42
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 40
         },
         {
           "squadra": "casa",
-          "giocatore": "Gonçalo Inácio",
+          "giocatore": "Marc Bola",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
-          "prob": 38
+          "motivo": "Duelli veloci con gli esterni ospiti",
+          "prob": 35
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Manuel Ugarte",
+          "giocatore": "Sam Morsy",
           "ruolo": "Centrocampista",
-          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "motivo": "Falli tattici per interrompere le ripartenze",
           "prob": 45
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Lisandro Martínez",
+          "giocatore": "Lewis Miller",
           "ruolo": "Difensore",
-          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
-          "prob": 40
+          "motivo": "Contrasti duri sugli esterni offensivi",
+          "prob": 38
         }
       ],
       "pronostico_principale": {
         "esito": "1X+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+        "probabilita": 52,
+        "motivazione_breve": "Watford favorito in casa con almeno due reti complessive nel match."
       },
-      "affidabilita": 78,
+      "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#006400",
-          "#ffffff"
+          "#FBEE23",
+          "#ED1C24"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#da291c",
-          "#000000"
+          "#0093D0",
+          "#FFFFFF"
         ],
-        "pattern": "solid"
+        "pattern": "half"
       }
     },
     {
@@ -5125,289 +4969,159 @@
       }
     },
     {
-      "id": 575410,
+      "id": 575411,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-25T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Lille OSC",
-      "trasf": "FC Bayern München",
+      "casa": "Sporting Clube de Portugal",
+      "trasf": "Manchester United FC",
       "score": null,
-      "analisi": "Il Lille OSC affronta il temibile FC Bayern München in questa sfida di Champions League. I francesi puntano sulla solidità casalinga e sull'esperienza di Olivier Giroud in attacco, mentre i bavaresi affidano la manovra offensiva alla qualità di Jamal Musiala e al fiuto del gol di Harry Kane. Ci si aspetta una partita intensa con il Bayern favorito dal punto di vista tecnico e tattico.",
+      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Arnaud Bodart",
-            "Tiago Santos",
-            "Alexsandro Ribeiro",
-            "Nianzou Kouassi",
-            "Romain Perraud",
-            "Benjamin André",
-            "Nabil Bentaleb",
-            "Hákon Arnar Haraldsson",
-            "Dilane Bakwa",
-            "Olivier Giroud",
-            "Osame Sahraoui"
+            "Rui Silva",
+            "Ivan Fresneda",
+            "Gonçalo Inácio",
+            "Zeno Debast",
+            "Maximiliano Araújo",
+            "Sergi Altimira",
+            "Rodrigo Zalazar",
+            "Geny Catamo",
+            "Luis Suárez",
+            "Fotis Ioannidis",
+            "Luis Guilherme"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Manuel Neuer",
-            "Sacha Boey",
-            "Dayot Upamecano",
-            "Jonathan Tah",
-            "Alphonso Davies",
-            "Joshua Kimmich",
-            "Aleksandar Pavlović",
-            "Michael Olise",
-            "Jamal Musiala",
-            "Serge Gnabry",
-            "Harry Kane"
+            "Senne Lammens",
+            "Noussair Mazraoui",
+            "Matthijs de Ligt",
+            "Lisandro Martínez",
+            "Luke Shaw",
+            "Bryan Mbeumo",
+            "Bruno Fernandes",
+            "Manuel Ugarte",
+            "Marcus Rashford",
+            "Matheus Cunha",
+            "Joshua Zirkzee"
           ]
         }
       },
       "prob_1x2": {
-        "1": 18,
-        "X": 25,
-        "2": 57
+        "1": 38,
+        "X": 27,
+        "2": 35
       },
       "mercati_completi": {
-        "1X": 43,
-        "X2": 82,
-        "12": 75,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 22,
-        "1+O2.5": 16,
-        "2+O1.5": 52,
-        "2+O2.5": 44,
-        "1X+O1.5": 35,
-        "X2+O1.5": 65,
-        "1X+GG": 28,
-        "X2+GG": 48,
-        "GG+O2.5": 45,
-        "1+GG": 20,
-        "2+GG": 36,
-        "2+U3.5": 45
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Olivier Giroud",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Ayase Ueda",
-          "ruolo": "Attaccante",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Harry Kane",
-          "ruolo": "Attaccante",
-          "prob": 55
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jamal Musiala",
-          "ruolo": "Centrocampista",
-          "prob": 38
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Benjamin André",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri a centrocampo per fermare Musiala",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Alexsandro Ribeiro",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti contro Harry Kane",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Joshua Kimmich",
-          "ruolo": "Centrocampista",
-          "motivo": "Speso in falli tattici di interruzione",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Dayot Upamecano",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri sulle palle alte con Giroud",
-          "prob": 30
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "2+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Bayern superiore e favorito per la vittoria con almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#E00034",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#DC052D",
-          "#0066B2"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
-      "id": 575406,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "FC Internazionale Milano",
-      "trasf": "VfB Stuttgart",
-      "score": null,
-      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Ivan Provedel",
-            "Benjamin Pavard",
-            "Manuel Akanji",
-            "Alessandro Bastoni",
-            "Nicolò Barella",
-            "Hakan Çalhanoğlu",
-            "Henrikh Mkhitaryan",
-            "Federico Dimarco",
-            "Djed Spence",
-            "Lautaro Martínez",
-            "Marcus Thuram-Ulien"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Alexander Nübel",
-            "Josha Vagnoman",
-            "Dan-Axel Zagadou",
-            "Julian Chabot",
-            "Maximilian Mittelstädt",
-            "Atakan Karazor",
-            "Angelo Stiller",
-            "Jamie Leweling",
-            "Bilal El Khannouss",
-            "Chris Führich",
-            "Deniz Undav"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 55,
-        "X": 25,
-        "2": 20
-      },
-      "mercati_completi": {
-        "1X": 80,
-        "X2": 45,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
+        "1X": 65,
+        "X2": 62,
+        "12": 73,
+        "GG": 56,
+        "NG": 44,
         "U1.5": 32,
         "O1.5": 68,
         "U2.5": 54,
         "O2.5": 46,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 42,
+        "MG1-2": 38,
         "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 38,
-        "1X+GG": 44,
-        "X2+GG": 30,
-        "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 15,
-        "2+U3.5": 18
+        "MG2-3": 51,
+        "MG2-4": 67,
+        "MG3-5": 39,
+        "1+O1.5": 42,
+        "1+O2.5": 28,
+        "2+O1.5": 39,
+        "2+O2.5": 25,
+        "1X+O1.5": 48,
+        "X2+O1.5": 46,
+        "1X+GG": 41,
+        "X2+GG": 39,
+        "GG+O2.5": 45,
+        "1+GG": 22,
+        "2+GG": 20,
+        "2+U3.5": 31
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Lautaro Martínez",
+          "giocatore": "Luis Suárez",
           "ruolo": "Attaccante",
-          "prob": 42
+          "prob": 34
         },
         {
           "squadra": "casa",
-          "giocatore": "Marcus Thuram-Ulien",
+          "giocatore": "Fotis Ioannidis",
           "ruolo": "Attaccante",
-          "prob": 35
+          "prob": 29
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marcus Rashford",
+          "ruolo": "Attaccante",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Bruno Fernandes",
+          "ruolo": "Centrocampista",
+          "prob": 26
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Nicolò Barella",
+          "giocatore": "Sergi Altimira",
           "ruolo": "Centrocampista",
-          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
+          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Inácio",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Atakan Karazor",
+          "giocatore": "Manuel Ugarte",
           "ruolo": "Centrocampista",
-          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
+          "motivo": "Pressing aggressivo e falli tattici sistematici.",
           "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lisandro Martínez",
+          "ruolo": "Difensore",
+          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
+          "prob": 40
         }
       ],
       "pronostico_principale": {
-        "esito": "1+O1.5",
+        "esito": "1X+O1.5",
         "probabilita": 48,
-        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
+        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
       },
-      "affidabilita": 80,
+      "affidabilita": 78,
       "stemma_casa": {
         "colori": [
-          "#000000",
-          "#006699"
+          "#006400",
+          "#ffffff"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#ffffff",
-          "#e30613"
+          "#da291c",
+          "#000000"
         ],
-        "pattern": "horizontal"
+        "pattern": "solid"
       }
     },
     {
@@ -5720,6 +5434,292 @@
           "#f1be48"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 575410,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Lille OSC",
+      "trasf": "FC Bayern München",
+      "score": null,
+      "analisi": "Il Lille OSC affronta il temibile FC Bayern München in questa sfida di Champions League. I francesi puntano sulla solidità casalinga e sull'esperienza di Olivier Giroud in attacco, mentre i bavaresi affidano la manovra offensiva alla qualità di Jamal Musiala e al fiuto del gol di Harry Kane. Ci si aspetta una partita intensa con il Bayern favorito dal punto di vista tecnico e tattico.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Arnaud Bodart",
+            "Tiago Santos",
+            "Alexsandro Ribeiro",
+            "Nianzou Kouassi",
+            "Romain Perraud",
+            "Benjamin André",
+            "Nabil Bentaleb",
+            "Hákon Arnar Haraldsson",
+            "Dilane Bakwa",
+            "Olivier Giroud",
+            "Osame Sahraoui"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Manuel Neuer",
+            "Sacha Boey",
+            "Dayot Upamecano",
+            "Jonathan Tah",
+            "Alphonso Davies",
+            "Joshua Kimmich",
+            "Aleksandar Pavlović",
+            "Michael Olise",
+            "Jamal Musiala",
+            "Serge Gnabry",
+            "Harry Kane"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 18,
+        "X": 25,
+        "2": 57
+      },
+      "mercati_completi": {
+        "1X": 43,
+        "X2": 82,
+        "12": 75,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 62,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 22,
+        "1+O2.5": 16,
+        "2+O1.5": 52,
+        "2+O2.5": 44,
+        "1X+O1.5": 35,
+        "X2+O1.5": 65,
+        "1X+GG": 28,
+        "X2+GG": 48,
+        "GG+O2.5": 45,
+        "1+GG": 20,
+        "2+GG": 36,
+        "2+U3.5": 45
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Olivier Giroud",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ayase Ueda",
+          "ruolo": "Attaccante",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Harry Kane",
+          "ruolo": "Attaccante",
+          "prob": 55
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jamal Musiala",
+          "ruolo": "Centrocampista",
+          "prob": 38
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Benjamin André",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri a centrocampo per fermare Musiala",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alexsandro Ribeiro",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti contro Harry Kane",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joshua Kimmich",
+          "ruolo": "Centrocampista",
+          "motivo": "Speso in falli tattici di interruzione",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Dayot Upamecano",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti duri sulle palle alte con Giroud",
+          "prob": 30
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "2+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Bayern superiore e favorito per la vittoria con almeno due reti complessive."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#E00034",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#DC052D",
+          "#0066B2"
+        ],
+        "pattern": "half"
+      }
+    },
+    {
+      "id": 575406,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "FC Internazionale Milano",
+      "trasf": "VfB Stuttgart",
+      "score": null,
+      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
+      "formazioni": {
+        "casa": {
+          "modulo": "3-5-2",
+          "undici": [
+            "Ivan Provedel",
+            "Benjamin Pavard",
+            "Manuel Akanji",
+            "Alessandro Bastoni",
+            "Nicolò Barella",
+            "Hakan Çalhanoğlu",
+            "Henrikh Mkhitaryan",
+            "Federico Dimarco",
+            "Djed Spence",
+            "Lautaro Martínez",
+            "Marcus Thuram-Ulien"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Alexander Nübel",
+            "Josha Vagnoman",
+            "Dan-Axel Zagadou",
+            "Julian Chabot",
+            "Maximilian Mittelstädt",
+            "Atakan Karazor",
+            "Angelo Stiller",
+            "Jamie Leweling",
+            "Bilal El Khannouss",
+            "Chris Führich",
+            "Deniz Undav"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 55,
+        "X": 25,
+        "2": 20
+      },
+      "mercati_completi": {
+        "1X": 80,
+        "X2": 45,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 62,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 48,
+        "1+O2.5": 32,
+        "2+O1.5": 18,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 38,
+        "1X+GG": 44,
+        "X2+GG": 30,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 15,
+        "2+U3.5": 18
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Lautaro Martínez",
+          "ruolo": "Attaccante",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Marcus Thuram-Ulien",
+          "ruolo": "Attaccante",
+          "prob": 35
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Nicolò Barella",
+          "ruolo": "Centrocampista",
+          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Atakan Karazor",
+          "ruolo": "Centrocampista",
+          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
+          "prob": 45
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
+      },
+      "affidabilita": 80,
+      "stemma_casa": {
+        "colori": [
+          "#000000",
+          "#006699"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#ffffff",
+          "#e30613"
+        ],
+        "pattern": "horizontal"
       }
     },
     {
@@ -7857,318 +7857,6 @@
       }
     },
     {
-      "id": 561960,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-24T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Norwich City FC",
-      "trasf": "Queens Park Rangers FC",
-      "score": null,
-      "analisi": "Il Norwich City affronta il Queens Park Rangers in un match di Championship caratterizzato da un equilibrio tattico a centrocampo. I padroni di casa puntano sulla spinta dei propri esterni per scardinare la retroguardia avversaria. Gli ospiti, dal canto loro, prediligono una difesa solida e ripartenze veloci per colpire di rimessa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Daniel Grimshaw",
-            "Jack Stacey",
-            "Harry Darling",
-            "José Cordoba",
-            "Benjamin Chrisene",
-            "Kenny McLean",
-            "Anis Ben Slimane",
-            "Mirko Topić",
-            "Anthony Musaba",
-            "Mohamed Toure",
-            "Oscar Schwartau"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Calum Ward",
-            "Tariq Lamptey",
-            "Jake Clarke-Salter",
-            "Jimmy Dunne",
-            "Dennis Cirkin",
-            "Ilias Chair",
-            "Glen Kamara",
-            "Nicolas Madsen",
-            "Karamoko Dembélé",
-            "Kwame Poku",
-            "Richard Kone"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 68,
-        "MG2-3": 51,
-        "MG2-4": 74,
-        "MG3-5": 38,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 21,
-        "2+O2.5": 14,
-        "1X+O1.5": 52,
-        "X2+O1.5": 41,
-        "1X+GG": 40,
-        "X2+GG": 34,
-        "GG+O2.5": 44,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 23
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Mohamed Toure",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Oscar Schwartau",
-          "ruolo": "Centrocampista",
-          "prob": 24
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ilias Chair",
-          "ruolo": "Centrocampista",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Richard Kone",
-          "ruolo": "Attaccante",
-          "prob": 26
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kenny McLean",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze avversarie",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Harry Darling",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jimmy Dunne",
-          "ruolo": "Difensore",
-          "motivo": "Falli tattici per arginare la velocità degli esterni di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Glen Kamara",
-          "ruolo": "Centrocampista",
-          "motivo": "Sanato per eccesso di foga nel recupero palla in mediana",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 38,
-        "motivazione_breve": "Vittoria interna probabile con almeno due reti complessive nel match."
-      },
-      "affidabilita": 72,
-      "stemma_casa": {
-        "color5": [
-          "#00A650",
-          "#FFF200"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#00539F",
-          "#FFFFFF"
-        ],
-        "pattern": "horizontal"
-      }
-    },
-    {
-      "id": 561956,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-24T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Sheffield United FC",
-      "trasf": "Southampton FC",
-      "score": null,
-      "analisi": "Lo Sheffield United affronta il Southampton in una classica sfida di alta classifica in Championship, caratterizzata da grande intensità fisica e solidità difensiva. I padroni di casa fanno affidamento sulla spinta del proprio pubblico e sulla qualità di elementi come Kalvin Phillips e Patrick Bamford. Gli ospiti rispondono con la regia di James Ward-Prowse e la velocità sulle fasce, promettendo un duello tattico molto equilibrato a centrocampo.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Michael Cooper",
-            "Matt Doherty",
-            "Japhet Tanganga",
-            "Mark McGuinness",
-            "Harrison Burrows",
-            "Kalvin Phillips",
-            "Joe Rothwell",
-            "Ollie Arblaster",
-            "Tahith Chong",
-            "Patrick Bamford",
-            "Ben Brereton"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Aaron Ramsdale",
-            "James Bree",
-            "Jack Stephens",
-            "Nathan Wood-Gordon",
-            "Ryan Manning",
-            "James Ward-Prowse",
-            "Flynn Downes",
-            "Tom Fellows",
-            "Léo Scienza",
-            "Cyle Larin",
-            "Samuel Edozie"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 31,
-        "2": 27
-      },
-      "mercati_completi": {
-        "1X": 73,
-        "X2": 58,
-        "12": 69,
-        "GG": 53,
-        "NG": 47,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 69,
-        "MG2-3": 51,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 31,
-        "1+O2.5": 21,
-        "2+O1.5": 20,
-        "2+O2.5": 13,
-        "1X+O1.5": 52,
-        "X2+O1.5": 43,
-        "1X+GG": 40,
-        "X2+GG": 33,
-        "GG+O2.5": 41,
-        "1+GG": 23,
-        "2+GG": 15,
-        "2+U3.5": 25
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Patrick Bamford",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Ben Brereton",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cyle Larin",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "James Ward-Prowse",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kalvin Phillips",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici di interruzione a centrocampo",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Japhet Tanganga",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ravvicinati con gli attaccanti avversari",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Flynn Downes",
-          "ruolo": "Centrocampista",
-          "motivo": "Pressione costante e falli sistematici in mediana",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jack Stephens",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri per arginare le ripartenze veloci",
-          "prob": 36
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Fattore campo favorevole allo Sheffield e match con almeno due reti complessive."
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#EE2737",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#D71920",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
       "id": 561958,
       "comp": "ELC",
       "compNome": "Championship",
@@ -8481,159 +8169,315 @@
       }
     },
     {
-      "id": 561955,
+      "id": 561960,
       "comp": "ELC",
       "compNome": "Championship",
       "data": "2026-11-24T19:45:00Z",
       "stato": "SCHEDULED",
-      "casa": "Portsmouth FC",
-      "trasf": "West Ham United FC",
+      "casa": "Norwich City FC",
+      "trasf": "Queens Park Rangers FC",
       "score": null,
-      "analisi": "Il Portsmouth affronta il West Ham in un match di Championship dal divario tecnico evidente sulla carta. Gli Hammers vantano una rosa di categoria superiore con individualità offensive di spicco come Jarrod Bowen e Valentín Castellanos. Il Portsmouth cercherà di chiudere gli spazi affidandosi al proprio pubblico e alla compattezza difensiva. La maggiore qualità ospite dovrebbe tuttavia prevalere nel corso dei novanta minuti.",
+      "analisi": "Il Norwich City affronta il Queens Park Rangers in un match di Championship caratterizzato da un equilibrio tattico a centrocampo. I padroni di casa puntano sulla spinta dei propri esterni per scardinare la retroguardia avversaria. Gli ospiti, dal canto loro, prediligono una difesa solida e ripartenze veloci per colpire di rimessa.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Nicolas Schmid",
-            "Terry Devlin",
-            "Conor Shaughnessy",
-            "Regan Poole",
-            "Connor Ogilvie",
-            "Marlon Pack",
-            "John Swift",
-            "Rocco Robert Shein",
-            "Josh Murphy",
-            "Colby Bishop",
-            "Keshi Anderson"
+            "Daniel Grimshaw",
+            "Jack Stacey",
+            "Harry Darling",
+            "José Cordoba",
+            "Benjamin Chrisene",
+            "Kenny McLean",
+            "Anis Ben Slimane",
+            "Mirko Topić",
+            "Anthony Musaba",
+            "Mohamed Toure",
+            "Oscar Schwartau"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Alphonse Aréola",
-            "Kyle Walker-Peters",
-            "Konstantinos Mavropanos",
-            "Max Kilman",
-            "Joël Veltman",
-            "Jarrod Bowen",
-            "Edson Álvarez",
-            "Tomáš Souček",
-            "Manor Solomon",
-            "Valentín Castellanos",
-            "Joël Piroe"
+            "Calum Ward",
+            "Tariq Lamptey",
+            "Jake Clarke-Salter",
+            "Jimmy Dunne",
+            "Dennis Cirkin",
+            "Ilias Chair",
+            "Glen Kamara",
+            "Nicolas Madsen",
+            "Karamoko Dembélé",
+            "Kwame Poku",
+            "Richard Kone"
           ]
         }
       },
       "prob_1x2": {
-        "1": 22,
-        "X": 28,
-        "2": 50
+        "1": 45,
+        "X": 30,
+        "2": 25
       },
       "mercati_completi": {
-        "1X": 50,
-        "X2": 78,
-        "12": 72,
-        "GG": 54,
-        "NG": 46,
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
         "U1.5": 33,
         "O1.5": 67,
-        "U2.5": 55,
-        "O2.5": 45,
-        "U3.5": 74,
-        "O3.5": 26,
-        "MG1-2": 38,
-        "MG1-3": 62,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 68,
         "MG2-3": 51,
-        "MG2-4": 65,
-        "MG3-5": 39,
-        "1+O1.5": 20,
-        "1+O2.5": 14,
-        "2+O1.5": 42,
-        "2+O2.5": 31,
-        "1X+O1.5": 38,
-        "X2+O1.5": 60,
-        "1X+GG": 30,
-        "X2+GG": 44,
-        "GG+O2.5": 48,
-        "1+GG": 16,
-        "2+GG": 35,
-        "2+U3.5": 39
+        "MG2-4": 74,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 24,
+        "2+O1.5": 21,
+        "2+O2.5": 14,
+        "1X+O1.5": 52,
+        "X2+O1.5": 41,
+        "1X+GG": 40,
+        "X2+GG": 34,
+        "GG+O2.5": 44,
+        "1+GG": 22,
+        "2+GG": 18,
+        "2+U3.5": 23
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Colby Bishop",
+          "giocatore": "Mohamed Toure",
           "ruolo": "Attaccante",
-          "prob": 25
+          "prob": 32
         },
         {
           "squadra": "casa",
-          "giocatore": "Josh Murphy",
-          "ruolo": "Attaccante",
-          "prob": 20
+          "giocatore": "Oscar Schwartau",
+          "ruolo": "Centrocampista",
+          "prob": 24
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Valentín Castellanos",
-          "ruolo": "Attaccante",
-          "prob": 40
+          "giocatore": "Ilias Chair",
+          "ruolo": "Centrocampista",
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Jarrod Bowen",
+          "giocatore": "Richard Kone",
           "ruolo": "Attaccante",
-          "prob": 35
+          "prob": 26
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Marlon Pack",
+          "giocatore": "Kenny McLean",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici per fermare le ripartenze avversarie",
+          "motivo": "Interventi fallosi sistematici per bloccare le ripartenze avversarie",
           "prob": 42
         },
         {
           "squadra": "casa",
-          "giocatore": "Conor Shaughnessy",
+          "giocatore": "Harry Darling",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti ospiti",
+          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Edson Álvarez",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri a centrocampo",
-          "prob": 45
+          "giocatore": "Jimmy Dunne",
+          "ruolo": "Difensore",
+          "motivo": "Falli tattici per arginare la velocità degli esterni di casa",
+          "prob": 40
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Joël Veltman",
-          "ruolo": "Difensore",
-          "motivo": "Falli di contenimento sulle corsie laterali",
+          "giocatore": "Glen Kamara",
+          "ruolo": "Centrocampista",
+          "motivo": "Sanato per eccesso di foga nel recupero palla in mediana",
           "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 60,
-        "motivazione_breve": "Il West Ham ha maggiore qualità e dovrebbe evitare la sconfitta in un match da almeno due gol."
+        "esito": "1+O1.5",
+        "probabilita": 38,
+        "motivazione_breve": "Vittoria interna probabile con almeno due reti complessive nel match."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "color5": [
+          "#00A650",
+          "#FFF200"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#00539F",
+          "#FFFFFF"
+        ],
+        "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 561956,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-24T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Sheffield United FC",
+      "trasf": "Southampton FC",
+      "score": null,
+      "analisi": "Lo Sheffield United affronta il Southampton in una classica sfida di alta classifica in Championship, caratterizzata da grande intensità fisica e solidità difensiva. I padroni di casa fanno affidamento sulla spinta del proprio pubblico e sulla qualità di elementi come Kalvin Phillips e Patrick Bamford. Gli ospiti rispondono con la regia di James Ward-Prowse e la velocità sulle fasce, promettendo un duello tattico molto equilibrato a centrocampo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Michael Cooper",
+            "Matt Doherty",
+            "Japhet Tanganga",
+            "Mark McGuinness",
+            "Harrison Burrows",
+            "Kalvin Phillips",
+            "Joe Rothwell",
+            "Ollie Arblaster",
+            "Tahith Chong",
+            "Patrick Bamford",
+            "Ben Brereton"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Aaron Ramsdale",
+            "James Bree",
+            "Jack Stephens",
+            "Nathan Wood-Gordon",
+            "Ryan Manning",
+            "James Ward-Prowse",
+            "Flynn Downes",
+            "Tom Fellows",
+            "Léo Scienza",
+            "Cyle Larin",
+            "Samuel Edozie"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 31,
+        "2": 27
+      },
+      "mercati_completi": {
+        "1X": 73,
+        "X2": 58,
+        "12": 69,
+        "GG": 53,
+        "NG": 47,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 69,
+        "MG2-3": 51,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 31,
+        "1+O2.5": 21,
+        "2+O1.5": 20,
+        "2+O2.5": 13,
+        "1X+O1.5": 52,
+        "X2+O1.5": 43,
+        "1X+GG": 40,
+        "X2+GG": 33,
+        "GG+O2.5": 41,
+        "1+GG": 23,
+        "2+GG": 15,
+        "2+U3.5": 25
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Patrick Bamford",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ben Brereton",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cyle Larin",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "James Ward-Prowse",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Kalvin Phillips",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi tattici di interruzione a centrocampo",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Japhet Tanganga",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ravvicinati con gli attaccanti avversari",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Flynn Downes",
+          "ruolo": "Centrocampista",
+          "motivo": "Pressione costante e falli sistematici in mediana",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jack Stephens",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti duri per arginare le ripartenze veloci",
+          "prob": 36
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Fattore campo favorevole allo Sheffield e match con almeno due reti complessive."
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#001489",
+          "#EE2737",
           "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#7A263A",
-          "#1BB1E7"
+          "#D71920",
+          "#FFFFFF"
         ],
-        "pattern": "solid"
+        "pattern": "vertical"
       }
     },
     {
@@ -8949,133 +8793,159 @@
       }
     },
     {
-      "id": 575401,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-24T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "ŠK Slovan Bratislava",
-      "trasf": "Real Betis Balompié",
+      "id": 561955,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-24T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Portsmouth FC",
+      "trasf": "West Ham United FC",
       "score": null,
-      "analisi": "Lo Slovan Bratislava cercherà di sfruttare il fattore campo e la compattezza difensiva per arginare le offensive andaluse.  Gli ospiti partono favoriti grazie a una maggiore esperienza internazionale e a un tasso tecnico superiore in ogni reparto.",
+      "analisi": "Il Portsmouth affronta il West Ham in un match di Championship dal divario tecnico evidente sulla carta. Gli Hammers vantano una rosa di categoria superiore con individualità offensive di spicco come Jarrod Bowen e Valentín Castellanos. Il Portsmouth cercherà di chiudere gli spazi affidandosi al proprio pubblico e alla compattezza difensiva. La maggiore qualità ospite dovrebbe tuttavia prevalere nel corso dei novanta minuti.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Dominik Takac",
-            "Jurij Medvedev",
-            "Guram Kashia",
-            "Kevin Wimmer",
-            "Lucas Lovat",
-            "Kankava",
-            "Jaba Kankava",
-            "Tigran Barseghyan",
-            "Aleksandar Cavric",
-            "Vladimir Weiss",
-            "David Strelec"
+            "Nicolas Schmid",
+            "Terry Devlin",
+            "Conor Shaughnessy",
+            "Regan Poole",
+            "Connor Ogilvie",
+            "Marlon Pack",
+            "John Swift",
+            "Rocco Robert Shein",
+            "Josh Murphy",
+            "Colby Bishop",
+            "Keshi Anderson"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Álvaro Vallés Rosa",
-            "Héctor Bellerín",
-            "Diego Llorente",
-            "Natan",
-            "Júnior Firpo",
-            "Antony",
-            "Giovani Lo Celso",
-            "Marc Roca",
-            "Abdessamad Ezzalzouli",
-            "Isco",
-            "Cucho Hernández"
+            "Alphonse Aréola",
+            "Kyle Walker-Peters",
+            "Konstantinos Mavropanos",
+            "Max Kilman",
+            "Joël Veltman",
+            "Jarrod Bowen",
+            "Edson Álvarez",
+            "Tomáš Souček",
+            "Manor Solomon",
+            "Valentín Castellanos",
+            "Joël Piroe"
           ]
         }
       },
       "prob_1x2": {
-        "1": 18,
-        "X": 27,
-        "2": 55
+        "1": 22,
+        "X": 28,
+        "2": 50
       },
       "mercati_completi": {
-        "1X": 45,
-        "X2": 82,
-        "12": 73,
+        "1X": 50,
+        "X2": 78,
+        "12": 72,
         "GG": 54,
         "NG": 46,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 70,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 21,
-        "1+O2.5": 15,
-        "2+O1.5": 58,
-        "2+O2.5": 44,
-        "1X+O1.5": 36,
-        "X2+O1.5": 65,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 55,
+        "O2.5": 45,
+        "U3.5": 74,
+        "O3.5": 26,
+        "MG1-2": 38,
+        "MG1-3": 62,
+        "MG2-3": 51,
+        "MG2-4": 65,
+        "MG3-5": 39,
+        "1+O1.5": 20,
+        "1+O2.5": 14,
+        "2+O1.5": 42,
+        "2+O2.5": 31,
+        "1X+O1.5": 38,
+        "X2+O1.5": 60,
         "1X+GG": 30,
-        "X2+GG": 48,
-        "GG+O2.5": 42,
-        "1+GG": 20,
-        "2+GG": 38,
-        "2+U3.5": 46
+        "X2+GG": 44,
+        "GG+O2.5": 48,
+        "1+GG": 16,
+        "2+GG": 35,
+        "2+U3.5": 39
       },
       "possibili_marcatori": [
         {
-          "squadra": "trasferta",
-          "giocatore": "Cucho Hernández",
+          "squadra": "casa",
+          "giocatore": "Colby Bishop",
           "ruolo": "Attaccante",
-          "prob": 42
+          "prob": 25
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Josh Murphy",
+          "ruolo": "Attaccante",
+          "prob": 20
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Isco",
-          "ruolo": "Centrocampista",
-          "prob": 30
+          "giocatore": "Valentín Castellanos",
+          "ruolo": "Attaccante",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jarrod Bowen",
+          "ruolo": "Attaccante",
+          "prob": 35
         }
       ],
       "possibili_ammoniti": [
         {
-          "squadra": "trasferta",
-          "giocatore": "Marc Roca",
+          "squadra": "casa",
+          "giocatore": "Marlon Pack",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per interrompere le ripartenze avversarie",
+          "motivo": "Interventi tattici per fermare le ripartenze avversarie",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Conor Shaughnessy",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti ospiti",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Diego Llorente",
+          "giocatore": "Edson Álvarez",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri a centrocampo",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joël Veltman",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti di casa",
-          "prob": 34
+          "motivo": "Falli di contenimento sulle corsie laterali",
+          "prob": 35
         }
       ],
       "pronostico_principale": {
-        "esito": "2+O1.5",
-        "probabilita": 58,
-        "motivazione_breve": ""
+        "esito": "X2+O1.5",
+        "probabilita": 60,
+        "motivazione_breve": "Il West Ham ha maggiore qualità e dovrebbe evitare la sconfitta in un match da almeno due gol."
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#0055A5",
+          "#001489",
           "#FFFFFF"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#008000",
-          "#FFFFFF"
+          "#7A263A",
+          "#1BB1E7"
         ],
-        "pattern": "vertical"
+        "pattern": "solid"
       }
     },
     {
@@ -9547,58 +9417,58 @@
       }
     },
     {
-      "id": 575400,
+      "id": 575401,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-24T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Feyenoord Rotterdam",
-      "trasf": "FC Porto",
+      "casa": "ŠK Slovan Bratislava",
+      "trasf": "Real Betis Balompié",
       "score": null,
-      "analisi": "Il Feyenoord affronta il Porto in una sfida di Champions League caratterizzata da grande equilibrio tattico. Gli olandesi fanno affidamento sulla spinta del proprio pubblico e sulla qualità di Sem Steijn in mezzo al campo. Il Porto, solido con il suo 4-4-2, punta sulla fisicità di Santiago Giménez e la regia di Alan Varela per colpire in contropiede. Ci si attende una gara intensa con spazi ridotti e duelli decisivi sulle fasce.",
+      "analisi": "Lo Slovan Bratislava cercherà di sfruttare il fattore campo e la compattezza difensiva per arginare le offensive andaluse.  Gli ospiti partono favoriti grazie a una maggiore esperienza internazionale e a un tasso tecnico superiore in ogni reparto.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Florian Kastenmeier",
-            "Bart Nieuwkoop",
-            "Jerry St. Juste",
-            "Thomas Beelen",
-            "Gijs Smal",
-            "Charles Vanhoutte",
-            "Sem Steijn",
-            "Jakub Moder",
-            "Gonçalo Borges",
-            "Jordan Lotomba",
-            "Luciano Valente"
+            "Dominik Takac",
+            "Jurij Medvedev",
+            "Guram Kashia",
+            "Kevin Wimmer",
+            "Lucas Lovat",
+            "Kankava",
+            "Jaba Kankava",
+            "Tigran Barseghyan",
+            "Aleksandar Cavric",
+            "Vladimir Weiss",
+            "David Strelec"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Diogo Costa",
-            "Martim Fernandes",
-            "Jan Bednarek",
-            "Nehuén Pérez",
-            "Moura",
-            "Pepê",
-            "Alan Varela",
-            "In-beom Hwang",
-            "Borja Sainz",
-            "Gabriel Veiga",
-            "Santiago Giménez"
+            "Álvaro Vallés Rosa",
+            "Héctor Bellerín",
+            "Diego Llorente",
+            "Natan",
+            "Júnior Firpo",
+            "Antony",
+            "Giovani Lo Celso",
+            "Marc Roca",
+            "Abdessamad Ezzalzouli",
+            "Isco",
+            "Cucho Hernández"
           ]
         }
       },
       "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
+        "1": 18,
+        "X": 27,
+        "2": 55
       },
       "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
+        "1X": 45,
+        "X2": 82,
+        "12": 73,
         "GG": 54,
         "NG": 46,
         "U1.5": 32,
@@ -9608,95 +9478,69 @@
         "U3.5": 78,
         "O3.5": 22,
         "MG1-2": 42,
-        "MG1-3": 72,
+        "MG1-3": 70,
         "MG2-3": 50,
         "MG2-4": 62,
-        "MG3-5": 36,
-        "1+O1.5": 48,
-        "1+O2.5": 34,
-        "2+O1.5": 36,
-        "2+O2.5": 26,
-        "1X+O1.5": 54,
-        "X2+O1.5": 46,
-        "1X+GG": 40,
-        "X2+GG": 35,
+        "MG3-5": 38,
+        "1+O1.5": 21,
+        "1+O2.5": 15,
+        "2+O1.5": 58,
+        "2+O2.5": 44,
+        "1X+O1.5": 36,
+        "X2+O1.5": 65,
+        "1X+GG": 30,
+        "X2+GG": 48,
         "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 22,
-        "2+U3.5": 28
+        "1+GG": 20,
+        "2+GG": 38,
+        "2+U3.5": 46
       },
       "possibili_marcatori": [
         {
-          "squadra": "casa",
-          "giocatore": "Sem Steijn",
-          "ruolo": "Centrocampista",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Borges",
+          "squadra": "trasferta",
+          "giocatore": "Cucho Hernández",
           "ruolo": "Attaccante",
-          "prob": 27
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Santiago Giménez",
-          "ruolo": "Attaccante",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Gabriel Veiga",
-          "ruolo": "Centrocampista",
-          "prob": 24
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Charles Vanhoutte",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per fermare le ripartenze avversarie",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Bart Nieuwkoop",
-          "ruolo": "Difensore",
-          "motivo": "Duelli costanti contro gli esterni rapidi del Porto sulla fascia",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alan Varela",
-          "ruolo": "Centrocampista",
-          "motivo": "Spendersi in interventi tattici per arginare la qualità di Sem Steijn",
           "prob": 42
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Nehuén Pérez",
+          "giocatore": "Isco",
+          "ruolo": "Centrocampista",
+          "prob": 30
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marc Roca",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per interrompere le ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Diego Llorente",
           "ruolo": "Difensore",
-          "motivo": "Pressione alta e contrasti frequenti al limite dell'area",
-          "prob": 35
+          "motivo": "Duelli fisici ripetuti con gli attaccanti di casa",
+          "prob": 34
         }
       ],
       "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Feyenoord favorito in casa con un match che promette almeno due reti totali."
+        "esito": "2+O1.5",
+        "probabilita": 58,
+        "motivazione_breve": ""
       },
       "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#FF0000",
+          "#0055A5",
           "#FFFFFF"
         ],
-        "pattern": "half"
+        "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#003399",
+          "#008000",
           "#FFFFFF"
         ],
         "pattern": "vertical"
@@ -10168,6 +10012,162 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 575400,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-24T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Feyenoord Rotterdam",
+      "trasf": "FC Porto",
+      "score": null,
+      "analisi": "Il Feyenoord affronta il Porto in una sfida di Champions League caratterizzata da grande equilibrio tattico. Gli olandesi fanno affidamento sulla spinta del proprio pubblico e sulla qualità di Sem Steijn in mezzo al campo. Il Porto, solido con il suo 4-4-2, punta sulla fisicità di Santiago Giménez e la regia di Alan Varela per colpire in contropiede. Ci si attende una gara intensa con spazi ridotti e duelli decisivi sulle fasce.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Florian Kastenmeier",
+            "Bart Nieuwkoop",
+            "Jerry St. Juste",
+            "Thomas Beelen",
+            "Gijs Smal",
+            "Charles Vanhoutte",
+            "Sem Steijn",
+            "Jakub Moder",
+            "Gonçalo Borges",
+            "Jordan Lotomba",
+            "Luciano Valente"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Diogo Costa",
+            "Martim Fernandes",
+            "Jan Bednarek",
+            "Nehuén Pérez",
+            "Moura",
+            "Pepê",
+            "Alan Varela",
+            "In-beom Hwang",
+            "Borja Sainz",
+            "Gabriel Veiga",
+            "Santiago Giménez"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 28,
+        "2": 30
+      },
+      "mercati_completi": {
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 54,
+        "NG": 46,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 72,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 36,
+        "1+O1.5": 48,
+        "1+O2.5": 34,
+        "2+O1.5": 36,
+        "2+O2.5": 26,
+        "1X+O1.5": 54,
+        "X2+O1.5": 46,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 22,
+        "2+U3.5": 28
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sem Steijn",
+          "ruolo": "Centrocampista",
+          "prob": 32
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Borges",
+          "ruolo": "Attaccante",
+          "prob": 27
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Santiago Giménez",
+          "ruolo": "Attaccante",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Gabriel Veiga",
+          "ruolo": "Centrocampista",
+          "prob": 24
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Charles Vanhoutte",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri in mediana per fermare le ripartenze avversarie",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Bart Nieuwkoop",
+          "ruolo": "Difensore",
+          "motivo": "Duelli costanti contro gli esterni rapidi del Porto sulla fascia",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Alan Varela",
+          "ruolo": "Centrocampista",
+          "motivo": "Spendersi in interventi tattici per arginare la qualità di Sem Steijn",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Nehuén Pérez",
+          "ruolo": "Difensore",
+          "motivo": "Pressione alta e contrasti frequenti al limite dell'area",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Feyenoord favorito in casa con un match che promette almeno due reti totali."
+      },
+      "affidabilita": 75,
+      "stemma_casa": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#003399",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
       }
     },
     {
@@ -10795,162 +10795,6 @@
       }
     },
     {
-      "id": 561961,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-25T19:45:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Watford FC",
-      "trasf": "Blackburn Rovers FC",
-      "score": null,
-      "analisi": "Il Watford affronta il Blackburn Rovers in una sfida di Championship molto equilibrata. I padroni di terra puntano sulla spinta di Mavididi e Antonio per scardinare la difesa avversaria. Gli ospiti rispondono con la qualità a centrocampo di Cantwell e il fiuto del gol di Ohashi.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Daniel Bachmann",
-            "Marc Bola",
-            "Matthew Pollock",
-            "Jordan Zemura",
-            "Soumaïla Coulibaly",
-            "Edo Kayembe",
-            "Martín Payero",
-            "Edoardo Bove",
-            "Stephy Mavididi",
-            "Michail Antonio",
-            "Iker Bravo"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Aynsley Pears",
-            "Harry Pickering",
-            "Scott Wharton",
-            "Hayden Carter",
-            "Lewis Miller",
-            "Sam Morsy",
-            "Todd Cantwell",
-            "Adam Forshaw",
-            "Oladapo Afolayan",
-            "Yuki Ohashi",
-            "Andri Guðjohnsen"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
-        "GG": 54,
-        "NG": 46,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 36,
-        "1+O1.5": 38,
-        "1+O2.5": 24,
-        "2+O1.5": 28,
-        "2+O2.5": 18,
-        "1X+O1.5": 52,
-        "X2+O1.5": 45,
-        "1X+GG": 42,
-        "X2+GG": 38,
-        "GG+O2.5": 46,
-        "1+GG": 22,
-        "2+GG": 18,
-        "2+U3.5": 28
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Michail Antonio",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Stephy Mavididi",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Yuki Ohashi",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Todd Cantwell",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Edo Kayembe",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri sulla trequarti difensiva",
-          "prob": 40
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Marc Bola",
-          "ruolo": "Difensore",
-          "motivo": "Duelli veloci con gli esterni ospiti",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Sam Morsy",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per interrompere le ripartenze",
-          "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lewis Miller",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri sugli esterni offensivi",
-          "prob": 38
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Watford favorito in casa con almeno due reti complessive nel match."
-      },
-      "affidabilita": 75,
-      "stemma_casa": {
-        "colori": [
-          "#FBEE23",
-          "#ED1C24"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0093D0",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
       "id": 561963,
       "comp": "ELC",
       "compNome": "Championship",
@@ -11107,159 +10951,159 @@
       }
     },
     {
-      "id": 575411,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Sporting Clube de Portugal",
-      "trasf": "Manchester United FC",
+      "id": 561961,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-25T19:45:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Watford FC",
+      "trasf": "Blackburn Rovers FC",
       "score": null,
-      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "analisi": "Il Watford affronta il Blackburn Rovers in una sfida di Championship molto equilibrata. I padroni di terra puntano sulla spinta di Mavididi e Antonio per scardinare la difesa avversaria. Gli ospiti rispondono con la qualità a centrocampo di Cantwell e il fiuto del gol di Ohashi.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Rui Silva",
-            "Ivan Fresneda",
-            "Gonçalo Inácio",
-            "Zeno Debast",
-            "Maximiliano Araújo",
-            "Sergi Altimira",
-            "Rodrigo Zalazar",
-            "Geny Catamo",
-            "Luis Suárez",
-            "Fotis Ioannidis",
-            "Luis Guilherme"
+            "Daniel Bachmann",
+            "Marc Bola",
+            "Matthew Pollock",
+            "Jordan Zemura",
+            "Soumaïla Coulibaly",
+            "Edo Kayembe",
+            "Martín Payero",
+            "Edoardo Bove",
+            "Stephy Mavididi",
+            "Michail Antonio",
+            "Iker Bravo"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Senne Lammens",
-            "Noussair Mazraoui",
-            "Matthijs de Ligt",
-            "Lisandro Martínez",
-            "Luke Shaw",
-            "Bryan Mbeumo",
-            "Bruno Fernandes",
-            "Manuel Ugarte",
-            "Marcus Rashford",
-            "Matheus Cunha",
-            "Joshua Zirkzee"
+            "Aynsley Pears",
+            "Harry Pickering",
+            "Scott Wharton",
+            "Hayden Carter",
+            "Lewis Miller",
+            "Sam Morsy",
+            "Todd Cantwell",
+            "Adam Forshaw",
+            "Oladapo Afolayan",
+            "Yuki Ohashi",
+            "Andri Guðjohnsen"
           ]
         }
       },
       "prob_1x2": {
-        "1": 38,
-        "X": 27,
-        "2": 35
+        "1": 42,
+        "X": 28,
+        "2": 30
       },
       "mercati_completi": {
-        "1X": 65,
-        "X2": 62,
-        "12": 73,
-        "GG": 56,
-        "NG": 44,
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 54,
+        "NG": 46,
         "U1.5": 32,
         "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
+        "U2.5": 52,
+        "O2.5": 48,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 38,
-        "MG1-3": 62,
-        "MG2-3": 51,
-        "MG2-4": 67,
-        "MG3-5": 39,
-        "1+O1.5": 42,
-        "1+O2.5": 28,
-        "2+O1.5": 39,
-        "2+O2.5": 25,
-        "1X+O1.5": 48,
-        "X2+O1.5": 46,
-        "1X+GG": 41,
-        "X2+GG": 39,
-        "GG+O2.5": 45,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 36,
+        "1+O1.5": 38,
+        "1+O2.5": 24,
+        "2+O1.5": 28,
+        "2+O2.5": 18,
+        "1X+O1.5": 52,
+        "X2+O1.5": 45,
+        "1X+GG": 42,
+        "X2+GG": 38,
+        "GG+O2.5": 46,
         "1+GG": 22,
-        "2+GG": 20,
-        "2+U3.5": 31
+        "2+GG": 18,
+        "2+U3.5": 28
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luis Suárez",
+          "giocatore": "Michail Antonio",
           "ruolo": "Attaccante",
-          "prob": 34
+          "prob": 35
         },
         {
           "squadra": "casa",
-          "giocatore": "Fotis Ioannidis",
+          "giocatore": "Stephy Mavididi",
           "ruolo": "Attaccante",
-          "prob": 29
+          "prob": 28
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Marcus Rashford",
+          "giocatore": "Yuki Ohashi",
           "ruolo": "Attaccante",
-          "prob": 31
+          "prob": 32
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Bruno Fernandes",
+          "giocatore": "Todd Cantwell",
           "ruolo": "Centrocampista",
-          "prob": 26
+          "prob": 22
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Sergi Altimira",
+          "giocatore": "Edo Kayembe",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
-          "prob": 42
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 40
         },
         {
           "squadra": "casa",
-          "giocatore": "Gonçalo Inácio",
+          "giocatore": "Marc Bola",
           "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
-          "prob": 38
+          "motivo": "Duelli veloci con gli esterni ospiti",
+          "prob": 35
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Manuel Ugarte",
+          "giocatore": "Sam Morsy",
           "ruolo": "Centrocampista",
-          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "motivo": "Falli tattici per interrompere le ripartenze",
           "prob": 45
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Lisandro Martínez",
+          "giocatore": "Lewis Miller",
           "ruolo": "Difensore",
-          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
-          "prob": 40
+          "motivo": "Contrasti duri sugli esterni offensivi",
+          "prob": 38
         }
       ],
       "pronostico_principale": {
         "esito": "1X+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+        "probabilita": 52,
+        "motivazione_breve": "Watford favorito in casa con almeno due reti complessive nel match."
       },
-      "affidabilita": 78,
+      "affidabilita": 75,
       "stemma_casa": {
         "colori": [
-          "#006400",
-          "#ffffff"
+          "#FBEE23",
+          "#ED1C24"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#da291c",
-          "#000000"
+          "#0093D0",
+          "#FFFFFF"
         ],
-        "pattern": "solid"
+        "pattern": "half"
       }
     },
     {
@@ -11731,289 +11575,159 @@
       }
     },
     {
-      "id": 575410,
+      "id": 575411,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-25T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Lille OSC",
-      "trasf": "FC Bayern München",
+      "casa": "Sporting Clube de Portugal",
+      "trasf": "Manchester United FC",
       "score": null,
-      "analisi": "Il Lille OSC affronta il temibile FC Bayern München in questa sfida di Champions League. I francesi puntano sulla solidità casalinga e sull'esperienza di Olivier Giroud in attacco, mentre i bavaresi affidano la manovra offensiva alla qualità di Jamal Musiala e al fiuto del gol di Harry Kane. Ci si aspetta una partita intensa con il Bayern favorito dal punto di vista tecnico e tattico.",
+      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
       "formazioni": {
         "casa": {
           "modulo": "4-3-3",
           "undici": [
-            "Arnaud Bodart",
-            "Tiago Santos",
-            "Alexsandro Ribeiro",
-            "Nianzou Kouassi",
-            "Romain Perraud",
-            "Benjamin André",
-            "Nabil Bentaleb",
-            "Hákon Arnar Haraldsson",
-            "Dilane Bakwa",
-            "Olivier Giroud",
-            "Osame Sahraoui"
+            "Rui Silva",
+            "Ivan Fresneda",
+            "Gonçalo Inácio",
+            "Zeno Debast",
+            "Maximiliano Araújo",
+            "Sergi Altimira",
+            "Rodrigo Zalazar",
+            "Geny Catamo",
+            "Luis Suárez",
+            "Fotis Ioannidis",
+            "Luis Guilherme"
           ]
         },
         "trasferta": {
           "modulo": "4-4-2",
           "undici": [
-            "Manuel Neuer",
-            "Sacha Boey",
-            "Dayot Upamecano",
-            "Jonathan Tah",
-            "Alphonso Davies",
-            "Joshua Kimmich",
-            "Aleksandar Pavlović",
-            "Michael Olise",
-            "Jamal Musiala",
-            "Serge Gnabry",
-            "Harry Kane"
+            "Senne Lammens",
+            "Noussair Mazraoui",
+            "Matthijs de Ligt",
+            "Lisandro Martínez",
+            "Luke Shaw",
+            "Bryan Mbeumo",
+            "Bruno Fernandes",
+            "Manuel Ugarte",
+            "Marcus Rashford",
+            "Matheus Cunha",
+            "Joshua Zirkzee"
           ]
         }
       },
       "prob_1x2": {
-        "1": 18,
-        "X": 25,
-        "2": 57
+        "1": 38,
+        "X": 27,
+        "2": 35
       },
       "mercati_completi": {
-        "1X": 43,
-        "X2": 82,
-        "12": 75,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 22,
-        "1+O2.5": 16,
-        "2+O1.5": 52,
-        "2+O2.5": 44,
-        "1X+O1.5": 35,
-        "X2+O1.5": 65,
-        "1X+GG": 28,
-        "X2+GG": 48,
-        "GG+O2.5": 45,
-        "1+GG": 20,
-        "2+GG": 36,
-        "2+U3.5": 45
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Olivier Giroud",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Ayase Ueda",
-          "ruolo": "Attaccante",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Harry Kane",
-          "ruolo": "Attaccante",
-          "prob": 55
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Jamal Musiala",
-          "ruolo": "Centrocampista",
-          "prob": 38
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Benjamin André",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri a centrocampo per fermare Musiala",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Alexsandro Ribeiro",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti contro Harry Kane",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Joshua Kimmich",
-          "ruolo": "Centrocampista",
-          "motivo": "Speso in falli tattici di interruzione",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Dayot Upamecano",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti duri sulle palle alte con Giroud",
-          "prob": 30
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "2+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Bayern superiore e favorito per la vittoria con almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#E00034",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#DC052D",
-          "#0066B2"
-        ],
-        "pattern": "half"
-      }
-    },
-    {
-      "id": 575406,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "FC Internazionale Milano",
-      "trasf": "VfB Stuttgart",
-      "score": null,
-      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Ivan Provedel",
-            "Benjamin Pavard",
-            "Manuel Akanji",
-            "Alessandro Bastoni",
-            "Nicolò Barella",
-            "Hakan Çalhanoğlu",
-            "Henrikh Mkhitaryan",
-            "Federico Dimarco",
-            "Djed Spence",
-            "Lautaro Martínez",
-            "Marcus Thuram-Ulien"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Alexander Nübel",
-            "Josha Vagnoman",
-            "Dan-Axel Zagadou",
-            "Julian Chabot",
-            "Maximilian Mittelstädt",
-            "Atakan Karazor",
-            "Angelo Stiller",
-            "Jamie Leweling",
-            "Bilal El Khannouss",
-            "Chris Führich",
-            "Deniz Undav"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 55,
-        "X": 25,
-        "2": 20
-      },
-      "mercati_completi": {
-        "1X": 80,
-        "X2": 45,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
+        "1X": 65,
+        "X2": 62,
+        "12": 73,
+        "GG": 56,
+        "NG": 44,
         "U1.5": 32,
         "O1.5": 68,
         "U2.5": 54,
         "O2.5": 46,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 42,
+        "MG1-2": 38,
         "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 38,
-        "1X+GG": 44,
-        "X2+GG": 30,
-        "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 15,
-        "2+U3.5": 18
+        "MG2-3": 51,
+        "MG2-4": 67,
+        "MG3-5": 39,
+        "1+O1.5": 42,
+        "1+O2.5": 28,
+        "2+O1.5": 39,
+        "2+O2.5": 25,
+        "1X+O1.5": 48,
+        "X2+O1.5": 46,
+        "1X+GG": 41,
+        "X2+GG": 39,
+        "GG+O2.5": 45,
+        "1+GG": 22,
+        "2+GG": 20,
+        "2+U3.5": 31
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Lautaro Martínez",
+          "giocatore": "Luis Suárez",
           "ruolo": "Attaccante",
-          "prob": 42
+          "prob": 34
         },
         {
           "squadra": "casa",
-          "giocatore": "Marcus Thuram-Ulien",
+          "giocatore": "Fotis Ioannidis",
           "ruolo": "Attaccante",
-          "prob": 35
+          "prob": 29
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marcus Rashford",
+          "ruolo": "Attaccante",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Bruno Fernandes",
+          "ruolo": "Centrocampista",
+          "prob": 26
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Nicolò Barella",
+          "giocatore": "Sergi Altimira",
           "ruolo": "Centrocampista",
-          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
+          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Inácio",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Atakan Karazor",
+          "giocatore": "Manuel Ugarte",
           "ruolo": "Centrocampista",
-          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
+          "motivo": "Pressing aggressivo e falli tattici sistematici.",
           "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lisandro Martínez",
+          "ruolo": "Difensore",
+          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
+          "prob": 40
         }
       ],
       "pronostico_principale": {
-        "esito": "1+O1.5",
+        "esito": "1X+O1.5",
         "probabilita": 48,
-        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
+        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
       },
-      "affidabilita": 80,
+      "affidabilita": 78,
       "stemma_casa": {
         "colori": [
-          "#000000",
-          "#006699"
+          "#006400",
+          "#ffffff"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#ffffff",
-          "#e30613"
+          "#da291c",
+          "#000000"
         ],
-        "pattern": "horizontal"
+        "pattern": "solid"
       }
     },
     {
@@ -12326,6 +12040,292 @@
           "#f1be48"
         ],
         "pattern": "solid"
+      }
+    },
+    {
+      "id": 575410,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Lille OSC",
+      "trasf": "FC Bayern München",
+      "score": null,
+      "analisi": "Il Lille OSC affronta il temibile FC Bayern München in questa sfida di Champions League. I francesi puntano sulla solidità casalinga e sull'esperienza di Olivier Giroud in attacco, mentre i bavaresi affidano la manovra offensiva alla qualità di Jamal Musiala e al fiuto del gol di Harry Kane. Ci si aspetta una partita intensa con il Bayern favorito dal punto di vista tecnico e tattico.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Arnaud Bodart",
+            "Tiago Santos",
+            "Alexsandro Ribeiro",
+            "Nianzou Kouassi",
+            "Romain Perraud",
+            "Benjamin André",
+            "Nabil Bentaleb",
+            "Hákon Arnar Haraldsson",
+            "Dilane Bakwa",
+            "Olivier Giroud",
+            "Osame Sahraoui"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Manuel Neuer",
+            "Sacha Boey",
+            "Dayot Upamecano",
+            "Jonathan Tah",
+            "Alphonso Davies",
+            "Joshua Kimmich",
+            "Aleksandar Pavlović",
+            "Michael Olise",
+            "Jamal Musiala",
+            "Serge Gnabry",
+            "Harry Kane"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 18,
+        "X": 25,
+        "2": 57
+      },
+      "mercati_completi": {
+        "1X": 43,
+        "X2": 82,
+        "12": 75,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 62,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 22,
+        "1+O2.5": 16,
+        "2+O1.5": 52,
+        "2+O2.5": 44,
+        "1X+O1.5": 35,
+        "X2+O1.5": 65,
+        "1X+GG": 28,
+        "X2+GG": 48,
+        "GG+O2.5": 45,
+        "1+GG": 20,
+        "2+GG": 36,
+        "2+U3.5": 45
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Olivier Giroud",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Ayase Ueda",
+          "ruolo": "Attaccante",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Harry Kane",
+          "ruolo": "Attaccante",
+          "prob": 55
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Jamal Musiala",
+          "ruolo": "Centrocampista",
+          "prob": 38
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Benjamin André",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri a centrocampo per fermare Musiala",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Alexsandro Ribeiro",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti contro Harry Kane",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joshua Kimmich",
+          "ruolo": "Centrocampista",
+          "motivo": "Speso in falli tattici di interruzione",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Dayot Upamecano",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti duri sulle palle alte con Giroud",
+          "prob": 30
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "2+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Bayern superiore e favorito per la vittoria con almeno due reti complessive."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#E00034",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#DC052D",
+          "#0066B2"
+        ],
+        "pattern": "half"
+      }
+    },
+    {
+      "id": 575406,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "FC Internazionale Milano",
+      "trasf": "VfB Stuttgart",
+      "score": null,
+      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
+      "formazioni": {
+        "casa": {
+          "modulo": "3-5-2",
+          "undici": [
+            "Ivan Provedel",
+            "Benjamin Pavard",
+            "Manuel Akanji",
+            "Alessandro Bastoni",
+            "Nicolò Barella",
+            "Hakan Çalhanoğlu",
+            "Henrikh Mkhitaryan",
+            "Federico Dimarco",
+            "Djed Spence",
+            "Lautaro Martínez",
+            "Marcus Thuram-Ulien"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Alexander Nübel",
+            "Josha Vagnoman",
+            "Dan-Axel Zagadou",
+            "Julian Chabot",
+            "Maximilian Mittelstädt",
+            "Atakan Karazor",
+            "Angelo Stiller",
+            "Jamie Leweling",
+            "Bilal El Khannouss",
+            "Chris Führich",
+            "Deniz Undav"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 55,
+        "X": 25,
+        "2": 20
+      },
+      "mercati_completi": {
+        "1X": 80,
+        "X2": 45,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 62,
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 48,
+        "1+O2.5": 32,
+        "2+O1.5": 18,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 38,
+        "1X+GG": 44,
+        "X2+GG": 30,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 15,
+        "2+U3.5": 18
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Lautaro Martínez",
+          "ruolo": "Attaccante",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Marcus Thuram-Ulien",
+          "ruolo": "Attaccante",
+          "prob": 35
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Nicolò Barella",
+          "ruolo": "Centrocampista",
+          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Atakan Karazor",
+          "ruolo": "Centrocampista",
+          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
+          "prob": 45
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
+      },
+      "affidabilita": 80,
+      "stemma_casa": {
+        "colori": [
+          "#000000",
+          "#006699"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#ffffff",
+          "#e30613"
+        ],
+        "pattern": "horizontal"
       }
     },
     {
