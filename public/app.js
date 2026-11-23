@@ -589,11 +589,6 @@ ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days 
   <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
 </div>
 
-<div class="vbox"><h3>${ic('key')}Attiva il tuo Codice Pass VIP</h3>
-<div class="vin"><input id="vcode" type="text" placeholder="Es. M30-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="gbtn" type="button" data-a="vipact">Attiva Pass VIP</button></div>
-${act ? `<p class="vnote" style="border:0;padding-top:6px">Se inserisci un nuovo codice, i giorni si sommano al tuo Pass attuale.</p>` : ''}</div>
-${disc()}</section>`;
-}
 
 /* ---------- Scheda partita ---------- */
 const pollBox = m => { const v = J('poll', {})[m.id], p = m.prob_1x2 || {}; return `<h3>${ic('users')}Sondaggio rapido</h3><div class="pollb">${['1', 'X', '2'].map(x => `<button class="pv ${v === x ? 'on' : ''}" data-a="vote" data-v="${m.id}|${x}">${x}</button>`).join('')}</div>${v ? ['1', 'X', '2'].map(x => `<div class="cmp"><b>${x}</b><div class="cb"><u style="width:${num(p[x])}%;background:#06B6D4"></u>${v === x ? '<s class="you">TU</s>' : ''}</div><span>AI ${num(p[x])}%</span></div>`).join('') : ''}` };
