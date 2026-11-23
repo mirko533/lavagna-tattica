@@ -226,8 +226,9 @@ def main():
     if not selection:
         return
 
-        avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
+    avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
     card_file = generate_card(title, subtitle, selection, avg_prob, vip_mode=vip_mode)
+ 
 
     if vip_mode:
         caption = (
