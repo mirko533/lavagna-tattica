@@ -588,6 +588,11 @@ ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days 
   </div>
   <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
 </div>
+<div class="vbox"><h3>${ic('key')}Attiva il tuo Codice Pass VIP</h3>
+<div class="vin"><input id="vcode" type="text" placeholder="Es. M30-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="gbtn" type="button" data-a="vipact">Attiva Pass VIP</button></div>
+${act ? `<p class="vnote" style="border:0;padding-top:6px">Se inserisci un nuovo codice, i giorni si sommano al tuo Pass attuale.</p>` : ''}</div>
+${disc()}</section>`;
+}
 
 
 /* ---------- Scheda partita ---------- */
