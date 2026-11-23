@@ -5,8 +5,8 @@ from datetime import datetime, timezone
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
-APP_URL = "https://github.io"
-PHOTO_URL = "https://github.ioicon-512.png"
+APP_URL = "https://" + "mirko533" + ".github.io/" + "lavagna-tattica/"
+PHOTO_URL = APP_URL + "icon-512.png"
 
 
 LABELS = {
