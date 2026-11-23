@@ -2,86 +2,163 @@ import os
 import json
 import urllib.request
 from datetime import datetime, timezone
+from PIL import Image, ImageDraw, ImageFont
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 APP_URL = "https://" + "mirko533" + ".github.io/" + "lavagna-tattica/"
-PHOTO_URL = APP_URL + "icon-512.png"
-
 
 LABELS = {
-    "1": "Esito 1", "X": "Esito X", "2": "Esito 2",
-    "1X": "Doppia Chance 1X", "X2": "Doppia Chance X2", "12": "Doppia Chance 12",
-    "GG": "Goal (GG)", "NG": "NoGoal (NG)",
-    "O1.5": "Over 1.5 Gol", "U2.5": "Under 2.5 Gol", "O2.5": "Over 2.5 Gol",
-    "U3.5": "Under 3.5 Gol", "MG1-3": "Multigol 1-3", "MG2-4": "Multigol 2-4",
-    "1X+O1.5": "1X + Over 1.5", "X2+O1.5": "X2 + Over 1.5"
+    "1": "1 FISSO", "X": "PAREGGIO X", "2": "2 FISSO",
+    "1X": "1X", "X2": "X2", "12": "12",
+    "GG": "GOAL (GG)", "NG": "NOGOAL",
+    "O1.5": "OVER 1.5", "U2.5": "UNDER 2.5", "O2.5": "OVER 2.5",
+    "U3.5": "UNDER 3.5", "MG1-3": "MULTIGOL 1-3", "MG2-4": "MULTIGOL 2-4",
+    "1X+O1.5": "1X + O1.5", "X2+O1.5": "X2 + O1.5"
 }
 
-FLAG_MAP = {
-    "SA": "🇮🇹", "PL": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "PD": "🇪🇸", "BL1": "🇩🇪", "FL1": "🇫🇷",
-    "CL": "🇪🇺", "EL": "🇪🇺", "DED": "🇳🇱", "PPL": "🇵🇹", "ELC": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-}
+def clean_team(name):
+    for token in ["Club ", "FC ", "CF ", "AF ", "KV ", "FK ", "ŠK ", "SE ", "AC ", "ACF ", " FC", " CF", " KV", " FK"]:
+        name = name.replace(token, "")
+    return name.strip()
 
-def send_telegram(text, with_photo=True):
+def get_font(size, bold=False):
+    paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            return ImageFont.truetype(p, size)
+    return ImageFont.load_default()
+
+def generate_card(title, subtitle, selection, avg_prob, vip_mode=False, out_path="card.png"):
+    W = 1080
+    row_h = 115
+    header_h = 250
+    footer_h = 140
+    H = header_h + (len(selection) * row_h) + footer_h
+
+    if vip_mode:
+        bg_color = (12, 10, 9)
+        card_bg = (28, 25, 23)
+        accent = (245, 158, 11)
+        accent_light = (253, 224, 71)
+        badge_bg = (120, 53, 15)
+        badge_txt = (254, 240, 138)
+    else:
+        bg_color = (11, 17, 32)
+        card_bg = (30, 41, 59)
+        accent = (16, 185, 129)
+        accent_light = (52, 211, 153)
+        badge_bg = (6, 78, 59)
+        badge_txt = (167, 243, 208)
+
+    img = Image.new("RGB", (W, H), bg_color)
+    draw = ImageDraw.Draw(img)
+    draw.rounded_rectangle([24, 24, W - 24, H - 24], radius=36, outline=accent, width=4)
+
+    f_brand = get_font(48, bold=True)
+    f_title = get_font(34, bold=True)
+    f_sub = get_font(24, bold=False)
+    f_match = get_font(30, bold=True)
+    f_meta = get_font(22, bold=False)
+    f_badge = get_font(26, bold=True)
+
+    brand_txt = "352 PRONOSTICI  •  VIP GOLD" if vip_mode else "352 PRONOSTICI"
+    draw.text((64, 56), brand_txt, fill=accent_light, font=f_brand)
+    draw.text((64, 122), title, fill=(255, 255, 255), font=f_title)
+    draw.text((64, 170), subtitle, fill=(148, 163, 184), font=f_sub)
+    draw.line([(64, 220), (W - 64, 220)], fill=accent, width=3)
+
+    y = header_h
+    for idx, item in enumerate(selection, 1):
+        draw.rounded_rectangle([56, y, W - 56, y + 96], radius=20, fill=card_bg, outline=(51, 65, 85), width=2)
+        is_locked = vip_mode and idx > 3
+        match_str = f"{idx}.  {item['casa']}  vs  {item['trasf']}"
+        if len(match_str) > 34:
+            match_str = match_str[:33] + "…"
+        meta_str = f"{item['compNome']}  •  Ore {item['ora']}" if item['ora'] else item['compNome']
+
+        draw.text((84, y + 18), match_str, fill=(255, 255, 255), font=f_match)
+        draw.text((84, y + 58), meta_str, fill=(148, 163, 184), font=f_meta)
+
+        if is_locked:
+            b_text = "AREA VIP"
+            b_fill = (69, 26, 3)
+            t_fill = (251, 191, 36)
+        else:
+            b_text = f"{item['label']}  {item['prob']}%"
+            b_fill = badge_bg
+            t_fill = badge_txt
+
+        draw.rounded_rectangle([W - 330, y + 22, W - 76, y + 74], radius=14, fill=b_fill, outline=accent, width=2)
+        draw.text((W - 310, y + 33), b_text, fill=t_fill, font=f_badge)
+        y += row_h
+
+    draw.line([(64, y + 10), (W - 64, y + 10)], fill=(51, 65, 85), width=2)
+    draw.text((64, y + 38), f"AFFIDABILITA MEDIA: {avg_prob}%", fill=accent_light, font=f_title)
+    draw.text((64, y + 82), "Analisi complete su 352 Pronostici", fill=(148, 163, 184), font=f_sub)
+
+    img.save(out_path, "PNG")
+    return out_path
+def send_photo_multipart(image_path, caption, vip_mode=False):
     if not BOT_TOKEN or not CHAT_ID:
-        print("Mancano TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID nei Secrets.")
         return
 
-    use_photo = with_photo and len(text) <= 1000
-    endpoint = "/sendPhoto" if use_photo else "/sendMessage"
-    url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + endpoint
+    boundary = "----WebKitFormBoundary352Pronostici"
+    url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendPhoto"
 
-    if use_photo:
-        payload = {
-            "chat_id": CHAT_ID,
-            "photo": PHOTO_URL,
-            "caption": text,
-            "parse_mode": "HTML",
-            "reply_markup": {
-                "inline_keyboard": [[{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}]]
-            }
-        }
-    else:
-        payload = {
-            "chat_id": CHAT_ID,
-            "text": text,
-            "parse_mode": "HTML",
-            "disable_web_page_preview": True,
-            "reply_markup": {
-                "inline_keyboard": [
-                    [{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}],
-                    [{"text": "💎 Accedi all'Area VIP", "url": APP_URL}]
-                ]
-            }
-        }
+    buttons = [[{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}]]
+    if vip_mode:
+        buttons.append([{"text": "👑 Sblocca VIP / Lista d'Attesa (-20%)", "url": APP_URL}])
 
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    reply_markup = json.dumps({"inline_keyboard": buttons})
+
+    with open(image_path, "rb") as f:
+        img_bytes = f.read()
+
+    parts = []
+    for name, val in [("chat_id", CHAT_ID), ("caption", caption), ("parse_mode", "HTML"), ("reply_markup", reply_markup)]:
+        parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"{name}\"\r\n\r\n{val}\r\n".encode("utf-8"))
+
+    parts.append(
+        f"--{boundary}\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"card.png\"\r\nContent-Type: image/png\r\n\r\n".encode("utf-8")
+        + img_bytes + b"\r\n"
+    )
+    parts.append(f"--{boundary}--\r\n".encode("utf-8"))
+    body = b"".join(parts)
+
+    req = urllib.request.Request(url, data=body, headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
     try:
         with urllib.request.urlopen(req) as resp:
-            print("Messaggio inviato su Telegram con successo:", resp.status)
+            print("Card grafica inviata con successo:", resp.status)
     except Exception as e:
-        print("Errore invio Telegram:", e)
+        print("Errore invio card:", e)
 
-
-def get_best_trend(match):
-    candidates = {}
+def get_varied_trend(match, index):
     p1x2 = match.get("prob_1x2") or {}
     mc = match.get("mercati_completi") or {}
-
-    for k in ["1", "X", "2"]:
-        if k in p1x2:
-            candidates[k] = p1x2[k]
-    for k in ["1X", "X2", "12", "GG", "NG", "O1.5", "U2.5", "O2.5", "U3.5", "MG1-3", "MG2-4", "1X+O1.5", "X2+O1.5"]:
-        if k in mc:
-            candidates[k] = mc[k]
-
-    if not candidates:
-        return "Analisi Dati", 50
-
-    best_key = max(candidates, key=lambda k: candidates[k])
-    return LABELS.get(best_key, best_key), int(candidates[best_key])
+    groups = [
+        ["1", "2", "1X+O1.5", "X2+O1.5"],
+        ["O1.5", "O2.5", "GG", "MG2-4"],
+        ["1X", "X2", "MG1-3", "U3.5"],
+        ["1", "2", "GG", "O1.5"]
+    ]
+    preferred_keys = groups[index % len(groups)]
+    best_k, best_v = None, 0
+    for k in preferred_keys:
+        val = p1x2.get(k) if k in p1x2 else mc.get(k, 0)
+        if val and val > best_v:
+            best_k, best_v = k, val
+    if not best_k or best_v < 52:
+        all_c = {**p1x2, **mc}
+        if all_c:
+            best_k = max(all_c, key=lambda x: all_c[x])
+            best_v = all_c[best_k]
+        else:
+            return "DATI", 60
+    return LABELS.get(best_k, best_k), int(best_v)
 
 def format_time(iso_str):
     try:
@@ -93,28 +170,22 @@ def format_time(iso_str):
 def main():
     path = "public/data/matches.json"
     if not os.path.exists(path):
-        print("File public/data/matches.json non trovato.")
         return
 
     with open(path, "r", encoding="utf-8") as f:
         raw = json.load(f)
 
     all_matches = raw.get("matches", [])
-    timed_matches = [m for m in all_matches if m.get("stato") == "TIMED"]
-    pool = timed_matches if timed_matches else all_matches
-
-    if not pool:
-        print("Nessuna partita disponibile.")
-        return
+    timed = [m for m in all_matches if m.get("stato") == "TIMED"]
+    pool = timed if timed else all_matches
 
     enriched = []
-    for m in pool:
-        label, prob = get_best_trend(m)
+    for idx, m in enumerate(pool):
+        label, prob = get_varied_trend(m, idx)
         enriched.append({
-            "casa": m.get("casa", ""),
-            "trasf": m.get("trasf", ""),
-            "comp": m.get("comp", ""),
-            "compNome": m.get("compNome", ""),
+            "casa": clean_team(m.get("casa", "")),
+            "trasf": clean_team(m.get("trasf", "")),
+            "compNome": m.get("compNome", "Calcio"),
             "ora": format_time(m.get("data", "")),
             "label": label,
             "prob": prob
@@ -124,32 +195,31 @@ def main():
 
     hour = datetime.now(timezone.utc).hour
     event_name = os.environ.get("GITHUB_EVENT_NAME", "")
+    oggi = datetime.now().strftime("%d/%m/%Y")
 
-    # Selezione formato in base all'orario
     if event_name == "schedule" and hour in (6, 7, 8):
-        title = "☀️ SELEZIONE MATTUTINA · 7 EVENTI"
-        subtitle = "I 7 indicatori statistici più solidi elaborati oggi dal nostro algoritmo:"
+        title = "SELEZIONE MATTUTINA  •  7 EVENTI"
+        subtitle = f"Analisi statistica del {oggi}"
         selection = enriched[:7]
         vip_mode = False
     elif event_name == "schedule" and hour in (13, 14, 15):
-        title = "⚡ COMBINAZIONE POMERIDIANA · 8 EVENTI"
-        subtitle = "Analisi multi-campionato su 8 match ad alta affidabilità matematica:"
+        title = "ANALISI POMERIDIANA  •  8 EVENTI"
+        subtitle = f"Combinazione matematica del {oggi}"
         selection = enriched[:8]
         vip_mode = False
     elif event_name == "schedule" and hour in (17, 18, 19):
-        title = "🌙 MULTI-ANALISI SERALE · 12 EVENTI"
-        subtitle = "Panoramica completa su 12 sfide con i migliori trend statistici:"
+        title = "MULTI-ANALISI SERALE  •  12 EVENTI"
+        subtitle = f"Panoramica estesa del {oggi}"
         selection = enriched[:12]
         vip_mode = False
     elif event_name == "schedule" and hour in (21, 22, 23):
-        title = "💎 ANTEPRIMA VIP · TOP 6 STATISTICI"
-        subtitle = "I 6 match con l'indice matematico più alto in programma (3 sbloccabili in Area VIP):"
+        title = "SELEZIONE ESCLUSIVA  •  TOP 6 VIP"
+        subtitle = f"I migliori indici statistici • {oggi}"
         selection = enriched[:6]
         vip_mode = True
     else:
-        # Esecuzione manuale (Run workflow): pubblica selezione da 8 eventi
-        title = "🔥 SELEZIONE STATISTICA DEL GIORNO · 8 EVENTI"
-        subtitle = "Ecco gli 8 trend matematici più rilevanti elaborati dall'algoritmo 352:"
+        title = "SELEZIONE DEL GIORNO  •  8 EVENTI"
+        subtitle = f"Elaborazione algoritmo 352 • {oggi}"
         selection = enriched[:8]
         vip_mode = False
 
@@ -157,36 +227,19 @@ def main():
         return
 
     avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
+    card_file = generate_card(title, subtitle, selection, avg_prob, vip_mode=vip_mode)
 
-    lines = [
-        f"⚽️ <b>352 PRONOSTICI — {title}</b>",
-        f"<i>{subtitle}</i>\n"
-    ]
+    caption = (
+        f"👑 <b>352 VIP GOLD — {title}</b>\n"
+        f"<i>3 analisi in chiaro + 3 sbloccabili nella sezione VIP dell'app!</i>\n\n"
+        f"👇 <b>Apri l'app per formazioni, xG e dettagli completi:</b>"
+    ) if vip_mode else (
+        f"⚽️ <b>352 PRONOSTICI — {title}</b>\n"
+        f"📊 Affidabilità media: <b>{avg_prob}%</b>\n\n"
+        f"👇 <b>Consulta tutti i 28 mercati statistici sull'app:</b>"
+    )
 
-    for idx, item in enumerate(selection, 1):
-        flag = FLAG_MAP.get(item["comp"], "🏆")
-        ora_txt = f" [{item['ora']}]" if item["ora"] else ""
-
-        if vip_mode and idx > 3:
-            lines.append(
-                f"🔒 <b>{idx}. {flag} {item['casa']} - {item['trasf']}</b>{ora_txt}\n"
-                f"   └ 🎯 Esito VIP: <tg-spoiler><b>{item['label']} ({item['prob']}%)</b></tg-spoiler> <i>(Sblocca su App)</i>"
-            )
-        else:
-            lines.append(
-                f"🔹 <b>{idx}. {flag} {item['casa']} - {item['trasf']}</b>{ora_txt}\n"
-                f"   └ 📈 <b>{item['label']}</b> — Affidabilità: <b>{item['prob']}%</b>"
-            )
-
-    lines.append(f"\n📊 <b>Affidabilità Media Selezione: {avg_prob}%</b>")
-    if vip_mode:
-        lines.append("🔓 <i>Tocca gli spoiler qui sopra o entra nella sezione VIP dell'app per l'analisi completa!</i>")
-    else:
-        lines.append("👇 <i>Apri l'app per consultare xG, formazioni probabili e tutti i 28 mercati statistici:</i>")
-
-    final_text = "\n".join(lines)
-    # Usa la foto dell'app per i post compatti (7/8 eventi), e il layout esteso con doppio pulsante per i 12 eventi
-    send_telegram(final_text, with_photo=(len(selection) <= 7))
+    send_photo_multipart(card_file, caption, vip_mode=vip_mode)
 
 if __name__ == "__main__":
     main()
