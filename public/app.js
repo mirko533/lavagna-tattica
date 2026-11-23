@@ -10,6 +10,9 @@ const VIP_PAY_URL = '';
 const REVOLUT_CENTS = false;
 
 const VIP_MAIL = 'info.hubcorsi@gmail.com';
+// Lista d'attesa VIP (Web3Forms): endpoint API corretto, chiave pubblica per uso lato client
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
+const WEB3FORMS_KEY = 'e4694674-17f8-4eb9-ab0b-d29430ae98d3';
 // Piani in vendita (i giorni devono coincidere con le chiavi di VIP_CODES)
 // amount = importo numerico in euro passato al link Revolut; cause = causale copiabile
 const VIP_PLANS = [
@@ -40,7 +43,7 @@ const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '
 const ic = (n, c = '') => `<svg class="ic ${c}"><use href="#i-${n}"/></svg>`;
 // Indirizzo pubblico dell'app (GitHub Pages) usato nelle condivisioni
 const siteUrl = () => location.href.split('#')[0].split('?')[0];
-let D = [], meta = '', fav = J('fav', []), F = { c: '', f: false, t: false, tm: false, top: false, res: false, q: '' }, tab = 'home', out = null, POOL = [], cardUrl = '', cardBlob = null, topOpen = false, vipSel = null, liveOnly = false, winF = 'all', simStd = false, storyUrl = '', storyBlob = null, liveT = null, liveCd = 50, flash = {};
+let D = [], meta = '', fav = J('fav', []), F = { c: '', f: false, t: false, tm: false, top: false, surp: false, res: false, q: '' }, tab = 'home', out = null, POOL = [], cardUrl = '', cardBlob = null, topOpen = false, vipSel = null, liveOnly = false, winF = 'all', simStd = false, storyUrl = '', storyBlob = null, liveT = null, liveCd = 50, flash = {}, vwaitDone = false;
 const openG = new Set();   // gruppi di campionati espansi (menu +/−)
 let G = { n: 5, m: ['1X2', 'DC', 'UO', 'GN', 'MG', 'CB', 'DNB', 'SQ', 'TM'], best: false, risk: 'all', day: 'all', one: '' };
 
@@ -316,7 +319,7 @@ function filtHTML() {
   const td = todayK(), tr = tmrK(), base = vis({ t: 1, tm: 1 });
   const nT = base.filter(m => day(m) === td).length, nM = base.filter(m => day(m) === tr).length;
   const nTop = vis({ top: 1 }).filter(isTop).length, nSurp = vis({ surp: 1 }).filter(isSurp).length;
-  return chp(F.t, 'ftoday', undefined, 'cal', `Oggi (${nT})`) + chp(F.tm, 'ftomorrow', undefined, 'cal', `Domani (${nM})`) + chp(F.top, 'ftop', undefined, 'zap', `75%+ (${nTop})`) + chp(F.surp, 'fsurp', undefined, 'flame', `Sorprese (${nSurp})`) + chp(F.f, 'ffav', undefined, 'heart', 'Preferiti');
+  return chp(F.t, 'ftoday', undefined, 'cal', `Oggi (${nT})`) + chp(F.tm, 'ftomorrow', undefined, 'cal', `Domani (${nM})`) + chp(F.top, 'ftop', undefined, 'zap', `75%+ (${nTop})`) + chp(F.surp, 'fsurp', undefined, 'flame', `Sorprese (${nSurp})`) + chp(F.f, 'favf', undefined, 'heart', 'Preferiti');
 }
 
 function refreshList() {
@@ -400,7 +403,7 @@ function genera() {
   const td = todayK(), tr = tmrK();
 
   const pool = [];
-   D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2 && (G.day === 'all' || (G.day === 'today' && m.data === td) || (G.day === 'tomorrow' && m.data === tr))).forEach(m => {
+   D.filter(m => m.stato !== 'FINISHED' && m.prob_1x2 && (G.day === 'all' || (G.day === 'today' && day(m) === td) || (G.day === 'tomorrow' && day(m) === tr))).forEach(m => {
 
     const k = mk(m);
     const validi = [];
@@ -463,17 +466,17 @@ function vGen() {
     (out ? (out.length ? `<div class="box"><h3>${ic('target')}Combinazione statistica</h3>${out.map((o, i) => `
       <div class="sg gs" style="display:block">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          <div data-a="open" data-id="${o.m.id}" style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer">
+          <div data-a="open" data-v="${o.m.id}" style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer">
             ${scudetto(o.m.casa, o.m.stemma_casa, 24)}${scudetto(o.m.trasf, o.m.stemma_trasf, 24)}
             <b style="flex:1;min-width:0;font-size:13.5px;line-height:1.25">${E(o.m.casa)} <span class="mu" style="font-weight:500">vs</span> ${E(o.m.trasf)}</b>
           </div>
           <button class="sw" data-a="swap" data-v="${i}" title="Cambia evento" aria-label="Cambia evento">↻</button>
         </div>
-        <div data-a="open" data-id="${o.m.id}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;cursor:pointer">
+        <div data-a="open" data-v="${o.m.id}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;cursor:pointer">
           <span class="mu" style="font-size:11.5px">${E(o.m.competizione || o.m.lega || '')} · ${new Date(o.m.data).toLocaleDateString('it-IT', { weekday: 'short', day: '2-digit', month: 'short' })} ${new Date(o.m.data).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}</span>
           <span class="bdg" style="--bc:${col(o.v)}">${E(lbl(o.x))} · ${o.v}%</span>
         </div>
-      </div>`).join('')}<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;margin-top:10px;border-radius:12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3)"><span class="mu" style="font-size:12.5px;font-weight:600">Indice combinato stimato</span><b style="font-size:16px;color:var(--ac)">${comb()}%</b></div><button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" id="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}<p style="font-size:13px;margin-top:6px">Nessun evento trovato con questi filtri. Prova ad ampliare il livello di rischio o i mercati.</p></div>`) : '') + savedHTML() + disc();
+      </div>`).join('')}<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;margin-top:10px;border-radius:12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3)"><span class="mu" style="font-size:12.5px;font-weight:600">Indice combinato stimato</span><b style="font-size:16px;color:var(--ac)">${comb()}%</b></div><button class="btn s" id="cpb" data-a="cp">${ic('copy')}Copia / Condividi</button><button class="btn s" id="savec" data-a="savec">${ic('file')}Salva combinazione</button><button class="btn" data-a="mkcard">${ic('img')}Crea Card Immagine</button><div id="cardout">${cardUrl ? cardHTML() : ''}</div></div>` : `<div class="empty">${ic('search')}<p style="font-size:13px;margin-top:6px">Nessun evento trovato con questi filtri. Prova ad ampliare il livello di rischio o i mercati.</p></div>`) : '') + savedHTML() + disc();
 
 }
 
@@ -513,10 +516,11 @@ async function makeCard() {
 /* ---------- Info ---------- */
 function vInfo() {
   const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone, hs = histStats(), dark = document.documentElement.dataset.theme === 'dark';
-  return `<div class="ig"><div class="ib2">${ic('chart')}Probabilità e affidabilità</div><div class="ib2">${ic('users')}Rose ufficiali aggiornate</div><div class="ib2">${ic('shield')}Nessun dato personale</div><div class="ib2"><div class="age" style="width:34px;height:34px;font-size:12px;margin:0 auto 8px">18+</div>Solo maggiorenni</div></div>
+  return `<div class="ig"><div class="ib2">${ic('chart')}Probabilità e affidabilità</div><div class="ib2">${ic('users')}Rose ufficiali aggiornate</div><div class="ib2">${ic('shield')}Dati personali minimi</div><div class="ib2"><div class="age" style="width:34px;height:34px;font-size:12px;margin:0 auto 8px">18+</div>Solo maggiorenni</div></div>
 <div class="box"><h3>${ic('sliders')}Impostazioni</h3><div class="row2"><button class="btn s" data-a="theme">${ic(dark ? 'sun' : 'moon')}Tema ${dark ? 'chiaro' : 'scuro'}</button><button class="btn s" data-a="share">${ic('share')}Condividi app</button></div></div>
 <div class="box"><h3>${ic('check')}Statistiche verificate</h3>${hs.y ? `<p style="font-size:14px;font-weight:700">Statistiche verificate: ${hs.x}/${hs.y} (${hs.p}%)</p><div class="sbar" style="--w:${hs.p}%"><u></u></div><p class="mu" style="font-size:12px;margin-top:8px">Confronto automatico tra il pronostico principale e il risultato finale delle partite concluse.</p>` : `<p class="mu" style="font-size:13px">Appariranno qui non appena ci saranno partite concluse con un pronostico verificabile.</p>`}</div>
 <div class="box"><h3>${ic('info')}Come leggere i dati</h3><p class="mu" style="font-size:13px">Un modello AI stima le probabilità usando forma, classifica e rose. Sono stime statistiche, non certezze. Nessuna quota, nessun invito al gioco; gli scudetti sono generati dai colori sociali.</p></div>
+<div class="box"><h3>${ic('shield')}Privacy</h3><p class="mu" style="font-size:13px;line-height:1.55">Preferiti, lista, contatori giornalieri e impostazioni restano salvati solo sul tuo dispositivo. Se ti iscrivi alla lista d’attesa VIP, la tua <b style="color:var(--tx)">email</b> e il piano scelto vengono inviati tramite il servizio Web3Forms a ${E(VIP_MAIL)} e usati solo per avvisarti quando il 352 VIP Club sarà attivo. Puoi chiedere la cancellazione dei tuoi dati scrivendo a ${E(VIP_MAIL)}.</p></div>
 ${standalone ? '' : `<button class="btn" data-a="install">${ic('down')}Installa App</button>`}` + disc();
 }
 
@@ -569,27 +573,26 @@ ${status}
 <h2 class="vt">Scegli il tuo Pass</h2>
 ${VIP_PLANS.map(p => `<div class="plan ${p.tag ? 'hl' : ''} ${vipSel === p.days ? 'sel' : ''}">${p.tag ? `<span class="ptag">${E(p.tag)}</span>` : ''}<div class="pn2"><b>${E(p.name)}</b><small>${E(p.note)}</small></div><div class="pr2">${E(p.price)}</div><div class="psub">${E(p.sub)}</div><button class="gbtn" type="button" data-a="vipsel" data-v="${p.days}">${ic('gem')}Scegli ${E(p.name.replace('Pass ', ''))} · ${E(p.price)}</button></div>`).join('')}
 <div class="vbox vsum" id="vsum">
-  <h3>${ic('gem')}Lista d'Attesa VIP (Posti Esauriti)</h3>
+  <h3>${ic('gem')}Lista d'Attesa VIP</h3>
   <p class="vnote" style="border:0;padding:0 0 10px 0;color:#cbd5e1;">
-    Per garantire la massima qualità delle analisi, gli accessi VIP di questo mese sono al completo. Lascia la tua email per prenotare un posto e ricevere il <b>20% di sconto</b> appena riaprono le iscrizioni:
+    Il 352 VIP Club è attualmente in fase di attivazione. Lascia la tua email per entrare in lista d'attesa: ti avviseremo appena il servizio sarà attivo e riceverai uno <b>sconto del 20%</b> riservato ai primi iscritti.
   </p>
-  <div id="vwait-box" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
-    <select id="vwait-plan" style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+  <p id="vwait-ok" style="display:${vwaitDone ? 'block' : 'none'};color:#4ade80;font-weight:bold;font-size:14px;margin:10px 0 0;">✅ Sei in lista! Ti avviseremo appena il servizio sarà attivo.</p>
+  <form id="vwait-form" data-w3 data-ok="#vwait-ok" style="display:${vwaitDone ? 'none' : 'flex'};flex-direction:column;gap:10px;margin-top:8px;">
+    <input type="checkbox" name="botcheck" class="hide" tabindex="-1" autocomplete="off">
+    <select id="vwait-plan" name="piano_interessato" required style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
       <option value="Pass Mensile (14,99 €)" selected>Piano preferito: Pass Mensile (14,99 €)</option>
       <option value="Pass Settimanale (4,99 €)">Piano preferito: Pass Settimanale (4,99 €)</option>
       <option value="Pass Annuale (49,99 €)">Piano preferito: Pass Annuale (49,99 €)</option>
     </select>
-    <input type="email" id="vwait-email" placeholder="Inserisci la tua email..." style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
+    <input type="email" id="vwait-email" name="email" required autocomplete="email" placeholder="Inserisci la tua email..." style="padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;width:100%;box-sizing:border-box;">
     <label style="font-size:11px;color:#94a3b8;text-align:left;display:flex;align-items:flex-start;gap:6px;">
-      <input type="checkbox" id="vwait-chk" style="margin-top:2px;">
-      <span>Acconsento a ricevere una singola email di avviso alla riapertura dei posti VIP (nessuno spam).</span>
+      <input type="checkbox" name="consenso_privacy" value="Sì" required style="margin-top:2px;">
+      <span>Acconsento al trattamento della mia email per ricevere una singola email di avviso quando il 352 VIP Club sarà attivo (nessuno spam).</span>
     </label>
-           <input type="hidden" id="w3url" value="https://web3forms.com">
-    <button type="button" id="vwait-btn" onclick="const e=document.getElementById('vwait-email').value.trim(), c=document.getElementById('vwait-chk').checked, p=document.getElementById('vwait-plan').value, u=document.getElementById('w3url').value, b=this; if(!e||!e.includes('@')){alert('Inserisci una email valida');return;} if(!c){alert('Spunta la casella del consenso');return;} b.disabled=true; b.innerText='Invio...'; fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'e4694674-17f8-4eb9-ab0b-d29430ae98d3',subject:'Nuovo iscritto 352 VIP!',email:e,piano_interessato:p})}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('vwait-box').style.display='none';document.getElementById('vwait-ok').style.display='block';}else{b.disabled=false;b.innerText='Errore';}}).catch(()=>{b.disabled=false;b.innerText='Errore rete';});" class="gbtn" style="border:none;cursor:pointer;width:100%;justify-content:center;">${ic('gem')}Avvisami quando riapre 🚀</button>
-
-
-  </div>
-  <p id="vwait-ok" style="display:none;color:#4ade80;font-weight:bold;font-size:14px;margin-top:10px;">✅ Sei in lista! Ti avviseremo appena si libera un posto.</p>
+    <p data-err style="display:none;color:#fca5a5;font-size:12.5px;margin:0;"></p>
+    <button type="submit" class="gbtn" style="border:none;cursor:pointer;width:100%;justify-content:center;">${ic('gem')}Avvisami quando è attivo 🚀</button>
+  </form>
 </div>
 <div class="vbox"><h3>${ic('key')}Attiva il tuo Codice Pass VIP</h3>
 <div class="vin"><input id="vcode" type="text" placeholder="Es. M30-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="gbtn" type="button" data-a="vipact">Attiva Pass VIP</button></div>
@@ -612,7 +615,7 @@ ${pp ? `<div class="hero">${ring(pp.probabilita, 96, 11)}<div class="hi"><small>
 ${m.prob_1x2 ? `<div class="box"><h3>${ic('chart')}Affidabilità e Indice Gol</h3><div class="gg">${gauge(m.affidabilita)}<div><div class="pl"><span>${ic('flame', '')}Indice Gol ${num(ig)}</span></div><div class="pt"><b style="--w:${num(ig)}%;background:${col(ig)}"></b></div></div></div></div>
 <div class="box"><h3>${ic('live')}Probabilità</h3>${bar([{ l: '1', v: k['1'], c: '#10B981' }, { l: 'X', v: k.X, c: '#64748B' }, { l: '2', v: k['2'], c: '#06B6D4' }])}${bar([{ l: 'Gol', v: k.GG, c: '#10B981' }, { l: 'NoGol', v: k.NG, c: '#EF4444' }])}${bar([{ l: 'Under 2.5', v: k['U2.5'], c: '#8B5CF6' }, { l: 'Over 2.5', v: k['O2.5'], c: '#F59E0B' }])}</div>
 ${forze(m)}
-    <div class="box"><h3>${ic('sliders')}Mercati e Combo</h3><div class="tiles">${Object.entries(mc).map(([x, v]) => `<div class="tile ${num(v) >= 75 ? 'hi' : ''}"><small>${E(lbl(x))}</small><b>${num(v)}%</b></div>`).join('')}</div>${['DNB', 'SQ', 'TM'].map(g => `<details class="acc" style="margin-top:8px"><summary>${E(GL[g])}${ic('chev')}</summary><div class="tiles" style="margin-top:8px">${(GR[g] || []).filter(x => k[x] != null).map(x => `<div class="tile ${num(k[x]) >= 75 ? 'hi' : ''}"><small>${E(lbl(x))}</small><b>${num(k[x])}%</b></div>`).join('')}</div></details>`).join('')}</div>
+    <div class="box"><h3>${ic('sliders')}Mercati e Combo</h3><div class="tiles">${Object.entries(mc).map(([x, v]) => `<div class="tile ${num(v) >= 75 ? 'hot' : ''}"><small>${E(lbl(x))}</small><b>${num(v)}%</b></div>`).join('')}</div>${['DNB', 'SQ', 'TM'].map(g => `<details class="acc" style="margin-top:8px"><summary>${E(GL[g])}${ic('chev')}</summary><div class="tiles" style="margin-top:8px">${(GR[g] || []).filter(x => k[x] != null).map(x => `<div class="tile ${num(k[x]) >= 75 ? 'hot' : ''}"><small>${E(lbl(x))}</small><b>${num(k[x])}%</b></div>`).join('')}</div></details>`).join('')}</div>
 
 ${pitch(m) ? `<div class="box"><h3>${ic('users')}Probabili formazioni</h3>${pitch(m)}</div>` : ''}
 <div class="box"><h3>${ic('ball')}Probabili marcatori</h3>${pl(m.possibili_marcatori, 'g', 'ball') || '<p class="mu">–</p>'}</div>
@@ -827,7 +830,11 @@ const A = {
   adminoff() { L.removeItem('vipAdmin'); simStd = false; tap(); toast('Accesso Admin disattivato'); render() },
   vipclose() { $('#vipm').classList.remove('open') },
   vipgo() { A.vipclose(); A.npclose(); A.close(); tab = 'vip'; render(); scrollTo(0, 0) },
-  vipsel(v) { vipSel = +v; tap(700); render(); $('#vsum')?.scrollIntoView({ behavior: 'smooth', block: 'center' }) },
+  vipsel(v) {
+    vipSel = +v; tap(700); render();
+    const p = VIP_PLANS.find(x => x.days === vipSel), s = $('#vwait-plan'); if (p && s) s.value = `${p.name} (${p.price})`;   // preseleziona il piano nella lista d'attesa
+    $('#vsum')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  },
   async copycause() {
     const p = VIP_PLANS.find(x => x.days === vipSel); if (!p) return;
     try { await navigator.clipboard.writeText(p.cause); tap(880); toast('Causale copiata: ' + p.cause) } catch { toast('Copia non riuscita: ' + p.cause) }
@@ -846,6 +853,31 @@ const A = {
     tap(880); toast(`Pass VIP attivato: ${days} giorni`); render(); scrollTo(0, 0);
   }
 };
+
+/* ---------- Lista d'attesa VIP (Web3Forms) ---------- */
+// Vale per entrambi i form (pagina VIP e popup): FormData senza Content-Type, quindi nessun preflight CORS
+async function vwaitSend(form) {
+  const btn = form.querySelector('[type=submit]'), err = form.querySelector('[data-err]'), ok = form.dataset.ok ? $(form.dataset.ok) : null, old = btn.innerHTML;
+  if (err) err.style.display = 'none';
+  btn.disabled = true; btn.textContent = 'Invio…';
+  try {
+    const fd = new FormData(form);
+    fd.set('access_key', WEB3FORMS_KEY);
+    if (!fd.has('subject')) fd.set('subject', "Nuovo iscritto Lista d'Attesa 352 VIP");
+    fd.set('from_name', '352 Pronostici');
+    const res = await fetch(WEB3FORMS_URL, { method: 'POST', body: fd });
+    let data = {}; try { data = await res.json() } catch { }
+    if (res.status === 200 && data.success !== false) {
+      vwaitDone = true; form.style.display = 'none'; if (ok) ok.style.display = 'block'; tap(880); return;
+    }
+    throw new Error('http ' + res.status);
+  } catch {
+    if (err) { err.textContent = 'Invio non riuscito. Riprova tra poco o scrivi a ' + VIP_MAIL + '.'; err.style.display = 'block' }
+    btn.disabled = false; btn.innerHTML = old;
+  }
+}
+document.addEventListener('submit', e => { const f = e.target; if (f.matches?.('form[data-w3]')) { e.preventDefault(); vwaitSend(f) } });
+
 document.addEventListener('click', e => { const b = e.target.closest('[data-a]'); if (b && A[b.dataset.a]) A[b.dataset.a](b.dataset.v) });
 document.addEventListener('click', e => { if (e.target.id === 'np') A.npclose() });
 document.addEventListener('visibilitychange', liveSync);
