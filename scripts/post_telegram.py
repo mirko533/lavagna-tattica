@@ -8,6 +8,7 @@ CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 APP_URL = "https://github.io"
 PHOTO_URL = "https://github.ioicon-512.png"
 
+
 LABELS = {
     "1": "Esito 1", "X": "Esito X", "2": "Esito 2",
     "1X": "Doppia Chance 1X", "X2": "Doppia Chance X2", "12": "Doppia Chance 12",
