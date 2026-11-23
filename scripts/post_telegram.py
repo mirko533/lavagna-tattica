@@ -28,24 +28,21 @@ def send_telegram(text, with_photo=True):
         print("Mancano TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID nei Secrets.")
         return
 
-    # Telegram limita le didascalie delle foto a 1024 caratteri; se il post da 12 eventi è più lungo, invia messaggio formattato
-    if with_photo and len(text) <= 1000:
-                url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendPhoto"
+    use_photo = with_photo and len(text) <= 1000
+    endpoint = "/sendPhoto" if use_photo else "/sendMessage"
+    url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + endpoint
 
+    if use_photo:
         payload = {
             "chat_id": CHAT_ID,
             "photo": PHOTO_URL,
             "caption": text,
             "parse_mode": "HTML",
             "reply_markup": {
-                "inline_keyboard": [
-                    [{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}]
-                ]
+                "inline_keyboard": [[{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}]]
             }
         }
     else:
-              url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendMessage"
-
         payload = {
             "chat_id": CHAT_ID,
             "text": text,
@@ -66,6 +63,7 @@ def send_telegram(text, with_photo=True):
             print("Messaggio inviato su Telegram con successo:", resp.status)
     except Exception as e:
         print("Errore invio Telegram:", e)
+
 
 def get_best_trend(match):
     candidates = {}
