@@ -1,12 +1,40 @@
+#!/usr/bin/env python3
+"""352 Pronostici - pubblicazione su Telegram (card immagine + pulsanti + riepilogo + sondaggio).
+
+Variabili d'ambiente: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (secrets del repository).
+Facoltative: FORCE_POST=1 per ripubblicare anche se lo slot di oggi risulta gia' inviato.
+Font facoltativi in scripts/fonts/: Outfit-Bold.ttf, PlusJakartaSans-Bold.ttf, PlusJakartaSans-Regular.ttf
+(font statici, scaricabili da Google Fonts). Senza di essi si usa DejaVu.
+"""
 import os
+import re
+import io
 import json
+import math
+import uuid
+import html
+import unicodedata
 import urllib.request
-from datetime import datetime, timezone
-from PIL import Image, ImageDraw, ImageFont
+import urllib.error
+from functools import lru_cache
+from datetime import datetime, timezone, timedelta
+
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+try:
+    from zoneinfo import ZoneInfo
+    ROME = ZoneInfo("Europe/Rome")
+except Exception:  # fallback prudente se manca tzdata
+    ROME = timezone(timedelta(hours=1))
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
-APP_URL = "https://" + "mirko533" + ".github.io/" + "lavagna-tattica/"
+APP_URL = "https://mirko533.github.io/lavagna-tattica/"
+MATCHES_PATH = "public/data/matches.json"
+STATE_PATH = "public/data/telegram_state.json"
+
+GIORNI = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"]
+MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"]
 
 LABELS = {
     "1": "1 FISSO", "X": "PAREGGIO X", "2": "2 FISSO",
@@ -14,128 +42,375 @@ LABELS = {
     "GG": "GOAL (GG)", "NG": "NOGOAL",
     "O1.5": "OVER 1.5", "U2.5": "UNDER 2.5", "O2.5": "OVER 2.5",
     "U3.5": "UNDER 3.5", "MG1-3": "MULTIGOL 1-3", "MG2-4": "MULTIGOL 2-4",
-    "1X+O1.5": "1X + O1.5", "X2+O1.5": "X2 + O1.5"
+    "1X+O1.5": "1X + O1.5", "X2+O1.5": "X2 + O1.5",
 }
 
-def clean_team(name):
-    for token in ["Club ", "FC ", "CF ", "AF ", "KV ", "FK ", "ŠK ", "SE ", "AC ", "ACF ", " FC", " CF", " KV", " FK"]:
-        name = name.replace(token, "")
-    return name.strip()
 
-def get_font(size, bold=False):
-    paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
-    ]
-    for p in paths:
+def app_link(tab=None):
+    """Link all'app con parametri di tracciamento; ?tab=vip apre direttamente la tab VIP."""
+    q = "src=telegram" + (f"&tab={tab}" if tab else "")
+    return f"{APP_URL}?{q}"
+
+
+# ----------------------------------------------------------------------------
+# Nomi squadra: abbreviazioni e pulizia
+# ----------------------------------------------------------------------------
+_STRIP = re.compile(
+    r"\b(?:FC|CF|AFC|AC|ACF|AS|SS|SSC|US|SV|SK|KV|FK|SE|BC|CD|UD|RC|RCD|SC|Club|Calcio|ŠK)\b",
+    re.IGNORECASE,
+)
+_NUMS = re.compile(r"\b\d{2,4}\b")
+ABBR = {
+    "internazionale milano": "Inter", "internazionale": "Inter", "hellas verona": "Verona",
+    "manchester city": "Man City", "manchester united": "Man United",
+    "tottenham hotspur": "Tottenham", "newcastle united": "Newcastle",
+    "wolverhampton wanderers": "Wolves", "brighton & hove albion": "Brighton",
+    "west ham united": "West Ham", "nottingham forest": "Nottm Forest",
+    "leicester city": "Leicester", "leeds united": "Leeds", "crystal palace": "Palace",
+    "atlético de madrid": "Atlético", "real sociedad de fútbol": "Real Sociedad",
+    "real betis balompié": "Betis", "rayo vallecano de madrid": "Rayo Vallecano",
+    "deportivo alavés": "Alavés", "borussia dortmund": "Dortmund", "bayer leverkusen": "Leverkusen",
+    "bayern münchen": "Bayern", "borussia mönchengladbach": "M'gladbach",
+    "eintracht frankfurt": "Francoforte", "paris saint-germain": "PSG",
+    "olympique de marseille": "Marsiglia", "olympique lyonnais": "Lione",
+    "sporting clube de portugal": "Sporting CP", "sl benfica": "Benfica", "tsg hoffenheim": "Hoffenheim",
+}
+
+
+def clean_team(name):
+    n = _STRIP.sub(" ", str(name or ""))
+    n = _NUMS.sub(" ", n)
+    n = re.sub(r"\s+", " ", n).strip(" -.")
+    return ABBR.get(n.casefold(), n) or str(name or "")
+
+
+# ----------------------------------------------------------------------------
+# Font e testo
+# ----------------------------------------------------------------------------
+_BASE = os.path.dirname(os.path.abspath(__file__))
+_FD = os.path.join(_BASE, "fonts")
+_DJ = "/usr/share/fonts/truetype/dejavu/"
+_LB = "/usr/share/fonts/truetype/liberation/"
+
+
+@lru_cache(maxsize=None)
+def get_font(size, bold=False, heading=False):
+    if heading:
+        cands = [_FD + "/Outfit-Bold.ttf", _FD + "/PlusJakartaSans-Bold.ttf"]
+    elif bold:
+        cands = [_FD + "/PlusJakartaSans-Bold.ttf"]
+    else:
+        cands = [_FD + "/PlusJakartaSans-Regular.ttf"]
+    cands += [_DJ + ("DejaVuSans-Bold.ttf" if (bold or heading) else "DejaVuSans.ttf"),
+              _LB + ("LiberationSans-Bold.ttf" if (bold or heading) else "LiberationSans-Regular.ttf")]
+    for p in cands:
         if os.path.exists(p):
-            return ImageFont.truetype(p, size)
+            try:
+                return ImageFont.truetype(p, size)
+            except Exception:
+                pass
     return ImageFont.load_default()
 
-def generate_card(title, subtitle, selection, avg_prob, vip_mode=False, out_path="card.png"):
-    W = 1080
-    row_h = 115
-    header_h = 250
-    footer_h = 140
-    H = header_h + (len(selection) * row_h) + footer_h
 
-    if vip_mode:
-        bg_color = (12, 10, 9)
-        card_bg = (28, 25, 23)
-        accent = (245, 158, 11)
-        accent_light = (253, 224, 71)
-        badge_bg = (120, 53, 15)
-        badge_txt = (254, 240, 138)
-    else:
-        bg_color = (11, 17, 32)
-        card_bg = (30, 41, 59)
-        accent = (16, 185, 129)
-        accent_light = (52, 211, 153)
-        badge_bg = (6, 78, 59)
-        badge_txt = (167, 243, 208)
+def fit_text(draw, text, size, max_w, bold=False, heading=False, min_size=16):
+    """Riduce il corpo del testo finche' entra in max_w; se serve tronca con '…'."""
+    text = str(text)
+    s = size
+    while s >= min_size:
+        f = get_font(s, bold, heading)
+        if draw.textlength(text, font=f) <= max_w:
+            return text, f
+        s -= 2
+    f = get_font(min_size, bold, heading)
+    while len(text) > 2 and draw.textlength(text + "…", font=f) > max_w:
+        text = text[:-1]
+    return text.rstrip() + "…", f
 
-    img = Image.new("RGB", (W, H), bg_color)
-    draw = ImageDraw.Draw(img)
-    draw.rounded_rectangle([24, 24, W - 24, H - 24], radius=36, outline=accent, width=4)
 
-    f_brand = get_font(48, bold=True)
-    f_title = get_font(34, bold=True)
-    f_sub = get_font(24, bold=False)
-    f_match = get_font(30, bold=True)
-    f_meta = get_font(22, bold=False)
-    f_badge = get_font(26, bold=True)
-
-    brand_txt = "352 PRONOSTICI  •  VIP GOLD" if vip_mode else "352 PRONOSTICI"
-    draw.text((64, 56), brand_txt, fill=accent_light, font=f_brand)
-    draw.text((64, 122), title, fill=(255, 255, 255), font=f_title)
-    draw.text((64, 170), subtitle, fill=(148, 163, 184), font=f_sub)
-    draw.line([(64, 220), (W - 64, 220)], fill=accent, width=3)
-
-    y = header_h
-    for idx, item in enumerate(selection, 1):
-        draw.rounded_rectangle([56, y, W - 56, y + 96], radius=20, fill=card_bg, outline=(51, 65, 85), width=2)
-        is_locked = vip_mode and idx > 3
-        match_str = f"{idx}.  {item['casa']}  vs  {item['trasf']}"
-        if len(match_str) > 34:
-            match_str = match_str[:33] + "…"
-        meta_str = f"{item['compNome']}  •  Ore {item['ora']}" if item['ora'] else item['compNome']
-
-        draw.text((84, y + 18), match_str, fill=(255, 255, 255), font=f_match)
-        draw.text((84, y + 58), meta_str, fill=(148, 163, 184), font=f_meta)
-
-        if is_locked:
-            b_text = "AREA VIP"
-            b_fill = (69, 26, 3)
-            t_fill = (251, 191, 36)
-        else:
-            b_text = f"{item['label']}  {item['prob']}%"
-            b_fill = badge_bg
-            t_fill = badge_txt
-
-        draw.rounded_rectangle([W - 330, y + 22, W - 76, y + 74], radius=14, fill=b_fill, outline=accent, width=2)
-        draw.text((W - 310, y + 33), b_text, fill=t_fill, font=f_badge)
-        y += row_h
-
-    draw.line([(64, y + 10), (W - 64, y + 10)], fill=(51, 65, 85), width=2)
-    draw.text((64, y + 38), f"AFFIDABILITA MEDIA: {avg_prob}%", fill=accent_light, font=f_title)
-    draw.text((64, y + 82), "Analisi complete su 352 Pronostici", fill=(148, 163, 184), font=f_sub)
-
-    img.save(out_path, "PNG")
-    return out_path
-def send_photo_multipart(image_path, caption, vip_mode=False):
-    if not BOT_TOKEN or not CHAT_ID:
-        return
-
-    boundary = "----WebKitFormBoundary352Pronostici"
-    url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendPhoto"
-
-    buttons = [[{"text": "📊 Apri App 352 Pronostici", "url": APP_URL}]]
-    if vip_mode:
-        buttons.append([{"text": "👑 Sblocca VIP / Lista d'Attesa (-20%)", "url": APP_URL}])
-
-    reply_markup = json.dumps({"inline_keyboard": buttons})
-
-    with open(image_path, "rb") as f:
-        img_bytes = f.read()
-
-    parts = []
-    for name, val in [("chat_id", CHAT_ID), ("caption", caption), ("parse_mode", "HTML"), ("reply_markup", reply_markup)]:
-        parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"{name}\"\r\n\r\n{val}\r\n".encode("utf-8"))
-
-    parts.append(
-        f"--{boundary}\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"card.png\"\r\nContent-Type: image/png\r\n\r\n".encode("utf-8")
-        + img_bytes + b"\r\n"
-    )
-    parts.append(f"--{boundary}--\r\n".encode("utf-8"))
-    body = b"".join(parts)
-
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
+# ----------------------------------------------------------------------------
+# Date (fuso Italia)
+# ----------------------------------------------------------------------------
+def parse_dt(iso):
     try:
-        with urllib.request.urlopen(req) as resp:
-            print("Card grafica inviata con successo:", resp.status)
-    except Exception as e:
-        print("Errore invio card:", e)
+        dt = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(ROME)
+    except Exception:
+        return None
 
+
+def fmt_when(dt):
+    return f"{GIORNI[dt.weekday()]} {dt.day} {MESI[dt.month - 1]} · {dt:%H:%M}" if dt else ""
+
+
+# ----------------------------------------------------------------------------
+# Scudetti (colori sociali, niente loghi protetti)
+# ----------------------------------------------------------------------------
+_PAL = [(29, 78, 216), (185, 28, 28), (4, 120, 87), (124, 58, 237), (180, 83, 9), (14, 116, 144)]
+
+
+def _hex(c):
+    if isinstance(c, str) and re.fullmatch(r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})", c):
+        c = c[1:]
+        if len(c) == 3:
+            c = "".join(x * 2 for x in c)
+        return tuple(int(c[i:i + 2], 16) for i in (0, 2, 4))
+    return None
+
+
+def _lum(rgb):
+    def ch(v):
+        v /= 255
+        return v / 12.92 if v <= .03928 else ((v + .055) / 1.055) ** 2.4
+    r, g, b = (ch(x) for x in rgb)
+    return .2126 * r + .7152 * g + .0722 * b
+
+
+def _bez(p0, p1, p2, p3, n=14):
+    pts = []
+    for i in range(1, n + 1):
+        t = i / n
+        u = 1 - t
+        pts.append((u**3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t**3 * p3[0],
+                    u**3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t**3 * p3[1]))
+    return pts
+
+
+def _shield_pts():
+    pts = [(3, 3), (37, 3), (37, 24)]
+    pts += _bez((37, 24), (37, 35), (29, 41), (20, 44))
+    pts += _bez((20, 44), (11, 41), (3, 35), (3, 24))
+    return pts
+
+
+def shield(name, st, w=40):
+    """Scudetto RGBA largo w px (stessa grafica dell'app), disegnato 6x e ridotto per l'antialiasing."""
+    S = 6
+    st = st or {}
+    cols = [x for x in (_hex(c) for c in (st.get("colori") or [])) if x]
+    h = 0
+    for ch in str(name):
+        h = (h * 31 + ord(ch)) % 997
+    c1 = cols[0] if cols else _PAL[h % 6]
+    c2 = cols[1] if len(cols) > 1 else (248, 250, 252)
+    pat = st.get("pattern") if st.get("pattern") in ("vertical", "horizontal", "diagonal", "half", "solid") else "solid"
+    cen = _lum(c1) if pat == "solid" else (_lum(c1) + _lum(c2)) / 2 if pat == "half" else _lum(c2)
+    tc = (11, 17, 32) if cen > .45 else (255, 255, 255)
+    ascii_name = unicodedata.normalize("NFD", str(name))
+    sig = re.sub(r"[^A-Za-z ]", "", ascii_name).strip()[:3].upper() or "?"
+    cw, chh = 40 * S, 46 * S
+    layer = Image.new("RGBA", (cw, chh), c1 + (255,))
+    ld = ImageDraw.Draw(layer)
+    sc = lambda pts: [(x * S, y * S) for x, y in pts]
+    if pat == "vertical":
+        ld.rectangle([14.3 * S, 0, 25.7 * S, chh], fill=c2)
+    elif pat == "horizontal":
+        ld.rectangle([0, 17 * S, cw, 31 * S], fill=c2)
+    elif pat == "half":
+        ld.rectangle([20 * S, 0, cw, chh], fill=c2)
+    elif pat == "diagonal":
+        ld.polygon(sc([(34, -4), (56, -4), (-4, 56), (-4, 34)]), fill=c2)
+    ld.rectangle([0, 3 * S, cw, 11 * S], fill=(0, 0, 0, 30))
+    mask = Image.new("L", (cw, chh), 0)
+    ImageDraw.Draw(mask).polygon(sc(_shield_pts()), fill=255)
+    out = Image.new("RGBA", (cw, chh), (0, 0, 0, 0))
+    out.paste(layer, (0, 0), mask)
+    od = ImageDraw.Draw(out)
+    edge = c2 if pat == "solid" else (255, 255, 255)
+    od.line(sc(_shield_pts() + [(3, 3)]), fill=edge + (200,), width=int(1.6 * S), joint="curve")
+    od.text((20 * S, 27 * S), sig, fill=tc, font=get_font(int((12 if len(sig) > 2 else 14) * S), bold=True), anchor="mm")
+    return out.resize((w, round(w * 1.15)), Image.LANCZOS)
+
+
+# ----------------------------------------------------------------------------
+# Card immagine
+# ----------------------------------------------------------------------------
+def _prob_color(p):
+    return (16, 185, 129) if p >= 75 else (245, 158, 11) if p >= 60 else (239, 68, 68)
+
+
+def _logo_ball(img, x, y, size, accent):
+    d = ImageDraw.Draw(img, "RGBA")
+    d.ellipse([x, y, x + size, y + size], fill=(255, 255, 255), outline=accent, width=max(3, size // 14))
+    cx, cy, r = x + size / 2, y + size / 2, size * .22
+    pent = [(cx + r * math.sin(math.radians(a)), cy - r * math.cos(math.radians(a))) for a in range(0, 360, 72)]
+    d.polygon(pent, fill=accent)
+    for (px, py) in pent:
+        dx, dy = px - cx, py - cy
+        k = 1.9
+        d.line([(px, py), (cx + dx * k, cy + dy * k)], fill=(11, 17, 32), width=max(2, size // 22))
+
+
+def generate_card(title, subtitle, selection, avg_prob, vip_mode=False, out_path="card.png"):
+    W, M = 1080, 44
+    HEAD, RH, GAP, FOOT = 290, 164, 14, 260
+    n = len(selection)
+    H = HEAD + n * (RH + GAP) + FOOT
+
+    if vip_mode:
+        top, bot = (20, 15, 8), (8, 6, 4)
+        card_bg, border = (30, 26, 20), (70, 55, 25)
+        accent, accent2 = (245, 158, 11), (253, 224, 71)
+    else:
+        top, bot = (13, 22, 41), (8, 12, 24)
+        card_bg, border = (22, 32, 54), (45, 58, 84)
+        accent, accent2 = (16, 185, 129), (6, 182, 212)
+    muted, white = (138, 151, 173), (240, 245, 252)
+
+    img = Image.new("RGB", (W, H), top)
+    px = ImageDraw.Draw(img)
+    for y in range(H):
+        t = y / max(1, H - 1)
+        px.line([(0, y), (W, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse([W - 520, -320, W + 220, 380], fill=accent + (70,))
+    glow = glow.filter(ImageFilter.GaussianBlur(110))
+    img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
+    d = ImageDraw.Draw(img, "RGBA")
+
+    # --- intestazione ---
+    _logo_ball(img, M, 48, 78, accent)
+    f_brand = get_font(56, heading=True)
+    d.text((M + 100, 87), "352", fill=accent2, font=f_brand, anchor="lm")
+    w352 = d.textlength("352 ", font=f_brand)
+    d.text((M + 100 + w352, 87), "Pronostici", fill=white, font=f_brand, anchor="lm")
+    tag = "VIP GOLD" if vip_mode else "ANALISI"
+    f_tag = get_font(22, bold=True, heading=True)
+    tw = d.textlength(tag, font=f_tag)
+    d.rounded_rectangle([W - M - tw - 40, 62, W - M, 112], radius=25, fill=accent + (35,), outline=accent + (200,), width=2)
+    d.text((W - M - tw / 2 - 20, 87), tag, fill=accent2, font=f_tag, anchor="mm")
+    t_txt, t_font = fit_text(d, title, 38, W - 2 * M, heading=True, min_size=24)
+    d.text((M, 168), t_txt, fill=white, font=t_font, anchor="lm")
+    s_txt, s_font = fit_text(d, subtitle, 26, W - 2 * M, min_size=18)
+    d.text((M, 214), s_txt, fill=muted, font=s_font, anchor="lm")
+    d.rounded_rectangle([M, 252, W - M, 256], radius=2, fill=accent + (150,))
+
+    # --- righe ---
+    x_sh = M + 78
+    x_name = x_sh + 38 + 16
+    bx1 = W - M - 22
+    bx0 = bx1 - 230
+    max_name = bx0 - 26 - x_name
+    for i, it in enumerate(selection, 1):
+        y0 = HEAD + (i - 1) * (RH + GAP)
+        locked = vip_mode and i > 3
+        pc = _prob_color(it["prob"])
+        d.rounded_rectangle([M, y0, W - M, y0 + RH], radius=28, fill=card_bg, outline=border, width=2)
+        d.rounded_rectangle([M, y0 + 20, M + 9, y0 + RH - 20], radius=4, fill=(accent if locked else pc))
+        d.text((M + 45, y0 + RH // 2), str(i), fill=muted, font=get_font(34, heading=True), anchor="mm")
+        for k, (nm, st) in enumerate(((it["casa"], it.get("stemma_casa")), (it["trasf"], it.get("stemma_trasf")))):
+            cy = y0 + 42 + k * 50
+            sh = shield(nm, st, 38)
+            img.paste(sh, (x_sh, cy - sh.height // 2), sh)
+            txt, f = fit_text(d, nm, 31, max_name, bold=True, min_size=20)
+            d.text((x_name, cy), txt, fill=white, font=f, anchor="lm")
+        meta = " · ".join(x for x in (it["when"], it["compNome"]) if x)
+        m_txt, m_font = fit_text(d, meta, 22, max_name, min_size=16)
+        d.text((x_name, y0 + 130), m_txt, fill=muted, font=m_font, anchor="lm")
+        bar_x1 = bx0 - 26
+        if not locked:
+            d.rounded_rectangle([x_name, y0 + RH - 18, bar_x1, y0 + RH - 12], radius=3, fill=(255, 255, 255, 25))
+            d.rounded_rectangle([x_name, y0 + RH - 18, x_name + (bar_x1 - x_name) * it["prob"] / 100, y0 + RH - 12], radius=3, fill=pc)
+        cx = (bx0 + bx1) // 2
+        if locked:
+            d.rounded_rectangle([bx0, y0 + 24, bx1, y0 + RH - 24], radius=22, fill=accent + (40,), outline=accent + (170,), width=2)
+            ly = y0 + 46
+            d.arc([cx - 11, ly, cx + 11, ly + 26], 180, 360, fill=accent2, width=5)
+            d.rounded_rectangle([cx - 16, ly + 14, cx + 16, ly + 40], radius=6, fill=accent2)
+            d.text((cx, y0 + 106), "AREA VIP", fill=accent2, font=get_font(22, bold=True, heading=True), anchor="mm")
+        else:
+            d.rounded_rectangle([bx0, y0 + 24, bx1, y0 + RH - 24], radius=22, fill=pc + (36,), outline=pc + (160,), width=2)
+            l_txt, l_font = fit_text(d, it["label"], 22, bx1 - bx0 - 24, bold=True, heading=True, min_size=15)
+            d.text((cx, y0 + 58), l_txt, fill=white, font=l_font, anchor="mm")
+            d.text((cx, y0 + 102), f"{it['prob']}%", fill=pc, font=get_font(44, heading=True), anchor="mm")
+
+    # --- piede ---
+    yf = HEAD + n * (RH + GAP) + 4
+    d.rounded_rectangle([M, yf, W - M, yf + 150], radius=28, fill=card_bg, outline=border, width=2)
+    pcc = _prob_color(avg_prob)
+    d.text((M + 36, yf + 42), "AFFIDABILITÀ MEDIA", fill=muted, font=get_font(22, bold=True), anchor="lm")
+    d.text((M + 36, yf + 100), f"{avg_prob}%", fill=pcc, font=get_font(62, heading=True), anchor="lm")
+    bx = M + 290
+    d.rounded_rectangle([bx, yf + 62, W - M - 40, yf + 76], radius=7, fill=(255, 255, 255, 30))
+    d.rounded_rectangle([bx, yf + 62, bx + (W - M - 40 - bx) * avg_prob / 100, yf + 76], radius=7, fill=pcc)
+    d.text((bx, yf + 112), "Analisi complete nell'app 352 Pronostici", fill=muted, font=get_font(22), anchor="lm")
+    d.text((W // 2, yf + 190), "18+  ·  Contenuti solo informativi e statistici  ·  Nessun invito al gioco", fill=muted, font=get_font(20), anchor="mm")
+    d.text((W // 2, yf + 222), "Vietato ai minori di 18 anni", fill=muted, font=get_font(20), anchor="mm")
+
+    img.convert("RGB").save(out_path, "PNG", optimize=True)
+    return out_path
+
+
+# ----------------------------------------------------------------------------
+# Telegram API (solo libreria standard)
+# ----------------------------------------------------------------------------
+def tg_call(method, fields, file_field=None):
+    if not BOT_TOKEN or not CHAT_ID:
+        print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID mancanti: nessun invio.")
+        return None
+    boundary = "----352" + uuid.uuid4().hex
+    parts = []
+    for k, v in fields.items():
+        parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode("utf-8"))
+    if file_field:
+        name, path, ctype = file_field
+        with open(path, "rb") as f:
+            data = f.read()
+        parts.append((f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"; filename="{os.path.basename(path)}"\r\n'
+                      f'Content-Type: {ctype}\r\n\r\n').encode("utf-8") + data + b"\r\n")
+    parts.append(f"--{boundary}--\r\n".encode("utf-8"))
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/{method}", data=b"".join(parts),
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+            print(f"{method}: ok={res.get('ok')}")
+            return res
+    except urllib.error.HTTPError as e:   # non stampiamo mai l'URL (contiene il token)
+        print(f"{method}: errore HTTP {e.code}: {e.read()[:300]!r}")
+    except Exception as e:
+        print(f"{method}: errore {type(e).__name__}")
+    return None
+
+
+def buttons(vip_mode=False):
+    vip_txt = "💎 Lista d'attesa VIP · sconto 20%" if vip_mode else "💎 Entra nel VIP Club"
+    return json.dumps({"inline_keyboard": [
+        [{"text": "📲 Apri l'app · analisi complete", "url": app_link()}],
+        [{"text": vip_txt, "url": app_link("vip")}],
+    ]})
+
+
+def send_photo(path, caption, vip_mode=False, silent=False):
+    res = tg_call("sendPhoto", {
+        "chat_id": CHAT_ID, "caption": caption, "parse_mode": "HTML",
+        "reply_markup": buttons(vip_mode), "disable_notification": "true" if silent else "false",
+    }, ("photo", path, "image/png"))
+    return bool(res and res.get("ok"))
+
+
+def send_message(text, vip_mode=False, silent=True):
+    res = tg_call("sendMessage", {
+        "chat_id": CHAT_ID, "text": text, "parse_mode": "HTML", "disable_web_page_preview": "true",
+        "reply_markup": buttons(vip_mode), "disable_notification": "true" if silent else "false",
+    })
+    return bool(res and res.get("ok"))
+
+
+def send_poll(question, options, silent=True):
+    res = tg_call("sendPoll", {
+        "chat_id": CHAT_ID, "question": question[:300], "is_anonymous": "true",
+        "options": json.dumps([{"text": o[:100]} for o in options]),
+        "disable_notification": "true" if silent else "false",
+    })
+    return bool(res and res.get("ok"))
+
+
+# ----------------------------------------------------------------------------
+# Selezione, riepilogo e stato anti-doppioni
+# ----------------------------------------------------------------------------
 def get_varied_trend(match, index):
     p1x2 = match.get("prob_1x2") or {}
     mc = match.get("mercati_completi") or {}
@@ -143,11 +418,11 @@ def get_varied_trend(match, index):
         ["1", "2", "1X+O1.5", "X2+O1.5"],
         ["O1.5", "O2.5", "GG", "MG2-4"],
         ["1X", "X2", "MG1-3", "U3.5"],
-        ["1", "2", "GG", "O1.5"]
+        ["1", "2", "GG", "O1.5"],
     ]
-    preferred_keys = groups[index % len(groups)]
+    preferred = groups[index % len(groups)]
     best_k, best_v = None, 0
-    for k in preferred_keys:
+    for k in preferred:
         val = p1x2.get(k) if k in p1x2 else mc.get(k, 0)
         if val and val > best_v:
             best_k, best_v = k, val
@@ -160,92 +435,168 @@ def get_varied_trend(match, index):
             return "DATI", 60
     return LABELS.get(best_k, best_k), int(best_v)
 
-def format_time(iso_str):
+
+def _term(t, h, a):
+    g = h + a
+    if t == "1": return h > a
+    if t == "X": return h == a
+    if t == "2": return a > h
+    if t == "1X": return h >= a
+    if t == "X2": return a >= h
+    if t == "12": return h != a
+    if t == "GG": return h > 0 and a > 0
+    if t == "NG": return not (h > 0 and a > 0)
+    r = re.fullmatch(r"([UO])(\d)\.5", t)
+    if r:
+        return g < int(r[2]) + .5 if r[1] == "U" else g > int(r[2]) + .5
+    r = re.fullmatch(r"MG(\d)-(\d)", t)
+    if r:
+        return int(r[1]) <= g <= int(r[2])
+    return None
+
+
+def eval_esito(esito, score):
+    """True = centrato, False = mancato, None = non valutabile (stessa logica dell'app)."""
     try:
-        dt = datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
-        return dt.strftime("%H:%M")
+        h, a = int(score[0]), int(score[1])
     except Exception:
-        return ""
+        return None
+    rs = [_term(t, h, a) for t in re.sub(r"\s+", "", str(esito or "")).upper().split("+")]
+    return None if (not rs or None in rs) else all(rs)
+
+
+def build_recap(matches, today):
+    rows = []
+    for m in matches:
+        pp = m.get("pronostico_principale") or {}
+        dt = parse_dt(m.get("data"))
+        if m.get("stato") != "FINISHED" or not pp or not m.get("score") or not dt or dt.date() != today:
+            continue
+        r = eval_esito(pp.get("esito"), m["score"])
+        if r is not None:
+            rows.append((m, pp, r))
+    if len(rows) < 3:
+        return None
+    ok = sum(1 for _, _, r in rows if r)
+    pct = round(ok * 100 / len(rows))
+    lines = [f"📊 <b>Riepilogo del giorno · {today.day} {MESI[today.month - 1]}</b>",
+             f"Pronostici principali verificati: <b>{ok}/{len(rows)}</b> ({pct}%)", ""]
+    for m, pp, r in rows[:14]:
+        lines.append(f"{'✅' if r else '❌'} {html.escape(clean_team(m.get('casa')))} - {html.escape(clean_team(m.get('trasf')))} · "
+                     f"<b>{html.escape(str(pp.get('esito')))}</b> ({m['score'][0]}-{m['score'][1]})")
+    lines += ["", "<i>Riportiamo anche gli errori: sono stime statistiche, non certezze. 18+ · Solo informativo.</i>"]
+    return "\n".join(lines)
+
+
+def load_state():
+    try:
+        with open(STATE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_state(state):
+    try:
+        with open(STATE_PATH, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False, indent=1)
+    except Exception as e:
+        print("Stato non salvato:", type(e).__name__)
+
 
 def main():
-    path = "public/data/matches.json"
-    if not os.path.exists(path):
+    if not os.path.exists(MATCHES_PATH):
+        print("matches.json non trovato")
         return
+    with open(MATCHES_PATH, "r", encoding="utf-8") as f:
+        all_matches = json.load(f).get("matches", [])
 
-    with open(path, "r", encoding="utf-8") as f:
-        raw = json.load(f)
+    event = os.environ.get("GITHUB_EVENT_NAME", "")
+    scheduled = event == "schedule"
+    force = os.environ.get("FORCE_POST") == "1"
+    hour = datetime.now(timezone.utc).hour
+    today = datetime.now(ROME).date()
+    today_s = today.isoformat()
+    oggi = f"{today.day} {MESI[today.month - 1]} {today.year}"
+    state = load_state()
+    posted = state.setdefault("posted", {})
 
-    all_matches = raw.get("matches", [])
+    def should(slot):          # un solo invio per fascia al giorno (solo sui run programmati)
+        return (not scheduled) or force or posted.get(slot) != today_s
+
+    def done(slot):
+        posted[slot] = today_s
+
+    # --- fascia oraria (UTC, come i cron del workflow) ---
+    if scheduled and hour in (6, 7, 8):
+        slot, kind, vip_mode, limit, silent = "mattina", "SELEZIONE MATTUTINA", False, 7, False
+    elif scheduled and hour in (13, 14, 15):
+        slot, kind, vip_mode, limit, silent = "pomeriggio", "ANALISI POMERIDIANA", False, 8, True
+    elif scheduled and hour in (17, 18, 19):
+        slot, kind, vip_mode, limit, silent = "sera", "MULTI-ANALISI SERALE", False, 12, True
+    elif scheduled and hour in (21, 22, 23):
+        slot, kind, vip_mode, limit, silent = "vip", "SELEZIONE ESCLUSIVA · TOP VIP", True, 6, False
+    else:
+        slot, kind, vip_mode, limit, silent = "manuale", "SELEZIONE DEL GIORNO", False, 8, False
+
+    # --- riepilogo serale (centrate e mancate) ---
+    if scheduled and hour in (21, 22, 23) and should("recap"):
+        text = build_recap(all_matches, today)
+        if text and send_message(text, silent=True):
+            done("recap")
+
+    # --- schedina grafica ---
     timed = [m for m in all_matches if m.get("stato") == "TIMED"]
     pool = timed if timed else all_matches
-
     enriched = []
     for idx, m in enumerate(pool):
         label, prob = get_varied_trend(m, idx)
+        dt = parse_dt(m.get("data"))
         enriched.append({
-            "casa": clean_team(m.get("casa", "")),
-            "trasf": clean_team(m.get("trasf", "")),
-            "compNome": m.get("compNome", "Calcio"),
-            "ora": format_time(m.get("data", "")),
-            "label": label,
-            "prob": prob
+            "casa": clean_team(m.get("casa", "")), "trasf": clean_team(m.get("trasf", "")),
+            "stemma_casa": m.get("stemma_casa"), "stemma_trasf": m.get("stemma_trasf"),
+            "compNome": m.get("compNome", "Calcio"), "dt": dt, "when": fmt_when(dt),
+            "label": label, "prob": prob, "aff": m.get("affidabilita") or 0,
         })
+    enriched.sort(key=lambda x: (-x["prob"], x["dt"] or datetime.max.replace(tzinfo=timezone.utc)))
+    selection = enriched[:limit]
 
-    enriched.sort(key=lambda x: x["prob"], reverse=True)
-
-    hour = datetime.now(timezone.utc).hour
-    event_name = os.environ.get("GITHUB_EVENT_NAME", "")
-    oggi = datetime.now().strftime("%d/%m/%Y")
-
-    if event_name == "schedule" and hour in (6, 7, 8):
-        title = "SELEZIONE MATTUTINA  •  7 EVENTI"
-        subtitle = f"Analisi statistica del {oggi}"
-        selection = enriched[:7]
-        vip_mode = False
-    elif event_name == "schedule" and hour in (13, 14, 15):
-        title = "ANALISI POMERIDIANA  •  8 EVENTI"
-        subtitle = f"Combinazione matematica del {oggi}"
-        selection = enriched[:8]
-        vip_mode = False
-    elif event_name == "schedule" and hour in (17, 18, 19):
-        title = "MULTI-ANALISI SERALE  •  12 EVENTI"
-        subtitle = f"Panoramica estesa del {oggi}"
-        selection = enriched[:12]
-        vip_mode = False
-    elif event_name == "schedule" and hour in (21, 22, 23):
-        title = "SELEZIONE ESCLUSIVA  •  TOP 6 VIP"
-        subtitle = f"I migliori indici statistici • {oggi}"
-        selection = enriched[:6]
-        vip_mode = True
-    else:
-        title = "SELEZIONE DEL GIORNO  •  8 EVENTI"
+    if selection and should(slot):
+        n = len(selection)
+        avg = round(sum(x["prob"] for x in selection) / n)
+        title = f"{kind}  •  {n} EVENTI"
         subtitle = f"Elaborazione algoritmo 352 • {oggi}"
-        selection = enriched[:8]
-        vip_mode = False
-
-    if not selection:
-        return
-
-    avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
-    card_file = generate_card(title, subtitle, selection, avg_prob, vip_mode=vip_mode)
- 
-
-    if vip_mode:
-        caption = (
-            f"👑 <b>352 VIP GOLD — {title}</b>\n\n"
-            f"✨ Ecco le nostre proposte esclusive di oggi basate sui migliori indici matematici! "
-            f"3 analisi sono già in chiaro e 3 sono riservate ai membri del Club.\n\n"
-            f"📲 <b>Visita l'app ufficiale</b> per leggere le analisi complete, le probabili formazioni e bloccare il tuo posto VIP con il <b>20% di sconto</b>! 👇"
-        )
+        card = generate_card(title, subtitle, selection, avg, vip_mode=vip_mode)
+        t = html.escape(kind.title())
+        if vip_mode:
+            caption = (f"👑 <b>352 VIP GOLD · {t}</b>\n\n"
+                       f"📅 {oggi} · {n} analisi, 3 in chiaro e {max(0, n - 3)} riservate al Club.\n"
+                       f"📊 Affidabilità media: <b>{avg}%</b>\n\n"
+                       f"💎 Il 352 VIP Club è in fase di attivazione: entra in lista d'attesa e ricevi il <b>20% di sconto</b> "
+                       f"riservato ai primi iscritti.\n\n<i>18+ · Contenuti solo informativi e statistici.</i>")
+        else:
+            caption = (f"⚽️ <b>352 Pronostici · {t}</b>\n\n"
+                       f"📅 {oggi} · {n} eventi analizzati\n"
+                       f"📊 Affidabilità media: <b>{avg}%</b>\n\n"
+                       f"👇 Apri l'app per analisi complete, probabili formazioni e tutti i mercati.\n\n"
+                       f"<i>18+ · Contenuti solo informativi e statistici.</i>")
+        if send_photo(card, caption, vip_mode=vip_mode, silent=silent):
+            done(slot)
+            # sondaggio 1-X-2 sulla gara di oggi con affidabilita' piu' alta (solo mattina)
+            if slot == "mattina" and should("sondaggio"):
+                cand = [x for x in enriched if x["dt"] and x["dt"].date() == today]
+                if cand:
+                    g = max(cand, key=lambda x: x["aff"])
+                    if send_poll(f"Come finisce {g['casa']} - {g['trasf']}?",
+                                 [f"1 · {g['casa']}", "X · Pareggio", f"2 · {g['trasf']}"]):
+                        done("sondaggio")
+    elif selection:
+        print(f"Fascia '{slot}' gia' pubblicata oggi: nessun doppione.")
     else:
-        caption = (
-            f"⚽️ <b>352 PRONOSTICI — {title}</b>\n\n"
-            f"🔥 Ecco le nostre proposte statistiche di oggi elaborate dall'algoritmo! "
-            f"Affidabilità media della selezione: <b>{avg_prob}%</b> 📊\n\n"
-            f"📲 <b>Visita l'app ufficiale</b> per consultare gratuitamente tutti i 28 mercati, gli xG e lo stato di forma delle squadre! 👇"
-        )
+        print("Nessuna partita da pubblicare.")
 
-    send_photo_multipart(card_file, caption, vip_mode=vip_mode)
+    save_state(state)
+
 
 if __name__ == "__main__":
     main()
