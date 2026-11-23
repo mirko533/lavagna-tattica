@@ -226,21 +226,23 @@ def main():
     if not selection:
         return
 
-    avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
+        avg_prob = round(sum(x["prob"] for x in selection) / len(selection))
     card_file = generate_card(title, subtitle, selection, avg_prob, vip_mode=vip_mode)
 
-       caption = (
-        f"👑 <b>352 VIP GOLD — {title}</b>\n\n"
-        f"✨ Ecco le nostre proposte esclusive di oggi basate sui migliori indici matematici! "
-        f"3 analisi sono già in chiaro e 3 sono riservate ai membri del Club.\n\n"
-        f"📲 <b>Visita l'app ufficiale</b> per leggere le analisi complete, le probabili formazioni e bloccare il tuo posto VIP con il <b>20% di sconto</b>! 👇"
-    ) if vip_mode else (
-        f"⚽️ <b>352 PRONOSTICI — {title}</b>\n\n"
-        f"🔥 Ecco le nostre proposte statistiche di oggi elaborate dall'algoritmo! "
-        f"Affidabilità media della selezione: <b>{avg_prob}%</b> 📊\n\n"
-        f"📲 <b>Visita l'app ufficiale</b> per consultare gratuitamente tutti i 28 mercati, gli xG e lo stato di forma delle squadre! 👇"
-    )
-
+    if vip_mode:
+        caption = (
+            f"👑 <b>352 VIP GOLD — {title}</b>\n\n"
+            f"✨ Ecco le nostre proposte esclusive di oggi basate sui migliori indici matematici! "
+            f"3 analisi sono già in chiaro e 3 sono riservate ai membri del Club.\n\n"
+            f"📲 <b>Visita l'app ufficiale</b> per leggere le analisi complete, le probabili formazioni e bloccare il tuo posto VIP con il <b>20% di sconto</b>! 👇"
+        )
+    else:
+        caption = (
+            f"⚽️ <b>352 PRONOSTICI — {title}</b>\n\n"
+            f"🔥 Ecco le nostre proposte statistiche di oggi elaborate dall'algoritmo! "
+            f"Affidabilità media della selezione: <b>{avg_prob}%</b> 📊\n\n"
+            f"📲 <b>Visita l'app ufficiale</b> per consultare gratuitamente tutti i 28 mercati, gli xG e lo stato di forma delle squadre! 👇"
+        )
 
     send_photo_multipart(card_file, caption, vip_mode=vip_mode)
 
