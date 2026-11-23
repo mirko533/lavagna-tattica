@@ -30,7 +30,8 @@ def send_telegram(text, with_photo=True):
 
     # Telegram limita le didascalie delle foto a 1024 caratteri; se il post da 12 eventi è più lungo, invia messaggio formattato
     if with_photo and len(text) <= 1000:
-        url = f"https://telegram.org{BOT_TOKEN}/sendPhoto"
+                url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendPhoto"
+
         payload = {
             "chat_id": CHAT_ID,
             "photo": PHOTO_URL,
@@ -43,7 +44,8 @@ def send_telegram(text, with_photo=True):
             }
         }
     else:
-        url = f"https://telegram.org{BOT_TOKEN}/sendMessage"
+              url = "https://" + "api.telegram.org" + "/bot" + BOT_TOKEN + "/sendMessage"
+
         payload = {
             "chat_id": CHAT_ID,
             "text": text,
