@@ -15,7 +15,7 @@ HOOKS = [
 ]
 CAPTIONS = [
     "L'algoritmo 352 ha analizzato tutte le gare di oggi e isolato i 3 segnali più solidi. Trovi tutti i 38 mercati gratis sull'app (link in bio).",
-    "Analisi statistica completa delle migliori 3 partite del giorno. Scopri anche il Radar Sorprese gratuito sull'app 352 Pronostici (link in bio).",
+    "Analisi statistica completa delle migliori 3 partite del giorno. Scopri anche il Radar Sorprese gratuito sull'app 352 Analisi IA (link in bio).",
     "Dati alla mano: ecco le 3 gare con l'indice di affidabilità più alto oggi. Tutte le probabilità aggiornate sull'app gratuita in bio."
 ]
 MESI = ["", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
@@ -87,7 +87,7 @@ def render_frames(matches, hook_text, frames_dir):
         d = ImageDraw.Draw(frame, "RGBA")
 
         if f_idx < cta_start:
-            d.text((64, 72), "352 PRONOSTICI · RADAR AI", font=F_TAG, fill=(16, 185, 129))
+            d.text((64, 72), "352 ANALISI · RADAR CALCIO", font=F_TAG, fill=(16, 185, 129))
             d.text((64, 112), date_label, font=F_DATE, fill=(148, 163, 184))
             d.line((64, 156, 260, 156), fill=(245, 158, 11), width=5)
             d.multiline_text((64, 182), hook_text, font=F_HOOK, fill=(241, 245, 249), spacing=12)
@@ -136,7 +136,7 @@ def render_frames(matches, hook_text, frames_dir):
             d.rounded_rectangle((64, 340, W - 64, 1540), radius=44, fill=(19, 28, 49, 245), outline=(16, 185, 129, 220), width=4)
             d.rounded_rectangle((W // 2 - 140, 430, W // 2 + 140, 520), radius=26, fill=(16, 185, 129, 40), outline=(16, 185, 129), width=3)
             d.text(((W - d.textlength("APP UFFICIALE", font=F_TAG)) / 2, 460), "APP UFFICIALE", font=F_TAG, fill=(52, 211, 153))
-            d.text(((W - d.textlength("352 PRONOSTICI", font=F_CTA_TITLE)) / 2, 585), "352 PRONOSTICI", font=F_CTA_TITLE, fill=(248, 250, 252))
+            d.text(((W - d.textlength("352 ANALISI AI", font=F_CTA_TITLE)) / 2, 585), "352 ANALISI AI", font=F_CTA_TITLE, fill=(248, 250, 252))
 
             for li, line in enumerate(["Tutte le partite di oggi,", "38+ mercati statistici AI", "e il Radar Sorprese in tempo reale."]):
                 d.text(((W - d.textlength(line, font=F_CTA_SUB)) / 2, 710 + li * 54), line, font=F_CTA_SUB, fill=(148, 163, 184))
@@ -162,7 +162,7 @@ def main():
     make_audio(wav_path)
     subprocess.run(["ffmpeg", "-y", "-framerate", str(FPS), "-i", os.path.join(frames_dir, "f_%04d.png"), "-i", wav_path, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "fast", "-c:a", "aac", "-b:a", "128k", "-shortest", mp4_path], check=True)
     with open(cap_path, "w", encoding="utf-8") as f:
-        f.write(f"{random.choice(CAPTIONS)}\n\n#calcio #statistichecalcio #championsleague #seriea #analisitattica #352pronostici")
+        f.write(f"{random.choice(CAPTIONS)}\n\n#calcio #statistichecalcio #championsleague #seriea #analisitattica #352analisi")
     print("Video TikTok generato con successo:", mp4_path)
 
 if __name__ == "__main__":
