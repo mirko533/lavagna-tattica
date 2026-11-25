@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-25T08:23:05.882509+00:00",
-  "aggiornato": "2026-11-25T08:23:05.882509+00:00",
+  "updated_at": "2026-11-25T08:32:16.628862+00:00",
+  "aggiornato": "2026-11-25T08:32:16.628862+00:00",
   "matches": [
     {
       "id": 575405,
@@ -783,6 +783,162 @@
       }
     },
     {
+      "id": 575411,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Sporting Clube de Portugal",
+      "trasf": "Manchester United FC",
+      "score": null,
+      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Rui Silva",
+            "Ivan Fresneda",
+            "Gonçalo Inácio",
+            "Zeno Debast",
+            "Maximiliano Araújo",
+            "Sergi Altimira",
+            "Rodrigo Zalazar",
+            "Geny Catamo",
+            "Luis Suárez",
+            "Fotis Ioannidis",
+            "Luis Guilherme"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Senne Lammens",
+            "Noussair Mazraoui",
+            "Matthijs de Ligt",
+            "Lisandro Martínez",
+            "Luke Shaw",
+            "Bryan Mbeumo",
+            "Bruno Fernandes",
+            "Manuel Ugarte",
+            "Marcus Rashford",
+            "Matheus Cunha",
+            "Joshua Zirkzee"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 27,
+        "2": 35
+      },
+      "mercati_completi": {
+        "1X": 65,
+        "X2": 62,
+        "12": 73,
+        "GG": 56,
+        "NG": 44,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 38,
+        "MG1-3": 62,
+        "MG2-3": 51,
+        "MG2-4": 67,
+        "MG3-5": 39,
+        "1+O1.5": 42,
+        "1+O2.5": 28,
+        "2+O1.5": 39,
+        "2+O2.5": 25,
+        "1X+O1.5": 48,
+        "X2+O1.5": 46,
+        "1X+GG": 41,
+        "X2+GG": 39,
+        "GG+O2.5": 45,
+        "1+GG": 22,
+        "2+GG": 20,
+        "2+U3.5": 31
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Luis Suárez",
+          "ruolo": "Attaccante",
+          "prob": 34
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Fotis Ioannidis",
+          "ruolo": "Attaccante",
+          "prob": 29
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marcus Rashford",
+          "ruolo": "Attaccante",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Bruno Fernandes",
+          "ruolo": "Centrocampista",
+          "prob": 26
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sergi Altimira",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Inácio",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Manuel Ugarte",
+          "ruolo": "Centrocampista",
+          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lisandro Martínez",
+          "ruolo": "Difensore",
+          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
+          "prob": 40
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#006400",
+          "#ffffff"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#da291c",
+          "#000000"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 575407,
       "comp": "CL",
       "compNome": "Champions League",
@@ -1251,159 +1407,133 @@
       }
     },
     {
-      "id": 575411,
+      "id": 575406,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-25T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Sporting Clube de Portugal",
-      "trasf": "Manchester United FC",
+      "casa": "FC Internazionale Milano",
+      "trasf": "VfB Stuttgart",
       "score": null,
-      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
       "formazioni": {
         "casa": {
-          "modulo": "4-3-3",
+          "modulo": "3-5-2",
           "undici": [
-            "Rui Silva",
-            "Ivan Fresneda",
-            "Gonçalo Inácio",
-            "Zeno Debast",
-            "Maximiliano Araújo",
-            "Sergi Altimira",
-            "Rodrigo Zalazar",
-            "Geny Catamo",
-            "Luis Suárez",
-            "Fotis Ioannidis",
-            "Luis Guilherme"
+            "Ivan Provedel",
+            "Benjamin Pavard",
+            "Manuel Akanji",
+            "Alessandro Bastoni",
+            "Nicolò Barella",
+            "Hakan Çalhanoğlu",
+            "Henrikh Mkhitaryan",
+            "Federico Dimarco",
+            "Djed Spence",
+            "Lautaro Martínez",
+            "Marcus Thuram-Ulien"
           ]
         },
         "trasferta": {
-          "modulo": "4-4-2",
+          "modulo": "4-2-3-1",
           "undici": [
-            "Senne Lammens",
-            "Noussair Mazraoui",
-            "Matthijs de Ligt",
-            "Lisandro Martínez",
-            "Luke Shaw",
-            "Bryan Mbeumo",
-            "Bruno Fernandes",
-            "Manuel Ugarte",
-            "Marcus Rashford",
-            "Matheus Cunha",
-            "Joshua Zirkzee"
+            "Alexander Nübel",
+            "Josha Vagnoman",
+            "Dan-Axel Zagadou",
+            "Julian Chabot",
+            "Maximilian Mittelstädt",
+            "Atakan Karazor",
+            "Angelo Stiller",
+            "Jamie Leweling",
+            "Bilal El Khannouss",
+            "Chris Führich",
+            "Deniz Undav"
           ]
         }
       },
       "prob_1x2": {
-        "1": 38,
-        "X": 27,
-        "2": 35
+        "1": 55,
+        "X": 25,
+        "2": 20
       },
       "mercati_completi": {
-        "1X": 65,
-        "X2": 62,
-        "12": 73,
-        "GG": 56,
-        "NG": 44,
+        "1X": 80,
+        "X2": 45,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
         "U1.5": 32,
         "O1.5": 68,
         "U2.5": 54,
         "O2.5": 46,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 38,
+        "MG1-2": 42,
         "MG1-3": 62,
-        "MG2-3": 51,
-        "MG2-4": 67,
-        "MG3-5": 39,
-        "1+O1.5": 42,
-        "1+O2.5": 28,
-        "2+O1.5": 39,
-        "2+O2.5": 25,
-        "1X+O1.5": 48,
-        "X2+O1.5": 46,
-        "1X+GG": 41,
-        "X2+GG": 39,
-        "GG+O2.5": 45,
-        "1+GG": 22,
-        "2+GG": 20,
-        "2+U3.5": 31
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 48,
+        "1+O2.5": 32,
+        "2+O1.5": 18,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 38,
+        "1X+GG": 44,
+        "X2+GG": 30,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 15,
+        "2+U3.5": 18
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luis Suárez",
+          "giocatore": "Lautaro Martínez",
           "ruolo": "Attaccante",
-          "prob": 34
+          "prob": 42
         },
         {
           "squadra": "casa",
-          "giocatore": "Fotis Ioannidis",
+          "giocatore": "Marcus Thuram-Ulien",
           "ruolo": "Attaccante",
-          "prob": 29
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Marcus Rashford",
-          "ruolo": "Attaccante",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Bruno Fernandes",
-          "ruolo": "Centrocampista",
-          "prob": 26
+          "prob": 35
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Sergi Altimira",
+          "giocatore": "Nicolò Barella",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Inácio",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
+          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Manuel Ugarte",
+          "giocatore": "Atakan Karazor",
           "ruolo": "Centrocampista",
-          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
           "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lisandro Martínez",
-          "ruolo": "Difensore",
-          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
-          "prob": 40
         }
       ],
       "pronostico_principale": {
-        "esito": "1X+O1.5",
+        "esito": "1+O1.5",
         "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
       },
-      "affidabilita": 78,
+      "affidabilita": 80,
       "stemma_casa": {
         "colori": [
-          "#006400",
-          "#ffffff"
+          "#000000",
+          "#006699"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#da291c",
-          "#000000"
+          "#ffffff",
+          "#e30613"
         ],
-        "pattern": "solid"
+        "pattern": "horizontal"
       }
     },
     {
@@ -1872,136 +2002,6 @@
           "#0066B2"
         ],
         "pattern": "half"
-      }
-    },
-    {
-      "id": 575406,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "FC Internazionale Milano",
-      "trasf": "VfB Stuttgart",
-      "score": null,
-      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Ivan Provedel",
-            "Benjamin Pavard",
-            "Manuel Akanji",
-            "Alessandro Bastoni",
-            "Nicolò Barella",
-            "Hakan Çalhanoğlu",
-            "Henrikh Mkhitaryan",
-            "Federico Dimarco",
-            "Djed Spence",
-            "Lautaro Martínez",
-            "Marcus Thuram-Ulien"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Alexander Nübel",
-            "Josha Vagnoman",
-            "Dan-Axel Zagadou",
-            "Julian Chabot",
-            "Maximilian Mittelstädt",
-            "Atakan Karazor",
-            "Angelo Stiller",
-            "Jamie Leweling",
-            "Bilal El Khannouss",
-            "Chris Führich",
-            "Deniz Undav"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 55,
-        "X": 25,
-        "2": 20
-      },
-      "mercati_completi": {
-        "1X": 80,
-        "X2": 45,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 38,
-        "1X+GG": 44,
-        "X2+GG": 30,
-        "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 15,
-        "2+U3.5": 18
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Lautaro Martínez",
-          "ruolo": "Attaccante",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Marcus Thuram-Ulien",
-          "ruolo": "Attaccante",
-          "prob": 35
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Nicolò Barella",
-          "ruolo": "Centrocampista",
-          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Atakan Karazor",
-          "ruolo": "Centrocampista",
-          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
-          "prob": 45
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
-      },
-      "affidabilita": 80,
-      "stemma_casa": {
-        "colori": [
-          "#000000",
-          "#006699"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#ffffff",
-          "#e30613"
-        ],
-        "pattern": "horizontal"
       }
     },
     {
@@ -4468,160 +4468,6 @@
         "colori": [
           "#003399",
           "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 902594766,
-      "comp": "ECL",
-      "compNome": "Conference League",
-      "data": "2026-11-26T15:30:00Z",
-      "stato": "TIMED",
-      "casa": "Kairat Almaty",
-      "trasf": "Mjällby",
-      "score": null,
-      "analisi": "Il Kairat Almaty ospita il Mjällby in un incontro di Conference League dove il fattore campo e la lunghissima trasferta kazaka giocano un ruolo cruciale. Il Kairat mostra un solido rendimento casalingo, affidandosi a un blocco difensivo compatto e ripartenze rapide. Il Mjällby cerca di imporre la propria organizzazione tattica nordica, ma rischia di soffrire l'impatto fisico e le condizioni ambientali nelle fasi centrali della gara.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Danil Ustimenko",
-            "Aleksandr Martynovich",
-            "Aleksandr Shirobokov",
-            "Alexander Mrynskiy",
-            "Damir Kasabulat",
-            "Adilet Sadybekov",
-            "Anton Krachkovskiy",
-            "Arsen Buranchiev",
-            "Azamat Tuyakbayev",
-            "Abulkhaiyr Abdrakhmanov"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Alexander Lundin",
-            "Axel Norén",
-            "Abdullah Iqbal",
-            "Adam Petersson",
-            "Christian Tchouante",
-            "Áki Debes Samuelsen",
-            "Bork Bang-Kittelsen",
-            "Anders Torstensson",
-            "Ali Youssef",
-            "Alexander Johansson"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 32,
-        "1+O2.5": 22,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 54,
-        "X2+O1.5": 40,
-        "1X+GG": 42,
-        "X2+GG": 34,
-        "GG+O2.5": 35,
-        "1+GG": 24,
-        "2+GG": 15,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Adilet Sadybekov",
-          "ruolo": "Centrocampista",
-          "prob": 15
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Aleksandr Martynovich",
-          "ruolo": "Difensore",
-          "prob": 12
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ali Youssef",
-          "ruolo": "Attaccante",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alexander Johansson",
-          "ruolo": "Attaccante",
-          "prob": 18
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Arsen Buranchiev",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici sulla trequarti",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Aleksandr Shirobokov",
-          "ruolo": "Difensore",
-          "motivo": "Falli sistematici sulle ripartenze avversarie",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Axel Norén",
-          "ruolo": "Difensore",
-          "motivo": "Marcatura stretta sugli attaccanti locali",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Christian Tchouante",
-          "ruolo": "Centrocampista",
-          "motivo": "Eccesso di foga nei contrasti a centrocampo",
-          "prob": 32
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 54,
-        "motivazione_breve": "Kairat solido in casa e viaggio lungo per Mjällby; attese almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#FFD700",
-          "#000000"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FFFF00",
-          "#000000"
         ],
         "pattern": "solid"
       }
@@ -5949,6 +5795,162 @@
       }
     },
     {
+      "id": 575411,
+      "comp": "CL",
+      "compNome": "Champions League",
+      "data": "2026-11-25T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Sporting Clube de Portugal",
+      "trasf": "Manchester United FC",
+      "score": null,
+      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Rui Silva",
+            "Ivan Fresneda",
+            "Gonçalo Inácio",
+            "Zeno Debast",
+            "Maximiliano Araújo",
+            "Sergi Altimira",
+            "Rodrigo Zalazar",
+            "Geny Catamo",
+            "Luis Suárez",
+            "Fotis Ioannidis",
+            "Luis Guilherme"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Senne Lammens",
+            "Noussair Mazraoui",
+            "Matthijs de Ligt",
+            "Lisandro Martínez",
+            "Luke Shaw",
+            "Bryan Mbeumo",
+            "Bruno Fernandes",
+            "Manuel Ugarte",
+            "Marcus Rashford",
+            "Matheus Cunha",
+            "Joshua Zirkzee"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 38,
+        "X": 27,
+        "2": 35
+      },
+      "mercati_completi": {
+        "1X": 65,
+        "X2": 62,
+        "12": 73,
+        "GG": 56,
+        "NG": 44,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 38,
+        "MG1-3": 62,
+        "MG2-3": 51,
+        "MG2-4": 67,
+        "MG3-5": 39,
+        "1+O1.5": 42,
+        "1+O2.5": 28,
+        "2+O1.5": 39,
+        "2+O2.5": 25,
+        "1X+O1.5": 48,
+        "X2+O1.5": 46,
+        "1X+GG": 41,
+        "X2+GG": 39,
+        "GG+O2.5": 45,
+        "1+GG": 22,
+        "2+GG": 20,
+        "2+U3.5": 31
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Luis Suárez",
+          "ruolo": "Attaccante",
+          "prob": 34
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Fotis Ioannidis",
+          "ruolo": "Attaccante",
+          "prob": 29
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Marcus Rashford",
+          "ruolo": "Attaccante",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Bruno Fernandes",
+          "ruolo": "Centrocampista",
+          "prob": 26
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sergi Altimira",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gonçalo Inácio",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Manuel Ugarte",
+          "ruolo": "Centrocampista",
+          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "prob": 45
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lisandro Martínez",
+          "ruolo": "Difensore",
+          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
+          "prob": 40
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 48,
+        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#006400",
+          "#ffffff"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#da291c",
+          "#000000"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 575407,
       "comp": "CL",
       "compNome": "Champions League",
@@ -6417,159 +6419,133 @@
       }
     },
     {
-      "id": 575411,
+      "id": 575406,
       "comp": "CL",
       "compNome": "Champions League",
       "data": "2026-11-25T20:00:00Z",
       "stato": "TIMED",
-      "casa": "Sporting Clube de Portugal",
-      "trasf": "Manchester United FC",
+      "casa": "FC Internazionale Milano",
+      "trasf": "VfB Stuttgart",
       "score": null,
-      "analisi": "Lo Sporting Lisbona affronta il Manchester United in una classica sfida di Champions League ad alta intensità. I portoghesi puntano sulla spinta del proprio pubblico e sulla qualità offensiva guidata da Luis Suárez e Fotis Ioannidis. Gli inglesi rispondono con un centrocampo di grande palleggio e la velocità di Marcus Rashford e Bryan Mbeumo. Ci si attende una gara aperta e tatticamente vibrante, con duelli intensi sulle fasce.",
+      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
       "formazioni": {
         "casa": {
-          "modulo": "4-3-3",
+          "modulo": "3-5-2",
           "undici": [
-            "Rui Silva",
-            "Ivan Fresneda",
-            "Gonçalo Inácio",
-            "Zeno Debast",
-            "Maximiliano Araújo",
-            "Sergi Altimira",
-            "Rodrigo Zalazar",
-            "Geny Catamo",
-            "Luis Suárez",
-            "Fotis Ioannidis",
-            "Luis Guilherme"
+            "Ivan Provedel",
+            "Benjamin Pavard",
+            "Manuel Akanji",
+            "Alessandro Bastoni",
+            "Nicolò Barella",
+            "Hakan Çalhanoğlu",
+            "Henrikh Mkhitaryan",
+            "Federico Dimarco",
+            "Djed Spence",
+            "Lautaro Martínez",
+            "Marcus Thuram-Ulien"
           ]
         },
         "trasferta": {
-          "modulo": "4-4-2",
+          "modulo": "4-2-3-1",
           "undici": [
-            "Senne Lammens",
-            "Noussair Mazraoui",
-            "Matthijs de Ligt",
-            "Lisandro Martínez",
-            "Luke Shaw",
-            "Bryan Mbeumo",
-            "Bruno Fernandes",
-            "Manuel Ugarte",
-            "Marcus Rashford",
-            "Matheus Cunha",
-            "Joshua Zirkzee"
+            "Alexander Nübel",
+            "Josha Vagnoman",
+            "Dan-Axel Zagadou",
+            "Julian Chabot",
+            "Maximilian Mittelstädt",
+            "Atakan Karazor",
+            "Angelo Stiller",
+            "Jamie Leweling",
+            "Bilal El Khannouss",
+            "Chris Führich",
+            "Deniz Undav"
           ]
         }
       },
       "prob_1x2": {
-        "1": 38,
-        "X": 27,
-        "2": 35
+        "1": 55,
+        "X": 25,
+        "2": 20
       },
       "mercati_completi": {
-        "1X": 65,
-        "X2": 62,
-        "12": 73,
-        "GG": 56,
-        "NG": 44,
+        "1X": 80,
+        "X2": 45,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
         "U1.5": 32,
         "O1.5": 68,
         "U2.5": 54,
         "O2.5": 46,
         "U3.5": 78,
         "O3.5": 22,
-        "MG1-2": 38,
+        "MG1-2": 42,
         "MG1-3": 62,
-        "MG2-3": 51,
-        "MG2-4": 67,
-        "MG3-5": 39,
-        "1+O1.5": 42,
-        "1+O2.5": 28,
-        "2+O1.5": 39,
-        "2+O2.5": 25,
-        "1X+O1.5": 48,
-        "X2+O1.5": 46,
-        "1X+GG": 41,
-        "X2+GG": 39,
-        "GG+O2.5": 45,
-        "1+GG": 22,
-        "2+GG": 20,
-        "2+U3.5": 31
+        "MG2-3": 50,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 48,
+        "1+O2.5": 32,
+        "2+O1.5": 18,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 38,
+        "1X+GG": 44,
+        "X2+GG": 30,
+        "GG+O2.5": 42,
+        "1+GG": 25,
+        "2+GG": 15,
+        "2+U3.5": 18
       },
       "possibili_marcatori": [
         {
           "squadra": "casa",
-          "giocatore": "Luis Suárez",
+          "giocatore": "Lautaro Martínez",
           "ruolo": "Attaccante",
-          "prob": 34
+          "prob": 42
         },
         {
           "squadra": "casa",
-          "giocatore": "Fotis Ioannidis",
+          "giocatore": "Marcus Thuram-Ulien",
           "ruolo": "Attaccante",
-          "prob": 29
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Marcus Rashford",
-          "ruolo": "Attaccante",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Bruno Fernandes",
-          "ruolo": "Centrocampista",
-          "prob": 26
+          "prob": 35
         }
       ],
       "possibili_ammoniti": [
         {
           "squadra": "casa",
-          "giocatore": "Sergi Altimira",
+          "giocatore": "Nicolò Barella",
           "ruolo": "Centrocampista",
-          "motivo": "Interventi duri in mediana per argorare le ripartenze.",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gonçalo Inácio",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici costanti con gli attaccanti avversari.",
+          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
           "prob": 38
         },
         {
           "squadra": "trasferta",
-          "giocatore": "Manuel Ugarte",
+          "giocatore": "Atakan Karazor",
           "ruolo": "Centrocampista",
-          "motivo": "Pressing aggressivo e falli tattici sistematici.",
+          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
           "prob": 45
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lisandro Martínez",
-          "ruolo": "Difensore",
-          "motivo": "Interventi tempestivi ma spesso al limite su palloni filtranti.",
-          "prob": 40
         }
       ],
       "pronostico_principale": {
-        "esito": "1X+O1.5",
+        "esito": "1+O1.5",
         "probabilita": 48,
-        "motivazione_breve": "Partita equilibrata con almeno due reti complessive e fattore campo favorevole."
+        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
       },
-      "affidabilita": 78,
+      "affidabilita": 80,
       "stemma_casa": {
         "colori": [
-          "#006400",
-          "#ffffff"
+          "#000000",
+          "#006699"
         ],
         "pattern": "vertical"
       },
       "stemma_trasf": {
         "colori": [
-          "#da291c",
-          "#000000"
+          "#ffffff",
+          "#e30613"
         ],
-        "pattern": "solid"
+        "pattern": "horizontal"
       }
     },
     {
@@ -7038,136 +7014,6 @@
           "#0066B2"
         ],
         "pattern": "half"
-      }
-    },
-    {
-      "id": 575406,
-      "comp": "CL",
-      "compNome": "Champions League",
-      "data": "2026-11-25T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "FC Internazionale Milano",
-      "trasf": "VfB Stuttgart",
-      "score": null,
-      "analisi": "L'Inter affronta lo Stoccarda in una sfida di Champions League ad alta intensità tattica. I nerazzurri sfruttano il fattore campo e la qualità del proprio organico per imporre il proprio gioco. La difesa ospite dovrà arginare la vena realizzativa degli attaccanti di casa.",
-      "formazioni": {
-        "casa": {
-          "modulo": "3-5-2",
-          "undici": [
-            "Ivan Provedel",
-            "Benjamin Pavard",
-            "Manuel Akanji",
-            "Alessandro Bastoni",
-            "Nicolò Barella",
-            "Hakan Çalhanoğlu",
-            "Henrikh Mkhitaryan",
-            "Federico Dimarco",
-            "Djed Spence",
-            "Lautaro Martínez",
-            "Marcus Thuram-Ulien"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Alexander Nübel",
-            "Josha Vagnoman",
-            "Dan-Axel Zagadou",
-            "Julian Chabot",
-            "Maximilian Mittelstädt",
-            "Atakan Karazor",
-            "Angelo Stiller",
-            "Jamie Leweling",
-            "Bilal El Khannouss",
-            "Chris Führich",
-            "Deniz Undav"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 55,
-        "X": 25,
-        "2": 20
-      },
-      "mercati_completi": {
-        "1X": 80,
-        "X2": 45,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 62,
-        "MG2-3": 50,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 48,
-        "1+O2.5": 32,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 38,
-        "1X+GG": 44,
-        "X2+GG": 30,
-        "GG+O2.5": 42,
-        "1+GG": 25,
-        "2+GG": 15,
-        "2+U3.5": 18
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Lautaro Martínez",
-          "ruolo": "Attaccante",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Marcus Thuram-Ulien",
-          "ruolo": "Attaccante",
-          "prob": 35
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Nicolò Barella",
-          "ruolo": "Centrocampista",
-          "motivo": "Fattore agonistico alto a centrocampo su transizioni avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Atakan Karazor",
-          "ruolo": "Centrocampista",
-          "motivo": "Costretto a frequenti falli tattici per fermare le ripartenze",
-          "prob": 45
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 48,
-        "motivazione_breve": "Vittoria interna probabile in un match con almeno due reti complessive."
-      },
-      "affidabilita": 80,
-      "stemma_casa": {
-        "colori": [
-          "#000000",
-          "#006699"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#ffffff",
-          "#e30613"
-        ],
-        "pattern": "horizontal"
       }
     },
     {
@@ -9634,160 +9480,6 @@
         "colori": [
           "#003399",
           "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 902594766,
-      "comp": "ECL",
-      "compNome": "Conference League",
-      "data": "2026-11-26T15:30:00Z",
-      "stato": "TIMED",
-      "casa": "Kairat Almaty",
-      "trasf": "Mjällby",
-      "score": null,
-      "analisi": "Il Kairat Almaty ospita il Mjällby in un incontro di Conference League dove il fattore campo e la lunghissima trasferta kazaka giocano un ruolo cruciale. Il Kairat mostra un solido rendimento casalingo, affidandosi a un blocco difensivo compatto e ripartenze rapide. Il Mjällby cerca di imporre la propria organizzazione tattica nordica, ma rischia di soffrire l'impatto fisico e le condizioni ambientali nelle fasi centrali della gara.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Danil Ustimenko",
-            "Aleksandr Martynovich",
-            "Aleksandr Shirobokov",
-            "Alexander Mrynskiy",
-            "Damir Kasabulat",
-            "Adilet Sadybekov",
-            "Anton Krachkovskiy",
-            "Arsen Buranchiev",
-            "Azamat Tuyakbayev",
-            "Abulkhaiyr Abdrakhmanov"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Alexander Lundin",
-            "Axel Norén",
-            "Abdullah Iqbal",
-            "Adam Petersson",
-            "Christian Tchouante",
-            "Áki Debes Samuelsen",
-            "Bork Bang-Kittelsen",
-            "Anders Torstensson",
-            "Ali Youssef",
-            "Alexander Johansson"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 58,
-        "O2.5": 42,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 50,
-        "MG1-3": 75,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 32,
-        "1+O2.5": 22,
-        "2+O1.5": 18,
-        "2+O2.5": 12,
-        "1X+O1.5": 54,
-        "X2+O1.5": 40,
-        "1X+GG": 42,
-        "X2+GG": 34,
-        "GG+O2.5": 35,
-        "1+GG": 24,
-        "2+GG": 15,
-        "2+U3.5": 22
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Adilet Sadybekov",
-          "ruolo": "Centrocampista",
-          "prob": 15
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Aleksandr Martynovich",
-          "ruolo": "Difensore",
-          "prob": 12
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Ali Youssef",
-          "ruolo": "Attaccante",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Alexander Johansson",
-          "ruolo": "Attaccante",
-          "prob": 18
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Arsen Buranchiev",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi tattici sulla trequarti",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Aleksandr Shirobokov",
-          "ruolo": "Difensore",
-          "motivo": "Falli sistematici sulle ripartenze avversarie",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Axel Norén",
-          "ruolo": "Difensore",
-          "motivo": "Marcatura stretta sugli attaccanti locali",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Christian Tchouante",
-          "ruolo": "Centrocampista",
-          "motivo": "Eccesso di foga nei contrasti a centrocampo",
-          "prob": 32
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 54,
-        "motivazione_breve": "Kairat solido in casa e viaggio lungo per Mjällby; attese almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#FFD700",
-          "#000000"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FFFF00",
-          "#000000"
         ],
         "pattern": "solid"
       }
