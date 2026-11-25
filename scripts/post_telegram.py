@@ -436,6 +436,44 @@ def get_varied_trend(match, index):
     return LABELS.get(best_k, best_k), int(best_v)
 
 
+FIN_ST = {"FINISHED", "FT", "AET", "PEN"}
+FIN_AFTER_MIN = 150
+
+
+def final_score(m):
+    """Punteggio finale: preferisce gol_casa/gol_trasf, poi ripiega su score."""
+    try:
+        if m.get("gol_casa") is not None and m.get("gol_trasf") is not None:
+            return int(m["gol_casa"]), int(m["gol_trasf"])
+    except Exception:
+        pass
+    sc = m.get("score")
+    try:
+        if isinstance(sc, (list, tuple)) and sc[0] is not None and sc[1] is not None:
+            return int(sc[0]), int(sc[1])
+    except Exception:
+        pass
+    return None
+
+
+def is_concluso(m):
+    """Conclusa: stato finale, oppure punteggio presente e inizio da oltre 150 minuti."""
+    if not final_score(m):
+        return False
+    if str(m.get("stato") or "").upper() in FIN_ST:
+        return True
+    dt = parse_dt(m.get("data"))
+    return bool(dt and (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)) > timedelta(minutes=FIN_AFTER_MIN))
+
+
+def norm_esito(s):
+    s = re.sub(r"\s+", "", str(s or "").upper().replace(",", "."))
+    s = re.sub(r"^ESITO", "", s)
+    s = s.replace("MULTIGOL", "MG").replace("NOGOAL", "NG").replace("NOGOL", "NG")
+    s = s.replace("GOAL", "GG").replace("GOL", "GG").replace("OVER", "O").replace("UNDER", "U")
+    return s
+
+
 def _term(t, h, a):
     g = h + a
     if t == "1": return h > a
@@ -446,46 +484,67 @@ def _term(t, h, a):
     if t == "12": return h != a
     if t == "GG": return h > 0 and a > 0
     if t == "NG": return not (h > 0 and a > 0)
-    r = re.fullmatch(r"([UO])(\d)\.5", t)
+    if t == "DNB1": return None if h == a else h > a
+    if t == "DNB2": return None if h == a else a > h
+    if t == "WIN0CASA": return h > a and a == 0
+    if t == "WIN0TRASF": return a > h and h == 0
+    if t == "CLEANSHEET1": return a == 0
+    if t == "CLEANSHEET2": return h == 0
+    r = re.fullmatch(r"([UO])(\d+)\.5", t)
     if r:
         return g < int(r[2]) + .5 if r[1] == "U" else g > int(r[2]) + .5
-    r = re.fullmatch(r"MG(\d)-(\d)", t)
+    r = re.fullmatch(r"MG(\d+)-(\d+)", t)
     if r:
         return int(r[1]) <= g <= int(r[2])
     return None
 
 
 def eval_esito(esito, score):
-    """True = centrato, False = mancato, None = non valutabile (stessa logica dell'app)."""
+    """True = centrato, False = mancato, None = non valutabile (o rimborso DNB)."""
     try:
         h, a = int(score[0]), int(score[1])
     except Exception:
         return None
-    rs = [_term(t, h, a) for t in re.sub(r"\s+", "", str(esito or "")).upper().split("+")]
+    rs = [_term(t, h, a) for t in norm_esito(esito).split("+") if t]
     return None if (not rs or None in rs) else all(rs)
 
-
-def build_recap(matches, today):
-    rows = []
+def build_recaps(matches, reported):
+    """Un riepilogo per giorno con i pronostici centrati non ancora rendicontati.
+    Ritorna [(giorno_iso, testo_o_None, [id_da_segnare])]."""
+    by_day = {}
     for m in matches:
         pp = m.get("pronostico_principale") or {}
         dt = parse_dt(m.get("data"))
-        if m.get("stato") != "FINISHED" or not pp or not m.get("score") or not dt or dt.date() != today:
+        if not pp or not dt or not is_concluso(m):
             continue
-        r = eval_esito(pp.get("esito"), m["score"])
-        if r is not None:
-            rows.append((m, pp, r))
-    if len(rows) < 3:
-        return None
-    ok = sum(1 for _, _, r in rows if r)
-    pct = round(ok * 100 / len(rows))
-    lines = [f"📊 <b>Riepilogo del giorno · {today.day} {MESI[today.month - 1]}</b>",
-             f"Pronostici principali verificati: <b>{ok}/{len(rows)}</b> ({pct}%)", ""]
-    for m, pp, r in rows[:14]:
-        lines.append(f"{'✅' if r else '❌'} {html.escape(clean_team(m.get('casa')))} - {html.escape(clean_team(m.get('trasf')))} · "
-                     f"<b>{html.escape(str(pp.get('esito')))}</b> ({m['score'][0]}-{m['score'][1]})")
-    lines += ["", "<i>Riportiamo anche gli errori: sono stime statistiche, non certezze. 18+ · Solo informativo.</i>"]
-    return "\n".join(lines)
+        sc = final_score(m)
+        r = eval_esito(pp.get("esito"), sc)
+        if r is None:
+            continue
+        by_day.setdefault(dt.date(), []).append((m, pp, sc, r))
+
+    out = []
+    for day in sorted(by_day):
+        rows = by_day[day]
+        fresh = [x for x in rows if str(x[0].get("id")) not in reported]
+        if not fresh:
+            continue
+        ids = [str(x[0].get("id")) for x in fresh]
+        hits = [x for x in fresh if x[3]]
+        if not hits:
+            out.append((day.isoformat(), None, ids))   # solo mancate: le segno senza inviare
+            continue
+        ok = sum(1 for x in rows if x[3])
+        pct = round(ok * 100 / len(rows))
+        hits.sort(key=lambda x: str(x[0].get("data")))
+        lines = [f"📊 <b>Riepilogo {GIORNI[day.weekday()]} {day.day} {MESI[day.month - 1]}</b>", ""]
+        for m, pp, sc, _ in hits[:25]:
+            lines.append(f"✅ <b>PRESO</b> · {html.escape(clean_team(m.get('casa')))} - {html.escape(clean_team(m.get('trasf')))} "
+                         f"<b>{sc[0]}-{sc[1]}</b>\n      {html.escape(str(pp.get('esito')))} · stima {int(round(float(pp.get('probabilita') or 0)))}%")
+        lines += ["", f"🎯 Successo della giornata: <b>{ok}/{len(rows)} ({pct}%)</b>", "",
+                  "<i>Sono stime statistiche, non certezze. 18+ · Solo informativo.</i>"]
+        out.append((day.isoformat(), "\n".join(lines), ids))
+    return out
 
 
 def load_state():
@@ -540,10 +599,14 @@ def main():
         slot, kind, vip_mode, limit, silent = "manuale", "SELEZIONE DEL GIORNO", False, 8, False
 
     # --- riepilogo serale (centrate e mancate) ---
-    if scheduled and hour in (21, 22, 23) and should("recap"):
-        text = build_recap(all_matches, today)
-        if text and send_message(text, silent=True):
-            done("recap")
+       reported = state.setdefault("reported", {})
+    for day_s, text, ids in build_recaps(all_matches, reported):
+        if text is None or send_message(text, silent=True):
+            for i in ids:
+                reported[i] = day_s
+    lim = (today - timedelta(days=60)).isoformat()
+    for i in [k for k, v in reported.items() if v < lim]:
+        del reported[i]
 
     # --- schedina grafica ---
     timed = [m for m in all_matches if m.get("stato") == "TIMED"]
