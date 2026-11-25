@@ -380,8 +380,6 @@ def tg_call(method, fields, file_field=None):
 # ----------------------------------------------------------------------------
 # Frasi variabili (tono da analista)
 # ----------------------------------------------------------------------------
-FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
-
 OPEN_DAY = [
     "Si parte: ecco il quadro di oggi, {n} partite passate al setaccio.",
     "Il menu di oggi conta {n} eventi con numeri abbastanza leggibili.",
@@ -469,36 +467,6 @@ CLOSINGS = [
     "Buona lettura e buon calcio.",
     "Si vedrà a fine partita.",
 ]
-NOTES_HEAD = [
-    "Due righe sulle gare principali:",
-    "Le note veloci:",
-    "Cosa dicono i numeri, in breve:",
-    "Il perché di ciascuna lettura:",
-    "Motivazioni sintetiche:",
-    "Qualche dettaglio sulle prime della lista:",
-    "Appunti rapidi:",
-    "Perché queste gare:",
-    "Lettura dei dati, senza fronzoli:",
-    "Il ragionamento in breve:",
-]
-NOTES = {
-    "over": ["Media gol alta: ritmo da Over ({p}%).", "Squadre che segnano parecchio, Over a {p}%.",
-             "Partita aperta sulla carta, Over {p}%.", "Reparti offensivi in palla, Over al {p}%."],
-    "under": ["Gara da pochi gol, Under al {p}%.", "Difese solide, il modello dà Under {p}%.",
-              "Ritmi bassi attesi, Under a {p}%.", "Pochi spazi previsti, Under {p}%."],
-    "gol": ["Entrambe vanno a segno nel {p}% dei casi.", "Attacchi in forma, Goal a {p}%.",
-            "Difese non impermeabili: Goal {p}%.", "Segnano in due, stima {p}%."],
-    "nogol": ["Una delle due resta a secco, NoGoal {p}%.", "Attacco sterile da una parte, NoGoal al {p}%.",
-              "Porta inviolata plausibile, NoGoal {p}%.", "Difesa ordinata, NoGoal a {p}%."],
-    "casa": ["Il fattore campo pesa: vittoria casa al {p}%.", "In casa rende molto di più, 1 al {p}%.",
-             "Squadra di casa favorita, stima {p}%.", "Peso del campo evidente, 1 a {p}%."],
-    "trasf": ["Gli ospiti arrivano meglio: 2 al {p}%.", "Trasferta insidiosa per i padroni di casa, 2 {p}%.",
-              "Qualità dalla parte degli ospiti, stima {p}%.", "Ospiti in vantaggio sui numeri, 2 al {p}%."],
-    "eq": ["Equilibrio marcato, il pari vale {p}%.", "Gara bloccata sulla carta, X al {p}%.",
-           "Poche differenze tra le due, pareggio {p}%.", "Match da doppia chance, X a {p}%."],
-}
-NOTE_KEY = {"over": "O2.5", "under": "U2.5", "gol": "GG", "nogol": "NG", "casa": "1", "trasf": "2", "eq": "X"}
-
 RECAP_OPEN = [
     "Verifiche di {d}: ecco cosa è andato a segno.",
     "Controllo degli esiti di {d}, partiamo dai centrati.",
@@ -530,26 +498,7 @@ POLL_Q = [
     "Sondaggio lampo: {a} - {b}.",
 ]
 
-_last_pick = {}
-_sent_count = 0
-
-
-def pick(key, options):
-    """random.choice evitando di ripetere la stessa variante due volte di fila."""
-    choices = [o for o in options if o != _last_pick.get(key)] or list(options)
-    val = random.choice(choices)
-    _last_pick[key] = val
-    return val
-
-
-def clean_txt(s):
-    s = str(s or "")
-    if not FORB.search(s):
-        return s
-    parts = re.findall(r"[^.!?]+[.!?]*", s)
-    return " ".join(p.strip() for p in parts if not FORB.search(p))
-
-
+# Note brevi coerenti con il mercato mostrato in card (stessa etichetta, stessa percentuale)
 REV_LABELS = {v: k for k, v in LABELS.items()}
 CAT = {"1": "casa", "2": "trasf", "X": "eq", "1X": "dc1", "X2": "dc2", "12": "nopari",
        "GG": "gol", "NG": "nogol", "O1.5": "over", "O2.5": "over", "U2.5": "under",
@@ -572,6 +521,17 @@ NOTES_BY_CAT = {
     "combo": ["Doppia chance più gol: combo al {p}%.", "Copertura sull'esito e gol attesi, {p}%."],
 }
 
+_last_pick = {}
+_sent_count = 0
+
+
+def pick(key, options):
+    """random.choice evitando di ripetere la stessa variante due volte di fila."""
+    choices = [o for o in options if o != _last_pick.get(key)] or list(options)
+    val = random.choice(choices)
+    _last_pick[key] = val
+    return val
+
 
 def note_for(label, prob):
     """Nota coerente con il mercato mostrato in card (stessa etichetta e stessa percentuale)."""
@@ -579,6 +539,7 @@ def note_for(label, prob):
     if not cat:
         return ""
     return random.choice(NOTES_BY_CAT[cat]).format(p=int(prob))
+
 
 # ----------------------------------------------------------------------------
 # Invio messaggi (pulsanti, "typing...", pause)
@@ -769,9 +730,12 @@ def build_recaps(matches, reported):
         dlabel = f"{GIORNI[day.weekday()]} {day.day} {MESI[day.month - 1]}"
         lines = [f"📊 <b>{html.escape(pick('ro', RECAP_OPEN).format(d=dlabel))}</b>", ""]
         for m, pp, sc, _ in hits[:25]:
+            try:
+                prob = int(round(float(pp.get("probabilita") or 0)))
+            except Exception:
+                prob = 0
             lines.append(f"✅ <b>PRESO</b> · {html.escape(clean_team(m.get('casa')))} - {html.escape(clean_team(m.get('trasf')))} "
-                         f"<b>{sc[0]}-{sc[1]}</b> · {html.escape(str(pp.get('esito')))} "
-                         f"({int(round(float(pp.get('probabilita') or 0)))}%)")
+                         f"<b>{sc[0]}-{sc[1]}</b> · {html.escape(str(pp.get('esito')))} ({prob}%)")
         lines += ["", f"🎯 Giornata: <b>{ok}/{len(rows)}</b> ({pct}%)", "",
                   f"<i>{html.escape(pick('rc', RECAP_CLOSE))} 18+ · Solo informativo e statistico.</i>"]
         out.append((day.isoformat(), "\n".join(lines), ids))
@@ -798,7 +762,7 @@ def save_state(state):
 
 
 # ----------------------------------------------------------------------------
-# Testi dei post
+# Didascalia del post
 # ----------------------------------------------------------------------------
 def build_caption(kind, slot, n, avg, vip_mode, oggi, selection=None):
     t = html.escape(kind.title())
@@ -817,15 +781,6 @@ def build_caption(kind, slot, n, avg, vip_mode, oggi, selection=None):
     if len(text) > 1000:   # limite Telegram per le didascalie: se serve, tolgo le note
         return build_caption(kind, slot, n, avg, vip_mode, oggi, None)
     return text
-
-def build_notes(selection, vip_mode):
-    visible = selection[:3] if vip_mode else selection[:4]
-    lines = [f"<b>{html.escape(pick('nh', NOTES_HEAD))}</b>", ""]
-    for x in visible:
-        lines.append(f"▪️ {html.escape(x['casa'])} - {html.escape(x['trasf'])} · <b>{html.escape(x['label'])}</b> {x['prob']}%")
-        if x.get("note"):
-            lines.append(f"    {html.escape(x['note'])}")
-    return "\n".join(lines)
 
 
 # ----------------------------------------------------------------------------
@@ -888,7 +843,7 @@ def main():
             "stemma_casa": m.get("stemma_casa"), "stemma_trasf": m.get("stemma_trasf"),
             "compNome": m.get("compNome", "Calcio"), "dt": dt, "when": fmt_when(dt),
             "label": label, "prob": prob, "aff": m.get("affidabilita") or 0,
-            "note": analyst_note(m),
+            "note": note_for(label, prob),
         })
     enriched.sort(key=lambda x: (-x["prob"], x["dt"] or datetime.max.replace(tzinfo=timezone.utc)))
     selection = enriched[:limit]
@@ -899,11 +854,9 @@ def main():
         title = f"{kind}  •  {n} EVENTI"
         subtitle = f"Elaborazione algoritmo 352 • {oggi}"
         card = generate_card(title, subtitle, selection, avg, vip_mode=vip_mode)
-        caption = build_caption(kind, slot, n, avg, vip_mode, oggi)
+        caption = build_caption(kind, slot, n, avg, vip_mode, oggi, selection)
         if send_photo(card, caption, vip_mode=vip_mode, silent=silent):
             done(slot)
-            # note sintetiche (breve messaggio separato, senza muri di testo)
-            send_message(build_notes(selection, vip_mode), vip_mode=vip_mode, silent=True, with_buttons=False)
             # sondaggio 1-X-2 sulla gara di oggi con affidabilita' piu' alta (solo mattina)
             if slot == "mattina" and should("sondaggio"):
                 cand = [x for x in enriched if x["dt"] and x["dt"].date() == today]
