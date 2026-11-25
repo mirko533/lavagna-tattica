@@ -8,13 +8,13 @@ Font facoltativi in scripts/fonts/: Outfit-Bold.ttf, PlusJakartaSans-Bold.ttf, P
 """
 import os
 import re
-import random
-import time
 import io
 import json
 import math
 import uuid
 import html
+import time
+import random
 import unicodedata
 import urllib.request
 import urllib.error
@@ -377,6 +377,9 @@ def tg_call(method, fields, file_field=None):
     return None
 
 
+# ----------------------------------------------------------------------------
+# Frasi variabili (tono da analista)
+# ----------------------------------------------------------------------------
 FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
 
 OPEN_DAY = [
@@ -527,9 +530,107 @@ POLL_Q = [
     "Sondaggio lampo: {a} - {b}.",
 ]
 
+_last_pick = {}
+_sent_count = 0
+
+
+def pick(key, options):
+    """random.choice evitando di ripetere la stessa variante due volte di fila."""
+    choices = [o for o in options if o != _last_pick.get(key)] or list(options)
+    val = random.choice(choices)
+    _last_pick[key] = val
+    return val
+
+
+def clean_txt(s):
+    s = str(s or "")
+    if not FORB.search(s):
+        return s
+    parts = re.findall(r"[^.!?]+[.!?]*", s)
+    return " ".join(p.strip() for p in parts if not FORB.search(p))
+
+
+def analyst_note(m):
+    """Motivazione breve basata sui valori reali del file dati."""
+    k = {**(m.get("prob_1x2") or {}), **(m.get("mercati_completi") or {})}
+
+    def g(x):
+        try:
+            return float(k.get(x) or 0)
+        except Exception:
+            return 0.0
+    cands = []
+    if g("O2.5") >= 60: cands.append("over")
+    if g("U2.5") >= 60: cands.append("under")
+    if g("GG") >= 60: cands.append("gol")
+    if g("NG") >= 60: cands.append("nogol")
+    if g("1") >= 52: cands.append("casa")
+    if g("2") >= 45: cands.append("trasf")
+    if g("X") >= 30: cands.append("eq")
+    if cands:
+        key = random.choice(cands)
+        return random.choice(NOTES[key]).format(p=int(round(g(NOTE_KEY[key]))))
+    return clean_txt((m.get("pronostico_principale") or {}).get("motivazione_breve"))
+
 
 # ----------------------------------------------------------------------------
-# Selezione, riepilogo e stato anti-doppioni
+# Invio messaggi (pulsanti, "typing...", pause)
+# ----------------------------------------------------------------------------
+def buttons(vip_mode=False):
+    vip_txt = "💎 Lista d'attesa VIP · sconto 20%" if vip_mode else "💎 Entra nel VIP Club"
+    return json.dumps({"inline_keyboard": [
+        [{"text": "📲 Apri l'app · analisi complete", "url": app_link()}],
+        [{"text": vip_txt, "url": app_link("vip")}],
+    ]})
+
+
+def send_chat_action(action="typing"):
+    tg_call("sendChatAction", {"chat_id": CHAT_ID, "action": action})
+
+
+def human_wait(action="typing", lo=1.5, hi=4.0):
+    """Pausa 3-9 s tra messaggi consecutivi, poi 'typing...' e una breve attesa prima dell'invio."""
+    global _sent_count
+    if not BOT_TOKEN or not CHAT_ID:
+        return
+    if _sent_count > 0:
+        time.sleep(random.uniform(3, 9))
+    send_chat_action(action)
+    time.sleep(random.uniform(lo, hi))
+    _sent_count += 1
+
+
+def send_photo(path, caption, vip_mode=False, silent=False):
+    human_wait("upload_photo")
+    res = tg_call("sendPhoto", {
+        "chat_id": CHAT_ID, "caption": caption, "parse_mode": "HTML",
+        "reply_markup": buttons(vip_mode), "disable_notification": "true" if silent else "false",
+    }, ("photo", path, "image/png"))
+    return bool(res and res.get("ok"))
+
+
+def send_message(text, vip_mode=False, silent=True, with_buttons=True):
+    human_wait("typing", 2.0, 5.0)
+    fields = {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML", "disable_web_page_preview": "true",
+              "disable_notification": "true" if silent else "false"}
+    if with_buttons:
+        fields["reply_markup"] = buttons(vip_mode)
+    res = tg_call("sendMessage", fields)
+    return bool(res and res.get("ok"))
+
+
+def send_poll(question, options, silent=True):
+    human_wait("typing", 1.5, 3.0)
+    res = tg_call("sendPoll", {
+        "chat_id": CHAT_ID, "question": question[:300], "is_anonymous": "true",
+        "options": json.dumps([{"text": o[:100]} for o in options]),
+        "disable_notification": "true" if silent else "false",
+    })
+    return bool(res and res.get("ok"))
+
+
+# ----------------------------------------------------------------------------
+# Selezione e verifica esiti
 # ----------------------------------------------------------------------------
 def get_varied_trend(match, index):
     p1x2 = match.get("prob_1x2") or {}
@@ -628,6 +729,7 @@ def eval_esito(esito, score):
     rs = [_term(t, h, a) for t in norm_esito(esito).split("+") if t]
     return None if (not rs or None in rs) else all(rs)
 
+
 def build_recaps(matches, reported):
     """Un riepilogo per giorno con i pronostici centrati non ancora rendicontati.
     Ritorna [(giorno_iso, testo_o_None, [id_da_segnare])]."""
@@ -669,7 +771,9 @@ def build_recaps(matches, reported):
     return out
 
 
-
+# ----------------------------------------------------------------------------
+# Stato anti-doppioni
+# ----------------------------------------------------------------------------
 def load_state():
     try:
         with open(STATE_PATH, "r", encoding="utf-8") as f:
@@ -686,6 +790,9 @@ def save_state(state):
         print("Stato non salvato:", type(e).__name__)
 
 
+# ----------------------------------------------------------------------------
+# Testi dei post
+# ----------------------------------------------------------------------------
 def build_caption(kind, slot, n, avg, vip_mode, oggi):
     opening = pick("op_" + slot, OPENINGS.get(slot, OPEN_DAY)).format(n=n, avg=avg)
     t = html.escape(kind.title())
@@ -705,48 +812,11 @@ def build_notes(selection, vip_mode):
         if x.get("note"):
             lines.append(f"    {html.escape(x['note'])}")
     return "\n".join(lines)
-_last_pick = {}
-_sent_count = 0
 
 
-def pick(key, options):
-    """random.choice evitando di ripetere la stessa variante due volte di fila."""
-    choices = [o for o in options if o != _last_pick.get(key)] or list(options)
-    val = random.choice(choices)
-    _last_pick[key] = val
-    return val
-
-
-def clean_txt(s):
-    s = str(s or "")
-    if not FORB.search(s):
-        return s
-    parts = re.findall(r"[^.!?]+[.!?]*", s)
-    return " ".join(p.strip() for p in parts if not FORB.search(p))
-
-
-def analyst_note(m):
-    """Motivazione breve basata sui valori reali del file dati."""
-    k = {**(m.get("prob_1x2") or {}), **(m.get("mercati_completi") or {})}
-
-    def g(x):
-        try:
-            return float(k.get(x) or 0)
-        except Exception:
-            return 0.0
-    cands = []
-    if g("O2.5") >= 60: cands.append("over")
-    if g("U2.5") >= 60: cands.append("under")
-    if g("GG") >= 60: cands.append("gol")
-    if g("NG") >= 60: cands.append("nogol")
-    if g("1") >= 52: cands.append("casa")
-    if g("2") >= 45: cands.append("trasf")
-    if g("X") >= 30: cands.append("eq")
-    if cands:
-        key = random.choice(cands)
-        return random.choice(NOTES[key]).format(p=int(round(g(NOTE_KEY[key]))))
-    return clean_txt((m.get("pronostico_principale") or {}).get("motivazione_breve"))
-
+# ----------------------------------------------------------------------------
+# Main
+# ----------------------------------------------------------------------------
 def main():
     if not os.path.exists(MATCHES_PATH):
         print("matches.json non trovato")
