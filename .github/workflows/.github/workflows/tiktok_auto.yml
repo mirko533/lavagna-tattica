@@ -1,0 +1,53 @@
+name: TikTok Auto Video
+
+on:
+  schedule:
+    - cron: "30 9 * * *"
+    - cron: "30 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  build-and-publish-tiktok:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system & Python dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          pip install --quiet pillow numpy requests
+
+      - name: Generate TikTok video & caption
+        env:
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          UPLOAD_WEBHOOK_URL: ${{ secrets.UPLOAD_WEBHOOK_URL }}
+        run: |
+          mkdir -p output
+          python scripts/tiktok_generator.py
+
+      - name: Upload video via Webhook (if configured)
+        if: ${{ env.UPLOAD_WEBHOOK_URL != '' }}
+        env:
+          UPLOAD_WEBHOOK_URL: ${{ secrets.UPLOAD_WEBHOOK_URL }}
+        run: |
+          if [ -f output/tiktok_daily.mp4 ]; then
+            CAPTION=$(cat output/tiktok_caption.txt 2>/dev/null || echo "352 Pronostici · Radar AI #calcio #statistichecalcio")
+            curl -s -X POST "$UPLOAD_WEBHOOK_URL" \
+              -F "video=@output/tiktok_daily.mp4" \
+              -F "caption=$CAPTION"
+          fi
+
+      - name: Upload TikTok Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiktok-daily-video
+          path: output/
+          retention-days: 7
