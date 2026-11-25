@@ -115,23 +115,70 @@ const isBig = m => m.comp !== 'BSA' && BIG_RX.test(norm(m.casa)) && BIG_RX.test(
 const isTop = m => Object.values(mk(m)).some(v => v >= 80);
 
 /* ---------- Esito pronostico (✓ / ✗) e statistiche verificate ---------- */
-function evTerm(t, h, a) {
-  const g = h + a;
-  if (t === '1') return h > a; if (t === 'X') return h === a; if (t === '2') return a > h;
-  if (t === '1X') return h >= a; if (t === 'X2') return a >= h; if (t === '12') return h !== a;
-  if (t === 'GG') return h > 0 && a > 0; if (t === 'NG') return !(h > 0 && a > 0);
-  let r = /^([UO])(\d)\.5$/.exec(t); if (r) return r[1] === 'U' ? g < +r[2] + .5 : g > +r[2] + .5;
-  r = /^MG(\d)-(\d)$/.exec(t); if (r) return g >= +r[1] && g <= +r[2];
+const FIN_ST = new Set(['FINISHED', 'FT', 'AET', 'PEN']);
+const FIN_AFTER_MS = 150 * 60 * 1000;
+
+// Punteggio: preferisce gol_casa/gol_trasf, poi ripiega su m.score
+function finalScore(m) {
+  if (!m) return null;
+  if (m.gol_casa != null && m.gol_trasf != null && !isNaN(+m.gol_casa) && !isNaN(+m.gol_trasf)) return [+m.gol_casa, +m.gol_trasf];
+  if (Array.isArray(m.score) && m.score[0] != null && m.score[1] != null && !isNaN(+m.score[0]) && !isNaN(+m.score[1])) return [+m.score[0], +m.score[1]];
   return null;
 }
-// true = centrato, false = mancato, null = non valutabile
+// Partita conclusa: stato finale, oppure punteggio presente e inizio da oltre 150 minuti
+function isConcluso(m) {
+  if (!m || !finalScore(m)) return false;
+  if (FIN_ST.has(String(m.stato || '').toUpperCase())) return true;
+  const t = Date.parse(m.data);
+  return !isNaN(t) && (Date.now() - t) > FIN_AFTER_MS;
+}
+
+// Normalizza il testo dell'esito: "Over 2.5" -> "O2.5", "Multigol 1-3" -> "MG1-3", "1X + O1,5" -> "1X+O1.5"
+function normEsito(s) {
+  return String(s ?? '').toUpperCase().replace(/,/g, '.').replace(/\s+/g, '')
+    .replace(/^ESITO/, '')
+    .replace(/MULTIGOL/g, 'MG')
+    .replace(/NOGOAL|NOGOL/g, 'NG')
+    .replace(/GOAL|GOL/g, 'GG')
+    .replace(/OVER/g, 'O').replace(/UNDER/g, 'U');
+}
+
+// true = termine centrato, false = mancato, null = non valutabile (o rimborso DNB)
+function evTerm(t, h, a) {
+  const g = h + a;
+  if (t === '1') return h > a;
+  if (t === 'X') return h === a;
+  if (t === '2') return a > h;
+  if (t === '1X') return h >= a;
+  if (t === 'X2') return a >= h;
+  if (t === '12') return h !== a;
+  if (t === 'GG') return h > 0 && a > 0;
+  if (t === 'NG') return !(h > 0 && a > 0);
+  if (t === 'DNB1') return h === a ? null : h > a;
+  if (t === 'DNB2') return h === a ? null : a > h;
+  if (t === 'WIN0CASA') return h > a && a === 0;
+  if (t === 'WIN0TRASF') return a > h && h === 0;
+  if (t === 'CLEANSHEET1') return a === 0;
+  if (t === 'CLEANSHEET2') return h === 0;
+  let r = /^([UO])(\d+)\.5$/.exec(t);
+  if (r) return r[1] === 'U' ? g < +r[2] + .5 : g > +r[2] + .5;
+  r = /^MG(\d+)-(\d+)$/.exec(t);
+  if (r) return g >= +r[1] && g <= +r[2];
+  return null;
+}
 function evalEsito(esito, score) {
   if (!esito || !Array.isArray(score) || score[0] == null || score[1] == null) return null;
-  const h = +score[0], a = +score[1]; if (isNaN(h) || isNaN(a)) return null;
-  const rs = String(esito).toUpperCase().replace(/\s+/g, '').split('+').map(t => evTerm(t, h, a));
-  return rs.includes(null) ? null : rs.every(Boolean);
+  const h = +score[0], a = +score[1];
+  if (isNaN(h) || isNaN(a)) return null;
+  const rs = normEsito(esito).split('+').filter(Boolean).map(t => evTerm(t, h, a));
+  if (!rs.length || rs.includes(null)) return null;
+  return rs.every(Boolean);
 }
-const esitoOf = m => (m.stato === 'FINISHED' && m.pronostico_principale) ? evalEsito(m.pronostico_principale.esito, m.score) : null;
+const esitoOf = m => {
+  const pp = m && m.pronostico_principale;
+  if (!pp || !pp.esito || !isConcluso(m)) return null;
+  return evalEsito(pp.esito, finalScore(m));
+};
 // Lo storico verificato si accumula in localStorage cosi' non si perde quando le partite escono dalla finestra dei 3 giorni
 function histSync() {
   const h = J('hist', {}); let ch = false; const lim = Date.now() - 400 * 864e5;
@@ -559,34 +606,46 @@ function vInfo() {
 ${standalone ? '' : `<button class="btn" data-a="install">${ic('down')}Installa App</button>`}` + disc();
 }
 
-/* ---------- Centrate / Braccio di Ferro ---------- */
+/* ---------- Centrate ---------- */
 const WIN_PRESETS = [
   { k: 'w8', n: 8, t: '⚡ Generatore 352 · Combinazione 8/8', tag: 'CENTRATA' },
   { k: 'w10', n: 10, t: '👑 Selezione VIP · Combinazione 10/10', tag: 'VIP 100%' },
   { k: 'w15', n: 15, t: '🔥 Modello AI 352 · Combinazione 15/15', tag: 'RECORD' }
 ];
 function winCards() {
-  const hits = D.filter(m => esitoOf(m) === true).sort((a, b) => b.data.localeCompare(a.data));
-  const list = WIN_PRESETS.filter(p => hits.length >= p.n).map((p, idx) => ({
-    ...p,
-    rows: hits.slice(idx * 2, idx * 2 + p.n).length === p.n ? hits.slice(idx * 2, idx * 2 + p.n) : hits.slice(0, p.n)
-  }));
-  return { hits: hits.length, list };
+  const all = D.filter(m => esitoOf(m) === true).sort((a, b) => Date.parse(b.data) - Date.parse(a.data));
+  const list = WIN_PRESETS.filter(p => all.length >= p.n).map((p, idx) => {
+    const sl = all.slice(idx * 2, idx * 2 + p.n);
+    return { ...p, rows: sl.length === p.n ? sl : all.slice(0, p.n) };
+  });
+  return { hits: all.length, all, list };
 }
 const ticks = n => `<div class="wtk">${'<span class="tk">✓</span>'.repeat(n)}</div>`;
 function winText(c) {
-  return `352 Pronostici - ${c.t}\n` + c.rows.map(m => `✓ ${m.casa} - ${m.trasf}: ${m.pronostico_principale.esito}${m.score ? ' (' + m.score.join('-') + ')' : ''}`).join('\n') + '\n18+ · Solo informativo e statistico.';
+  return `352 Pronostici - ${c.t}\n` + c.rows.map(m => { const sc = finalScore(m); return `✓ ${m.casa} - ${m.trasf}: ${m.pronostico_principale.esito}${sc ? ' (' + sc.join('-') + ')' : ''}` }).join('\n') + '\n18+ · Solo informativo e statistico.';
 }
+const winRow = (m, withDate) => {
+  const pp = m.pronostico_principale, sc = finalScore(m);
+  return `<div class="wr" data-a="open" data-v="${m.id}"><span class="tk s">✓</span><div class="pz">${scudetto(m.casa, m.stemma_casa, 22)}${scudetto(m.trasf, m.stemma_trasf, 22)}<span class="tn">${E(m.casa)} - ${E(m.trasf)}</span></div><span class="bdg" style="--bc:#10B981">✓ ${E(pp.esito)} · ${num(pp.probabilita)}%</span><b class="sc2">${sc ? sc.join('-') : ''}</b>${withDate ? `<small class="mu" style="flex-basis:100%;font-size:11px">${E(m.compNome)} · ${E(dlab(day(m), true))}</small>` : ''}</div>`;
+};
 function vWin() {
-  const w = winCards(), l = w.list.filter(c => winF === 'all' || c.n === +winF);
-  const chips = [['all', 'Tutte'], ['8', '8 Eventi'], ['10', '10 Eventi'], ['15', '15 Eventi']].map(([v, t]) => `<button class="chip ${winF === v ? 'on' : ''}" data-a="wf" data-v="${v}">${t}</button>`).join('');
-  return `<div class="chips">${chips}</div>
-<p class="mu" style="font-size:12px;margin:0 2px 10px">Esiti principali 352 centrati verificati: <b style="color:var(--tx)">${w.hits}</b></p>`
-    + (l.length ? l.map(c => `<article class="wc real"><div class="wh"><span class="wt tn">${ic('trophy')}${E(c.t)}</span><span class="wbd ok">${E(c.tag)}</span></div>
-${ticks(c.n)}
-${c.rows.map(m => `<div class="wr"><span class="tk s">✓</span><div class="pz">${scudetto(m.casa, m.stemma_casa, 22)}${scudetto(m.trasf, m.stemma_trasf, 22)}<span class="tn">${E(m.casa)} - ${E(m.trasf)}</span></div><span class="bdg" style="--bc:${col(m.pronostico_principale.probabilita)}">${E(m.pronostico_principale.esito)}</span><b class="sc2">${m.score ? m.score.join('-') : ''}</b></div>`).join('')}
-<button class="btn s" data-a="wshare" data-v="${c.k}">${ic('share')}Condividi risultato</button></article>`).join('') : `<div class="empty">${ic('arm')}<b style="display:block;color:var(--tx);font-family:var(--fh)">Nessuna combinazione da ${winF} eventi ancora</b><p style="font-size:13px;margin-top:4px">Le combinazioni appaiono automaticamente man mano che le partite concluse vengono centrate.</p></div>`) + disc();
+  const w = winCards(), chips = [['all', 'Tutte'], ['8', '8 Eventi'], ['10', '10 Eventi'], ['15', '15 Eventi']].map(([v, t]) => `<button class="chip ${winF === v ? 'on' : ''}" data-a="wf" data-v="${v}">${t}</button>`).join('');
+  const verif = D.filter(m => esitoOf(m) !== null).length;
+  const head = `<div class="chips">${chips}</div><p class="mu" style="font-size:12px;margin:0 2px 10px">Pronostici centrati: <b style="color:var(--tx)">${w.hits}</b> su ${verif} verificati</p>`;
+  let body = '';
+  if (winF === 'all') {
+    body = w.hits
+      ? `<article class="wc real"><div class="wh"><span class="wt tn">${ic('trophy')}Tutte le gare centrate (${w.hits})</span><span class="wbd ok">CENTRATE</span></div>${w.all.map(m => winRow(m, true)).join('')}</article>`
+      : `<div class="empty">${ic('arm')}<b style="display:block;color:var(--tx);font-family:var(--fh)">Nessuna gara centrata ancora</b><p style="font-size:13px;margin-top:4px">Appariranno qui appena una partita conclusa confermerà il pronostico principale.</p></div>`;
+  } else {
+    const c = w.list.find(x => x.n === +winF);
+    body = c
+      ? `<article class="wc real"><div class="wh"><span class="wt tn">${ic('trophy')}${E(c.t)}</span><span class="wbd ok">${E(c.tag)}</span></div>${ticks(c.n)}${c.rows.map(m => winRow(m, false)).join('')}<button class="btn s" data-a="wshare" data-v="${c.k}">${ic('share')}Condividi risultato</button></article>`
+      : `<div class="empty">${ic('arm')}<b style="display:block;color:var(--tx);font-family:var(--fh)">Nessuna combinazione da ${E(winF)} eventi ancora</b><p style="font-size:13px;margin-top:4px">Centrate: ${w.hits}/${E(winF)}. Ne mancano ${Math.max(0, +winF - w.hits)}.</p></div>`;
+  }
+  return head + body + disc();
 }
+const vCentrate = vWin;   // alias: render() usa vWin
 
 
 /* ---------- Zona VIP ---------- */
