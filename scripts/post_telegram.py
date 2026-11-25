@@ -8,6 +8,8 @@ Font facoltativi in scripts/fonts/: Outfit-Bold.ttf, PlusJakartaSans-Bold.ttf, P
 """
 import os
 import re
+import random
+import time
 import io
 import json
 import math
@@ -375,37 +377,155 @@ def tg_call(method, fields, file_field=None):
     return None
 
 
-def buttons(vip_mode=False):
-    vip_txt = "💎 Lista d'attesa VIP · sconto 20%" if vip_mode else "💎 Entra nel VIP Club"
-    return json.dumps({"inline_keyboard": [
-        [{"text": "📲 Apri l'app · analisi complete", "url": app_link()}],
-        [{"text": vip_txt, "url": app_link("vip")}],
-    ]})
+FORB = re.compile(r"\b(bet\w*|scommess\w*|quot[ae]|bookmaker\w*|puntat\w*|odds?|stake|euro|denaro|soldi|jackpot)\b|[€$£]", re.I)
 
+OPEN_DAY = [
+    "Si parte: ecco il quadro di oggi, {n} partite passate al setaccio.",
+    "Il menu di oggi conta {n} eventi con numeri abbastanza leggibili.",
+    "Giornata con {n} spunti interessanti, vediamoli in ordine.",
+    "Lista pronta: {n} eventi, affidabilità media {avg}%.",
+    "Primo giro di analisi: {n} gare con indicazioni chiare.",
+    "Ecco cosa dicono i dati per oggi, {n} eventi in elenco.",
+    "Si comincia con {n} partite che i modelli leggono bene.",
+    "Quadro statistico del giorno: {n} eventi sopra la soglia di attenzione.",
+    "Oggi {n} gare da tenere d'occhio, senza giri di parole.",
+    "Aggiornamento della mattina: {n} eventi, tutti con dati alla mano.",
+]
+OPEN_AFTERNOON = [
+    "Aggiornamento del pomeriggio: {n} eventi rivisti con i dati più freschi.",
+    "Controllo di metà giornata, {n} partite in lista.",
+    "Seconda lettura dei numeri: {n} eventi, qualcosa si è mosso.",
+    "Ritocchi al quadro di oggi, restano {n} gare interessanti.",
+    "Pomeriggio di calcio: {n} eventi con affidabilità media {avg}%.",
+    "Ricalcolati i modelli sulle ultime info: {n} gare da guardare.",
+    "Nuova selezione, {n} eventi con indicazioni abbastanza nette.",
+    "Qui il punto dopo pranzo: {n} partite e numeri aggiornati.",
+    "Rivista la lista, ora {n} eventi in evidenza.",
+    "Dati aggiornati, {n} gare che meritano un'occhiata.",
+]
+OPEN_EVENING = [
+    "Quadro serale: {n} eventi per chiudere la giornata.",
+    "Ultimo giro di analisi, {n} partite in programma.",
+    "Per stasera {n} gare con numeri interessanti.",
+    "Multi-analisi della sera: {n} eventi, affidabilità media {avg}%.",
+    "Serata di calcio, ecco {n} spunti statistici.",
+    "Chiusura di giornata con {n} eventi sotto la lente.",
+    "Stasera i numeri indicano {n} partite da seguire.",
+    "Riepilogo dei match serali: {n} eventi in lista.",
+    "Ultimo aggiornamento utile: {n} gare e dati rivisti.",
+    "Si va verso sera, {n} eventi con indicazioni chiare.",
+]
+OPEN_VIP = [
+    "Selezione riservata del Club: {n} analisi, le prime 3 in chiaro.",
+    "Pacchetto VIP di oggi, {n} eventi con affidabilità media {avg}%.",
+    "Top del giorno per il Club: {n} gare, tre visibili a tutti.",
+    "Lista esclusiva pronta: {n} eventi, anteprima di tre.",
+    "Selezione Gold: {n} partite, il resto è riservato.",
+    "Anteprima VIP: tre eventi in chiaro su {n}.",
+    "Le migliori letture del giorno, {n} in tutto.",
+    "Edizione Gold di stasera: {n} analisi in elenco.",
+    "Top {n} della giornata, qui l'anteprima.",
+    "Il meglio dei modelli oggi: {n} eventi, tre sbloccati.",
+]
+OPENINGS = {"mattina": OPEN_DAY, "manuale": OPEN_DAY, "pomeriggio": OPEN_AFTERNOON,
+            "sera": OPEN_EVENING, "vip": OPEN_VIP}
 
-def send_photo(path, caption, vip_mode=False, silent=False):
-    res = tg_call("sendPhoto", {
-        "chat_id": CHAT_ID, "caption": caption, "parse_mode": "HTML",
-        "reply_markup": buttons(vip_mode), "disable_notification": "true" if silent else "false",
-    }, ("photo", path, "image/png"))
-    return bool(res and res.get("ok"))
+CTA = [
+    "Formazioni probabili e tutti i mercati nell'app.",
+    "Il dettaglio di ogni gara è nell'app, partita per partita.",
+    "Nell'app trovi probabilità complete e marcatori.",
+    "Analisi complete e mercati extra qui sotto, nell'app.",
+    "Tutti i numeri per esteso nell'app.",
+    "Per approfondire, scheda completa nell'app.",
+    "Probabili formazioni, forma e mercati: li trovi nell'app.",
+    "Il resto dei dati è nell'app, gara per gara.",
+    "Apri l'app per vedere ogni analisi nel dettaglio.",
+    "Sotto il pulsante per la scheda completa di ogni partita.",
+]
+CTA_VIP = [
+    "Il Club è in attivazione: lista d'attesa aperta, sconto 20% ai primi iscritti.",
+    "Iscrizione alla lista d'attesa VIP aperta, sconto del 20% per chi entra ora.",
+    "Per il resto della selezione serve il Club: lista d'attesa con 20% di sconto.",
+    "VIP in fase di lancio, i primi iscritti avranno il 20% di sconto.",
+    "Le altre analisi sono riservate: lista d'attesa aperta, sconto 20%.",
+    "Entra in lista d'attesa e ricevi l'avviso all'apertura, con 20% di sconto.",
+    "Club in arrivo: iscriviti alla lista d'attesa, sconto 20% riservato.",
+    "Il resto è nell'area VIP, attiva a breve: lista d'attesa con sconto 20%.",
+    "Lista d'attesa VIP aperta, per i primi iscritti sconto del 20%.",
+    "Serve il Pass per le restanti analisi: preiscrizione con 20% di sconto.",
+]
+CLOSINGS = [
+    "Sono stime, non certezze.",
+    "Il campo ha sempre l'ultima parola.",
+    "Numeri alla mano, il resto lo fa il pallone.",
+    "Probabilità, non garanzie.",
+    "Ogni partita ha la sua storia: i dati ne leggono una parte.",
+    "Occhio alle formazioni ufficiali prima del fischio.",
+    "Le stime vanno lette come tendenze, non come promesse.",
+    "Qualche variabile resta fuori dai modelli, come sempre.",
+    "Buona lettura e buon calcio.",
+    "Si vedrà a fine partita.",
+]
+NOTES_HEAD = [
+    "Due righe sulle gare principali:",
+    "Le note veloci:",
+    "Cosa dicono i numeri, in breve:",
+    "Il perché di ciascuna lettura:",
+    "Motivazioni sintetiche:",
+    "Qualche dettaglio sulle prime della lista:",
+    "Appunti rapidi:",
+    "Perché queste gare:",
+    "Lettura dei dati, senza fronzoli:",
+    "Il ragionamento in breve:",
+]
+NOTES = {
+    "over": ["Media gol alta: ritmo da Over ({p}%).", "Squadre che segnano parecchio, Over a {p}%.",
+             "Partita aperta sulla carta, Over {p}%.", "Reparti offensivi in palla, Over al {p}%."],
+    "under": ["Gara da pochi gol, Under al {p}%.", "Difese solide, il modello dà Under {p}%.",
+              "Ritmi bassi attesi, Under a {p}%.", "Pochi spazi previsti, Under {p}%."],
+    "gol": ["Entrambe vanno a segno nel {p}% dei casi.", "Attacchi in forma, Goal a {p}%.",
+            "Difese non impermeabili: Goal {p}%.", "Segnano in due, stima {p}%."],
+    "nogol": ["Una delle due resta a secco, NoGoal {p}%.", "Attacco sterile da una parte, NoGoal al {p}%.",
+              "Porta inviolata plausibile, NoGoal {p}%.", "Difesa ordinata, NoGoal a {p}%."],
+    "casa": ["Il fattore campo pesa: vittoria casa al {p}%.", "In casa rende molto di più, 1 al {p}%.",
+             "Squadra di casa favorita, stima {p}%.", "Peso del campo evidente, 1 a {p}%."],
+    "trasf": ["Gli ospiti arrivano meglio: 2 al {p}%.", "Trasferta insidiosa per i padroni di casa, 2 {p}%.",
+              "Qualità dalla parte degli ospiti, stima {p}%.", "Ospiti in vantaggio sui numeri, 2 al {p}%."],
+    "eq": ["Equilibrio marcato, il pari vale {p}%.", "Gara bloccata sulla carta, X al {p}%.",
+           "Poche differenze tra le due, pareggio {p}%.", "Match da doppia chance, X a {p}%."],
+}
+NOTE_KEY = {"over": "O2.5", "under": "U2.5", "gol": "GG", "nogol": "NG", "casa": "1", "trasf": "2", "eq": "X"}
 
-
-def send_message(text, vip_mode=False, silent=True):
-    res = tg_call("sendMessage", {
-        "chat_id": CHAT_ID, "text": text, "parse_mode": "HTML", "disable_web_page_preview": "true",
-        "reply_markup": buttons(vip_mode), "disable_notification": "true" if silent else "false",
-    })
-    return bool(res and res.get("ok"))
-
-
-def send_poll(question, options, silent=True):
-    res = tg_call("sendPoll", {
-        "chat_id": CHAT_ID, "question": question[:300], "is_anonymous": "true",
-        "options": json.dumps([{"text": o[:100]} for o in options]),
-        "disable_notification": "true" if silent else "false",
-    })
-    return bool(res and res.get("ok"))
+RECAP_OPEN = [
+    "Verifiche di {d}: ecco cosa è andato a segno.",
+    "Controllo degli esiti di {d}, partiamo dai centrati.",
+    "Chiudiamo il conto di {d}: queste le gare prese.",
+    "Esiti di {d} alla mano, i pronostici centrati.",
+    "Si guarda indietro a {d}: ecco i riscontri positivi.",
+    "Giro di verifica su {d}, le prese:",
+    "Com'è andata {d}: partiamo da quelle azzeccate.",
+    "Riscontri di {d}, solo numeri.",
+    "Check finale per {d}: queste le letture confermate.",
+    "Confronto tra stime e risultati di {d}:",
+]
+RECAP_CLOSE = [
+    "Il bilancio completo resta nell'app.",
+    "Il dato conta sul lungo periodo, non sulla singola giornata.",
+    "Avanti con la prossima giornata.",
+    "Si riparte dai numeri di domani.",
+    "Una giornata non fa una statistica.",
+    "Tendenze, non certezze.",
+    "Quello che conta è il campione ampio.",
+    "Si aggiorna il registro e si va avanti.",
+    "Le mancate restano nel conteggio, per trasparenza.",
+    "A domani con nuove analisi.",
+]
+POLL_Q = [
+    "Come finisce {a} - {b}?", "Il vostro 1X2 su {a} - {b}?", "{a} - {b}: che risultato vedete?",
+    "Pronostico secco per {a} - {b}?", "Su {a} - {b} cosa succede?", "{a} - {b}, esito finale?",
+    "Voi cosa dite di {a} - {b}?", "Esito di {a} - {b}: dite la vostra.", "{a} - {b}: 1, X o 2?",
+    "Sondaggio lampo: {a} - {b}.",
+]
 
 
 # ----------------------------------------------------------------------------
@@ -537,14 +657,17 @@ def build_recaps(matches, reported):
         ok = sum(1 for x in rows if x[3])
         pct = round(ok * 100 / len(rows))
         hits.sort(key=lambda x: str(x[0].get("data")))
-        lines = [f"📊 <b>Riepilogo {GIORNI[day.weekday()]} {day.day} {MESI[day.month - 1]}</b>", ""]
+        dlabel = f"{GIORNI[day.weekday()]} {day.day} {MESI[day.month - 1]}"
+        lines = [f"📊 <b>{html.escape(pick('ro', RECAP_OPEN).format(d=dlabel))}</b>", ""]
         for m, pp, sc, _ in hits[:25]:
             lines.append(f"✅ <b>PRESO</b> · {html.escape(clean_team(m.get('casa')))} - {html.escape(clean_team(m.get('trasf')))} "
-                         f"<b>{sc[0]}-{sc[1]}</b>\n      {html.escape(str(pp.get('esito')))} · stima {int(round(float(pp.get('probabilita') or 0)))}%")
-        lines += ["", f"🎯 Successo della giornata: <b>{ok}/{len(rows)} ({pct}%)</b>", "",
-                  "<i>Sono stime statistiche, non certezze. 18+ · Solo informativo.</i>"]
+                         f"<b>{sc[0]}-{sc[1]}</b> · {html.escape(str(pp.get('esito')))} "
+                         f"({int(round(float(pp.get('probabilita') or 0)))}%)")
+        lines += ["", f"🎯 Giornata: <b>{ok}/{len(rows)}</b> ({pct}%)", "",
+                  f"<i>{html.escape(pick('rc', RECAP_CLOSE))} 18+ · Solo informativo e statistico.</i>"]
         out.append((day.isoformat(), "\n".join(lines), ids))
     return out
+
 
 
 def load_state():
@@ -561,6 +684,27 @@ def save_state(state):
             json.dump(state, f, ensure_ascii=False, indent=1)
     except Exception as e:
         print("Stato non salvato:", type(e).__name__)
+
+
+def build_caption(kind, slot, n, avg, vip_mode, oggi):
+    opening = pick("op_" + slot, OPENINGS.get(slot, OPEN_DAY)).format(n=n, avg=avg)
+    t = html.escape(kind.title())
+    head = f"👑 <b>352 VIP Gold · {t}</b>" if vip_mode else f"⚽️ <b>352 Pronostici · {t}</b>"
+    cta = pick("cta_vip", CTA_VIP) if vip_mode else pick("cta", CTA)
+    return (f"{head}\n\n{html.escape(opening)}\n"
+            f"📅 {oggi} · affidabilità media <b>{avg}%</b>\n\n"
+            f"{html.escape(cta)}\n\n"
+            f"<i>{html.escape(pick('cl', CLOSINGS))} 18+ · Solo informativo e statistico.</i>")
+
+
+def build_notes(selection, vip_mode):
+    visible = selection[:3] if vip_mode else selection[:4]
+    lines = [f"<b>{html.escape(pick('nh', NOTES_HEAD))}</b>", ""]
+    for x in visible:
+        lines.append(f"▪️ {html.escape(x['casa'])} - {html.escape(x['trasf'])} · <b>{html.escape(x['label'])}</b> {x['prob']}%")
+        if x.get("note"):
+            lines.append(f"    {html.escape(x['note'])}")
+    return "\n".join(lines)
 
 
 def main():
@@ -598,10 +742,10 @@ def main():
     else:
         slot, kind, vip_mode, limit, silent = "manuale", "SELEZIONE DEL GIORNO", False, 8, False
 
-    # --- riepilogo serale (centrate e mancate) ---
-       reported = state.setdefault("reported", {})
+    # --- riepilogo dei pronostici centrati non ancora rendicontati ---
+    reported = state.setdefault("reported", {})
     for day_s, text, ids in build_recaps(all_matches, reported):
-        if text is None or send_message(text, silent=True):
+        if text is None or send_message(text, silent=True, with_buttons=False):
             for i in ids:
                 reported[i] = day_s
     lim = (today - timedelta(days=60)).isoformat()
@@ -620,6 +764,7 @@ def main():
             "stemma_casa": m.get("stemma_casa"), "stemma_trasf": m.get("stemma_trasf"),
             "compNome": m.get("compNome", "Calcio"), "dt": dt, "when": fmt_when(dt),
             "label": label, "prob": prob, "aff": m.get("affidabilita") or 0,
+            "note": analyst_note(m),
         })
     enriched.sort(key=lambda x: (-x["prob"], x["dt"] or datetime.max.replace(tzinfo=timezone.utc)))
     selection = enriched[:limit]
@@ -630,28 +775,18 @@ def main():
         title = f"{kind}  •  {n} EVENTI"
         subtitle = f"Elaborazione algoritmo 352 • {oggi}"
         card = generate_card(title, subtitle, selection, avg, vip_mode=vip_mode)
-        t = html.escape(kind.title())
-        if vip_mode:
-            caption = (f"👑 <b>352 VIP GOLD · {t}</b>\n\n"
-                       f"📅 {oggi} · {n} analisi, 3 in chiaro e {max(0, n - 3)} riservate al Club.\n"
-                       f"📊 Affidabilità media: <b>{avg}%</b>\n\n"
-                       f"💎 Il 352 VIP Club è in fase di attivazione: entra in lista d'attesa e ricevi il <b>20% di sconto</b> "
-                       f"riservato ai primi iscritti.\n\n<i>18+ · Contenuti solo informativi e statistici.</i>")
-        else:
-            caption = (f"⚽️ <b>352 Pronostici · {t}</b>\n\n"
-                       f"📅 {oggi} · {n} eventi analizzati\n"
-                       f"📊 Affidabilità media: <b>{avg}%</b>\n\n"
-                       f"👇 Apri l'app per analisi complete, probabili formazioni e tutti i mercati.\n\n"
-                       f"<i>18+ · Contenuti solo informativi e statistici.</i>")
+        caption = build_caption(kind, slot, n, avg, vip_mode, oggi)
         if send_photo(card, caption, vip_mode=vip_mode, silent=silent):
             done(slot)
+            # note sintetiche (breve messaggio separato, senza muri di testo)
+            send_message(build_notes(selection, vip_mode), vip_mode=vip_mode, silent=True, with_buttons=False)
             # sondaggio 1-X-2 sulla gara di oggi con affidabilita' piu' alta (solo mattina)
             if slot == "mattina" and should("sondaggio"):
                 cand = [x for x in enriched if x["dt"] and x["dt"].date() == today]
                 if cand:
                     g = max(cand, key=lambda x: x["aff"])
-                    if send_poll(f"Come finisce {g['casa']} - {g['trasf']}?",
-                                 [f"1 · {g['casa']}", "X · Pareggio", f"2 · {g['trasf']}"]):
+                    q = pick("pq", POLL_Q).format(a=g["casa"], b=g["trasf"])
+                    if send_poll(q, [f"1 · {g['casa']}", "X · Pareggio", f"2 · {g['trasf']}"]):
                         done("sondaggio")
     elif selection:
         print(f"Fascia '{slot}' gia' pubblicata oggi: nessun doppione.")
