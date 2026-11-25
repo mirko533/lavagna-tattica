@@ -705,7 +705,47 @@ def build_notes(selection, vip_mode):
         if x.get("note"):
             lines.append(f"    {html.escape(x['note'])}")
     return "\n".join(lines)
+_last_pick = {}
+_sent_count = 0
 
+
+def pick(key, options):
+    """random.choice evitando di ripetere la stessa variante due volte di fila."""
+    choices = [o for o in options if o != _last_pick.get(key)] or list(options)
+    val = random.choice(choices)
+    _last_pick[key] = val
+    return val
+
+
+def clean_txt(s):
+    s = str(s or "")
+    if not FORB.search(s):
+        return s
+    parts = re.findall(r"[^.!?]+[.!?]*", s)
+    return " ".join(p.strip() for p in parts if not FORB.search(p))
+
+
+def analyst_note(m):
+    """Motivazione breve basata sui valori reali del file dati."""
+    k = {**(m.get("prob_1x2") or {}), **(m.get("mercati_completi") or {})}
+
+    def g(x):
+        try:
+            return float(k.get(x) or 0)
+        except Exception:
+            return 0.0
+    cands = []
+    if g("O2.5") >= 60: cands.append("over")
+    if g("U2.5") >= 60: cands.append("under")
+    if g("GG") >= 60: cands.append("gol")
+    if g("NG") >= 60: cands.append("nogol")
+    if g("1") >= 52: cands.append("casa")
+    if g("2") >= 45: cands.append("trasf")
+    if g("X") >= 30: cands.append("eq")
+    if cands:
+        key = random.choice(cands)
+        return random.choice(NOTES[key]).format(p=int(round(g(NOTE_KEY[key]))))
+    return clean_txt((m.get("pronostico_principale") or {}).get("motivazione_breve"))
 
 def main():
     if not os.path.exists(MATCHES_PATH):
