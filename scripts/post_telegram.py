@@ -550,28 +550,35 @@ def clean_txt(s):
     return " ".join(p.strip() for p in parts if not FORB.search(p))
 
 
-def analyst_note(m):
-    """Motivazione breve basata sui valori reali del file dati."""
-    k = {**(m.get("prob_1x2") or {}), **(m.get("mercati_completi") or {})}
+REV_LABELS = {v: k for k, v in LABELS.items()}
+CAT = {"1": "casa", "2": "trasf", "X": "eq", "1X": "dc1", "X2": "dc2", "12": "nopari",
+       "GG": "gol", "NG": "nogol", "O1.5": "over", "O2.5": "over", "U2.5": "under",
+       "U3.5": "under", "MG1-3": "mg", "MG2-4": "mg", "1X+O1.5": "combo", "X2+O1.5": "combo"}
+NOTES_BY_CAT = {
+    "casa": ["Il fattore campo pesa: vittoria casa al {p}%.", "In casa il rendimento sale, 1 al {p}%.",
+             "Padroni di casa avanti sui numeri, stima {p}%."],
+    "trasf": ["Gli ospiti partono avanti: 2 al {p}%.", "Qualità dalla parte della squadra ospite, {p}%.",
+              "Trasferta favorevole sulla carta, 2 al {p}%."],
+    "eq": ["Gara equilibrata, il pareggio vale {p}%.", "Poche differenze tra le due, X al {p}%."],
+    "dc1": ["Difficile che la squadra di casa perda: 1X al {p}%.", "Casa tutelata dal pareggio, 1X a {p}%.",
+            "Fattore campo e doppia chance: 1X al {p}%."],
+    "dc2": ["Gli ospiti difficilmente perdono: X2 al {p}%.", "Ospiti coperti dal pareggio, X2 a {p}%."],
+    "nopari": ["Poco spazio per il pari, 12 al {p}%.", "Gara con un vincitore più probabile, 12 al {p}%."],
+    "gol": ["Entrambe vanno a segno: Goal al {p}%.", "Difese non impermeabili, Goal a {p}%."],
+    "nogol": ["Una delle due può restare a secco: NoGoal {p}%.", "Porta inviolata plausibile, NoGoal al {p}%."],
+    "over": ["Gara aperta sulla carta, {p}% per l'Over.", "Reparti offensivi in evidenza, Over al {p}%."],
+    "under": ["Ritmi bassi attesi, Under al {p}%.", "Pochi spazi previsti, Under a {p}%."],
+    "mg": ["Range gol centrale, Multigol al {p}%.", "Totale gol nella fascia più probabile: {p}%."],
+    "combo": ["Doppia chance più gol: combo al {p}%.", "Copertura sull'esito e gol attesi, {p}%."],
+}
 
-    def g(x):
-        try:
-            return float(k.get(x) or 0)
-        except Exception:
-            return 0.0
-    cands = []
-    if g("O2.5") >= 60: cands.append("over")
-    if g("U2.5") >= 60: cands.append("under")
-    if g("GG") >= 60: cands.append("gol")
-    if g("NG") >= 60: cands.append("nogol")
-    if g("1") >= 52: cands.append("casa")
-    if g("2") >= 45: cands.append("trasf")
-    if g("X") >= 30: cands.append("eq")
-    if cands:
-        key = random.choice(cands)
-        return random.choice(NOTES[key]).format(p=int(round(g(NOTE_KEY[key]))))
-    return clean_txt((m.get("pronostico_principale") or {}).get("motivazione_breve"))
 
+def note_for(label, prob):
+    """Nota coerente con il mercato mostrato in card (stessa etichetta e stessa percentuale)."""
+    cat = CAT.get(REV_LABELS.get(label, label))
+    if not cat:
+        return ""
+    return random.choice(NOTES_BY_CAT[cat]).format(p=int(prob))
 
 # ----------------------------------------------------------------------------
 # Invio messaggi (pulsanti, "typing...", pause)
@@ -793,16 +800,23 @@ def save_state(state):
 # ----------------------------------------------------------------------------
 # Testi dei post
 # ----------------------------------------------------------------------------
-def build_caption(kind, slot, n, avg, vip_mode, oggi):
-    opening = pick("op_" + slot, OPENINGS.get(slot, OPEN_DAY)).format(n=n, avg=avg)
+def build_caption(kind, slot, n, avg, vip_mode, oggi, selection=None):
     t = html.escape(kind.title())
-    head = f"👑 <b>352 VIP Gold · {t}</b>" if vip_mode else f"⚽️ <b>352 Pronostici · {t}</b>"
-    cta = pick("cta_vip", CTA_VIP) if vip_mode else pick("cta", CTA)
-    return (f"{head}\n\n{html.escape(opening)}\n"
-            f"📅 {oggi} · affidabilità media <b>{avg}%</b>\n\n"
-            f"{html.escape(cta)}\n\n"
-            f"<i>{html.escape(pick('cl', CLOSINGS))} 18+ · Solo informativo e statistico.</i>")
-
+    opening = html.escape(pick("op_" + slot, OPENINGS.get(slot, OPEN_DAY)).format(n=n, avg=avg))
+    head = f"👑 <b>352 VIP GOLD · {t}</b>" if vip_mode else f"⚽️ <b>352 Pronostici · {t}</b>"
+    lines = [head, "", opening, f"📅 {oggi} · affidabilità media <b>{avg}%</b>", ""]
+    for x in (selection or [])[:3]:
+        lines.append(f"▪️ <b>{html.escape(x['casa'])} - {html.escape(x['trasf'])}</b> · {html.escape(x['label'])} {x['prob']}%")
+        if x.get("note"):
+            lines.append(f"    <i>{html.escape(x['note'])}</i>")
+    if selection:
+        lines.append("")
+    lines.append(html.escape(pick("cta_vip", CTA_VIP) if vip_mode else pick("cta", CTA)))
+    lines += ["", f"<i>{html.escape(pick('cl', CLOSINGS))} 18+ · Solo informativo e statistico.</i>"]
+    text = "\n".join(lines)
+    if len(text) > 1000:   # limite Telegram per le didascalie: se serve, tolgo le note
+        return build_caption(kind, slot, n, avg, vip_mode, oggi, None)
+    return text
 
 def build_notes(selection, vip_mode):
     visible = selection[:3] if vip_mode else selection[:4]
