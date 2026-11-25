@@ -363,17 +363,52 @@ ${pp ? `<div class="lpr"><span class="mu">Pronostico 352</span><span class="bdg"
 ${ev.length ? `<div class="tl">${ev.map(e => `<div>${ic(evIc(e), /esp|ross|red/.test(norm(e.tipo || e.type || '')) ? 'r' : '')}<b>${E(e.minuto ?? e.min ?? '')}'</b> ${E(e.giocatore || e.t || e.testo || '')}</div>`).join('')}</div>` : ''}
 <div class="cta">${lbBtn(m)}<span class="cv">Visualizza pronostico${ic('chev')}</span></div></article>`;
 }
+/* ---------- Live: rilevamento partite in corso ---------- */
+const LIVE_ST = new Set(['LIVE', 'IN_PLAY', 'PAUSED', '1H', '2H', 'HT', 'ET', 'PEN']);
+const LIVE_BEFORE_MS = 135 * 60 * 1000;   // partita iniziata fino a 135 min fa
+const LIVE_AFTER_MS = 5 * 60 * 1000;      // o che inizia entro 5 min
+
+function isRealLive(m) {
+  if (!m || m.stato === 'FINISHED') return false;
+  const st = String(m.stato || '').toUpperCase();
+  if (LIVE_ST.has(st)) return true;
+  const t = Date.parse(m.data);
+  if (isNaN(t)) return false;
+  const diff = Date.now() - t;   // >0: già iniziata, <0: deve ancora iniziare
+  return diff >= -LIVE_AFTER_MS && diff <= LIVE_BEFORE_MS;
+}
+
+// Punteggio live: preferisce gol_casa/gol_trasf, poi ripiega su m.score
+function liveScore(m) {
+  const h = m.gol_casa ?? (Array.isArray(m.score) ? m.score[0] : null);
+  const a = m.gol_trasf ?? (Array.isArray(m.score) ? m.score[1] : null);
+  return (h == null || a == null) ? null : `${h} - ${a}`;
+}
+
 function vLive() {
-  const now = Date.now(), MAX_LIVE_MS = 160 * 60 * 1000;
-  const isRealLive = m => {
-    if (!LV(m.stato)) return false;
-    const t = Date.parse(m.data);
-    return !isNaN(t) && (now - t) >= -5 * 60 * 1000 && (now - t) <= MAX_LIVE_MS;
-  };
-  let l = D.filter(isRealLive).sort((a, b) => a.data.localeCompare(b.data));
+  let l = D.filter(isRealLive).sort((a, b) => Date.parse(a.data) - Date.parse(b.data));
   if (liveOnly) l = l.filter(m => m.prob_1x2 || m.pronostico_principale);
 
-  return `<button class="btn" data-a="refresh">${ic('refresh')}Aggiorna Live</button><p class="lcd" id="lcd">Aggiornamento tra ${liveCd}s</p><div class="chips">${chp(!liveOnly, 'lvall', undefined, 'live', 'Tutte le Live')}${chp(liveOnly, 'lvana', undefined, 'chart', 'Solo gare con analisi 352')}</div>` + (l.length ? l.map(liveCard).join('') : `<div class="empty">${ic('live')}</div>`) + disc();
+  const card = m => {
+    const pp = m.pronostico_principale, st = String(m.stato || '').toUpperCase();
+    const mn = liveMin(m), sc = liveScore(m), fl = (flash[m.id] || 0) > Date.now();
+    const started = LIVE_ST.has(st) || Date.parse(m.data) <= Date.now();
+    const stLbl = st === 'HT' ? 'INTERVALLO' : st === 'PAUSED' ? 'PAUSA' : st === 'ET' ? 'SUPPLEMENTARI' : st === 'PEN' ? 'RIGORI' : 'LIVE';
+    const badge = started
+      ? `<span class="live"><i></i>${stLbl}${mn && stLbl === 'LIVE' ? ' ' + E(mn) : ''}</span>`
+      : '<span class="mu" style="font-size:11px;font-weight:700">STA PER INIZIARE</span>';
+    const ev = m.eventi || [];
+    const alta = pp && num(pp.probabilita) >= 75;
+    return `<article class="card ${fl ? 'goal' : ''}" data-a="open" data-v="${m.id}"><div class="ct"><span class="tn">${E(m.compNome)}</span>${isBig(m) ? '<span class="bm">★ Big Match</span>' : ''}</div><button class="fav ${fav.includes(m.id) ? 'on' : ''}" data-a="fav" data-v="${m.id}" aria-label="Preferita">${ic('heart')}</button>${fl ? `<div class="gfx">${ic('ball')}<b>GOL!</b></div>` : ''}
+<div class="mr"><div class="tz">${scudetto(m.casa, m.stemma_casa)}<span class="tn">${E(m.casa)}</span></div><div class="mc">${badge}<span class="cdt">${E(dlab(day(m), true))} · ${tm(m)}</span><b class="tt" style="font-size:24px">${sc || '0 - 0'}</b>${alta ? '<span class="hc">Alta confidenza</span>' : ''}</div><div class="tz">${scudetto(m.trasf, m.stemma_trasf)}<span class="tn">${E(m.trasf)}</span></div></div>
+${pp ? `<div class="lpr"><span class="mu">Pronostico 352</span><span class="bdg" style="--bc:${col(pp.probabilita)}">${E(pp.esito)} · ${num(pp.probabilita)}%</span>${hitNow(pp.esito, m.score || (sc ? sc.split(' - ').map(Number) : null)) ? '<span class="lst ok">✓ Già centrato</span>' : (started ? '<span class="lst run">In corso</span>' : '')}</div>` : ''}
+${ev.length ? `<div class="tl">${ev.map(e => `<div>${ic(evIc(e), /esp|ross|red/.test(norm(e.tipo || e.type || '')) ? 'r' : '')}<b>${E(e.minuto ?? e.min ?? '')}'</b> ${E(e.giocatore || e.t || e.testo || '')}</div>`).join('')}</div>` : ''}
+<div class="cta">${lbBtn(m)}<span class="cv">Visualizza pronostico${ic('chev')}</span></div></article>`;
+  };
+
+  return `<button class="btn" data-a="refresh">${ic('refresh')}Aggiorna Live</button><p class="lcd" id="lcd">Aggiornamento tra ${liveCd}s</p><div class="chips">${chp(!liveOnly, 'lvall', undefined, 'live', 'Tutte le Live')}${chp(liveOnly, 'lvana', undefined, 'chart', 'Solo gare con analisi 352')}</div>`
+    + (l.length ? l.map(card).join('') : `<div class="empty">${ic('live')}<b style="display:block;color:var(--tx);font-family:var(--fh)">Nessuna partita live al momento</b></div>`)
+    + disc();
 }
 // Auto-refresh ogni 50s SOLO con la tab Live aperta e la pagina visibile
 function liveTick() { liveCd--; if (liveCd <= 0) { liveCd = 50; refreshLive(false).catch(() => { }) } const e = $('#lcd'); if (e) e.textContent = `Aggiornamento tra ${liveCd}s` }
