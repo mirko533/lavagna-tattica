@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-27T08:32:11.206983+00:00",
-  "aggiornato": "2026-11-27T08:32:11.206983+00:00",
+  "updated_at": "2026-11-27T14:46:32.354454+00:00",
+  "aggiornato": "2026-11-27T14:46:32.354454+00:00",
   "matches": [
     {
       "id": 558820,
@@ -783,162 +783,6 @@
       }
     },
     {
-      "id": 560658,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-27T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Nottingham Forest FC",
-      "trasf": "Chelsea FC",
-      "score": null,
-      "analisi": "Il Nottingham Forest affronta il Chelsea in una sfida di Premier League ad alto tasso tattico. I padroni di casa fanno affidamento sulla solidità del City Ground e sulla verve realizzativa di Chris Wood, mentre i Blues schierano un attacco stellare guidato da Cole Palmer e Joao Pedro. Ci si aspetta una partita intensa con duelli vibranti a centrocampo tra Sangaré e Moisés Caicedo.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Matz Sels",
-            "Ola Aina",
-            "Nikola Milenković",
-            "Murillo",
-            "Neco Williams",
-            "Ibrahim Sangaré",
-            "Morgan Gibbs-White",
-            "Nicolò Domínguez",
-            "Callum Hudson-Odoi",
-            "Chris Wood",
-            "Dan Ndoye"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Emiliano Martínez",
-            "Reece James",
-            "Wesley Fofana",
-            "Levi Colwill",
-            "Malo Gusto",
-            "Moisés Caicedo",
-            "Jordan Henderson",
-            "Cole Palmer",
-            "Morgan Rogers",
-            "Pedro Neto",
-            "João Pedro"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 30,
-        "X": 30,
-        "2": 40
-      },
-      "mercati_completi": {
-        "1X": 60,
-        "X2": 70,
-        "12": 70,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 35,
-        "O1.5": 65,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 52,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 32,
-        "1+O2.5": 24,
-        "2+O1.5": 42,
-        "2+O2.5": 33,
-        "1X+O1.5": 48,
-        "X2+O1.5": 55,
-        "1X+GG": 42,
-        "X2+GG": 48,
-        "GG+O2.5": 46,
-        "1+GG": 25,
-        "2+GG": 34,
-        "2+U3.5": 38
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Chris Wood",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Morgan Gibbs-White",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cole Palmer",
-          "ruolo": "Centrocampista",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "João Pedro",
-          "ruolo": "Attaccante",
-          "prob": 33
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Ibrahim Sangaré",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri per fermare la trequarti avversaria",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Murillo",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Moisés Caicedo",
-          "ruolo": "Centrocampista",
-          "motivo": "Spese fallose tattiche sulle ripartenze del Forest",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Reece James",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti larghi sugli esterni offensivi veloci",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 55,
-        "motivazione_breve": "Ospiti favoriti in un match con almeno due reti."
-      },
-      "affidabilita": 72,
-      "stemma_casa": {
-        "colori": [
-          "#DD0000",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#034694",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
       "id": 561968,
       "comp": "ELC",
       "compNome": "Championship",
@@ -1092,6 +936,162 @@
           "#FFFFFF"
         ],
         "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 560658,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-27T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Nottingham Forest FC",
+      "trasf": "Chelsea FC",
+      "score": null,
+      "analisi": "Il Nottingham Forest affronta il Chelsea in una sfida di Premier League ad alto tasso tattico. I padroni di casa fanno affidamento sulla solidità del City Ground e sulla verve realizzativa di Chris Wood, mentre i Blues schierano un attacco stellare guidato da Cole Palmer e Joao Pedro. Ci si aspetta una partita intensa con duelli vibranti a centrocampo tra Sangaré e Moisés Caicedo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Matz Sels",
+            "Ola Aina",
+            "Nikola Milenković",
+            "Murillo",
+            "Neco Williams",
+            "Ibrahim Sangaré",
+            "Morgan Gibbs-White",
+            "Nicolò Domínguez",
+            "Callum Hudson-Odoi",
+            "Chris Wood",
+            "Dan Ndoye"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Emiliano Martínez",
+            "Reece James",
+            "Wesley Fofana",
+            "Levi Colwill",
+            "Malo Gusto",
+            "Moisés Caicedo",
+            "Jordan Henderson",
+            "Cole Palmer",
+            "Morgan Rogers",
+            "Pedro Neto",
+            "João Pedro"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 30,
+        "X": 30,
+        "2": 40
+      },
+      "mercati_completi": {
+        "1X": 60,
+        "X2": 70,
+        "12": 70,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 52,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 32,
+        "1+O2.5": 24,
+        "2+O1.5": 42,
+        "2+O2.5": 33,
+        "1X+O1.5": 48,
+        "X2+O1.5": 55,
+        "1X+GG": 42,
+        "X2+GG": 48,
+        "GG+O2.5": 46,
+        "1+GG": 25,
+        "2+GG": 34,
+        "2+U3.5": 38
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Chris Wood",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Morgan Gibbs-White",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cole Palmer",
+          "ruolo": "Centrocampista",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "João Pedro",
+          "ruolo": "Attaccante",
+          "prob": 33
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Ibrahim Sangaré",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri per fermare la trequarti avversaria",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Murillo",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Moisés Caicedo",
+          "ruolo": "Centrocampista",
+          "motivo": "Spese fallose tattiche sulle ripartenze del Forest",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Reece James",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti larghi sugli esterni offensivi veloci",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "X2+O1.5",
+        "probabilita": 55,
+        "motivazione_breve": "Ospiti favoriti in un match con almeno due reti."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "colori": [
+          "#DD0000",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#034694",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
       }
     },
     {
@@ -1407,162 +1407,6 @@
       }
     },
     {
-      "id": 561969,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-28T12:30:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Blackburn Rovers FC",
-      "trasf": "Charlton Athletic FC",
-      "score": null,
-      "analisi": "Il Blackburn Rovers affronta il Charlton Athletic in una sfida di Championship molto equilibrata. I padroni di casa puntano sulla qualità offensiva di Todd Cantwell e Yuki Ohashi per imporre il proprio gioco. Il Charlton risponde con una struttura solida e le ripartenze di Karlan Ahearne-Grant. Ci si attende una gara intensa a centrocampo e ricca di duelli fisici.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Aynsley Pears",
-            "Lewis Miller",
-            "Hayden Carter",
-            "Scott Wharton",
-            "Harry Pickering",
-            "Sam Morsy",
-            "Adam Forshaw",
-            "Todd Cantwell",
-            "Oladapo Afolayan",
-            "Yuki Ohashi",
-            "Augustus Kargbo"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Arthur Okonkwo",
-            "Kayne Ramsey",
-            "Lloyd Jones",
-            "Amari'i Bell",
-            "Josh Edwards",
-            "Robert Apter",
-            "Conor Coventry",
-            "Oliver Skipp",
-            "Harvey Knibbs",
-            "Karlan Ahearne-Grant",
-            "Matt Godden"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 51,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 52,
-        "1+O2.5": 35,
-        "2+O1.5": 32,
-        "2+O2.5": 22,
-        "1X+O1.5": 58,
-        "X2+O1.5": 44,
-        "1X+GG": 42,
-        "X2+GG": 36,
-        "GG+O2.5": 44,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 24
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Yuki Ohashi",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Todd Cantwell",
-          "ruolo": "Centrocampista",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Karlan Ahearne-Grant",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Matt Godden",
-          "ruolo": "Attaccante",
-          "prob": 25
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sam Morsy",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri a protezione della difesa",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Adam Forshaw",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per fermare le ripartenze",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Conor Coventry",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri in mediana",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Amari'i Bell",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nell'uno contro uno con gli esterni avversari",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Blackburn favorito in casa con buon potenziale offensivo."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#0000FF",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FF0000",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
       "id": 561973,
       "comp": "ELC",
       "compNome": "Championship",
@@ -1714,6 +1558,162 @@
         "colori": [
           "#00A3E0",
           "#FFF200"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
+      "id": 561969,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-28T12:30:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Blackburn Rovers FC",
+      "trasf": "Charlton Athletic FC",
+      "score": null,
+      "analisi": "Il Blackburn Rovers affronta il Charlton Athletic in una sfida di Championship molto equilibrata. I padroni di casa puntano sulla qualità offensiva di Todd Cantwell e Yuki Ohashi per imporre il proprio gioco. Il Charlton risponde con una struttura solida e le ripartenze di Karlan Ahearne-Grant. Ci si attende una gara intensa a centrocampo e ricca di duelli fisici.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Aynsley Pears",
+            "Lewis Miller",
+            "Hayden Carter",
+            "Scott Wharton",
+            "Harry Pickering",
+            "Sam Morsy",
+            "Adam Forshaw",
+            "Todd Cantwell",
+            "Oladapo Afolayan",
+            "Yuki Ohashi",
+            "Augustus Kargbo"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Arthur Okonkwo",
+            "Kayne Ramsey",
+            "Lloyd Jones",
+            "Amari'i Bell",
+            "Josh Edwards",
+            "Robert Apter",
+            "Conor Coventry",
+            "Oliver Skipp",
+            "Harvey Knibbs",
+            "Karlan Ahearne-Grant",
+            "Matt Godden"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 45,
+        "X": 30,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 51,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 52,
+        "1+O2.5": 35,
+        "2+O1.5": 32,
+        "2+O2.5": 22,
+        "1X+O1.5": 58,
+        "X2+O1.5": 44,
+        "1X+GG": 42,
+        "X2+GG": 36,
+        "GG+O2.5": 44,
+        "1+GG": 20,
+        "2+GG": 18,
+        "2+U3.5": 24
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Yuki Ohashi",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Todd Cantwell",
+          "ruolo": "Centrocampista",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Karlan Ahearne-Grant",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matt Godden",
+          "ruolo": "Attaccante",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sam Morsy",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri a protezione della difesa",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Adam Forshaw",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per fermare le ripartenze",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Conor Coventry",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri in mediana",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Amari'i Bell",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nell'uno contro uno con gli esterni avversari",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Blackburn favorito in casa con buon potenziale offensivo."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
         ],
         "pattern": "solid"
       }
@@ -2187,6 +2187,162 @@
       }
     },
     {
+      "id": 565866,
+      "comp": "BL1",
+      "compNome": "Bundesliga",
+      "data": "2026-11-28T14:30:00Z",
+      "stato": "TIMED",
+      "casa": "1. FC Köln",
+      "trasf": "SV 07 Elversberg",
+      "score": null,
+      "analisi": "Il 1. FC Köln affronta l'SV 07 Elversberg in un match di Bundesliga dove i padroni di casa cercano di sfruttare il fattore campo grazie alla maggiore esperienza della rosa. L'Elversberg si schiera con un compatto 4-4-2, puntando sulle ripartenze veloci per mettere in difficoltà la retroguardia avversaria. La qualità tecnica superiore del Colonia dovrebbe prevalere sulla distanza, imponendo il proprio ritmo nella trequarti offensiva.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Marvin Schwäbe",
+            "Sebastian Sebulonsen",
+            "Timo Hübers",
+            "Rav van den Berg",
+            "Borna Sosa",
+            "Ellyes Skhiri",
+            "Tom Krauß",
+            "Ísak Bergmann Jóhannesson",
+            "Linton Maina",
+            "Thijs Dallinga",
+            "Gian-Luca Waldschmidt"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Nicolas Kristof",
+            "Jan Gyamerah",
+            "Florian Le Joncour",
+            "Maximilian Rohr",
+            "Lasse Günther",
+            "Jason Ceka",
+            "Amara Condé",
+            "Noah Darvich",
+            "Tom Zimmerschied",
+            "Luca Pfeiffer",
+            "Lukas Petkov"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 58,
+        "X": 25,
+        "2": 17
+      },
+      "mercati_completi": {
+        "1X": 83,
+        "X2": 42,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 51,
+        "MG2-4": 63,
+        "MG3-5": 32,
+        "1+O1.5": 51,
+        "1+O2.5": 38,
+        "2+O1.5": 16,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 35,
+        "1X+GG": 44,
+        "X2+GG": 26,
+        "GG+O2.5": 40,
+        "1+GG": 24,
+        "2+GG": 10,
+        "2+U3.5": 15
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Thijs Dallinga",
+          "ruolo": "Attaccante",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gian-Luca Waldschmidt",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Pfeiffer",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lukas Petkov",
+          "ruolo": "Attaccante",
+          "prob": 22
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Tom Krauß",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per intercettare le ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Timo Hübers",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ripetuti contro gli attaccanti ospiti in marcatura stretta",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Maximilian Rohr",
+          "ruolo": "Difensore",
+          "motivo": "Costretto al fallo tattico per contenere la velocità degli esterni di casa",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Amara Condé",
+          "ruolo": "Centrocampista",
+          "motivo": "Lavoro di contenimento intenso nella zona centrale del campo",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 51,
+        "motivazione_breve": "Il Colonia è favorito in casa e la qualità offensiva garantisce almeno due reti complessive."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000000",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 565868,
       "comp": "BL1",
       "compNome": "Bundesliga",
@@ -2494,162 +2650,6 @@
         "colori": [
           "#DC052D",
           "#0066B2"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 565866,
-      "comp": "BL1",
-      "compNome": "Bundesliga",
-      "data": "2026-11-28T14:30:00Z",
-      "stato": "TIMED",
-      "casa": "1. FC Köln",
-      "trasf": "SV 07 Elversberg",
-      "score": null,
-      "analisi": "Il 1. FC Köln affronta l'SV 07 Elversberg in un match di Bundesliga dove i padroni di casa cercano di sfruttare il fattore campo grazie alla maggiore esperienza della rosa. L'Elversberg si schiera con un compatto 4-4-2, puntando sulle ripartenze veloci per mettere in difficoltà la retroguardia avversaria. La qualità tecnica superiore del Colonia dovrebbe prevalere sulla distanza, imponendo il proprio ritmo nella trequarti offensiva.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Marvin Schwäbe",
-            "Sebastian Sebulonsen",
-            "Timo Hübers",
-            "Rav van den Berg",
-            "Borna Sosa",
-            "Ellyes Skhiri",
-            "Tom Krauß",
-            "Ísak Bergmann Jóhannesson",
-            "Linton Maina",
-            "Thijs Dallinga",
-            "Gian-Luca Waldschmidt"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Nicolas Kristof",
-            "Jan Gyamerah",
-            "Florian Le Joncour",
-            "Maximilian Rohr",
-            "Lasse Günther",
-            "Jason Ceka",
-            "Amara Condé",
-            "Noah Darvich",
-            "Tom Zimmerschied",
-            "Luca Pfeiffer",
-            "Lukas Petkov"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 58,
-        "X": 25,
-        "2": 17
-      },
-      "mercati_completi": {
-        "1X": 83,
-        "X2": 42,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 51,
-        "MG2-4": 63,
-        "MG3-5": 32,
-        "1+O1.5": 51,
-        "1+O2.5": 38,
-        "2+O1.5": 16,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 35,
-        "1X+GG": 44,
-        "X2+GG": 26,
-        "GG+O2.5": 40,
-        "1+GG": 24,
-        "2+GG": 10,
-        "2+U3.5": 15
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Thijs Dallinga",
-          "ruolo": "Attaccante",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gian-Luca Waldschmidt",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Luca Pfeiffer",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lukas Petkov",
-          "ruolo": "Attaccante",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Tom Krauß",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per intercettare le ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Timo Hübers",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti contro gli attaccanti ospiti in marcatura stretta",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Maximilian Rohr",
-          "ruolo": "Difensore",
-          "motivo": "Costretto al fallo tattico per contenere la velocità degli esterni di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Amara Condé",
-          "ruolo": "Centrocampista",
-          "motivo": "Lavoro di contenimento intenso nella zona centrale del campo",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 51,
-        "motivazione_breve": "Il Colonia è favorito in casa e la qualità offensiva garantisce almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#000000",
-          "#FFFFFF"
         ],
         "pattern": "solid"
       }
@@ -8713,6 +8713,162 @@
       }
     },
     {
+      "id": 560659,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-29T14:05:00Z",
+      "stato": "TIMED",
+      "casa": "Brighton & Hove Albion FC",
+      "trasf": "Newcastle United FC",
+      "score": null,
+      "analisi": "Il Brighton affronta il Newcastle in un match di Premier League caratterizzato da grande intensità e qualità offensiva sulle fasce. I Seagulls sfruttano il fattore campo e il palleggio per imporre il ritmo, mentre i Magpies rispondono con transizioni veloci e solidità fisica. Ci si attende una gara aperta con diverse occasioni da rete da ambo le parti.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Bart Verbruggen",
+            "Ferdi Kadıoğlu",
+            "Lewis Dunk",
+            "Olivier Boscagli",
+            "Maxim De Cuyper",
+            "Mats Wieffer",
+            "Matt O'Riley",
+            "Pascal Groß",
+            "Yankubah Minteh",
+            "Georginio Rutter",
+            "Kaoru Mitoma"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Nick Pope",
+            "Amar Dedić",
+            "Fabian Schär",
+            "Sven Botman",
+            "Lewis Hall",
+            "Jacob Murphy",
+            "Nico Gonzalez",
+            "Joelinton",
+            "Harvey Barnes",
+            "Anthony Elanga",
+            "Yoane Wissa"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 28,
+        "2": 30
+      },
+      "mercati_completi": {
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 34,
+        "O1.5": 66,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 44,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 49,
+        "1+O2.5": 36,
+        "2+O1.5": 37,
+        "2+O2.5": 28,
+        "1X+O1.5": 53,
+        "X2+O1.5": 46,
+        "1X+GG": 44,
+        "X2+GG": 39,
+        "GG+O2.5": 50,
+        "1+GG": 27,
+        "2+GG": 23,
+        "2+U3.5": 25
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Kaoru Mitoma",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Georginio Rutter",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Yoane Wissa",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Harvey Barnes",
+          "ruolo": "Centrocampista",
+          "prob": 26
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Mats Wieffer",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici a interruzione delle ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Lewis Dunk",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici frequenti con gli attaccanti centrali",
+          "prob": 34
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joelinton",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Fabian Schär",
+          "ruolo": "Difensore",
+          "motivo": "Tempismo difensivo rischioso contro rapidi dribbling",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 49,
+        "motivazione_breve": "Brighton favorito in casa in una sfida con almeno due reti complessive."
+      },
+      "affidabilita": 74,
+      "stemma_casa": {
+        "colori": [
+          "#0057B8",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#24385B",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 560661,
       "comp": "PL",
       "compNome": "Premier League",
@@ -9020,162 +9176,6 @@
         "colori": [
           "#DA291C",
           "#000000"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
-      "id": 560659,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-29T14:05:00Z",
-      "stato": "TIMED",
-      "casa": "Brighton & Hove Albion FC",
-      "trasf": "Newcastle United FC",
-      "score": null,
-      "analisi": "Il Brighton affronta il Newcastle in un match di Premier League caratterizzato da grande intensità e qualità offensiva sulle fasce. I Seagulls sfruttano il fattore campo e il palleggio per imporre il ritmo, mentre i Magpies rispondono con transizioni veloci e solidità fisica. Ci si attende una gara aperta con diverse occasioni da rete da ambo le parti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Bart Verbruggen",
-            "Ferdi Kadıoğlu",
-            "Lewis Dunk",
-            "Olivier Boscagli",
-            "Maxim De Cuyper",
-            "Mats Wieffer",
-            "Matt O'Riley",
-            "Pascal Groß",
-            "Yankubah Minteh",
-            "Georginio Rutter",
-            "Kaoru Mitoma"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Nick Pope",
-            "Amar Dedić",
-            "Fabian Schär",
-            "Sven Botman",
-            "Lewis Hall",
-            "Jacob Murphy",
-            "Nico Gonzalez",
-            "Joelinton",
-            "Harvey Barnes",
-            "Anthony Elanga",
-            "Yoane Wissa"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 44,
-        "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 49,
-        "1+O2.5": 36,
-        "2+O1.5": 37,
-        "2+O2.5": 28,
-        "1X+O1.5": 53,
-        "X2+O1.5": 46,
-        "1X+GG": 44,
-        "X2+GG": 39,
-        "GG+O2.5": 50,
-        "1+GG": 27,
-        "2+GG": 23,
-        "2+U3.5": 25
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kaoru Mitoma",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Georginio Rutter",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Yoane Wissa",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Harvey Barnes",
-          "ruolo": "Centrocampista",
-          "prob": 26
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Mats Wieffer",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici a interruzione delle ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Lewis Dunk",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici frequenti con gli attaccanti centrali",
-          "prob": 34
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Joelinton",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri sulla trequarti difensiva",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Fabian Schär",
-          "ruolo": "Difensore",
-          "motivo": "Tempismo difensivo rischioso contro rapidi dribbling",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 49,
-        "motivazione_breve": "Brighton favorito in casa in una sfida con almeno due reti complessive."
-      },
-      "affidabilita": 74,
-      "stemma_casa": {
-        "colori": [
-          "#0057B8",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#24385B",
-          "#FFFFFF"
         ],
         "pattern": "vertical"
       }
@@ -13207,6 +13207,108 @@
       }
     },
     {
+      "id": 800083719,
+      "comp": "BL2",
+      "compNome": "2. Bundesliga",
+      "data": "2026-11-29T12:30:00Z",
+      "stato": "TIMED",
+      "casa": "SpVgg Greuther Fürth",
+      "trasf": "DSC Arminia Bielefeld",
+      "score": null,
+      "analisi": "Il Greuther Fürth affronta l'Arminia Bielefeld in un match cruciale di 2. Bundesliga, caratterizzato da un equilibrio tattico notevole a centrocampo. Entrambe le squadre cercano punti salvezza preziosi, puntando su una difesa solida e ripartenze veloci. I duelli sulle fasce saranno determinanti per sbloccare il risultato.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Portiere Casa",
+            "Terzino Destro Casa",
+            "Difensore Centrale Casa 1",
+            "Difensore Centrale Casa 2",
+            "Terzino Sinistro Casa",
+            "Centrocampista Casa 1",
+            "Centrocampista Casa 2",
+            "Centrocampista Casa 3",
+            "Attaccante Esterno Casa 1",
+            "Attaccante Centrale Casa",
+            "Attaccante Esterno Casa 2"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Portiere Trasferta",
+            "Terzino Destro Trasferta",
+            "Difensore Centrale Trasferta 1",
+            "Difensore Centrale Trasferta 2",
+            "Terzino Sinistro Trasferta",
+            "Esterno Destro Trasferta",
+            "Centrocampista Trasferta 1",
+            "Centrocampista Trasferta 2",
+            "Esterno Sinistro Trasferta",
+            "Attaccante Trasferta 1",
+            "Attaccante Trasferta 2"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 30,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 58,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 34,
+        "O1.5": 66,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 26,
+        "2+O1.5": 25,
+        "2+O2.5": 17,
+        "1X+O1.5": 52,
+        "X2+O1.5": 44,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 45,
+        "1+GG": 20,
+        "2+GG": 18,
+        "2+U3.5": 26
+      },
+      "possibili_marcatori": [],
+      "possibili_ammoniti": [],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Il fattore campo e la solidità recente rendono probabile una gara da 1X con almeno due reti."
+      },
+      "affidabilita": 68,
+      "stemma_casa": {
+        "colori": [
+          "#008000",
+          "#ffffff"
+        ],
+        "pattern": "horizontal"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#0000ff",
+          "#ffffff"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 800083707,
       "comp": "BL2",
       "compNome": "2. Bundesliga",
@@ -13948,108 +14050,6 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
-      }
-    },
-    {
-      "id": 800083719,
-      "comp": "BL2",
-      "compNome": "2. Bundesliga",
-      "data": "2026-11-29T12:30:00Z",
-      "stato": "TIMED",
-      "casa": "SpVgg Greuther Fürth",
-      "trasf": "DSC Arminia Bielefeld",
-      "score": null,
-      "analisi": "Il Greuther Fürth affronta l'Arminia Bielefeld in un match cruciale di 2. Bundesliga, caratterizzato da un equilibrio tattico notevole a centrocampo. Entrambe le squadre cercano punti salvezza preziosi, puntando su una difesa solida e ripartenze veloci. I duelli sulle fasce saranno determinanti per sbloccare il risultato.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Portiere Casa",
-            "Terzino Destro Casa",
-            "Difensore Centrale Casa 1",
-            "Difensore Centrale Casa 2",
-            "Terzino Sinistro Casa",
-            "Centrocampista Casa 1",
-            "Centrocampista Casa 2",
-            "Centrocampista Casa 3",
-            "Attaccante Esterno Casa 1",
-            "Attaccante Centrale Casa",
-            "Attaccante Esterno Casa 2"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Portiere Trasferta",
-            "Terzino Destro Trasferta",
-            "Difensore Centrale Trasferta 1",
-            "Difensore Centrale Trasferta 2",
-            "Terzino Sinistro Trasferta",
-            "Esterno Destro Trasferta",
-            "Centrocampista Trasferta 1",
-            "Centrocampista Trasferta 2",
-            "Esterno Sinistro Trasferta",
-            "Attaccante Trasferta 1",
-            "Attaccante Trasferta 2"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 30,
-        "2": 28
-      },
-      "mercati_completi": {
-        "1X": 72,
-        "X2": 58,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 38,
-        "1+O2.5": 26,
-        "2+O1.5": 25,
-        "2+O2.5": 17,
-        "1X+O1.5": 52,
-        "X2+O1.5": 44,
-        "1X+GG": 40,
-        "X2+GG": 35,
-        "GG+O2.5": 45,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 26
-      },
-      "possibili_marcatori": [],
-      "possibili_ammoniti": [],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Il fattore campo e la solidità recente rendono probabile una gara da 1X con almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#008000",
-          "#ffffff"
-        ],
-        "pattern": "horizontal"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0000ff",
-          "#ffffff"
-        ],
-        "pattern": "vertical"
       }
     },
     {
@@ -15855,162 +15855,6 @@
       }
     },
     {
-      "id": 560658,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-27T20:00:00Z",
-      "stato": "TIMED",
-      "casa": "Nottingham Forest FC",
-      "trasf": "Chelsea FC",
-      "score": null,
-      "analisi": "Il Nottingham Forest affronta il Chelsea in una sfida di Premier League ad alto tasso tattico. I padroni di casa fanno affidamento sulla solidità del City Ground e sulla verve realizzativa di Chris Wood, mentre i Blues schierano un attacco stellare guidato da Cole Palmer e Joao Pedro. Ci si aspetta una partita intensa con duelli vibranti a centrocampo tra Sangaré e Moisés Caicedo.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Matz Sels",
-            "Ola Aina",
-            "Nikola Milenković",
-            "Murillo",
-            "Neco Williams",
-            "Ibrahim Sangaré",
-            "Morgan Gibbs-White",
-            "Nicolò Domínguez",
-            "Callum Hudson-Odoi",
-            "Chris Wood",
-            "Dan Ndoye"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-2-3-1",
-          "undici": [
-            "Emiliano Martínez",
-            "Reece James",
-            "Wesley Fofana",
-            "Levi Colwill",
-            "Malo Gusto",
-            "Moisés Caicedo",
-            "Jordan Henderson",
-            "Cole Palmer",
-            "Morgan Rogers",
-            "Pedro Neto",
-            "João Pedro"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 30,
-        "X": 30,
-        "2": 40
-      },
-      "mercati_completi": {
-        "1X": 60,
-        "X2": 70,
-        "12": 70,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 35,
-        "O1.5": 65,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 70,
-        "MG2-3": 52,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 32,
-        "1+O2.5": 24,
-        "2+O1.5": 42,
-        "2+O2.5": 33,
-        "1X+O1.5": 48,
-        "X2+O1.5": 55,
-        "1X+GG": 42,
-        "X2+GG": 48,
-        "GG+O2.5": 46,
-        "1+GG": 25,
-        "2+GG": 34,
-        "2+U3.5": 38
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Chris Wood",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Morgan Gibbs-White",
-          "ruolo": "Centrocampista",
-          "prob": 22
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Cole Palmer",
-          "ruolo": "Centrocampista",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "João Pedro",
-          "ruolo": "Attaccante",
-          "prob": 33
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Ibrahim Sangaré",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri per fermare la trequarti avversaria",
-          "prob": 45
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Murillo",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Moisés Caicedo",
-          "ruolo": "Centrocampista",
-          "motivo": "Spese fallose tattiche sulle ripartenze del Forest",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Reece James",
-          "ruolo": "Difensore",
-          "motivo": "Contrasti larghi sugli esterni offensivi veloci",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "X2+O1.5",
-        "probabilita": 55,
-        "motivazione_breve": "Ospiti favoriti in un match con almeno due reti."
-      },
-      "affidabilita": 72,
-      "stemma_casa": {
-        "colori": [
-          "#DD0000",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#034694",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
       "id": 561968,
       "comp": "ELC",
       "compNome": "Championship",
@@ -16164,6 +16008,162 @@
           "#FFFFFF"
         ],
         "pattern": "horizontal"
+      }
+    },
+    {
+      "id": 560658,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-27T20:00:00Z",
+      "stato": "TIMED",
+      "casa": "Nottingham Forest FC",
+      "trasf": "Chelsea FC",
+      "score": null,
+      "analisi": "Il Nottingham Forest affronta il Chelsea in una sfida di Premier League ad alto tasso tattico. I padroni di casa fanno affidamento sulla solidità del City Ground e sulla verve realizzativa di Chris Wood, mentre i Blues schierano un attacco stellare guidato da Cole Palmer e Joao Pedro. Ci si aspetta una partita intensa con duelli vibranti a centrocampo tra Sangaré e Moisés Caicedo.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Matz Sels",
+            "Ola Aina",
+            "Nikola Milenković",
+            "Murillo",
+            "Neco Williams",
+            "Ibrahim Sangaré",
+            "Morgan Gibbs-White",
+            "Nicolò Domínguez",
+            "Callum Hudson-Odoi",
+            "Chris Wood",
+            "Dan Ndoye"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-2-3-1",
+          "undici": [
+            "Emiliano Martínez",
+            "Reece James",
+            "Wesley Fofana",
+            "Levi Colwill",
+            "Malo Gusto",
+            "Moisés Caicedo",
+            "Jordan Henderson",
+            "Cole Palmer",
+            "Morgan Rogers",
+            "Pedro Neto",
+            "João Pedro"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 30,
+        "X": 30,
+        "2": 40
+      },
+      "mercati_completi": {
+        "1X": 60,
+        "X2": 70,
+        "12": 70,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 35,
+        "O1.5": 65,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 70,
+        "MG2-3": 52,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 32,
+        "1+O2.5": 24,
+        "2+O1.5": 42,
+        "2+O2.5": 33,
+        "1X+O1.5": 48,
+        "X2+O1.5": 55,
+        "1X+GG": 42,
+        "X2+GG": 48,
+        "GG+O2.5": 46,
+        "1+GG": 25,
+        "2+GG": 34,
+        "2+U3.5": 38
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Chris Wood",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Morgan Gibbs-White",
+          "ruolo": "Centrocampista",
+          "prob": 22
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Cole Palmer",
+          "ruolo": "Centrocampista",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "João Pedro",
+          "ruolo": "Attaccante",
+          "prob": 33
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Ibrahim Sangaré",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri per fermare la trequarti avversaria",
+          "prob": 45
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Murillo",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ripetuti con gli attaccanti ospiti",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Moisés Caicedo",
+          "ruolo": "Centrocampista",
+          "motivo": "Spese fallose tattiche sulle ripartenze del Forest",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Reece James",
+          "ruolo": "Difensore",
+          "motivo": "Contrasti larghi sugli esterni offensivi veloci",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "X2+O1.5",
+        "probabilita": 55,
+        "motivazione_breve": "Ospiti favoriti in un match con almeno due reti."
+      },
+      "affidabilita": 72,
+      "stemma_casa": {
+        "colori": [
+          "#DD0000",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#034694",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
       }
     },
     {
@@ -16479,162 +16479,6 @@
       }
     },
     {
-      "id": 561969,
-      "comp": "ELC",
-      "compNome": "Championship",
-      "data": "2026-11-28T12:30:00Z",
-      "stato": "SCHEDULED",
-      "casa": "Blackburn Rovers FC",
-      "trasf": "Charlton Athletic FC",
-      "score": null,
-      "analisi": "Il Blackburn Rovers affronta il Charlton Athletic in una sfida di Championship molto equilibrata. I padroni di casa puntano sulla qualità offensiva di Todd Cantwell e Yuki Ohashi per imporre il proprio gioco. Il Charlton risponde con una struttura solida e le ripartenze di Karlan Ahearne-Grant. Ci si attende una gara intensa a centrocampo e ricca di duelli fisici.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Aynsley Pears",
-            "Lewis Miller",
-            "Hayden Carter",
-            "Scott Wharton",
-            "Harry Pickering",
-            "Sam Morsy",
-            "Adam Forshaw",
-            "Todd Cantwell",
-            "Oladapo Afolayan",
-            "Yuki Ohashi",
-            "Augustus Kargbo"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Arthur Okonkwo",
-            "Kayne Ramsey",
-            "Lloyd Jones",
-            "Amari'i Bell",
-            "Josh Edwards",
-            "Robert Apter",
-            "Conor Coventry",
-            "Oliver Skipp",
-            "Harvey Knibbs",
-            "Karlan Ahearne-Grant",
-            "Matt Godden"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 45,
-        "X": 30,
-        "2": 25
-      },
-      "mercati_completi": {
-        "1X": 75,
-        "X2": 55,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 32,
-        "O1.5": 68,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 80,
-        "O3.5": 20,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 51,
-        "MG2-4": 65,
-        "MG3-5": 38,
-        "1+O1.5": 52,
-        "1+O2.5": 35,
-        "2+O1.5": 32,
-        "2+O2.5": 22,
-        "1X+O1.5": 58,
-        "X2+O1.5": 44,
-        "1X+GG": 42,
-        "X2+GG": 36,
-        "GG+O2.5": 44,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 24
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Yuki Ohashi",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Todd Cantwell",
-          "ruolo": "Centrocampista",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Karlan Ahearne-Grant",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Matt Godden",
-          "ruolo": "Attaccante",
-          "prob": 25
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Sam Morsy",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri a protezione della difesa",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Adam Forshaw",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici per fermare le ripartenze",
-          "prob": 38
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Conor Coventry",
-          "ruolo": "Centrocampista",
-          "motivo": "Contrasti duri in mediana",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Amari'i Bell",
-          "ruolo": "Difensore",
-          "motivo": "Difficoltà nell'uno contro uno con gli esterni avversari",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Blackburn favorito in casa con buon potenziale offensivo."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#0000FF",
-          "#FFFFFF"
-        ],
-        "pattern": "half"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#FF0000",
-          "#FFFFFF"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
       "id": 561973,
       "comp": "ELC",
       "compNome": "Championship",
@@ -16786,6 +16630,162 @@
         "colori": [
           "#00A3E0",
           "#FFF200"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
+      "id": 561969,
+      "comp": "ELC",
+      "compNome": "Championship",
+      "data": "2026-11-28T12:30:00Z",
+      "stato": "SCHEDULED",
+      "casa": "Blackburn Rovers FC",
+      "trasf": "Charlton Athletic FC",
+      "score": null,
+      "analisi": "Il Blackburn Rovers affronta il Charlton Athletic in una sfida di Championship molto equilibrata. I padroni di casa puntano sulla qualità offensiva di Todd Cantwell e Yuki Ohashi per imporre il proprio gioco. Il Charlton risponde con una struttura solida e le ripartenze di Karlan Ahearne-Grant. Ci si attende una gara intensa a centrocampo e ricca di duelli fisici.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Aynsley Pears",
+            "Lewis Miller",
+            "Hayden Carter",
+            "Scott Wharton",
+            "Harry Pickering",
+            "Sam Morsy",
+            "Adam Forshaw",
+            "Todd Cantwell",
+            "Oladapo Afolayan",
+            "Yuki Ohashi",
+            "Augustus Kargbo"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Arthur Okonkwo",
+            "Kayne Ramsey",
+            "Lloyd Jones",
+            "Amari'i Bell",
+            "Josh Edwards",
+            "Robert Apter",
+            "Conor Coventry",
+            "Oliver Skipp",
+            "Harvey Knibbs",
+            "Karlan Ahearne-Grant",
+            "Matt Godden"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 45,
+        "X": 30,
+        "2": 25
+      },
+      "mercati_completi": {
+        "1X": 75,
+        "X2": 55,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 32,
+        "O1.5": 68,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 80,
+        "O3.5": 20,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 51,
+        "MG2-4": 65,
+        "MG3-5": 38,
+        "1+O1.5": 52,
+        "1+O2.5": 35,
+        "2+O1.5": 32,
+        "2+O2.5": 22,
+        "1X+O1.5": 58,
+        "X2+O1.5": 44,
+        "1X+GG": 42,
+        "X2+GG": 36,
+        "GG+O2.5": 44,
+        "1+GG": 20,
+        "2+GG": 18,
+        "2+U3.5": 24
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Yuki Ohashi",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Todd Cantwell",
+          "ruolo": "Centrocampista",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Karlan Ahearne-Grant",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Matt Godden",
+          "ruolo": "Attaccante",
+          "prob": 25
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Sam Morsy",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri a protezione della difesa",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Adam Forshaw",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici per fermare le ripartenze",
+          "prob": 38
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Conor Coventry",
+          "ruolo": "Centrocampista",
+          "motivo": "Contrasti duri in mediana",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Amari'i Bell",
+          "ruolo": "Difensore",
+          "motivo": "Difficoltà nell'uno contro uno con gli esterni avversari",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Blackburn favorito in casa con buon potenziale offensivo."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#0000FF",
+          "#FFFFFF"
+        ],
+        "pattern": "half"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#FF0000",
+          "#FFFFFF"
         ],
         "pattern": "solid"
       }
@@ -17259,6 +17259,162 @@
       }
     },
     {
+      "id": 565866,
+      "comp": "BL1",
+      "compNome": "Bundesliga",
+      "data": "2026-11-28T14:30:00Z",
+      "stato": "TIMED",
+      "casa": "1. FC Köln",
+      "trasf": "SV 07 Elversberg",
+      "score": null,
+      "analisi": "Il 1. FC Köln affronta l'SV 07 Elversberg in un match di Bundesliga dove i padroni di casa cercano di sfruttare il fattore campo grazie alla maggiore esperienza della rosa. L'Elversberg si schiera con un compatto 4-4-2, puntando sulle ripartenze veloci per mettere in difficoltà la retroguardia avversaria. La qualità tecnica superiore del Colonia dovrebbe prevalere sulla distanza, imponendo il proprio ritmo nella trequarti offensiva.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Marvin Schwäbe",
+            "Sebastian Sebulonsen",
+            "Timo Hübers",
+            "Rav van den Berg",
+            "Borna Sosa",
+            "Ellyes Skhiri",
+            "Tom Krauß",
+            "Ísak Bergmann Jóhannesson",
+            "Linton Maina",
+            "Thijs Dallinga",
+            "Gian-Luca Waldschmidt"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Nicolas Kristof",
+            "Jan Gyamerah",
+            "Florian Le Joncour",
+            "Maximilian Rohr",
+            "Lasse Günther",
+            "Jason Ceka",
+            "Amara Condé",
+            "Noah Darvich",
+            "Tom Zimmerschied",
+            "Luca Pfeiffer",
+            "Lukas Petkov"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 58,
+        "X": 25,
+        "2": 17
+      },
+      "mercati_completi": {
+        "1X": 83,
+        "X2": 42,
+        "12": 75,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 33,
+        "O1.5": 67,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 45,
+        "MG1-3": 72,
+        "MG2-3": 51,
+        "MG2-4": 63,
+        "MG3-5": 32,
+        "1+O1.5": 51,
+        "1+O2.5": 38,
+        "2+O1.5": 16,
+        "2+O2.5": 12,
+        "1X+O1.5": 60,
+        "X2+O1.5": 35,
+        "1X+GG": 44,
+        "X2+GG": 26,
+        "GG+O2.5": 40,
+        "1+GG": 24,
+        "2+GG": 10,
+        "2+U3.5": 15
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Thijs Dallinga",
+          "ruolo": "Attaccante",
+          "prob": 42
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Gian-Luca Waldschmidt",
+          "ruolo": "Attaccante",
+          "prob": 35
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Luca Pfeiffer",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Lukas Petkov",
+          "ruolo": "Attaccante",
+          "prob": 22
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Tom Krauß",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi fallosi sistematici per intercettare le ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Timo Hübers",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici ripetuti contro gli attaccanti ospiti in marcatura stretta",
+          "prob": 31
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Maximilian Rohr",
+          "ruolo": "Difensore",
+          "motivo": "Costretto al fallo tattico per contenere la velocità degli esterni di casa",
+          "prob": 40
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Amara Condé",
+          "ruolo": "Centrocampista",
+          "motivo": "Lavoro di contenimento intenso nella zona centrale del campo",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 51,
+        "motivazione_breve": "Il Colonia è favorito in casa e la qualità offensiva garantisce almeno due reti complessive."
+      },
+      "affidabilita": 78,
+      "stemma_casa": {
+        "colori": [
+          "#E30613",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#000000",
+          "#FFFFFF"
+        ],
+        "pattern": "solid"
+      }
+    },
+    {
       "id": 565868,
       "comp": "BL1",
       "compNome": "Bundesliga",
@@ -17566,162 +17722,6 @@
         "colori": [
           "#DC052D",
           "#0066B2"
-        ],
-        "pattern": "solid"
-      }
-    },
-    {
-      "id": 565866,
-      "comp": "BL1",
-      "compNome": "Bundesliga",
-      "data": "2026-11-28T14:30:00Z",
-      "stato": "TIMED",
-      "casa": "1. FC Köln",
-      "trasf": "SV 07 Elversberg",
-      "score": null,
-      "analisi": "Il 1. FC Köln affronta l'SV 07 Elversberg in un match di Bundesliga dove i padroni di casa cercano di sfruttare il fattore campo grazie alla maggiore esperienza della rosa. L'Elversberg si schiera con un compatto 4-4-2, puntando sulle ripartenze veloci per mettere in difficoltà la retroguardia avversaria. La qualità tecnica superiore del Colonia dovrebbe prevalere sulla distanza, imponendo il proprio ritmo nella trequarti offensiva.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Marvin Schwäbe",
-            "Sebastian Sebulonsen",
-            "Timo Hübers",
-            "Rav van den Berg",
-            "Borna Sosa",
-            "Ellyes Skhiri",
-            "Tom Krauß",
-            "Ísak Bergmann Jóhannesson",
-            "Linton Maina",
-            "Thijs Dallinga",
-            "Gian-Luca Waldschmidt"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Nicolas Kristof",
-            "Jan Gyamerah",
-            "Florian Le Joncour",
-            "Maximilian Rohr",
-            "Lasse Günther",
-            "Jason Ceka",
-            "Amara Condé",
-            "Noah Darvich",
-            "Tom Zimmerschied",
-            "Luca Pfeiffer",
-            "Lukas Petkov"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 58,
-        "X": 25,
-        "2": 17
-      },
-      "mercati_completi": {
-        "1X": 83,
-        "X2": 42,
-        "12": 75,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 33,
-        "O1.5": 67,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 45,
-        "MG1-3": 72,
-        "MG2-3": 51,
-        "MG2-4": 63,
-        "MG3-5": 32,
-        "1+O1.5": 51,
-        "1+O2.5": 38,
-        "2+O1.5": 16,
-        "2+O2.5": 12,
-        "1X+O1.5": 60,
-        "X2+O1.5": 35,
-        "1X+GG": 44,
-        "X2+GG": 26,
-        "GG+O2.5": 40,
-        "1+GG": 24,
-        "2+GG": 10,
-        "2+U3.5": 15
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Thijs Dallinga",
-          "ruolo": "Attaccante",
-          "prob": 42
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Gian-Luca Waldschmidt",
-          "ruolo": "Attaccante",
-          "prob": 35
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Luca Pfeiffer",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Lukas Petkov",
-          "ruolo": "Attaccante",
-          "prob": 22
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Tom Krauß",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi fallosi sistematici per intercettare le ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Timo Hübers",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici ripetuti contro gli attaccanti ospiti in marcatura stretta",
-          "prob": 31
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Maximilian Rohr",
-          "ruolo": "Difensore",
-          "motivo": "Costretto al fallo tattico per contenere la velocità degli esterni di casa",
-          "prob": 40
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Amara Condé",
-          "ruolo": "Centrocampista",
-          "motivo": "Lavoro di contenimento intenso nella zona centrale del campo",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 51,
-        "motivazione_breve": "Il Colonia è favorito in casa e la qualità offensiva garantisce almeno due reti complessive."
-      },
-      "affidabilita": 78,
-      "stemma_casa": {
-        "colori": [
-          "#E30613",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#000000",
-          "#FFFFFF"
         ],
         "pattern": "solid"
       }
@@ -23785,6 +23785,162 @@
       }
     },
     {
+      "id": 560659,
+      "comp": "PL",
+      "compNome": "Premier League",
+      "data": "2026-11-29T14:05:00Z",
+      "stato": "TIMED",
+      "casa": "Brighton & Hove Albion FC",
+      "trasf": "Newcastle United FC",
+      "score": null,
+      "analisi": "Il Brighton affronta il Newcastle in un match di Premier League caratterizzato da grande intensità e qualità offensiva sulle fasce. I Seagulls sfruttano il fattore campo e il palleggio per imporre il ritmo, mentre i Magpies rispondono con transizioni veloci e solidità fisica. Ci si attende una gara aperta con diverse occasioni da rete da ambo le parti.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Bart Verbruggen",
+            "Ferdi Kadıoğlu",
+            "Lewis Dunk",
+            "Olivier Boscagli",
+            "Maxim De Cuyper",
+            "Mats Wieffer",
+            "Matt O'Riley",
+            "Pascal Groß",
+            "Yankubah Minteh",
+            "Georginio Rutter",
+            "Kaoru Mitoma"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Nick Pope",
+            "Amar Dedić",
+            "Fabian Schär",
+            "Sven Botman",
+            "Lewis Hall",
+            "Jacob Murphy",
+            "Nico Gonzalez",
+            "Joelinton",
+            "Harvey Barnes",
+            "Anthony Elanga",
+            "Yoane Wissa"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 28,
+        "2": 30
+      },
+      "mercati_completi": {
+        "1X": 70,
+        "X2": 58,
+        "12": 72,
+        "GG": 55,
+        "NG": 45,
+        "U1.5": 34,
+        "O1.5": 66,
+        "U2.5": 52,
+        "O2.5": 48,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 44,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 49,
+        "1+O2.5": 36,
+        "2+O1.5": 37,
+        "2+O2.5": 28,
+        "1X+O1.5": 53,
+        "X2+O1.5": 46,
+        "1X+GG": 44,
+        "X2+GG": 39,
+        "GG+O2.5": 50,
+        "1+GG": 27,
+        "2+GG": 23,
+        "2+U3.5": 25
+      },
+      "possibili_marcatori": [
+        {
+          "squadra": "casa",
+          "giocatore": "Kaoru Mitoma",
+          "ruolo": "Attaccante",
+          "prob": 32
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Georginio Rutter",
+          "ruolo": "Attaccante",
+          "prob": 28
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Yoane Wissa",
+          "ruolo": "Attaccante",
+          "prob": 30
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Harvey Barnes",
+          "ruolo": "Centrocampista",
+          "prob": 26
+        }
+      ],
+      "possibili_ammoniti": [
+        {
+          "squadra": "casa",
+          "giocatore": "Mats Wieffer",
+          "ruolo": "Centrocampista",
+          "motivo": "Falli tattici a interruzione delle ripartenze avversarie",
+          "prob": 38
+        },
+        {
+          "squadra": "casa",
+          "giocatore": "Lewis Dunk",
+          "ruolo": "Difensore",
+          "motivo": "Duelli fisici frequenti con gli attaccanti centrali",
+          "prob": 34
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Joelinton",
+          "ruolo": "Centrocampista",
+          "motivo": "Interventi duri sulla trequarti difensiva",
+          "prob": 42
+        },
+        {
+          "squadra": "trasferta",
+          "giocatore": "Fabian Schär",
+          "ruolo": "Difensore",
+          "motivo": "Tempismo difensivo rischioso contro rapidi dribbling",
+          "prob": 35
+        }
+      ],
+      "pronostico_principale": {
+        "esito": "1+O1.5",
+        "probabilita": 49,
+        "motivazione_breve": "Brighton favorito in casa in una sfida con almeno due reti complessive."
+      },
+      "affidabilita": 74,
+      "stemma_casa": {
+        "colori": [
+          "#0057B8",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#24385B",
+          "#FFFFFF"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 560661,
       "comp": "PL",
       "compNome": "Premier League",
@@ -24092,162 +24248,6 @@
         "colori": [
           "#DA291C",
           "#000000"
-        ],
-        "pattern": "vertical"
-      }
-    },
-    {
-      "id": 560659,
-      "comp": "PL",
-      "compNome": "Premier League",
-      "data": "2026-11-29T14:05:00Z",
-      "stato": "TIMED",
-      "casa": "Brighton & Hove Albion FC",
-      "trasf": "Newcastle United FC",
-      "score": null,
-      "analisi": "Il Brighton affronta il Newcastle in un match di Premier League caratterizzato da grande intensità e qualità offensiva sulle fasce. I Seagulls sfruttano il fattore campo e il palleggio per imporre il ritmo, mentre i Magpies rispondono con transizioni veloci e solidità fisica. Ci si attende una gara aperta con diverse occasioni da rete da ambo le parti.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Bart Verbruggen",
-            "Ferdi Kadıoğlu",
-            "Lewis Dunk",
-            "Olivier Boscagli",
-            "Maxim De Cuyper",
-            "Mats Wieffer",
-            "Matt O'Riley",
-            "Pascal Groß",
-            "Yankubah Minteh",
-            "Georginio Rutter",
-            "Kaoru Mitoma"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Nick Pope",
-            "Amar Dedić",
-            "Fabian Schär",
-            "Sven Botman",
-            "Lewis Hall",
-            "Jacob Murphy",
-            "Nico Gonzalez",
-            "Joelinton",
-            "Harvey Barnes",
-            "Anthony Elanga",
-            "Yoane Wissa"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 28,
-        "2": 30
-      },
-      "mercati_completi": {
-        "1X": 70,
-        "X2": 58,
-        "12": 72,
-        "GG": 55,
-        "NG": 45,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 52,
-        "O2.5": 48,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 44,
-        "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 49,
-        "1+O2.5": 36,
-        "2+O1.5": 37,
-        "2+O2.5": 28,
-        "1X+O1.5": 53,
-        "X2+O1.5": 46,
-        "1X+GG": 44,
-        "X2+GG": 39,
-        "GG+O2.5": 50,
-        "1+GG": 27,
-        "2+GG": 23,
-        "2+U3.5": 25
-      },
-      "possibili_marcatori": [
-        {
-          "squadra": "casa",
-          "giocatore": "Kaoru Mitoma",
-          "ruolo": "Attaccante",
-          "prob": 32
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Georginio Rutter",
-          "ruolo": "Attaccante",
-          "prob": 28
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Yoane Wissa",
-          "ruolo": "Attaccante",
-          "prob": 30
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Harvey Barnes",
-          "ruolo": "Centrocampista",
-          "prob": 26
-        }
-      ],
-      "possibili_ammoniti": [
-        {
-          "squadra": "casa",
-          "giocatore": "Mats Wieffer",
-          "ruolo": "Centrocampista",
-          "motivo": "Falli tattici a interruzione delle ripartenze avversarie",
-          "prob": 38
-        },
-        {
-          "squadra": "casa",
-          "giocatore": "Lewis Dunk",
-          "ruolo": "Difensore",
-          "motivo": "Duelli fisici frequenti con gli attaccanti centrali",
-          "prob": 34
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Joelinton",
-          "ruolo": "Centrocampista",
-          "motivo": "Interventi duri sulla trequarti difensiva",
-          "prob": 42
-        },
-        {
-          "squadra": "trasferta",
-          "giocatore": "Fabian Schär",
-          "ruolo": "Difensore",
-          "motivo": "Tempismo difensivo rischioso contro rapidi dribbling",
-          "prob": 35
-        }
-      ],
-      "pronostico_principale": {
-        "esito": "1+O1.5",
-        "probabilita": 49,
-        "motivazione_breve": "Brighton favorito in casa in una sfida con almeno due reti complessive."
-      },
-      "affidabilita": 74,
-      "stemma_casa": {
-        "colori": [
-          "#0057B8",
-          "#FFFFFF"
-        ],
-        "pattern": "vertical"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#24385B",
-          "#FFFFFF"
         ],
         "pattern": "vertical"
       }
@@ -28279,6 +28279,108 @@
       }
     },
     {
+      "id": 800083719,
+      "comp": "BL2",
+      "compNome": "2. Bundesliga",
+      "data": "2026-11-29T12:30:00Z",
+      "stato": "TIMED",
+      "casa": "SpVgg Greuther Fürth",
+      "trasf": "DSC Arminia Bielefeld",
+      "score": null,
+      "analisi": "Il Greuther Fürth affronta l'Arminia Bielefeld in un match cruciale di 2. Bundesliga, caratterizzato da un equilibrio tattico notevole a centrocampo. Entrambe le squadre cercano punti salvezza preziosi, puntando su una difesa solida e ripartenze veloci. I duelli sulle fasce saranno determinanti per sbloccare il risultato.",
+      "formazioni": {
+        "casa": {
+          "modulo": "4-3-3",
+          "undici": [
+            "Portiere Casa",
+            "Terzino Destro Casa",
+            "Difensore Centrale Casa 1",
+            "Difensore Centrale Casa 2",
+            "Terzino Sinistro Casa",
+            "Centrocampista Casa 1",
+            "Centrocampista Casa 2",
+            "Centrocampista Casa 3",
+            "Attaccante Esterno Casa 1",
+            "Attaccante Centrale Casa",
+            "Attaccante Esterno Casa 2"
+          ]
+        },
+        "trasferta": {
+          "modulo": "4-4-2",
+          "undici": [
+            "Portiere Trasferta",
+            "Terzino Destro Trasferta",
+            "Difensore Centrale Trasferta 1",
+            "Difensore Centrale Trasferta 2",
+            "Terzino Sinistro Trasferta",
+            "Esterno Destro Trasferta",
+            "Centrocampista Trasferta 1",
+            "Centrocampista Trasferta 2",
+            "Esterno Sinistro Trasferta",
+            "Attaccante Trasferta 1",
+            "Attaccante Trasferta 2"
+          ]
+        }
+      },
+      "prob_1x2": {
+        "1": 42,
+        "X": 30,
+        "2": 28
+      },
+      "mercati_completi": {
+        "1X": 72,
+        "X2": 58,
+        "12": 70,
+        "GG": 52,
+        "NG": 48,
+        "U1.5": 34,
+        "O1.5": 66,
+        "U2.5": 54,
+        "O2.5": 46,
+        "U3.5": 78,
+        "O3.5": 22,
+        "MG1-2": 42,
+        "MG1-3": 68,
+        "MG2-3": 50,
+        "MG2-4": 62,
+        "MG3-5": 38,
+        "1+O1.5": 38,
+        "1+O2.5": 26,
+        "2+O1.5": 25,
+        "2+O2.5": 17,
+        "1X+O1.5": 52,
+        "X2+O1.5": 44,
+        "1X+GG": 40,
+        "X2+GG": 35,
+        "GG+O2.5": 45,
+        "1+GG": 20,
+        "2+GG": 18,
+        "2+U3.5": 26
+      },
+      "possibili_marcatori": [],
+      "possibili_ammoniti": [],
+      "pronostico_principale": {
+        "esito": "1X+O1.5",
+        "probabilita": 52,
+        "motivazione_breve": "Il fattore campo e la solidità recente rendono probabile una gara da 1X con almeno due reti."
+      },
+      "affidabilita": 68,
+      "stemma_casa": {
+        "colori": [
+          "#008000",
+          "#ffffff"
+        ],
+        "pattern": "horizontal"
+      },
+      "stemma_trasf": {
+        "colori": [
+          "#0000ff",
+          "#ffffff"
+        ],
+        "pattern": "vertical"
+      }
+    },
+    {
       "id": 800083707,
       "comp": "BL2",
       "compNome": "2. Bundesliga",
@@ -29020,108 +29122,6 @@
           "#FFFFFF"
         ],
         "pattern": "solid"
-      }
-    },
-    {
-      "id": 800083719,
-      "comp": "BL2",
-      "compNome": "2. Bundesliga",
-      "data": "2026-11-29T12:30:00Z",
-      "stato": "TIMED",
-      "casa": "SpVgg Greuther Fürth",
-      "trasf": "DSC Arminia Bielefeld",
-      "score": null,
-      "analisi": "Il Greuther Fürth affronta l'Arminia Bielefeld in un match cruciale di 2. Bundesliga, caratterizzato da un equilibrio tattico notevole a centrocampo. Entrambe le squadre cercano punti salvezza preziosi, puntando su una difesa solida e ripartenze veloci. I duelli sulle fasce saranno determinanti per sbloccare il risultato.",
-      "formazioni": {
-        "casa": {
-          "modulo": "4-3-3",
-          "undici": [
-            "Portiere Casa",
-            "Terzino Destro Casa",
-            "Difensore Centrale Casa 1",
-            "Difensore Centrale Casa 2",
-            "Terzino Sinistro Casa",
-            "Centrocampista Casa 1",
-            "Centrocampista Casa 2",
-            "Centrocampista Casa 3",
-            "Attaccante Esterno Casa 1",
-            "Attaccante Centrale Casa",
-            "Attaccante Esterno Casa 2"
-          ]
-        },
-        "trasferta": {
-          "modulo": "4-4-2",
-          "undici": [
-            "Portiere Trasferta",
-            "Terzino Destro Trasferta",
-            "Difensore Centrale Trasferta 1",
-            "Difensore Centrale Trasferta 2",
-            "Terzino Sinistro Trasferta",
-            "Esterno Destro Trasferta",
-            "Centrocampista Trasferta 1",
-            "Centrocampista Trasferta 2",
-            "Esterno Sinistro Trasferta",
-            "Attaccante Trasferta 1",
-            "Attaccante Trasferta 2"
-          ]
-        }
-      },
-      "prob_1x2": {
-        "1": 42,
-        "X": 30,
-        "2": 28
-      },
-      "mercati_completi": {
-        "1X": 72,
-        "X2": 58,
-        "12": 70,
-        "GG": 52,
-        "NG": 48,
-        "U1.5": 34,
-        "O1.5": 66,
-        "U2.5": 54,
-        "O2.5": 46,
-        "U3.5": 78,
-        "O3.5": 22,
-        "MG1-2": 42,
-        "MG1-3": 68,
-        "MG2-3": 50,
-        "MG2-4": 62,
-        "MG3-5": 38,
-        "1+O1.5": 38,
-        "1+O2.5": 26,
-        "2+O1.5": 25,
-        "2+O2.5": 17,
-        "1X+O1.5": 52,
-        "X2+O1.5": 44,
-        "1X+GG": 40,
-        "X2+GG": 35,
-        "GG+O2.5": 45,
-        "1+GG": 20,
-        "2+GG": 18,
-        "2+U3.5": 26
-      },
-      "possibili_marcatori": [],
-      "possibili_ammoniti": [],
-      "pronostico_principale": {
-        "esito": "1X+O1.5",
-        "probabilita": 52,
-        "motivazione_breve": "Il fattore campo e la solidità recente rendono probabile una gara da 1X con almeno due reti."
-      },
-      "affidabilita": 68,
-      "stemma_casa": {
-        "colori": [
-          "#008000",
-          "#ffffff"
-        ],
-        "pattern": "horizontal"
-      },
-      "stemma_trasf": {
-        "colori": [
-          "#0000ff",
-          "#ffffff"
-        ],
-        "pattern": "vertical"
       }
     },
     {
